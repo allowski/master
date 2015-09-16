@@ -282,7 +282,7 @@ function send_entry(entryId){
 		
 		console.log("Sending...");
 		
-		$.post(window.app.update_url, {"apx":"send_data", "action":"download","data": entry}, function(r){
+		var req = $.post(window.app.update_url, {"apx":"send_data", "action":"download","data": entry}, function(r){
 			
 			console.log("Response:");
 			console.log(r);
@@ -292,7 +292,9 @@ function send_entry(entryId){
 			}else{
 				toast("Algo paso mal..", "danger", 3000);
 			}
-		});
+		})
+		
+		req.error(a4pp_conn_error);
 	
 	}, 700);
 	
