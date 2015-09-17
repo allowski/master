@@ -1058,7 +1058,6 @@ function a4pp_download_file(url, fname, prog){
 
 		var onSuccess = function(position) {
 			 callback(position.coords);
-			 console.log(position.coords);
 		};
 
 		// onError Callback receives a PositionError object
@@ -1068,5 +1067,5 @@ function a4pp_download_file(url, fname, prog){
 				  'message: ' + error.message + '\n');
 		}
 
-		navigator.geolocation.getCurrentPosition(onSuccess, onError, {maximumAge:600000, timeout:5000, enableHighAccuracy: true});
+		navigator.geolocation.getCurrentPosition(onSuccess, onError, {maximumAge:60000, timeout:5000, enableHighAccuracy: true});
 	}
