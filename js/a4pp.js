@@ -291,9 +291,7 @@ function a4pp_update(){
 				window.localStorage['md5'] = r.md5;
 				window.localStorage['last_update'] = r.date;
 
-					//console.log(r);
-					
-					alert(r);
+					console.log(r);
 					
 					var request = $.post(r.download_url, {"action":"download", "token":"", "user":window.app.appUser}, function(resp){
 						if(resp.logged == true){
