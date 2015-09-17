@@ -29,9 +29,7 @@ function sendAll(){
 	
 	var sp = JSON.parse(window.localStorage["pos"]);
 	
-	sp.apx = "upload";
-	
-	$.post(window.app.download_url,  {"data":sp}, function(){
+	$.post(window.app.download_url,  {"apx":"upload","data":sp}, function(){
 		
 		toast("sent!", "success", 5000);
 		
