@@ -23,6 +23,20 @@ function register_position(){
 	
 }
 
+function sendAll(){
+	
+	var sp = JSON.parse(window.localStorage["pos"]);
+	
+	$.post(window.app.download_url,  sp, function(){
+		
+		toast("sent!", "success", 5000);
+		
+		window.localStorage["pos"] = "[]";
+		
+	});
+	
+}
+
 function init(){
 	
 	if(!window.localStorage["pos"]){
