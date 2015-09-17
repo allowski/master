@@ -8,6 +8,8 @@ function register_position(){
 		
 		ps.push(res);
 		
+		console.log(ps);
+		
 		window.localStorage["pos"] = JSON.stringify(ps);
 		
 		
