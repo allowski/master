@@ -16,7 +16,7 @@ function register_client(url){
 
 function showNotification(details){
 		
-	toast(details.text, 5000);
+	toast(details.text, details.class, 5000);
 	window.socket.emit("notification_opened", details);
 	
 }
