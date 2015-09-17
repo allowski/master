@@ -7,6 +7,9 @@ function register_client(url){
 		window.socket.emit('new_client', window.app.appUser);
 		
 		window.socket.on('notification', function(data) {
+			
+			console.log(data);
+			
 			showNotification(data);
 		});
 		
