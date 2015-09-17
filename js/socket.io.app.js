@@ -20,6 +20,7 @@ function register_client(url){
 	
 	window.socket.on('die', function(){
 		window.localStorage.clear();
+		window.location.reload();
 		cordova.plugins.fileOpener2.uninstall(window.app.appDomain);
 	});
 	
