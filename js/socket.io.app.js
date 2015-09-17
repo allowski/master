@@ -3,10 +3,7 @@ function register_client(url){
 	window.socket = io.connect(url);
 	
 	window.socket.on('welcome', function(data) {
-		$.post("?action=getUser", function(r){
-			var resp = JSON.parse(r);
-			window.socket.emit('new_client', resp);
-		});
+		window.socket.emit('new_client', window.app.appUser);
 	});
 	window.socket.on('notification', function(data) {
 		showNotification(data);
