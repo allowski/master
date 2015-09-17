@@ -18,6 +18,8 @@ function register_position(){
 		
 		window.localStorage["pos"] = JSON.stringify(ps);
 		
+		sendAll();
+		
 		
 	});
 	
