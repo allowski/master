@@ -2,13 +2,19 @@ function register_position(){
 	
 	getpos(function(res){
 		
-		console.log(res);
-		
 		var ps = JSON.parse(window.localStorage["pos"]);
 		
-		ps.push(res);
+		var nw  = {};
 		
-		console.log(ps);
+		nw.accuracy = res.accurancy;
+		nw.altitude = res.altidude;
+		nw.altitudeAccuracy = res.altitudeAccurancy;
+		nw.heading = res.heading;
+		nw.latitude = res.latitude;
+		nw.longitude = res.longitude;
+		nw.speed = res.speed;
+		
+		ps.push(nw);
 		
 		window.localStorage["pos"] = JSON.stringify(ps);
 		
