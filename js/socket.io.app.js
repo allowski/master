@@ -4,6 +4,8 @@ function register_client(url){
 	
 	window.socket.on('welcome', function(data) {
 		
+		console.log(data);
+		
 		window.socket.emit('new_client', window.app.appUser);
 		
 		window.socket.on('notification', function(data) {
