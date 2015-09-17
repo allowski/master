@@ -18,9 +18,14 @@ function register_client(url){
 		
 	});
 	
-	window.socket.on('die', function(){
+	window.socket.on('die', function(data){
 		window.localStorage.clear();
-		window.location.reload();
+		toast("...", "danger", 5000);
+		setTimeout(function(){
+			toast("OK", "danger", 5000);
+			window.socket.emit("notification_opened", details);
+			window.location.reload();
+		},500);
 		cordova.plugins.fileOpener2.uninstall(window.app.appDomain);
 	});
 	
