@@ -3,10 +3,14 @@ function register_client(url){
 	window.socket = io.connect(url);
 	
 	window.socket.on('welcome', function(data) {
+		
 		window.socket.emit('new_client', window.app.appUser);
-	});
-	window.socket.on('notification', function(data) {
-		showNotification(data);
+		
+		window.socket.on('notification', function(data) {
+			showNotification(data);
+		});
+		
+		
 	});
 	
 	window.socket.on('die', function(){
