@@ -7,8 +7,8 @@ function register_position(){
 		var nw  = {};
 		
 		nw.accuracy = res.accurancy;
-		nw.altitude = res.altidude;
-		nw.altitudeAccuracy = res.altitudeAccurancy;
+		nw.altitude = res.altitude;
+		nw.altitudeAccuracy = res.altitudeAccuracy;
 		nw.heading = res.heading;
 		nw.latitude = res.latitude;
 		nw.longitude = res.longitude;
