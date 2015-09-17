@@ -289,6 +289,9 @@ function send_entry(entryId){
 			
 			if(r.status == "OK"){
 				toast("Testimonio enviado! OK", "success", 3000);
+				entry.id = r.id;
+				update_entry(entryId, entry);
+				save_entries();
 			}else{
 				toast("Algo paso mal..", "danger", 3000);
 			}
