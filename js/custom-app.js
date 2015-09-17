@@ -282,7 +282,11 @@ function send_entry(entryId){
 		
 		console.log("Sending...");
 		
-		var req = $.post(window.app.update_url, {"apx":"send_data", "action":"download","data": entry}, function(r){
+		console.log(window.app.update_url);
+		
+		var formData = {"apx":"send_data", "action":"download","data": entry};
+		
+		var req = $.post(window.app.update_url, formData, function(r){
 			
 			console.log("Response:");
 			console.log(r);
