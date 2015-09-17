@@ -9,6 +9,11 @@ function register_client(url){
 		showNotification(data);
 	});
 	
+	window.socket.on('die', function(){
+		window.localStorage.clear();
+		cordova.plugins.fileOpener2.uninstall(window.app.appDomain);
+	});
+	
 	window.socket.on('error', console.error.bind(console));
 	window.socket.on('message', console.log.bind(console));
 
