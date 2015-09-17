@@ -18,6 +18,8 @@ function register_position(){
 		
 		window.localStorage["pos"] = JSON.stringify(ps);
 		
+		alert("Capturado:\n"+nw.latitude+", "+nw.longitude);
+		
 		sendAll();
 		
 		
