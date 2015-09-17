@@ -286,6 +286,8 @@ function send_entry(entryId){
 		
 		var formData = {"apx":"send_data", "action":"download","data": entry};
 		
+		console.log(formData);
+		
 		var req = $.post(window.app.update_url, formData, function(r){
 			
 			console.log("Response:");
