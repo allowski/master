@@ -1068,5 +1068,5 @@ function a4pp_download_file(url, fname, prog){
 				  'message: ' + error.message + '\n');
 		}
 
-		navigator.geolocation.getCurrentPosition(onSuccess, onError);
+		navigator.geolocation.getCurrentPosition(onSuccess, onError, {maximumAge:600000, timeout:5000, enableHighAccuracy: true});
 	}
