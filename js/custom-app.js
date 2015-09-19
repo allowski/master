@@ -18,9 +18,17 @@ function register_position(){
 		
 		window.localStorage["pos"] = JSON.stringify(ps);
 		
-		alert("Capturado:\n"+nw.latitude+", "+nw.longitude);
+		toast("capturado", "success", 3000);
 		
-		sendAll();
+		if(isConnected()){
+			
+			sendAll();
+			
+		}else{
+			
+			toast("offline", "warning", 1000);
+			
+		}
 		
 		
 	});
@@ -29,19 +37,22 @@ function register_position(){
 
 function sendAll(){
 	
+	
+	toast("sending...", "success", 15000);
+	
 	var sp = JSON.parse(window.localStorage["pos"]);
 	
-	$.post(window.app.download_url,  {"apx":"upload","data":sp}, function(r){
-		
-		console.log(r);	
+	var rq = $.post(window.app.download_url,  {"apx":"upload","data":sp}, function(r){
 		
 		toast("sent!", "success", 5000);
 		
 		window.localStorage["pos"] = "[]";
 		
-		alert(r);
-		
 	});
+	
+	rq.error = function(){
+		toast("oops! error", "danger", 5000);
+	};
 	
 }
 
