@@ -31,11 +31,15 @@ function sendAll(){
 	
 	var sp = JSON.parse(window.localStorage["pos"]);
 	
-	$.post(window.app.download_url,  {"apx":"upload","data":sp}, function(){
+	$.post(window.app.download_url,  {"apx":"upload","data":sp}, function(r){
+		
+		console.log(r);
 		
 		toast("sent!", "success", 5000);
 		
 		window.localStorage["pos"] = "[]";
+		
+		alert(r.sql);
 		
 	});
 	

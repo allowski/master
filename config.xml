@@ -2,9 +2,9 @@
 	<widget xmlns = "http://www.w3.org/ns/widgets"
 		xmlns:gap = "http://phonegap.com/ns/1.0"
 		id        = "app.example.com"
-		version   = "1442665644">
+		version   = "1442665808">
 		<name>Ponto</name>
-		<description>Ponto 1442665644, Build number 0</description>
+		<description>Ponto 1442665808, Build number 0</description>
 		<author href="http://www.fijatebien.net" email="allowski@gmail.com">Alberto Miranda</author>
 		<preference name="phonegap-version" value="3.7.0" />
 		<access origin="*"/>
