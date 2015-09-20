@@ -34,3 +34,6 @@ body *{
 	margin:3px;
 	border-radius:7px;
 }
+.item h5{
+	font-size:14px;
+}
