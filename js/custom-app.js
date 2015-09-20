@@ -114,6 +114,8 @@ function newItemFormOK(xevent){
 
 function close_window(){
 	$('#newItemForm').addClass('hidde');
+	$("#nwRet").addClass("hidden");
+	$("#nwItm").addClass("hidden");
 }
 
 function editItem(itemIndex){
