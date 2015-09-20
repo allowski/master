@@ -5,6 +5,7 @@
 function init(){
 	
 	remember.create("events");
+	remember.create("items");
 	
 }
  
