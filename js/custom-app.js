@@ -8,7 +8,7 @@ function init(){
 	
 }
  
-function createEvent(){
+function createNewEvent(){
 	
 	var newEventTitle = $("#newEventTitle").val();
 	
