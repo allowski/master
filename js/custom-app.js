@@ -68,10 +68,14 @@ function getAll(id){
 
 function newItemForm(){
 	
+	$("#itemId").val("0");
+	
 	$("#newItemForm").removeClass('hidde');
 	
 	$("#nwRet").removeClass("hidden");
+	
 	$("#nwItm").addClass("hidden");
+	
 	$("#nwItmOk").removeClass("hidden");
 	
 }
@@ -81,6 +85,8 @@ function newItemFormOK(xevent){
 	var lastId = new Date().getTime();
 	
 	var newItem = {"id":lastId};
+	
+	var itemId = $("#itemId").val();
 	
 	newItem.event = xevent;
 	
@@ -106,9 +112,15 @@ function newItemFormOK(xevent){
 		
 	}
 		
+	if(itemId == 0){
 	
-	remember.push("items", newItem);
+		remember.push("items", newItem);
 	
+	}else{
+		
+		remember.update("items", itemId, newItem);
+		
+	}
 	
 }
 

@@ -281,6 +281,16 @@ var remember = {
 			
 		}
 		
+	},
+	'update': function(collection, index, value){
+		
+		if(this.isCollection(collection)===true){
+			
+			this.collections[collection][index] = value;
+			
+			this.save();
+			
+		}	
 	}
 	
 	
