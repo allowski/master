@@ -83,4 +83,10 @@ function createNewItem(xevent){
 	
 }
 
+function newItemForm(){
+	
+	$("#newItemForm").removeClass('hidden');
+	
+}
+
 init();

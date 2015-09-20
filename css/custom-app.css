@@ -1,9 +1,14 @@
-.hidden-form{
+.newItemForm.hidden{
+	bottom:-100%;	
+	-webkit-transition:all 0.5s;
+}
+.newItemForm{
 	position:fixed;
 	bottom:5px;
 	left:5px;
 	right:5px;
 	background:#fff;
 	border-radius:5px;
-	padding:20px 50px;
+	padding:20px 30px;
+	-webkit-transition:all 0.5s;
 }
