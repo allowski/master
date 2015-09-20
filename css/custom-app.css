@@ -16,3 +16,7 @@
 h5{
 	color:inherit !important;
 }
+
+body *{
+	text-transform:uppercase;
+}
