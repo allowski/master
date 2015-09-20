@@ -43,8 +43,6 @@ function openEvent(k){
 	
 	triggerGoTo("0");
 	
-	$('#eventTitle').text(myEvent.title);
-	
 }
 
 function getAll(id){
