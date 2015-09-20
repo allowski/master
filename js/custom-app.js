@@ -68,7 +68,21 @@ function getAll(id){
 	
 }
 
-function createNewItem(xevent){
+function newItemForm(){
+	
+	$("#newItemForm").removeClass('hidden');
+	
+	$("#nwItm").addClass("hidden");
+	$("#nwItmOk").removeClass("hidden");
+	
+}
+
+function newItemFormOK(){
+
+	$("#newItemForm").addClass('hidden');
+	
+	$("#nwItmOk").addClass("hidden");
+	$("#nwItm").removeClass("hidden");
 	
 	var lastId = new Date().getTime();
 	
@@ -80,15 +94,6 @@ function createNewItem(xevent){
 	
 	remember.push("items", newItem);
 	
-	
-}
-
-function newItemForm(){
-	
-	$("#newItemForm").removeClass('hidden');
-	
-	$("#nwItm").addClass("hidden");
-	$("#nwItmOk").removeClass("hidden");
 	
 }
 
