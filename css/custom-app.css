@@ -22,4 +22,5 @@ body *{
 }
 .form-control{
 	border:1px solid #999 !important;
+	text-indent:11px;
 }
