@@ -87,6 +87,8 @@ function newItemFormOK(xevent){
 	
 	newItem.value = $("#newItemValue").val();
 	
+	newItem.numero = $("#newItemNumber").val();
+	
 	newItem.ES = $("#newItemES").val();
 	
 	if(
@@ -117,7 +119,7 @@ function editItem(itemIndex){
 	$("#newItemTitle").val(item.text);
 	$("#newItemValue").val(item.value);
 	$("#newItemES").val(item.ES);
-	$("#newItemNumber").val(item.Numero);
+	$("#newItemNumber").val(item.numero);
 	
 	
 }
