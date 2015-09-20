@@ -62,6 +62,8 @@ function getAll(id){
 		
 	}
 	
+	return result;
+	
 	
 }
 
