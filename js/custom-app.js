@@ -36,7 +36,7 @@ function openEvent(k){
 	
 	var myEvent = remember.getItem("events", k);
 	
-	window.app[0].dat = myEvent;
+	window.app.items[0].dat = myEvent;
 	
 	triggerGoTo("0");
 	
