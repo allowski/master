@@ -131,6 +131,11 @@ var remember = {
 		return this.collections[collection][indexOf];
 		
 	},
+	'getItems': function(collection){
+		
+		return this.collections[collection];
+		
+	},
 	'bind': function(formId, collection, indexOf){
 		
 		this.log("bind called");
