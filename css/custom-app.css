@@ -1,5 +1,5 @@
 .newItemForm.hidde{
-	bottom:-100%;	
+	bottom:-100% !important;	
 	-webkit-transition:all 0.5s;
 }
 .newItemForm{
