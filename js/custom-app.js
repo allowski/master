@@ -68,7 +68,7 @@ function getAll(id){
 
 function newItemForm(){
 	
-	$("#newItemForm").removeClass('hidden');
+	$("#newItemForm").removeClass('hidde');
 	
 	$("#nwItm").addClass("hidden");
 	$("#nwItmOk").removeClass("hidden");
@@ -77,7 +77,7 @@ function newItemForm(){
 
 function newItemFormOK(xevent){
 
-	$("#newItemForm").addClass('hidden');
+	$("#newItemForm").addClass('hidde');
 	
 	$("#nwItmOk").addClass("hidden");
 	$("#nwItm").removeClass("hidden");
