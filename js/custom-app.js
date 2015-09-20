@@ -70,6 +70,7 @@ function newItemForm(){
 	
 	$("#newItemForm").removeClass('hidde');
 	
+	$("#nwRet").removeClass("hidden");
 	$("#nwItm").addClass("hidden");
 	$("#nwItmOk").removeClass("hidden");
 	
@@ -101,6 +102,7 @@ function newItemFormOK(xevent){
 		$("#newItemForm").addClass('hidde');
 		$("#nwItmOk").addClass("hidden");
 		$("#nwItm").removeClass("hidden");
+		$("#nwRet").addClass("hidden");
 		
 	}
 		
@@ -108,6 +110,10 @@ function newItemFormOK(xevent){
 	remember.push("items", newItem);
 	
 	
+}
+
+function close_window(){
+	$('#newItemForm').addClass('hidde');
 }
 
 function editItem(itemIndex){
