@@ -36,6 +36,8 @@ function openEvent(k){
 	
 	var myEvent = remember.getItem("events", k);
 	
+	window.app[0].dat = myEvent;
+	
 	triggerGoTo("0");
 	
 	$('#eventTitle').text(myEvent.title);
