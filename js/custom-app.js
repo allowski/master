@@ -77,7 +77,7 @@ function newItemForm(){
 	
 }
 
-function newItemFormOK(){
+function newItemFormOK(xevent){
 
 	$("#newItemForm").addClass('hidden');
 	
@@ -91,6 +91,10 @@ function newItemFormOK(){
 	newItem.event = xevent;
 	
 	newItem.text = $("#newItemTitle").val();
+	
+	newItem.value = $("#newItemValue").val();
+	
+	newItem.ES = $("#newItemES").val();
 	
 	remember.push("items", newItem);
 	
