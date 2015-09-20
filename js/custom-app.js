@@ -76,11 +76,6 @@ function newItemForm(){
 }
 
 function newItemFormOK(xevent){
-
-	$("#newItemForm").addClass('hidde');
-	
-	$("#nwItmOk").addClass("hidden");
-	$("#nwItm").removeClass("hidden");
 	
 	var lastId = new Date().getTime();
 	
@@ -93,6 +88,20 @@ function newItemFormOK(xevent){
 	newItem.value = $("#newItemValue").val();
 	
 	newItem.ES = $("#newItemES").val();
+	
+	if(
+		(newItem.value == "") || 
+		(newItem.text == "")
+	){
+		return;
+	}else{
+		
+		$("#newItemForm").addClass('hidde');
+		$("#nwItmOk").addClass("hidden");
+		$("#nwItm").removeClass("hidden");
+		
+	}
+		
 	
 	remember.push("items", newItem);
 	
