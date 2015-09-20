@@ -32,5 +32,15 @@ function createNewEvent(){
 	
 }
 
+function openEvent(k){
+	
+	var myEvent = remember.getItem("events", k);
+	
+	triggerGoTo("/0/");
+	
+	$('#eventTitle').text(myEvent.title);
+	
+}
+
 
 init();
