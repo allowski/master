@@ -87,6 +87,9 @@ function newItemForm(){
 	
 	$("#newItemForm").removeClass('hidden');
 	
+	$("#nwItm").addClass("hidden");
+	$("#nwItmOk").removeClass("hidden");
+	
 }
 
 init();
