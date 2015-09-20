@@ -118,6 +118,7 @@ function editItem(itemIndex){
 	
 	
 	$("#newItemForm").removeClass('hidde');
+	$("#nwRet").removeClass("hidden");
 	$("#nwItm").addClass("hidden");
 	$("#nwItmOk").removeClass("hidden");
 	
