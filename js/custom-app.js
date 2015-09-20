@@ -108,4 +108,18 @@ function newItemFormOK(xevent){
 	
 }
 
+function editItem(itemIndex){
+	
+	$("#itemId").val(itemIndex);
+	
+	var item = remember.getItem('items', itemIndex);
+	
+	$("#newItemTitle").val(item.text);
+	$("#newItemValue").val(item.value);
+	$("#newItemES").val(item.ES);
+	$("#newItemNumber").val(item.Numero);
+	
+	
+}
+
 init();
