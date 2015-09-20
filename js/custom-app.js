@@ -26,6 +26,8 @@ function createNewEvent(){
 		
 		newEvent.title = newEventTitle;
 		
+		remember.push("events", newEvent);
+		
 	}
 	
 }
