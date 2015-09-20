@@ -29,7 +29,7 @@ body *{
 }
 
 .item{
-	padding:5px;
+	padding:5px 12px;
 	border:1px solid #eee;
 	margin:3px;
 }
