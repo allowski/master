@@ -116,6 +116,11 @@ function editItem(itemIndex){
 	
 	var item = remember.getItem('items', itemIndex);
 	
+	
+	$("#newItemForm").removeClass('hidde');
+	$("#nwItm").addClass("hidden");
+	$("#nwItmOk").removeClass("hidden");
+	
 	$("#newItemTitle").val(item.text);
 	$("#newItemValue").val(item.value);
 	$("#newItemES").val(item.ES);
