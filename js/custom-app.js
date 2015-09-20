@@ -12,7 +12,9 @@ function createNewEvent(){
 	
 	var newEventTitle = $("#newEventTitle").val();
 	
-	var newEvent = {};
+	var lastId = new Date().getTime();
+	
+	var newEvent = {"id":lastId};
 	
 	if(newEventTitle == ""){
 		
