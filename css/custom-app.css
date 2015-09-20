@@ -27,3 +27,9 @@ body *{
 	border:1px solid #999 !important;
 	text-indent:11px;
 }
+
+.item{
+	padding:5px;
+	border:1px solid #eee;
+	margin:3px;
+}
