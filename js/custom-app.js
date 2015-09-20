@@ -1,69 +1,34 @@
-function register_position(){
-	
-	getpos(function(res){
-		
-		var ps = JSON.parse(window.localStorage["pos"]);
-		
-		var nw  = {};
-		
-		nw.accuracy = res.accurancy;
-		nw.altitude = res.altitude;
-		nw.altitudeAccuracy = res.altitudeAccuracy;
-		nw.heading = res.heading;
-		nw.latitude = res.latitude;
-		nw.longitude = res.longitude;
-		nw.speed = res.speed;
-		
-		ps.push(nw);
-		
-		window.localStorage["pos"] = JSON.stringify(ps);
-		
-		toast("capturado", "success", 3000);
-		
-		if(isConnected()){
-			
-			sendAll();
-			
-		}else{
-			
-			toast("offline", "warning", 1000);
-			
-		}
-		
-		
-	});
-	
-}
-
-function sendAll(){
-	
-	
-	toast("sending...", "success", 15000);
-	
-	var sp = JSON.parse(window.localStorage["pos"]);
-	
-	var rq = $.post(window.app.download_url,  {"apx":"upload","data":sp}, function(r){
-		
-		toast("sent!", "success", 5000);
-		
-		window.localStorage["pos"] = "[]";
-		
-	});
-	
-	rq.error = function(){
-		toast("oops! error", "danger", 5000);
-	};
-	
-}
+/**	
+ * 		a4pp Tech
+ */ 
 
 function init(){
 	
-	if(!window.localStorage["pos"]){
+	remember.create("events");
+	
+}
+ 
+function createEvent(){
+	
+	var newEventTitle = $("#newEventTitle").val();
+	
+	var newEvent = {};
+	
+	if(newEventTitle == ""){
 		
-		window.localStorage["pos"] = "[]";
+		alert("Insira o nome do evento");
+		
+		$("#newEventTitle").focus();
+		
+		return;
+		
+	}else{
+		
+		newEvent.title = newEventTitle;
 		
 	}
 	
 }
+
 
 init();
