@@ -1,154 +1,310 @@
-/**	
- * 		a4pp Tech
- */ 
+window.currentEntry = 0;
 
-function init(){
+console.log("Init called");
+
+if(typeof window.localStorage['sdatos']=="undefined"){
 	
-	remember.create("events");
-	remember.create("items");
+	console.log("sdatos is undefined");
+	
+	window.localStorage['sdatos'] = "[{}]";
 	
 }
- 
-function createNewEvent(){
-	
-	var newEventTitle = $("#newEventTitle").val();
-	
-	var lastId = new Date().getTime();
-	
-	var newEvent = {"id":lastId};
-	
-	if(newEventTitle == ""){
+
+function take_photo(){
 		
-		alert("Insira o nome do evento");
+	openCamera(320, 256, 90, function (dat){
+	
+		$("#theImg").attr("src", dat);
 		
-		$("#newEventTitle").focus();
+		$("input[name=pic]").val(dat);
+	
+	});
+	
+}
+
+function save_entry(){
+
+	console.log("save_entry called");
+	
+	var entry = $('#frm').serializeObject();
+	
+	if(window.currentEntry==0){
+
+		toast("Testimonio creado!", "success", 3000);
 		
-		return;
+		window.currentEntry = add_entry(entry);
 		
 	}else{
 		
-		newEvent.title = newEventTitle;
+		toast("Testimonio modificado!", "success", 3000);
 		
-		remember.push("events", newEvent);
+		update_entry(window.currentEntry, entry);
 		
 	}
 	
-}
-
-function openEvent(k){
-	
-	var myEvent = remember.getItem("events", k);
-	
-	window.app.items[0].dat = myEvent;
+	a4pp_destroy_last();
 	
 	triggerGoTo("0");
 	
 }
 
-function getAll(id){
+function load_entries(){
 	
-	var result = [];
+	console.log("load_entries called");
 	
-	var all = remember.getItems("items");
+	//console.log(window.localStorage);
 	
-	for(var i = 0;i<all.length; i++){
+	if(typeof window.localStorage['sdatos']==="undefined"){
+	
+		console.log("Undefined sdatos");
+	
+		window.localStorage['sdatos'] = "[{}]";
 		
-		if(all[i].event == id){
+	}
+	
+	console.log(window.localStorage);
+
+	
+	return JSON.parse(window.localStorage['sdatos']);
+	
+}
+
+function save_entries(sdata){
+	
+	console.log("save_entries called");
+	
+	window.localStorage['sdatos'] = JSON.stringify(sdata);
+}
+
+function count_entries(){
+	
+	console.log("count_entries called");
+	
+	var temp = load_entries();
+	
+	return temp.length;
+	
+}
+
+function get_entry(indexOf){
+	
+	console.log("get_entry called");
+	
+	var temp = load_entries();
+	
+	return temp[indexOf];
+	
+}
+
+function add_entry(entry){
+	
+	console.log("add_entry called");
+	
+	var temp = load_entries();
+	
+	temp.push(entry);
+	
+	save_entries(temp);
+	
+	return temp.length-1;
+	
+}
+
+function delete_entry(indexOf){
+	
+	console.log("delete_entry called");
+	
+	var temp = load_entries();
+	
+	temp.splice(indexOf, 1);
+	
+	save_entries(temp);
+	
+}
+
+function user_delete_entry(indexOf){
+	
+	if(confirm("Eliminar este testimonio?")){
+		
+		toast("Testimonio eliminado!", "danger", 3000);
+		
+		delete_entry(indexOf);
+		
+		a4pp_destroy_last();
+		
+		triggerGoTo("0");	
+		
+	}
+	
+}
+
+function update_entry(indexOf, entry){
+	
+	console.log("update_entry called");
+	
+	var temp = load_entries();
+	
+	temp[indexOf] = entry;
+	
+	save_entries(temp);
+	
+}
+
+
+function divulgar(como){
+    if(como=="s"){
+        $("#autorizado").text("Gracias por autorizar el uso de su imagen!");    
+        $("#si_o_no").hide();
+    }
+    $("[name=divulgar_imagen]").val(como);
+}
+
+function list_entries(){
+	
+	console.log("list_entries called");
+	
+	var temp = load_entries();
+	
+	for(var i = 1; i < temp.length; i++){
+		
+		console.log(i+") "+temp[i].nombre);
+		
+	}
+	
+	return 1;
+	
+}
+
+function edit_entry_in_form(indexOf){
+	
+	var temp = load_entries();
+	
+	var final = 0;
+	
+	var inter;
+	
+	inter = setInterval(function(){
+	
+		if(indexOf in temp){
+		
+			window.currentEntry=indexOf;
 			
-			result.push(all[i]);
+			var cur = temp[indexOf];
+			
+			var cnt = 0;
+			
+			for(x in cur){
+				
+				cnt = cnt + 1;
+				
+				console.log(x+" = "+cur[x]);
+				
+				$("[name="+x+"]").val(cur[x]);
+				
+				final = final + $("[name="+x+"]").length;
+				
+				var strc =  cur.pic || 'img/fallback.png';
+				
+				$("#theImg").attr("src",strc);
+				
+				if(x == "divulgar_imagen"){
+					if(cur[x]=="s"){
+						divulgar("s");
+					}
+				}
+			}
+		
+		}else{
+			
+			clearInterval(inter);
+			
+			console.log("Entry:"+indexOf+" not found");
 			
 		}
 		
-	}
-	
-	return result;
-	
-	
-}
-
-function newItemForm(){
-	
-	$("#itemId").val("0");
-	
-	$("#newItemForm").removeClass('hidde');
-	
-	$("#nwRet").removeClass("hidden");
-	
-	$("#nwItm").addClass("hidden");
-	
-	$("#nwItmOk").removeClass("hidden");
+		console.log("Sum:"+final);
+		
+		if(final >= cnt){
+			
+			console.log("End");
+			
+			clearInterval(inter);
+			
+		}
+		
+	}, 500);
 	
 }
 
-function newItemFormOK(xevent){
-	
-	var lastId = new Date().getTime();
-	
-	var newItem = {"id":lastId};
-	
-	var itemId = $("#itemId").val();
-	
-	newItem.event = xevent;
-	
-	newItem.text = $("#newItemTitle").val();
-	
-	newItem.value = $("#newItemValue").val();
-	
-	newItem.numero = $("#newItemNumber").val();
-	
-	newItem.ES = $("#newItemES").val();
-	
-	if(
-		(newItem.value == "") || 
-		(newItem.text == "")
-	){
-		return;
+function load_config(){
+
+	if(typeof window.localStorage['config'] == "undefined"){
+		 window.localStorage['config'] = "{}";
+	} 
+
+	return JSON.parse(window.localStorage['config']);
+
+}
+
+function save_config(element){
+
+	window.localStorage['config'] = JSON.stringify($(element).serializeObject());
+
+}
+
+function get_config(indexOf){
+
+	var temp = load_config();
+
+	if(indexOf in temp){
+		return temp[indexOf];
 	}else{
-		
-		$("#newItemForm").addClass('hidde');
-		$("#nwItmOk").addClass("hidden");
-		$("#nwItm").removeClass("hidden");
-		$("#nwRet").addClass("hidden");
-		
-	}
-		
-	if(itemId == 0){
-	
-		remember.push("items", newItem);
-	
-	}else{
-		
-		remember.update("items", itemId, newItem);
-		
+		return "";
 	}
 	
 }
 
-function close_window(){
-	$('#newItemForm').addClass('hidde');
-	$("#nwRet").addClass("hidden");
-	$("#nwItmOk").addClass("hidden");
-	$("#nwItm").removeClass("hidden");
-}
+function send_entry(entryId){
+	
+	console.log("Send entry called...");
+	
+	save_entry();
+	
+	console.log("Set time out...");
+	
+	setTimeout(function(){
+		
+		entry = get_entry(entryId);
 
-function editItem(itemIndex){
+		console.log("Show toast...");
+
+		toast("Enviando..", "warning", 1000);
+		
+		console.log("Sending...");
+		
+		console.log(window.app.update_url);
+		
+		var formData = {"apx":"send_data", "action":"download","data": entry};
+		
+		console.log(formData);
+		
+		var req = $.post(window.app.update_url, formData, function(r){
+			
+			console.log("Response:");
+			console.log(r);
+			
+			if(r.status == "OK"){
+				toast("Testimonio enviado! OK", "success", 3000);
+				entry.id = r.id;
+				update_entry(entryId, entry);
+				save_entries();
+			}else{
+				toast("Algo paso mal..", "danger", 3000);
+			}
+		})
+		
+		req.error(a4pp_conn_error);
 	
-	$("#itemId").val(itemIndex);
-	
-	var item = remember.getItem('items', itemIndex);
-	
-	
-	$("#newItemForm").removeClass('hidde');
-	$("#nwRet").removeClass("hidden");
-	$("#nwItm").addClass("hidden");
-	$("#nwItmOk").removeClass("hidden");
-	
-	$("#newItemTitle").val(item.text);
-	$("#newItemValue").val(item.value);
-	$("#newItemES").val(item.ES);
-	$("#newItemNumber").val(item.numero);
-	
+	}, 700);
 	
 }
-
-init();
