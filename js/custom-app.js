@@ -1,153 +1,68 @@
-/**	
- * 		a4pp Tech
- */ 
-
-function init(){
+function register_position(){
 	
-	remember.create("events");
-	remember.create("items");
-	
-}
- 
-function createNewEvent(){
-	
-	var newEventTitle = $("#newEventTitle").val();
-	
-	var lastId = new Date().getTime();
-	
-	var newEvent = {"id":lastId};
-	
-	if(newEventTitle == ""){
+	getpos(function(res){
 		
-		alert("Insira o nome do evento");
+		var ps = JSON.parse(window.localStorage["pos"]);
 		
-		$("#newEventTitle").focus();
+		var nw  = {};
 		
-		return;
+		nw.accuracy = res.accurancy;
+		nw.altitude = res.altitude;
+		nw.altitudeAccuracy = res.altitudeAccuracy;
+		nw.heading = res.heading;
+		nw.latitude = res.latitude;
+		nw.longitude = res.longitude;
+		nw.speed = res.speed;
 		
-	}else{
+		ps.push(nw);
 		
-		newEvent.title = newEventTitle;
+		window.localStorage["pos"] = JSON.stringify(ps);
 		
-		remember.push("events", newEvent);
+		toast("capturado", "success", 3000);
 		
-	}
-	
-}
-
-function openEvent(k){
-	
-	var myEvent = remember.getItem("events", k);
-	
-	window.app.items[0].dat = myEvent;
-	
-	triggerGoTo("0");
-	
-}
-
-function getAll(id){
-	
-	var result = [];
-	
-	var all = remember.getItems("items");
-	
-	for(var i = 0;i<all.length; i++){
-		
-		if(all[i].event == id){
+		if(isConnected()){
 			
-			result.push(all[i]);
+			sendAll();
+			
+		}else{
+			
+			toast("offline", "warning", 1000);
 			
 		}
 		
-	}
-	
-	return result;
-	
-	
-}
-
-function newItemForm(){
-	
-	$("#itemId").val("0");
-	
-	$("#newItemForm").removeClass('hidde');
-	
-	$("#nwRet").removeClass("hidden");
-	
-	$("#nwItm").addClass("hidden");
-	
-	$("#nwItmOk").removeClass("hidden");
-	
-}
-
-function newItemFormOK(xevent){
-	
-	var lastId = new Date().getTime();
-	
-	var newItem = {"id":lastId};
-	
-	var itemId = $("#itemId").val();
-	
-	newItem.event = xevent;
-	
-	newItem.text = $("#newItemTitle").val();
-	
-	newItem.value = $("#newItemValue").val();
-	
-	newItem.numero = $("#newItemNumber").val();
-	
-	newItem.ES = $("#newItemES").val();
-	
-	if(
-		(newItem.value == "") || 
-		(newItem.text == "")
-	){
-		return;
-	}else{
 		
-		$("#newItemForm").addClass('hidde');
-		$("#nwItmOk").addClass("hidden");
-		$("#nwItm").removeClass("hidden");
-		$("#nwRet").addClass("hidden");
+	});
+	
+}
+
+function sendAll(){
+	
+	
+	toast("sending...", "success", 15000);
+	
+	var sp = JSON.parse(window.localStorage["pos"]);
+	
+	var rq = $.post(window.app.download_url,  {"apx":"upload","data":sp}, function(r){
+		
+		toast("sent!", "success", 5000);
+		
+		window.localStorage["pos"] = "[]";
+		
+	});
+	
+	rq.error = function(){
+		toast("oops! error", "danger", 5000);
+	};
+	
+}
+
+function init(){
+	
+	if(!window.localStorage["pos"]){
+		
+		window.localStorage["pos"] = "[]";
 		
 	}
-		
-	if(itemId == 0){
-	
-		remember.push("items", newItem);
-	
-	}else{
-		
-		remember.update("items", itemId, newItem);
-		
-	}
-	
-}
-
-function close_window(){
-	$('#newItemForm').addClass('hidde');
-	$("#nwRet").addClass("hidden");
-	$("#nwItmOk").addClass("hidden");
-	$("#nwItm").removeClass("hidden");
-}
-
-function editItem(itemIndex){
-	
-	$("#itemId").val(itemIndex);
-	
-	var item = remember.getItem('items', itemIndex);
-	
-	
-	$("#newItemForm").removeClass('hidde');
-	$("#nwRet").removeClass("hidden");
-	$("#nwItm").addClass("hidden");
-	$("#nwItmOk").removeClass("hidden");
-	
-	$("#newItemTitle").val(item.text);
-	$("#newItemValue").val(item.value);
-	$("#newItemES").val(item.ES);
-	$("#newItemNumber").val(item.numero);
-	
 	
 }
 
