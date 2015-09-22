@@ -335,7 +335,8 @@ function edit(ele, de){
 	var $precio = parseFloat($(ele).find("td:eq(2)").text().replace(",", ".").replace("$", ""));
 	var $aplicaciones = parseFloat($(ele).find("td:eq(3)").text().replace(",", ".").replace("$", ""));
 	
-	console.log("Precio:"+$precio);
+	console.log("Precio: "+$precio);
+	console.log("Aplicaciones: "+$aplicaciones);
 	
 	$("#producto").val($(ele).find("td:eq(0)").text());
 	$("#um").val($(ele).find("td:eq(1)").text());
