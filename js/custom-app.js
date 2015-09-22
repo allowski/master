@@ -249,6 +249,8 @@ function addRow(){
 		
 	}else{
 		
+		window.isBeingEdited = 1;
+		
 		var xy = (parseFloat( $('#aplicaciones').val()) * parseFloat($('#precio').val()) * parseFloat($('#dosis').val()) ); 
 		
 		var soja = parseFloat($("#soja").val());
