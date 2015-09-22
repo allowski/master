@@ -13,7 +13,7 @@
      */
 
 
-window.isBeingEdited = 1;     
+window.isBeingEdited = 0;     
 
 Array.prototype.remove = function(from, to) {
   var rest = this.slice((to || from) + 1 || this.length);
@@ -249,7 +249,7 @@ function addRow(){
 		
 	}else{
 		
-		window.isBeingEdited = 1;
+		window.isBeingEdited = 0;
 		
 		var xy = (parseFloat( $('#aplicaciones').val()) * parseFloat($('#precio').val()) * parseFloat($('#dosis').val()) ); 
 		
