@@ -340,8 +340,8 @@ function edit(ele, de){
 		return $(this).attr("value") == de; 
 	}).prop('selected', true);
 	
-	var $precio = parseFloat($(ele).find("td:eq(2)").text().replace(",", ".").replace("$", ""));
-	var $aplicaciones = parseFloat($(ele).find("td:eq(3)").text().replace(",", ".").replace("$", ""));
+	var $precio = $(ele).find("td:eq(2)").attr("data-val");
+	var $aplicaciones = $(ele).find("td:eq(3)").attr("data-val");
 	
 	console.log("Precio: "+$precio);
 	console.log("Aplicaciones: "+$aplicaciones);
