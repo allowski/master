@@ -274,6 +274,8 @@ function edit(ele){
 	
 	window.isBeingEdited = 1;
 	
+	$("#addToTwo").prop("checked", true);
+	
 	console.log($(ele).find("td:eq(0)"));
 	
 	var $dequien = "Diagro";
