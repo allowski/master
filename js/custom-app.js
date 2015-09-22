@@ -234,7 +234,7 @@ function addRow(){
 			var clase = (numero == 1) ? 'success' : 'danger';
 			
 			$('#result'+numero).append(
-				'<tr class="'+clase+'" onclick="edit(this);autoSum();return false;">'+
+				'<tr class="'+clase+'" onclick="edit(this, '+numero+');autoSum();return false;">'+
 				'<td>'+		$('#producto').val()+
 				'</td><td>'+	$('#um').val()+	
 				'</td><td>'+	$('#dosis').val()+	
@@ -262,7 +262,7 @@ function addRow(){
 		var clase = (numero == 1) ? 'success' : 'danger';
 		
 		$('#result'+numero).append(
-			'<tr class="'+clase+'" onclick="edit(this);autoSum();return false;">'+
+			'<tr class="'+clase+'" onclick="edit(this, '+numero+');autoSum();return false;">'+
 			'<td>'+		$('#producto').val()+
 			'</td><td>'+	$('#um').val()+	
 			'</td><td>'+	$('#dosis').val()+	
@@ -301,7 +301,7 @@ function eliminar(ele, e){
 }
 
 
-function edit(ele){
+function edit(ele, de){
 	
 	window.isBeingEdited = 1;
 	
@@ -318,7 +318,7 @@ function edit(ele){
 	$("#emp option").prop('selected', false);
 	
 	$("#emp option").filter(function() {
-		return $(this).text() == $dequien; 
+		return $(this).attr("value") == de; 
 	}).prop('selected', true);
 	
 	var $precio = parseFloat($(ele).find("td:eq(2)").text().replace(",", ".").replace("$", ""));
