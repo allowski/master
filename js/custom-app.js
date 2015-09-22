@@ -308,7 +308,10 @@ function eliminar(ele, e){
 function edit(ele, de){
 	
 	if(window.isBeingEdited == 1){
-		alert("Ja esta editando uma fila");
+		if(!confirm("Ja esta editando uma fila\n Deseja excluir a fila editada?")){
+			return;
+		}
+		
 	}
 	
 	window.isBeingEdited = 1;
