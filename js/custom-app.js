@@ -229,7 +229,7 @@ function addRow(){
 			
 			var xyz  = xy/soja*1000/60;
 			
-			var kg = xyz / (1000 / soja);
+			var kg = xy / (1000 / soja);
 			
 			var clase = (numero == 1) ? 'success' : 'danger';
 			
@@ -259,7 +259,7 @@ function addRow(){
 		
 		numero = $("#emp").val();
 		
-		var kg = xy / (1000/soja);
+		var kg = xy / (soja/1000);
 		
 		var clase = (numero == 1) ? 'success' : 'danger';
 		
