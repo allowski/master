@@ -219,13 +219,43 @@ String.prototype.insert = function (index, string) {
 
 function addRow(){
 	
-	for(var numero = 1; numero <= 2; numero++){
+	if(window.isBeingEdited == 0){
 	
+		for(var numero = 1; numero <= 2; numero++){
+		
+			var xy = (parseFloat( $('#aplicaciones').val()) * parseFloat($('#precio').val()) * parseFloat($('#dosis').val()) ); 
+			
+			var soja = parseFloat($("#soja").val());
+			
+			var xyz  = xy/soja*1000/60;
+			
+			var kg = xyz / soja * 1000;
+			
+			var clase = (numero == 1) ? 'success' : 'danger';
+			
+			$('#result'+numero).append(
+				'<tr class="'+clase+'" onclick="edit(this);autoSum();return false;">'+
+				'<td>'+		$('#producto').val()+
+				'</td><td>'+	$('#um').val()+	
+				'</td><td>'+	$('#dosis').val()+	
+				'</td><td class="text-right">$ '+ 	number_format($('#precio').val(),2,",",".")+	
+				'</td><td class="text-center">'+	$('#aplicaciones').val()+	
+				'</td><td class="suma text-right" data-val="'+xy+'">$ '+number_format(xy,2,",", ".")+	
+				'</td><td class="suma2 text-right" data-val="'+xyz+'"> '+number_format(xyz,2,",", ".")+
+				'</td><td class="suma3 text-right" data-val="'+kg+'">$ '+number_format(kg,2,",", ".")+
+				'</td><td><button class="btn btn-danger remove-email" onclick="eliminar(this, event); return false;"><span class="glyphicon glyphicon-remove"></span></button></td></tr>');
+			
+		}
+		
+	}else{
+		
 		var xy = (parseFloat( $('#aplicaciones').val()) * parseFloat($('#precio').val()) * parseFloat($('#dosis').val()) ); 
 		
 		var soja = parseFloat($("#soja").val());
 		
 		var xyz  = xy/soja*1000/60;
+		
+		numero = $("#emp").val();
 		
 		var kg = xyz / soja * 1000;
 		
@@ -242,6 +272,7 @@ function addRow(){
 			'</td><td class="suma2 text-right" data-val="'+xyz+'"> '+number_format(xyz,2,",", ".")+
 			'</td><td class="suma3 text-right" data-val="'+kg+'">$ '+number_format(kg,2,",", ".")+
 			'</td><td><button class="btn btn-danger remove-email" onclick="eliminar(this, event); return false;"><span class="glyphicon glyphicon-remove"></span></button></td></tr>');
+			
 		
 	}
 	
