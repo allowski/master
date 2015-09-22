@@ -259,7 +259,7 @@ function addRow(){
 		
 		numero = $("#emp").val();
 		
-		var kg = xyz / soja * 1000;
+		var kg = xyz / (1000/soja);
 		
 		var clase = (numero == 1) ? 'success' : 'danger';
 		
