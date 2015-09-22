@@ -232,19 +232,23 @@ function addRow(){
 			var kg = xy	 / (1000 / soja);
 			
 			var clase = (numero == 1) ? 'success' : 'danger';
+		
+			var precio = $('#precio').val();
+			
+			var appl = $('#aplicaciones').val();
 			
 			$('#result'+numero).append(
 				'<tr class="'+clase+'" onclick="edit(this, '+numero+');autoSum();return false;">'+
 				'<td>'+		$('#producto').val()+
 				'</td><td>'+	$('#um').val()+	
 				'</td><td>'+	$('#dosis').val()+	
-				'</td><td class="text-right">$ '+ 	number_format($('#precio').val(),2,",",".")+	
-				'</td><td class="text-center">'+	$('#aplicaciones').val()+	
+				'</td><td class="text-right" data-val="'+precio+'">$ '+ 	number_format(precio,2,",",".")+	
+				'</td><td class="text-center" data-val="'+appl+'">'+appl+	
 				'</td><td class="suma text-right" data-val="'+xy+'">$ '+number_format(xy,2,",", ".")+	
 				'</td><td class="suma2 text-right" data-val="'+xyz+'"> '+number_format(xyz,2,",", ".")+
 				'</td><td class="suma3 text-right" data-val="'+kg+'">$ '+number_format(kg,2,",", ".")+
 				'</td><td><button class="btn btn-danger remove-email" onclick="eliminar(this, event); return false;"><span class="glyphicon glyphicon-remove"></span></button></td></tr>');
-			
+				
 		}
 		
 	}else{
@@ -263,13 +267,17 @@ function addRow(){
 		
 		var clase = (numero == 1) ? 'success' : 'danger';
 		
+		var precio = $('#precio').val();
+		
+		var appl = $('#aplicaciones').val();
+		
 		$('#result'+numero).append(
 			'<tr class="'+clase+'" onclick="edit(this, '+numero+');autoSum();return false;">'+
 			'<td>'+		$('#producto').val()+
 			'</td><td>'+	$('#um').val()+	
 			'</td><td>'+	$('#dosis').val()+	
-			'</td><td class="text-right">$ '+ 	number_format($('#precio').val(),2,",",".")+	
-			'</td><td class="text-center">'+	$('#aplicaciones').val()+	
+			'</td><td class="text-right" data-val="'+precio+'">$ '+ 	number_format(precio,2,",",".")+	
+			'</td><td class="text-center" data-val="'+appl+'">'+appl+	
 			'</td><td class="suma text-right" data-val="'+xy+'">$ '+number_format(xy,2,",", ".")+	
 			'</td><td class="suma2 text-right" data-val="'+xyz+'"> '+number_format(xyz,2,",", ".")+
 			'</td><td class="suma3 text-right" data-val="'+kg+'">$ '+number_format(kg,2,",", ".")+
