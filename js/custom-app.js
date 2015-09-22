@@ -229,7 +229,7 @@ function addRow(){
 			
 			var xyz  = xy/soja*1000/60;
 			
-			var kg = xy / (1000 / soja);
+			var kg = xy	 / (1000 / soja);
 			
 			var clase = (numero == 1) ? 'success' : 'danger';
 			
@@ -300,10 +300,16 @@ function eliminar(ele, e){
 		
 	}
 	
+	window.isBeingEdited = 0;
+	
 }
 
 
 function edit(ele, de){
+	
+	if(window.isBeingEdited == 1){
+		alert("Ja esta editando uma fila");
+	}
 	
 	window.isBeingEdited = 1;
 	
