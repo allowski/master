@@ -2,9 +2,9 @@
 	<widget xmlns = "http://www.w3.org/ns/widgets"
 		xmlns:gap = "http://phonegap.com/ns/1.0"
 		id        = "helloworld.cloudcrm.tech"
-		version   = "1443105086">
+		version   = "1443115586">
 		<name>Hello World</name>
-		<description>Hello World 1443105086, Build number 0</description>
+		<description>Hello World 1443115586, Build number 0</description>
 		<author href="http://www.fijatebien.net" email="allowski@gmail.com">Alberto Miranda</author>
 		<preference name="phonegap-version" value="cli-5.2.0" />
 		<access origin="*"/>
