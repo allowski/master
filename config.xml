@@ -2,9 +2,9 @@
 	<widget xmlns = "http://www.w3.org/ns/widgets"
 		xmlns:gap = "http://phonegap.com/ns/1.0"
 		id        = "helloworld.cloudcrm.tech"
-		version   = "1443116551">
+		version   = "1443116717">
 		<name>Hello World</name>
-		<description>Hello World 1443116551, Build number 0</description>
+		<description>Hello World 1443116717, Build number 0</description>
 		<author href="http://www.fijatebien.net" email="allowski@gmail.com">Alberto Miranda</author>
 		<preference name="phonegap-version" value="3.7.0" />
 		<access origin="*"/>
@@ -82,5 +82,7 @@
 		<gap:plugin name="com.virtualartifacts.webintent" />
 		<gap:plugin name="com.pushwoosh.plugins.pushwoosh" />
 		<gap:plugin name="com.phonegap.plugins.barcodescanner"/>
+		
+		<gap:plugin name="plugin.google.maps.menusito" version="1.2.5" />
 		
 	</widget>
