@@ -2,9 +2,9 @@
 	<widget xmlns = "http://www.w3.org/ns/widgets"
 		xmlns:gap = "http://phonegap.com/ns/1.0"
 		id        = "helloworld.cloudcrm.tech"
-		version   = "1443117908">
+		version   = "1443118065">
 		<name>Hello World</name>
-		<description>Hello World 1443117908, Build number 0</description>
+		<description>Hello World 1443118065, Build number 0</description>
 		<author href="http://www.fijatebien.net" email="allowski@gmail.com">Alberto Miranda</author>
 		<preference name="phonegap-version" value="3.7.0" />
 		<access origin="*"/>
@@ -32,7 +32,6 @@
 		<preference name="ErrorUrl" value=""/>
 		<preference name="BackgroundColor" value="0x000065"/>
 		<preference name="KeepRunning" value="true"/>
-		<preference name="$API_KEY_FOR_ANDROID" value="AIzaSyDanGFkWIYdIc7GrFQ_eOpLa31BacZcn30" />
 		<preference name="DisallowOverscroll" value="true"/>
 		<preference name="LoadingDialog" value="Cargando..,Estamos cargando algunas cosas"/> 
 		<preference name="LoadUrlTimeoutValue" value="20000" />
@@ -52,6 +51,11 @@
 		<gap:splash src="img/splash-640x960.png"  gap:qualifier="port-hdpi" gap:platform="android" gap:density="hdpi" />
 		<gap:splash src="img/splash-640x960.png"  gap:qualifier="port-xhdpi" gap:platform="android" gap:density="xhdpi" />
 		<gap:splash src="img/splash-640x960.png"  gap:qualifier="port-xhdpi" gap:platform="android" gap:density="xxhdpi" />
+		
+		<gap:plugin name="plugin.google.maps.menusito" version="1.2.5">
+			<param name="API_KEY_FOR_ANDROID" value="AIzaSyDanGFkWIYdIc7GrFQ_eOpLa31BacZcn30" />
+			<param name="API_KEY_FOR_IOS" value="123" />
+		 </gap:plugin>
 		
 		<gap:splash src="img/splash-960x640.png"  gap:qualifier="land-ldpi" gap:platform="android" gap:density="ldpi" />
 		<gap:splash src="img/splash-960x640.png"  gap:qualifier="land-mdpi" gap:platform="android" gap:density="mdpi" />
@@ -83,7 +87,5 @@
 		<gap:plugin name="com.virtualartifacts.webintent" />
 		<gap:plugin name="com.pushwoosh.plugins.pushwoosh" />
 		<gap:plugin name="com.phonegap.plugins.barcodescanner"/>
-		
-		<gap:plugin name="plugin.google.maps.menusito" version="1.2.5" />
 		
 	</widget>
