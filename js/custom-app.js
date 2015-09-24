@@ -1,6 +1,6 @@
-function downloadF(){
+function openKML(kml){
 	
-	var url = "http://googlemaps.github.io/js-v2-samples/ggeoxml/cta.kml:";
+	var url = kml;
 	
 	var name = "cta.kml";
 	
