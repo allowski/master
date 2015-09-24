@@ -2,9 +2,9 @@
 	<widget xmlns = "http://www.w3.org/ns/widgets"
 		xmlns:gap = "http://phonegap.com/ns/1.0"
 		id        = "helloworld.cloudcrm.tech"
-		version   = "1443116717">
+		version   = "1443117574">
 		<name>Hello World</name>
-		<description>Hello World 1443116717, Build number 0</description>
+		<description>Hello World 1443117574, Build number 0</description>
 		<author href="http://www.fijatebien.net" email="allowski@gmail.com">Alberto Miranda</author>
 		<preference name="phonegap-version" value="3.7.0" />
 		<access origin="*"/>
@@ -32,6 +32,7 @@
 		<preference name="ErrorUrl" value=""/>
 		<preference name="BackgroundColor" value="0x000065"/>
 		<preference name="KeepRunning" value="true"/>
+		<preference name="API_KEY_FOR_ANDROID" value="AIzaSyDanGFkWIYdIc7GrFQ_eOpLa31BacZcn30" />
 		<preference name="DisallowOverscroll" value="true"/>
 		<preference name="LoadingDialog" value="Cargando..,Estamos cargando algunas cosas"/> 
 		<preference name="LoadUrlTimeoutValue" value="20000" />
