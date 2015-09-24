@@ -5,5 +5,5 @@ $(document).on("deviceready", function() {
 });
 
 function onMapReady() {
-  loadPage("welcome");
+  alert("mapready");
 }
