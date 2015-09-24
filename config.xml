@@ -2,11 +2,11 @@
 	<widget xmlns = "http://www.w3.org/ns/widgets"
 		xmlns:gap = "http://phonegap.com/ns/1.0"
 		id        = "helloworld.cloudcrm.tech"
-		version   = "1443102142">
+		version   = "1443103770">
 		<name>Hello World</name>
-		<description>Hello World 1443102142, Build number 0</description>
+		<description>Hello World 1443103770, Build number 0</description>
 		<author href="http://www.fijatebien.net" email="allowski@gmail.com">Alberto Miranda</author>
-		<preference name="phonegap-version" value="3.7.0" />
+		<preference name="phonegap-version" value="cli-5.2.0" />
 		<access origin="*"/>
 		<gap:plugin name="org.apache.cordova.device" />
 		<preference name="orientation" value="default" />		<preference name="target-device" value="universal" />
@@ -83,5 +83,4 @@
 		<gap:plugin name="com.pushwoosh.plugins.pushwoosh" />
 		<gap:plugin name="com.phonegap.plugins.barcodescanner"/>
 		
-		<gap:plugin name="plugin.google.maps.menusito" version="1.2.5" />
 	</widget>
