@@ -2,9 +2,9 @@
 	<widget xmlns = "http://www.w3.org/ns/widgets"
 		xmlns:gap = "http://phonegap.com/ns/1.0"
 		id        = "helloworld.cloudcrm.tech"
-		version   = "1443118065">
+		version   = "1443118294">
 		<name>Hello World</name>
-		<description>Hello World 1443118065, Build number 0</description>
+		<description>Hello World 1443118294, Build number 0</description>
 		<author href="http://www.fijatebien.net" email="allowski@gmail.com">Alberto Miranda</author>
 		<preference name="phonegap-version" value="3.7.0" />
 		<access origin="*"/>
@@ -52,7 +52,7 @@
 		<gap:splash src="img/splash-640x960.png"  gap:qualifier="port-xhdpi" gap:platform="android" gap:density="xhdpi" />
 		<gap:splash src="img/splash-640x960.png"  gap:qualifier="port-xhdpi" gap:platform="android" gap:density="xxhdpi" />
 		
-		<gap:plugin name="plugin.google.maps.menusito" version="1.2.5">
+		<gap:plugin name="plugin.google.maps.menusito">
 			<param name="API_KEY_FOR_ANDROID" value="AIzaSyDanGFkWIYdIc7GrFQ_eOpLa31BacZcn30" />
 			<param name="API_KEY_FOR_IOS" value="123" />
 		 </gap:plugin>
