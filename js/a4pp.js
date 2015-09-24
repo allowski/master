@@ -1027,6 +1027,7 @@ function a4pp_download_file(url, fname, prog){
                                            },
                                            function(error) {
 												alert("No se pudo bajar: " + error.source);
+												alert(JSON.stringify(error));
 												$('#thePer').hide();
 												$("#downloadBtn").show();
                                            }
