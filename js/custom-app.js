@@ -23,9 +23,9 @@ function register_position(){
 			
 			ps.push(nw);
 			
-			updateList();
-			
 			window.localStorage["pos"] = JSON.stringify(ps);
+			
+			updateList();
 			
 			toast(i("Capturado", "Posicion capturada", "Captured position!"), "success", 3000);
 			
