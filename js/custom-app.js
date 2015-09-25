@@ -30,7 +30,7 @@ function register_position(){
 			
 				if(isConnected()){
 					
-					sendAll();
+					//sendAll();
 					
 				}else{
 					
