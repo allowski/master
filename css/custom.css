@@ -2,15 +2,15 @@
 
 
 .material-bar,.navbar.navbar-inverse{
-	background:#F60;
+	background:red;
 	background: #ff3019;
-	background: -moz-linear-gradient(top, #F60 0%, #F60 100%);
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#F60), color-stop(100%,#F60));
-	background: -webkit-linear-gradient(top, #F60 0%,#F60 100%);
-	background: -o-linear-gradient(top, #F60 0%,#F60 100%);
-	background: linear-gradient(to bottom, #F60 0%,#F60 100%);
-	color:#FFF;
+	background: -moz-linear-gradient(top, red 0%, red 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,red), color-stop(100%,red));
+	background: -webkit-linear-gradient(top, red 0%,red 100%);
+	background: -o-linear-gradient(top, red 0%,red 100%);
+	background: linear-gradient(to bottom, red 0%,red 100%);
+	color:white;
 }
 .material-bar .navbar-item{
-	color:#FFF;
+	color:white;
 }
