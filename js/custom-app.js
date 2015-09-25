@@ -54,6 +54,8 @@ function updateList(){
 
 	var all = JSON.parse(window.localStorage["pos"]);
 	
+	$("#list").html("");
+	
 	if(all.length==0){
 		
 		$("<li>").text(i("Nada a mostrar", "Nada que mostrar", "No positions here")).appendTo("#list");
@@ -66,7 +68,9 @@ function updateList(){
 		
 		var current = all[x];
 		
-		$("<li>").text(JSON.stringify(current)).appendTo("#list");
+		var strx = i("Data/Hora", "Fecha", "Datetime")+": ".current.timestamp;
+		
+		$("<li>").text().appendTo("#list");
 		
 	}
 
