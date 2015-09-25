@@ -978,7 +978,7 @@ function a4pp_gps(callback){
 		alert(p.longitude);
 	}, function(){
 		alert("Error");
-	}, { timeout: 3000 });
+	}, { timeout: 30000 });
 	
 }
 
