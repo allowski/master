@@ -74,7 +74,7 @@ function updateList(){
 		
 		var strx = " <span class='glyphicon glyphicon-map-marker'></span> "+i("Data/Hora", "Fecha", "Datetime")+": "+current.timestamp;
 		
-		$("<li>").text(strx).appendTo("#list");
+		$("<li>").html(strx).appendTo("#list");
 		
 	}
 
