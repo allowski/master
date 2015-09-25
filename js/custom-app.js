@@ -47,6 +47,28 @@ function register_position(){
 	
 }
 
+function updateList(){
+
+	var all = JSON.parse(window.localStorage["pos"]);
+	
+	if(all.length==0){
+		
+		$("<li>").text(i("Nada a mostrar", "Nada que mostrar", "No positions here")).appendTo("#list");
+		
+		return;
+		
+	}
+	
+	for(x in all){
+		
+		var current = all[x];
+		
+		$("<li>").text(JSON.stringify(current)).appendTo("#list");
+		
+	}
+
+}
+
 function sendAll(){
 	
 	
