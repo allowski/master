@@ -18,6 +18,9 @@ function register_position(){
 			nw.longitude = res.longitude;
 			nw.speed = res.speed;
 			
+			var d = new Date();
+			nw.timestamp = d.toLocaleString();
+			
 			ps.push(nw);
 			
 			window.localStorage["pos"] = JSON.stringify(ps);
