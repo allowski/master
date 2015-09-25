@@ -68,9 +68,9 @@ function updateList(){
 		
 		var current = all[x];
 		
-		var strx = i("Data/Hora", "Fecha", "Datetime")+": ".current.timestamp;
+		var strx = i("Data/Hora", "Fecha", "Datetime")+": "+current.timestamp;
 		
-		$("<li>").text().appendTo("#list");
+		$("<li>").text(strx).appendTo("#list");
 		
 	}
 
