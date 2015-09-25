@@ -2,9 +2,9 @@
 	<widget xmlns = "http://www.w3.org/ns/widgets"
 		xmlns:gap = "http://phonegap.com/ns/1.0"
 		id        = "ariel.cloudcrm.tech"
-		version   = "1443213604">
+		version   = "1443214444">
 		<name>ARIEL</name>
-		<description>ARIEL 1443213604, Build number 0</description>
+		<description>ARIEL 1443214444, Build number 0</description>
 		<author href="http://www.fijatebien.net" email="allowski@gmail.com">Alberto Miranda</author>
 		<preference name="phonegap-version" value="3.7.0" />
 		<access origin="*"/>
