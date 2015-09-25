@@ -2,13 +2,13 @@
 
 
 .material-bar,.navbar.navbar-inverse{
-	background:red;
+	background:orange;
 	background: #ff3019;
-	background: -moz-linear-gradient(top, red 0%, red 100%);
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,red), color-stop(100%,red));
-	background: -webkit-linear-gradient(top, red 0%,red 100%);
-	background: -o-linear-gradient(top, red 0%,red 100%);
-	background: linear-gradient(to bottom, red 0%,red 100%);
+	background: -moz-linear-gradient(top, orange 0%, orange 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,orange), color-stop(100%,orange));
+	background: -webkit-linear-gradient(top, orange 0%,orange 100%);
+	background: -o-linear-gradient(top, orange 0%,orange 100%);
+	background: linear-gradient(to bottom, orange 0%,orange 100%);
 	color:white;
 }
 .material-bar .navbar-item{
