@@ -1,5 +1,9 @@
 function register_position(){
 	
+	toast("<span class='spinner glyphicon glyphicon-refresh'>".i("Aguarde..", "Aguarde..", "Wait.."), "warning", 50000);
+	
+	$("#btn").attr("src", "img/ponto-alt.png");
+	
 	getpos(function(res){
 		
 		var ps = JSON.parse(window.localStorage["pos"]);
@@ -19,6 +23,8 @@ function register_position(){
 		window.localStorage["pos"] = JSON.stringify(ps);
 		
 		toast("capturado", "success", 3000);
+		
+		$("#btn").attr("src", "img/ponto.png");
 		
 		if(isConnected()){
 			
