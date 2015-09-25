@@ -22,19 +22,23 @@ function register_position(){
 		
 		window.localStorage["pos"] = JSON.stringify(ps);
 		
-		toast("capturado", "success", 3000);
+		toast(i("Capturado", "Posicion capturada", "Captured position!"), "success", 3000);
 		
 		$("#btn").attr("src", "img/ponto.png");
 		
-		if(isConnected()){
+		setTimeout(function(){
+		
+			if(isConnected()){
+				
+				sendAll();
+				
+			}else{
+				
+				toast("offline", "warning", 1000);
+				
+			}
 			
-			sendAll();
-			
-		}else{
-			
-			toast("offline", "warning", 1000);
-			
-		}
+		}, 3000);
 		
 		
 	});
@@ -44,7 +48,7 @@ function register_position(){
 function sendAll(){
 	
 	
-	toast("sending...", "success", 15000);
+	toast("Sending...", "success", 15000);
 	
 	var sp = JSON.parse(window.localStorage["pos"]);
 	
