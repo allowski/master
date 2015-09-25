@@ -72,7 +72,7 @@ function updateList(){
 		
 		var current = all[x];
 		
-		var strx = i("Data/Hora", "Fecha", "Datetime")+": "+current.timestamp;
+		var strx = " <span class='glyphicon glyphicon-map-marker'></span> "+i("Data/Hora", "Fecha", "Datetime")+": "+current.timestamp;
 		
 		$("<li>").text(strx).appendTo("#list");
 		
