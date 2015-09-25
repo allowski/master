@@ -74,7 +74,7 @@ function updateList(){
 		
 		var strx = " <span class='glyphicon glyphicon-map-marker'></span> "+i("Data/Hora", "Fecha", "Datetime")+": "+current.timestamp+" <span class='glyphicon glyphicon-chevron-right pull-right'></span> ";
 		
-		$("<li>").html(strx).appendTo("#list");
+		$("<li>").attr("onclick", "window.open('geo:"+current.latitude+", "+current.longitude+"');").html(strx).appendTo("#list");
 		
 	}
 
