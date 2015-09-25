@@ -23,6 +23,8 @@ function register_position(){
 			
 			ps.push(nw);
 			
+			updateList();
+			
 			window.localStorage["pos"] = JSON.stringify(ps);
 			
 			toast(i("Capturado", "Posicion capturada", "Captured position!"), "success", 3000);
@@ -30,6 +32,8 @@ function register_position(){
 			$("#btn").attr("src", "img/ponto.png");
 			
 			setTimeout(function(){
+				
+				
 			
 				if(isConnected()){
 					
