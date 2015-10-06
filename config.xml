@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 	<widget xmlns = "http://www.w3.org/ns/widgets"
 		xmlns:gap = "http://phonegap.com/ns/1.0"
-		id        = "ponto.cloudcrm.tech"
-		version   = "1444044801">
-		<name>Ponto</name>
-		<description>Ponto 1444044801, Build number 0</description>
+		id        = "costo-beneficio.cloudcrm.tech"
+		version   = "1444127651">
+		<name>Costo Beneficio</name>
+		<description>Costo Beneficio 1444127651, Build number 0</description>
 		<author href="http://www.fijatebien.net" email="allowski@gmail.com">Alberto Miranda</author>
 		<preference name="phonegap-version" value="3.7.0" />
 		<access origin="*"/>
