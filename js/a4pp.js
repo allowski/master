@@ -357,6 +357,8 @@ function foreach(array, f){
 
 function a4pp_template(html, options){
 	
+	console.log("rendering..");
+	
 	var re = /<%(.+?)%>/g, 
 		reExp = /(^( )?(var|if|for|else|switch|case|break|{|}|;))(.*)?/g, 
 		code = 'with(obj) { var r=[];\n', 
@@ -375,6 +377,8 @@ function a4pp_template(html, options){
 	code = (code + 'return r.join(""); }').replace(/[\r\t\n]/g, '');
 	try { result = new Function('obj', code).apply(options, [options]); }
 	catch(err) { console.log("HTML:\n"+html); console.error("'" + err.message + "'", " in \n\nCode:\n", code, "\n"); }
+	
+	console.log("rendering OK..");
 	return result;
 
 }
