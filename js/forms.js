@@ -17,11 +17,14 @@ function get_data(){
 	
 	var processing = 0;
 	
+	var ammout = 0;
+	
 	iv = setInterval(function(){ 
 		
-		if(c>list_col.length){
+		if(c>=list_col.length){
 			clearInterval(iv);
 			console.log("Fim");
+			toast(t("Sincronizacion terminada ", "Sincronizacao terminada", "Syncing finished"), "success", 3000);
 		}
 		
 		if(processing == 1){ 
@@ -30,7 +33,7 @@ function get_data(){
 		
 		}
 		
-		toast(t("Sincronizando "+list_col[c], "Sincronizando "+list_col[c], "Syncing.. "+list_col[c]), "success", 50000);
+		toast(t("Sincronizando "+list_col[c], "Sincronizando "+list_col[c], "Syncing.. "+list_col[c]), "warning", 50000);
 		
 		processing = 1;
 		
