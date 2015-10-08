@@ -292,6 +292,11 @@ var remember = {
 	},
 	'update': function(collection, index, value){
 		
+		var old_item = remember.getItem(collection, index);
+		
+		if(old_item.real_id)
+			value.real_id = old_item.real_id;
+		
 		if(this.isCollection(collection)===true){
 			
 			this.collections[collection][index] = value;
