@@ -9,7 +9,11 @@ function get_data(){
 			console.log(typeof r);
 			console.log(typeof r.data);
 			
-			remember.collections[i] = JSON.parse(r.data);
+			console.log(r.data);
+			
+			console.log(r);
+			
+			remember.collections[i] = r.data;
 		
 		});
 	
