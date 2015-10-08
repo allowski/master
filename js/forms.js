@@ -24,7 +24,7 @@ function get_data(){
 	
 		if(c>=list_col.length){
 			console.log("Fim");
-			toast(t("Sincronizacion terminada ", "Sincronizacao terminada", "Syncing finished"), "success", 3000);
+			toast(t("Sincronizacion terminada "+ammount+" filas", "Sincronizacao terminada "+ammount+" filas", "Syncing finished "+ammount+" rows"), "success", 3000);
 			clearInterval(iv);
 		}
 		
