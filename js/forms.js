@@ -21,7 +21,7 @@ function get_data(){
 	
 	iv = setInterval(function(){ 
 		
-		if((!list_col[c])&&(list_col[c]=="undefined")&&(list_col[c]=="collections"){
+		if((!list_col[c])||(list_col[c]=="undefined")||(list_col[c]=="collections"){
 			
 		}else{
 		
