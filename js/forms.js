@@ -17,7 +17,7 @@ function get_data(){
 	
 	var processing = 0;
 	
-	var ammout = 0;
+	var ammount = 0;
 	
 	iv = setInterval(function(){ 
 		
