@@ -49,6 +49,8 @@ function get_data(){
 				processing = 0;
 				
 				remember.collections[i] = r.data;
+				
+				ammount+=r.data.length;
 			
 			});
 			
