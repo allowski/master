@@ -1,6 +1,6 @@
 function get_data(){
 	
-	toast("Sincronizando..", "Sincronizando..", "Syncing..", 50000 ,"success");
+	toast("Sincronizando..", "Sincronizando..", "Syncing..", "success", 50000);
 	
 	var list_col = [];
 	
@@ -22,10 +22,12 @@ function get_data(){
 		}
 		
 		if(processing == 1){ 
-		
+			
 			return;
 		
 		}
+		
+		toast("Sincronizando "+list_col[c], "Sincronizando "+list_col[c], "Syncing.. "+list_col[c], "success", 50000);
 		
 		processing = 1;
 		
