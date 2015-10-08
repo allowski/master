@@ -1082,6 +1082,12 @@ function a4pp_download_file(url, fname, prog){
 		
 		$.post(window.app.update_url, {"action":"update_data", "data":item, "collection":collection}, function(r){
 			
+			item.real_id = r.id; 
+			
+			remember.update(collection, indexOf, item);
+			
+			remember.save();
+			
 			alert("sent!");
 			
 		});
