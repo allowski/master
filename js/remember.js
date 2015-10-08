@@ -264,6 +264,7 @@ var remember = {
 		var newVal = $('#'+formId).serializeObject();
 		this.collections[collection][indexOf] = newVal;
 		console.log(newVal);
+		this.current_item = {"id":indexOf, "collection":collection};
 		this.save();
 	},
 	'new': function(formId){
