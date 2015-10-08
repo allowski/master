@@ -140,9 +140,9 @@ var remember = {
 		
 		this.log("bind called");
 		
-		this.current_item = {"id":indexOf, "collection":collection};
-		
 		indexOf = indexOf || 0;
+		
+		this.current_item = {"id":indexOf, "collection":collection};
 		
 		if(this.isCollection(collection)===true){
 			
