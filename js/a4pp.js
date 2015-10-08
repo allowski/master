@@ -1080,7 +1080,7 @@ function a4pp_download_file(url, fname, prog){
 		
 		var item = remember.getItem(collection, indexOf);
 		
-		$.post(window.app.update_url, {"action":"update_data", "data":item}, function(r){
+		$.post(window.app.update_url, {"action":"update_data", "data":item, "collection":collection}, function(r){
 			
 			alert("sent!");
 			
