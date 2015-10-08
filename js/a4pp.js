@@ -1074,3 +1074,16 @@ function a4pp_download_file(url, fname, prog){
 
 		navigator.geolocation.getCurrentPosition(onSuccess, onError, {maximumAge:0, timeout:10000, enableHighAccuracy: true});
 	}
+
+
+	function sendItem(collection, indexOf){
+		
+		var item = remember.getItem(collection, indexOf);
+		
+		$.post(window.app.update_url, {"action":"update_data", "data":item}, function(r){
+			
+			alert("sent!");
+			
+		});
+		
+	}

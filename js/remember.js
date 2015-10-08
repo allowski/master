@@ -142,8 +142,6 @@ var remember = {
 		
 		indexOf = indexOf || 0;
 		
-		this.current_item = {"id":indexOf, "collection":collection};
-		
 		if(this.isCollection(collection)===true){
 			
 			var frm = document.getElementById(formId);
@@ -154,6 +152,8 @@ var remember = {
 			frm["collection"] = collection;
 			
 			frm["indexOf"] = indexOf;
+			
+			this.current_item = {"id":indexOf, "collection":collection};
 			
 			if(indexOf in this.collections[collection]){
 				
@@ -206,6 +206,9 @@ var remember = {
 			
 		}
 		
+		
+		this.current_item = {"id":indexOf, "collection":collection};
+		
 	},
 	'prev': function(formId, collection){
 		
@@ -226,6 +229,8 @@ var remember = {
 			this.bind(formId, collection, indexOf);
 			
 		}
+		
+		this.current_item = {"id":indexOf, "collection":collection};
 		
 	},
 	'delete': function(formId, mes, callback){
@@ -291,11 +296,17 @@ var remember = {
 			
 			this.collections[collection][index] = value;
 			
+			this.current_item = {"id":index, "collection":collection};
+			
 			this.save();
 			
 		}	
+	},
+	'getCurrentItem': function(){
+		if(this.current_item != "undefined"){
+			return this.getItem(this.current_item.collection, this.current_item.id);
+		}
 	}
-	
 	
 };
 
