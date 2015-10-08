@@ -21,10 +21,14 @@ function get_data(){
 	
 	iv = setInterval(function(){ 
 		
+		if(!list_col[c]) return;
+		if(list_col[c]=="undefined") return;
+		if(list_col[c]=="collections") return;
+		
 		if(c>=list_col.length){
-			clearInterval(iv);
 			console.log("Fim");
 			toast(t("Sincronizacion terminada ", "Sincronizacao terminada", "Syncing finished"), "success", 3000);
+			clearInterval(iv);
 		}
 		
 		if(processing == 1){ 
