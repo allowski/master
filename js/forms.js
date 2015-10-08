@@ -12,6 +12,8 @@ function get_data(){
 	
 	var c = 0;
 	
+	var processing = 0;
+	
 	iv = setInterval(function(){ 
 		
 		if(c>list_col.length){
@@ -19,9 +21,19 @@ function get_data(){
 			console.log("Fim");
 		}
 		
+		if(processing == 1){ 
+		
+			return;
+		
+		}
+		
+		processing = 1;
+		
 		console.log(list_col[c]);
 		
 		$.post(window.app.update_url, {"action":"get_data", "collection":i}, function(r){
+			
+			processing = 0;
 			
 			console.log(typeof r);
 			console.log(typeof r.data);
@@ -36,7 +48,7 @@ function get_data(){
 		
 		c++;
 	
-	});
+	}, 500);
 	
 	
 }
