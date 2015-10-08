@@ -1,9 +1,26 @@
 function get_data(){
 	
-	toast("Sincronizando..", "Sincronizando..", "Syncing..", "success");
+	toast("Sincronizando..", "Sincronizando..", "Syncing..", 50000 ,"success");
+	
+	var list_col = [];
 	
 	for(var i  in remember.collections){
+		list_col.push(i);
+	}
 	
+	var iv;
+	
+	var c = 0;
+	
+	iv = setInterval(function(){ 
+		
+		if(c>list_col.length){
+			clearInterval(iv);
+			console.log("Fim");
+		}
+		
+		console.log(list_col[c]);
+		
 		$.post(window.app.update_url, {"action":"get_data", "collection":i}, function(r){
 			
 			console.log(typeof r);
@@ -16,8 +33,10 @@ function get_data(){
 			remember.collections[i] = r.data;
 		
 		});
+		
+		c++;
 	
-	}
+	});
 	
 	
 }
