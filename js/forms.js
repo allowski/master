@@ -6,7 +6,7 @@ function get_data(){
 	
 		$.post(window.app.update_url, {"action":"get_data", "collection":i}, function(r){
 			
-			remember.collections[i] = r;
+			remember.collections[i] = JSON.parse(r.data);
 		
 		});
 	
