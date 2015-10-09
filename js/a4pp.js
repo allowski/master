@@ -1088,7 +1088,7 @@ function a4pp_download_file(url, fname, prog){
 			
 			remember.save();
 			
-			alert("sent!");
+			alert(r.message);
 			
 		});
 		
