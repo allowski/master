@@ -44,7 +44,7 @@ function get_data(){
 			
 			console.log("Syncing: "+list_col[c]);
 			
-			$.post(window.app.update_url, {"action":"get_data", "collection":i}, function(r){
+			$.post(window.app.update_url, {"action":"get_data", "collection":window.app.collections[c]}, function(r){
 				
 				processing = 0;
 				
