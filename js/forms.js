@@ -50,6 +50,8 @@ function get_data(){
 				
 				remember.collections[i] = r.data;
 				
+				console.log(r);
+				
 				ammount+=r.data.length;
 			
 			});
