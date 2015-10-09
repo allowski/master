@@ -50,7 +50,7 @@ function get_data(){
 				
 				processing = 0;
 				
-				remember.collections[i] = r.data;
+				remember.collections[list_col[c]] = r.data;
 				
 				remember.save();
 					
