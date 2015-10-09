@@ -52,11 +52,14 @@ function get_data(){
 				
 				remember.collections[i] = r.data;
 				
+				remember.save();
+					
 				console.log(r);
 				
 				ammount+=r.data.length;
 			
 			});
+			
 			
 		}
 		
