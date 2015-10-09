@@ -59,11 +59,11 @@ function get_data(){
 				console.log(r);
 				
 				ammount+=r.data.length;
+				
+				c++;
 			
 			});
 			
-			c++;
-	
 			
 			
 		}
