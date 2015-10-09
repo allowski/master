@@ -34,6 +34,8 @@ function get_data(){
 			
 			if(processing == 1){ 
 				
+				console.log("Still processing: "+list_col[c]+" .. waiting..");
+				
 				return;
 			
 			}
