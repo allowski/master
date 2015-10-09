@@ -163,6 +163,11 @@ var remember = {
 					
 					var ele = document.querySelector("#"+formId+" [name="+k+"]");
 					
+					if(!ele){
+						console.log(k+" ignored");
+						continue;
+					}
+					
 					ele.value = this.collections[collection][indexOf][k];	
 					
 					var attr = $(ele).attr("data-sento");
