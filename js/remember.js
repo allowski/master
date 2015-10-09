@@ -273,9 +273,11 @@ var remember = {
 		var indexOf = frm["indexOf"];
 		var newVal = $('#'+formId).serializeObject();
 		var old = this.collections[collection][indexOf];
-		if(old.real_id != "undefined"){
-			newVal.real_id = old.real_id;
-			console.log("Real Id: "+old.real_id);
+		if(old){
+			if("real_id" in old){
+				newVal.real_id = old.real_id;
+				console.log("Real Id: "+old.real_id);
+			}
 		}
 		this.collections[collection][indexOf] = newVal;
 		console.log("Save form, new value is:");
