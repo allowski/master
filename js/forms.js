@@ -7,8 +7,8 @@ function get_data(){
 	
 	var list_col = [];
 	
-	for(var i  in remember.collections){
-		list_col.push(i);
+	for(var i  in window.app.collections){
+		list_col.push(window.app.collections[i]);
 	}
 	
 	var iv;
