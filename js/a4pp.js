@@ -61,28 +61,6 @@ function a4pp_logout(){
 	}
 }
 
-var i = function($pt, $es, $en){
-
-	/*if(typeof window.app.lang == "undefined"){
-		return $es;
-	}
-
-	switch(window.app.lang){
-		case "pt":
-			return $pt;
-		break;
-		case "es":
-			return $es;
-		break;
-		case "en":
-			return $en;
-		break;
-	}*/
-
-	return $es;
-
-}
-
 
 function toast(text, type, timeout){
 	
@@ -185,6 +163,30 @@ function a4pp_register(that){
 	}).error(a4pp_conn_error);
 
 	return false;
+
+}
+
+
+
+var i = function($pt, $es, $en){
+
+	/*if(typeof window.app.lang == "undefined"){
+		return $es;
+	}
+
+	switch(window.app.lang){
+		case "pt":
+			return $pt;
+		break;
+		case "es":
+			return $es;
+		break;
+		case "en":
+			return $en;
+		break;
+	}*/
+
+	return $es;
 
 }
 
