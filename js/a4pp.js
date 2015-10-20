@@ -175,19 +175,19 @@ var i = function($pt, $es, $en){
 	if(typeof window.app.lang == "undefined"){
 		return $es;
 	}
-
-	switch(window.app.lang){
-		case "pt":
-			return $pt;
-		break;
-		case "es":
-			return $es;
-		break;
-		case "en":
-			return $en;
-		break;
+	if(typeof window.app.lang != "undefined"){
+		switch(window.app.lang){
+			case "pt":
+				return $pt;
+			break;
+			case "es":
+				return $es;
+			break;
+			case "en":
+				return $en;
+			break;
+		}
 	}
-
 	return $es;
 
 }
