@@ -61,7 +61,7 @@ function a4pp_logout(){
 	}
 }
 
-function i($pt, $es, $en){
+var i = function($pt, $es, $en){
 
 	/*if(typeof window.app.lang == "undefined"){
 		return $es;
