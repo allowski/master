@@ -2,9 +2,9 @@
 	<widget xmlns = "http://www.w3.org/ns/widgets"
 		xmlns:gap = "http://phonegap.com/ns/1.0"
 		id        = "dues.cloudcrm.tech"
-		version   = "1445345202">
+		version   = "1445348142">
 		<name>Deudas</name>
-		<description>Deudas 1445345202, Build number 0</description>
+		<description>Deudas 1445348142, Build number 0</description>
 		<author href="http://www.fijatebien.net" email="allowski@gmail.com">Alberto Miranda</author>
 		<preference name="phonegap-version" value="3.7.0" />
 		<access origin="*"/>

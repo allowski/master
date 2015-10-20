@@ -63,7 +63,7 @@ function a4pp_logout(){
 
 function i($pt, $es, $en){
 
-	if(typeof window.app.lang == "undefined"){
+	/*if(typeof window.app.lang == "undefined"){
 		return $es;
 	}
 
@@ -77,7 +77,7 @@ function i($pt, $es, $en){
 		case "en":
 			return $en;
 		break;
-	}
+	}*/
 
 	return $es;
 
