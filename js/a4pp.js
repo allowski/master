@@ -166,29 +166,9 @@ function a4pp_register(that){
 
 }
 
+function i ($pt, $es, $en){
 
-
-var i = function($pt, $es, $en){
-
-	console.log("Lang called");
 	
-	if(typeof window.app.lang == "undefined"){
-		return $es;
-	}
-	if(typeof window.app.lang != "undefined"){
-		switch(window.app.lang){
-			case "pt":
-				return $pt;
-			break;
-			case "es":
-				return $es;
-			break;
-			case "en":
-				return $en;
-			break;
-		}
-	}
-	return $es;
 
 }
 
