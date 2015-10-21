@@ -35,21 +35,25 @@ window.load = function(){
 };
 
 function gotFS(fs) {
+	console.log(arguments.callee.toString());
 	var fail = failCB('getFile');
 	fs.root.getFile(FILENAME, {create: true, exclusive: false},
 					gotFileEntry, fail);
 }
 function gotFileEntry(fileEntry) {
+	console.log(arguments.callee.toString());
 	var fail = failCB('createWriter');
 	file.entry = fileEntry;
 	fileEntry.createWriter(gotFileWriter, fail);
 	readText();
 }
 function gotFileWriter(fileWriter) {
+	console.log(arguments.callee.toString());
 	file.writer.available = true;
 	file.writer.object = fileWriter;
 }
 function saveText(e) {
+	console.log(arguments.callee.toString());
 	var name = $('name').value,
 		desc = $('desc').value,
 		fail;
@@ -68,6 +72,7 @@ function saveText(e) {
 	return false;
 }
 function readText() {
+	console.log(arguments.callee.toString());
 	if (file.entry) {
 		file.entry.file(function (dbFile) {
 			var reader = new FileReader();
