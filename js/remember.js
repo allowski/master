@@ -88,7 +88,9 @@ var remember = {
 	'logs': "init\n",
 	'load' 	: function(){
 		try{
-			this.collections = JSON.parse(window.localStorage['rememberData']);
+			readText(function(r){
+				this.collections = JSON.parse(r);
+			});
 		}catch(e){
 			this.firstRun();
 		}
@@ -98,7 +100,7 @@ var remember = {
 		});
 	},
 	'save'	: function(){
-		window.localStorage['rememberData'] = JSON.stringify(this.collections);
+		//window.localStorage['rememberData'] = JSON.stringify(this.collections);
 		saveText(JSON.stringify(this.collections));
 	},
 	'init'	: function(){
