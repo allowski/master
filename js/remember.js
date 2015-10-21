@@ -70,17 +70,16 @@ function saveText(e) {
 	}
 	return false;
 }
-function readText() {
+function readText(cb) {
 	console.log(arguments.callee.toString());
 	if (file.entry) {
 		file.entry.file(function (dbFile) {
 			var reader = new FileReader();
 			reader.onloadend = function (evt) {
-				var textArray = evt.target.result.split("\n");
-				dbEntries = textArray.concat(dbEntries);
-				$('definitions').innerHTML = dbEntries.join('');
+				cb(evt.target.result);
 			}
 			reader.readAsText(dbFile);
+			
 		}, failCB("FileReader"));
 	}
 	return false;
