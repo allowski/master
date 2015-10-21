@@ -929,9 +929,9 @@ function openCamera(w, h, q, callback){
 function take_photo_id($id){
 	//alert("take_photo_id called id:"+$id);
 	inp = "#"+$id;
-	openCamera(800, 600, 90, function(img){
+	openCamera(500, 400, 75, function(img){
 		console.log("photo taken");
-		alert("setting #"+$id+" value to:\n "+img);
+		
 		$(inp).val(img).trigger("change");
 		//alert($(inp).attr("data-sento"));
 		var imgEle = "#img_"+$id;
