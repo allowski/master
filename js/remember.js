@@ -244,7 +244,7 @@ var remember = {
 					
 					ele.value = this.collections[collection][indexOf][k];	
 					
-					var attr = $(ele).attr("data-sento");
+					var attr = "img_"+ele.id;
 					
 					if (typeof attr !== typeof undefined && attr !== false) {
 				
