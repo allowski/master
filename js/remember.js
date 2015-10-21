@@ -8,7 +8,7 @@ function inCollection(obj, list) {
 
     return false;
 }
-var FILENAME = 'teste.txt',
+var FILENAME = 'remember.txt',
 	$ = function (id) {
 		return document.getElementById(id);
 	},
@@ -36,7 +36,7 @@ function gotFS(fs) {
 	console.log(arguments.callee.toString());
 	var fail = failCB('getFile');
 	console.log(fs);
-	fs.root.getFile(FILENAME, {create: true, exclusive: true},
+	fs.root.getFile(FILENAME, {create: true, exclusive: false},
 					gotFileEntry, fail);
 }
 function gotFileEntry(fileEntry) {
@@ -53,20 +53,14 @@ function gotFileWriter(fileWriter) {
 }
 function saveText(e) {
 	console.log(arguments.callee.toString());
-	var name = $('name').value,
-		desc = $('desc').value,
-		fail;
-	dbEntries.push('<dt>' + name + '</dt><dd>' + desc + '</dd>')
-	$('name').value = '';
-	$('desc').value = '';
-	$('definitions').innerHTML = dbEntries.join('');
+	var fail;
 	if (file.writer.available) {
 		file.writer.available = false;
 		file.writer.object.onwriteend = function (evt) {
 			file.writer.available = true;
 			file.writer.object.seek(0);
 		}
-		file.writer.object.write(dbEntries.join("\n"));
+		file.writer.object.write(e);
 	}
 	return false;
 }
