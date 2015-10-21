@@ -246,11 +246,10 @@ var remember = {
 					
 					var attr = "img_"+ele.id;
 					
-					if (typeof attr !== typeof undefined && attr !== false) {
-				
-						//setTimeout(function(){
+					var imgEle = document.getElementById(attr);
+					
+					if (typeof imgEle !== typeof undefined && imgEle !== false && imgEle && imgEle!=null) {
 						
-						var imgEle = document.getElementById(attr);
 						
 						imgEle.src = ele.value;
 						
