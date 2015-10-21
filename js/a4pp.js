@@ -929,7 +929,7 @@ function openCamera(w, h, q, callback){
 function take_photo_id($id){
 	//alert("take_photo_id called id:"+$id);
 	inp = "#"+$id;
-	openCamera(500, 300, 80, function(img){
+	openCamera(800, 600, 90, function(img){
 		console.log("photo taken");
 		alert("setting #"+$id+" value to:\n "+img);
 		$(inp).val(img).trigger("change");
