@@ -38,7 +38,7 @@ window.onload = function(){
 	if(typeof LocalFileSystem != "undefined"){
 		tp = LocalFileSystem.PERSISTENT;
 	}
-	window.requestFileSystem(tp, 0, gotFS, fail);
+	window.webkitRequestFileSystem(tp, 0, gotFS, fail);
 };
 
 function gotFS(fs) {
