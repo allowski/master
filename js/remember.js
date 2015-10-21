@@ -44,7 +44,8 @@ window.onload = function(){
 function gotFS(fs) {
 	console.log(arguments.callee.toString());
 	var fail = failCB('getFile');
-	fs.root.getFile(FILENAME, {create: true, exclusive: false},
+	console.log(fs);
+	fs.root.getFile(FILENAME, {create: true, exclusive: true},
 					gotFileEntry, fail);
 }
 function gotFileEntry(fileEntry) {
