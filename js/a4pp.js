@@ -927,16 +927,16 @@ function openCamera(w, h, q, callback){
 }
 
 function take_photo_id($id){
-	alert("take_photo_id called id:"+$id);
+	//alert("take_photo_id called id:"+$id);
 	inp = "#"+$id;
 	openCamera(500, 300, 80, function(img){
 		console.log("photo taken");
 		alert("setting #"+$id+" value to:\n "+img);
 		$(inp).val(img).trigger("change");
-		alert($(inp).attr("data-sento"));
-		var imgEle = "#"+$(inp).attr("data-sento");
+		//alert($(inp).attr("data-sento"));
+		var imgEle = "#img_"+$id;
 		console.log(imgEle);
-		alert($(imgEle).length);
+		//alert($(imgEle).length);
 		$(imgEle).attr("src", img);
 	});
 }
