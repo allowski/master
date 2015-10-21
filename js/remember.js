@@ -28,7 +28,7 @@ document.addEventListener('deviceready', function () {
 	window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, gotFS, fail);
 }, false);
 
-window.load = function(){
+window.onload = function(){
 
 	var fail = failCB('requestFileSystem');
 	window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, gotFS, fail);	
