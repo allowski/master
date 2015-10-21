@@ -32,15 +32,6 @@ document.addEventListener('deviceready', function () {
 	window.requestFileSystem(tp, 0, gotFS, fail);
 }, false);
 
-window.onload = function(){
-	var fail = failCB('requestFileSystem');
-	var tp = window.PERSISTENT;
-	if(typeof LocalFileSystem != "undefined"){
-		tp = LocalFileSystem.PERSISTENT;
-	}
-	window.webkitRequestFileSystem(tp, 0, gotFS, fail);
-};
-
 function gotFS(fs) {
 	console.log(arguments.callee.toString());
 	var fail = failCB('getFile');
