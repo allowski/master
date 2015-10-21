@@ -8,7 +8,7 @@ function inCollection(obj, list) {
 
     return false;
 }
-var FILENAME = window.app.appDomain+'.json',
+var FILENAME = 'teste.json',
 	$ = function (id) {
 		return document.getElementById(id);
 	},
