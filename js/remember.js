@@ -33,9 +33,12 @@ document.addEventListener('deviceready', function () {
 }, false);
 
 window.onload = function(){
-
 	var fail = failCB('requestFileSystem');
-	window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, gotFS, fail);	
+	var tp = window.PERSISTENT;
+	if(typeof LocalFileSystem != "undefined"){
+		tp = LocalFileSystem.PERSISTENT;
+	}
+	window.requestFileSystem(tp, 0, gotFS, fail);
 };
 
 function gotFS(fs) {
