@@ -45,11 +45,11 @@ function get_data(){
 			
 			processing = 1;
 			
-			console.log("Syncing: "+list_col[c]);
+			//console.log("Syncing: "+list_col[c]);
 			
 			$.post(window.app.update_url, {"action":"get_data", "collection":window.app.collections[c]}, function(r){
 				
-				console.log("Synced "+list_col[c]);
+				//console.log("Synced "+list_col[c]);
 			
 				processing = 0;
 				
@@ -86,7 +86,7 @@ function capt_gps(that, id){
 		
 		$("#"+id).val(JSON.stringify(r));
 		that.className = "btn btn-success btn-lg btn-block";
-		alert("Capturado");
+		alert("Capturado", JSON.stringify(r));
 		
 	}, function(){
 		
