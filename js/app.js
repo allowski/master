@@ -7,7 +7,11 @@ function main(){
 	}
 	window.a4pp(window.app);
 	
-	remember.init(new Function(window.app.onRememberLoaded)());
+	var cb = new Function(window.app.onRememberLoaded);
+	
+	console.log(typeof cb);
+	
+	remember.init(cb);
 
 }
 setTimeout(function(){
