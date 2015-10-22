@@ -624,6 +624,6 @@ h4.frmLbl{font-size:18px !important;background:#080 !important;color:white;text-
 form label{white-space:nowrap;text-transform:uppercase;}
 .cli{width:25%;display:inline-block;}
 .cli h4{overflow:hidden;white-space:nowrap;text-overflow:ellipsis;}
-.cli .i{padding:4px;border:1px solid #eee;margin:3px;border-radius:3px;}
+.cli .i{padding:4px;border:1px solid #eee;margin:3px;border-radius:3px;box-shadow:0px 1px 2px #999;}
 .cli i, .cli b{display:inline-block;width:40%;font-style:normal !important;text-align:right;}
 .cli b:after{content:" $";}
