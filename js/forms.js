@@ -75,11 +75,9 @@ function get_data(){
 
 function capt_gps(that, id){
 	
-	var that = this;
-	
 	console.log("capt_gps");
 	
-	this.className = "btn btn-default btn-lg btn-block disabled";
+	that.className = "btn btn-default btn-lg btn-block disabled";
 	
 	console.log("This is..");
 	console.log(that);
