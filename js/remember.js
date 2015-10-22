@@ -136,13 +136,6 @@ var remember = {
 		
 		this.log("init called");
 		
-		if(!window.localStorage.hasOwnProperty("rememberData")){
-			this.log("Localstorage is empty");
-			this.firstRun();
-		}else{
-			this.log("Localstorage is ok");
-		}
-		
 		this.load();
 	}, 
 	'log' 	: function(m){
@@ -150,8 +143,8 @@ var remember = {
 		console.log(m);
 	},
 	'firstRun': function(){
-		window.localStorage['rememberData'] = "{\"collections\":[]}";
-		this.collections = JSON.parse(window.localStorage['rememberData']);
+		this.collections = {"collections":[]};
+		this.save();
 	},
 	'create'	: function(name){
 		this.log("create called");
