@@ -620,7 +620,7 @@ img.scrollable{
 b,h1,h2,h3,h4,h5,th,strong{font-family:"Roboto Black";}
 
 
-.frmLbl{font-size:18px;background:#080;color:white;text-transform:uppercase;}
+h4.frmLbl{font-size:18px !important;background:#080 !important;color:white;text-transform:uppercase !important;}
 .cli{width:25%;border:1px solid #ddd;display:inline-block;}
 .cli h4{overflow:hidden;white-space:nowrap;text-overflow:ellipsis;}
 .cli .i{padding:4px;}
