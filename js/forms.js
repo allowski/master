@@ -75,7 +75,11 @@ function get_data(){
 
 function capt_gps(that, id){
 	
-	$(that).removeClass('btn-primary').addClass('btn-default').addClass("disabled");
+	var that = this;
+	
+	console.log("capt_gps");
+	
+	$(this).removeClass('btn-primary').addClass('btn-default').addClass("disabled");
 	
 	getpos(function(r){
 		$("#"+id).val(JSON.stringfy(r));
