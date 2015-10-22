@@ -79,7 +79,11 @@ function readText(cb) {
 	return false;
 }
 
-
+function isPhoneGap() {
+    return (cordova || PhoneGap || phonegap) 
+    && /^file:\/{3}[^\/]/i.test(window.location.href) 
+    && /ios|iphone|ipod|ipad|android/i.test(navigator.userAgent);
+}
         
 
 var remember = {
@@ -88,9 +92,16 @@ var remember = {
 	'logs': "init\n",
 	'load' 	: function(){
 		try{
-			readText(function(r){
-				this.collections = JSON.parse(r);
-			});
+			var that = this;
+			if(isPhoneGap()){
+				readText(function(r){
+					that.collections = JSON.parse(r);
+					alert("Parsed");
+				});
+			}else{
+				this.collections = JSON.parse(this.collections);
+				alert("LocalS");
+			}
 		}catch(e){
 			alert("Catch");
 			this.firstRun();
@@ -101,8 +112,13 @@ var remember = {
 		});
 	},
 	'save'	: function(){
-		//window.localStorage['rememberData'] = JSON.stringify(this.collections);
-		saveText(JSON.stringify(this.collections));
+		
+		if(isPhoneGap()){
+			saveText(JSON.stringify(this.collections));
+		}else{
+			window.localStorage['rememberData'] = JSON.stringify(this.collections);
+		}
+		
 	},
 	'init'	: function(){
 		
