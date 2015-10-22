@@ -1063,6 +1063,7 @@ function a4pp_download_file(url, fname, prog){
 
 		var onSuccess = function(position) {
 			 callback(position.coords);
+			 console.log(position);
 		};
 
 		// onError Callback receives a PositionError object
