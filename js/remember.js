@@ -148,8 +148,10 @@ var remember = {
 	'firstRun': function(){
 		
 		if('hasRemember' in window.localStorage){
-			
+			console.log("Has Remember? True");
 		}else{
+			console.log("Has Remember? False");
+			console.log("Creating Collections..");
 			window.localStorage['hasRemember'] = 1;
 			this.collections = {"collections":[]};
 			this.save();
