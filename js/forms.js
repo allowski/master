@@ -73,10 +73,14 @@ function get_data(){
 }
 
 
-function capt_gps(id){
+function capt_gps(that, id){
+	
+	$(that).removeClass('btn-primary').addClass('btn-default').addClass("disabled");
 	
 	getpos(function(r){
 		$("#"+id).val(JSON.stringfy(r));
+		$(that).addClass('btn-success').removeClass("disabled").removeClass('btn-default');
+		alert("Capturado");
 	});
 	
 }
