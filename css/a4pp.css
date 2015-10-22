@@ -626,4 +626,4 @@ form label{white-space:nowrap;text-transform:uppercase;}
 .cli h4{overflow:hidden;white-space:nowrap;text-overflow:ellipsis;}
 .cli .i{padding:4px;}
 .cli i, .cli b{display:inline-block;width:40%;font-style:normal !important;text-align:right;}
-.cli b:after{content:"$";}
+.cli b:after{content:" $";}
