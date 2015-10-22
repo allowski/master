@@ -101,20 +101,17 @@ var remember = {
 	'logs': "init\n",
 	'load' 	: function(){
 		try{
-			var that = this;
 			if(isPhoneGap()){
 				readText(function(r){
 					remember.collections = JSON.parse(r);
 					console.log("Getting collections from File");
-					alert("Getting collections from File");
 				});
 			}else{
 				this.collections = JSON.parse(window.localStorage['rememberData']);
 				console.log("Getting collections from LocalStorage");
-				alert("Getting collections from LocalStorage");
 			}
 		}catch(e){
-			alert("Error ocurred");
+			console.log("Error 404");
 			console.log("Error ocurred");
 			console.log(e);
 			this.firstRun();
