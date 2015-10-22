@@ -83,6 +83,16 @@ function isPhoneGap() {
     return /^file:\/{3}[^\/]/i.test(window.location.href) 
     && /ios|iphone|ipod|ipad|android/i.test(navigator.userAgent);
 }
+
+if(isPhoneGap()){
+	
+	console.log("Running Phonegap");
+	
+}else{
+	
+	console.log("Running Web App");
+	
+}
         
 
 var remember = {
@@ -95,14 +105,15 @@ var remember = {
 			if(isPhoneGap()){
 				readText(function(r){
 					that.collections = JSON.parse(r);
-					alert("Parsed");
+					console.log("Getting collections from File");
 				});
 			}else{
-				this.collections = JSON.parse(this.collections);
-				alert("LocalS");
+				this.collections = JSON.parse(window.localStorage['rememberData']);
+				console.log("Getting collections from LocalStorage");
 			}
 		}catch(e){
-			alert("Catch");
+			console.log("Error ocurred");
+			console.log(e);
 			this.firstRun();
 		}
 		watch(this, "collections", function(r, m){
@@ -113,8 +124,10 @@ var remember = {
 	'save'	: function(){
 		
 		if(isPhoneGap()){
+			console.log("Writing to File");
 			saveText(JSON.stringify(this.collections));
 		}else{
+			console.log("Writing to LocalStorage");
 			window.localStorage['rememberData'] = JSON.stringify(this.collections);
 		}
 		
