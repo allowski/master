@@ -1059,7 +1059,7 @@ function a4pp_download_file(url, fname, prog){
         alert(evt.target.error.code);
     }
     
-    function getpos(callback){
+    function getpos(callback, onerr){
 
 		var onSuccess = function(position) {
 			 callback(position.coords);
@@ -1072,7 +1072,9 @@ function a4pp_download_file(url, fname, prog){
 				  'message: ' + error.message + '\n');
 		}
 
-		navigator.geolocation.getCurrentPosition(onSuccess, onError, {maximumAge:0, timeout:10000, enableHighAccuracy: true});
+		var	onRealError = (onerr) ? onerr : onError;
+
+		navigator.geolocation.getCurrentPosition(onSuccess, onRealError, {maximumAge:0, timeout:10000, enableHighAccuracy: true});
 	}
 
 

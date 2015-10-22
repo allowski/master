@@ -86,6 +86,10 @@ function capt_gps(that, id){
 		$("#"+id).val(JSON.stringfy(r));
 		$(that).addClass('btn-success').removeClass("disabled").removeClass('btn-default');
 		alert("Capturado");
+	}, function(){
+	
+		
+		
 	});
 	
 }
