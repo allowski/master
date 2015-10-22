@@ -427,5 +427,4 @@ var remember = {
 	
 };
 
-remember.init(window.app.onRememberLoaded);
 

@@ -6,6 +6,9 @@ function main(){
 		window.app = appo;
 	}
 	window.a4pp(window.app);
+	
+	remember.init(window.app.onRememberLoaded);
+
 }
 setTimeout(function(){
 	main();
