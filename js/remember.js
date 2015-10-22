@@ -139,6 +139,7 @@ var remember = {
 		this.log("init called");
 		
 		this.load(f);
+		
 	}, 
 	'log' 	: function(m){
 		this.logs += m+"\n";

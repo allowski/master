@@ -7,7 +7,7 @@ function main(){
 	}
 	window.a4pp(window.app);
 	
-	remember.init(window.app.onRememberLoaded);
+	remember.init(new Function(window.app.onRememberLoaded)());
 
 }
 setTimeout(function(){
