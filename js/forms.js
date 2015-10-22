@@ -25,6 +25,7 @@ function get_data(){
 		if(c>=list_col.length){
 			console.log("Fim");
 			toast(t("Sincronizacion terminada "+ammount+" filas", "Sincronizacao terminada "+ammount+" filas", "Syncing finished "+ammount+" rows"), "success", 3000);
+			main();
 			clearInterval(iv);
 		}
 		
@@ -55,8 +56,6 @@ function get_data(){
 				remember.collections[list_col[c]] = r.data;
 				
 				remember.save();
-					
-				console.log(r);
 				
 				ammount+=r.data.length;
 				
