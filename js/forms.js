@@ -84,11 +84,11 @@ function capt_gps(that, id){
 	
 	getpos(function(r){
 		$("#"+id).val(JSON.stringfy(r));
-		$(that).addClass('btn-success').removeClass("disabled").removeClass('btn-default');
+		that.className = "btn btn-success btn-lg btn-block";
 		alert("Capturado");
 	}, function(){
 	
-		
+		that.className = "btn btn-primary btn-lg btn-block";
 		
 	});
 	
