@@ -391,7 +391,7 @@ var remember = {
 		}
 		if(newVal != old){
 			console.log("Modified row "+indexOf+" from "+collection+" collection");
-			this.modified_items[] = {"id":indexOf, "collection":collection};
+			this.modified_items.push({"id":indexOf, "collection":collection});
 		}
 		this.collections[collection][indexOf] = newVal;
 		console.log("Save form, new value is:");
