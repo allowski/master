@@ -92,6 +92,7 @@ var remember = {
 				this.collections = JSON.parse(r);
 			});
 		}catch(e){
+			alert("Catch");
 			this.firstRun();
 		}
 		watch(this, "collections", function(r, m){
