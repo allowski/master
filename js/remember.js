@@ -134,14 +134,11 @@ var remember = {
 		}
 		
 	},
-	'init'	: function(){
+	'init'	: function(f){
 		
 		this.log("init called");
 		
-		this.load(function(){
-			console.log("Callback loaded");
-			alert("Loaded");
-		});
+		this.load(f);
 	}, 
 	'log' 	: function(m){
 		this.logs += m+"\n";
@@ -430,5 +427,5 @@ var remember = {
 	
 };
 
-remember.init();
+remember.init(window.app.onRememberLoaded);
 
