@@ -629,6 +629,6 @@ form label{white-space:nowrap;text-transform:uppercase;}
 .cli b:after{content:" $";}
 @media(orientation:portrait){
 	.cli{
-		width:100%;
+		width:50%;
 	}
 }
