@@ -1,5 +1,7 @@
 function filterClients(val){
-	
-	$("#clis").find("div.cli:not(:contains('"+val+"'))").addClass("hidden");
+	if(val!=""){
+		$("#clis").find("div.cli").removeClass("hidden");
+		$("#clis").find("div.cli:not(:contains('"+val+"'))").addClass("hidden");
+	}
 	
 }
