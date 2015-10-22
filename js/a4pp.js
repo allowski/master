@@ -1088,9 +1088,13 @@ function a4pp_download_file(url, fname, prog){
 		
 		var item = remember.getItem(collection, indexOf);
 		
+		toast(i("Enviando ..", "Enviando..", "Sending.."), "warning", 3000); 
+		
 		$.post(window.app.update_url, {"action":"update_data", "data":item, "collection":collection}, function(r){
 			
 			item.real_id = r.id; 
+			
+			toast(i("1 arquivo enviado", "1 archivo enviado", "1 row sent!"), "warning", 1000); 
 			
 			remember.update(collection, indexOf, item);
 			
@@ -1099,5 +1103,17 @@ function a4pp_download_file(url, fname, prog){
 			alert(r.message);
 			
 		});
+		
+	}
+	
+	function sendAllItems(){
+		
+		for(var xi = 0; xi < remember.modified_items; xi++){
+			
+			var actual = remember.modified_items[i];
+			
+			sendItem(actual.collection, actual.indexOf);
+			
+		}
 		
 	}
