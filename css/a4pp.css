@@ -13,6 +13,7 @@ html {
   padding-right: 0 !important;
 }
 
+.frmLbl{font-size:18px;background:#080;color:white;text-transform:uppercase;}.cli{width:25%;border:1px solid #ddd;display:inline-block;}.cli h4{overflow:hidden;white-space:nowrap;text-overflow:ellipsis;} .cli .i{padding:4px;}
 
 
 body, html{
