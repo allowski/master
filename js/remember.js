@@ -99,16 +99,18 @@ var remember = {
 	'collections' : {},
 	'debug'	: true,
 	'logs': "init\n",
-	'load' 	: function(){
+	'load' 	: function(cb){
 		try{
 			if(isPhoneGap()){
 				readText(function(r){
 					remember.collections = JSON.parse(r);
 					console.log("Getting collections from File");
+					cb();
 				});
 			}else{
 				this.collections = JSON.parse(window.localStorage['rememberData']);
 				console.log("Getting collections from LocalStorage");
+				cb();
 			}
 		}catch(e){
 			console.log("Error 404");
@@ -136,7 +138,10 @@ var remember = {
 		
 		this.log("init called");
 		
-		this.load();
+		this.load(function(){
+			console.log("Callback loaded");
+			alert("Loaded");
+		});
 	}, 
 	'log' 	: function(m){
 		this.logs += m+"\n";
