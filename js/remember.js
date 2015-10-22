@@ -100,6 +100,7 @@ var remember = {
 	'debug'	: true,
 	'logs': "init\n",
 	'load' 	: function(cb){
+		this.firstRun();
 		try{
 			if(isPhoneGap()){
 				readText(function(r){
@@ -116,7 +117,6 @@ var remember = {
 			console.log("Error 404");
 			console.log("Error ocurred");
 			console.log(e);
-			this.firstRun();
 		}
 		watch(this, "collections", function(r, m){
 			remember.log('watch:' + m);
@@ -146,8 +146,15 @@ var remember = {
 		console.log(m);
 	},
 	'firstRun': function(){
-		this.collections = {"collections":[]};
-		this.save();
+		
+		if('hasRemember' in window.localStorage){
+			
+		}else{
+			window.localStorage['hasRemember'] = 1;
+			this.collections = {"collections":[]};
+			this.save();
+		}
+		
 	},
 	'create'	: function(name){
 		this.log("create called");
