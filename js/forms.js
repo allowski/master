@@ -83,11 +83,14 @@ function capt_gps(that, id){
 	console.log(that);
 	
 	getpos(function(r){
+		
 		$("#"+id).val(JSON.stringfy(r));
 		that.className = "btn btn-success btn-lg btn-block";
 		alert("Capturado");
+		
 	}, function(){
-	
+		
+		alert("Se ha producido un error");
 		that.className = "btn btn-primary btn-lg btn-block";
 		
 	});
