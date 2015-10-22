@@ -97,6 +97,7 @@ if(isPhoneGap()){
 
 var remember = {
 	'collections' : {},
+	'modified_items': [],
 	'debug'	: true,
 	'logs': "init\n",
 	'load' 	: function(cb){
@@ -390,7 +391,7 @@ var remember = {
 		}
 		if(newVal != old){
 			console.log("Modified row "+indexOf+" from "+collection+" collection");
-			remember.modified_items[] = {"id":indexOf, "collection":collection};
+			this.modified_items[] = {"id":indexOf, "collection":collection};
 		}
 		this.collections[collection][indexOf] = newVal;
 		console.log("Save form, new value is:");
