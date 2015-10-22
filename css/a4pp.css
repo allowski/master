@@ -625,4 +625,5 @@ form label{white-space:nowrap;text-transform:uppercase;}
 .cli{width:25%;border:1px solid #ddd;display:inline-block;}
 .cli h4{overflow:hidden;white-space:nowrap;text-overflow:ellipsis;}
 .cli .i{padding:4px;}
-.cli i, .cli b{display:inline-block;width:45%;font-style:normal !important;text-align:right;}
+.cli i, .cli b{display:inline-block;width:40%;font-style:normal !important;text-align:right;}
+.cli b:after{content:"$";}
