@@ -71,3 +71,12 @@ function get_data(){
 	
 	
 }
+
+
+function capt_gps(id){
+	
+	getpos(function(r){
+		$("#"+id).val(JSON.stringfy(r));
+	});
+	
+}
