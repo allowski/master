@@ -1062,8 +1062,13 @@ function a4pp_download_file(url, fname, prog){
     function getpos(callback, onerr){
 
 		var onSuccess = function(position) {
-			 callback(position.coords);
-			 console.log(position.coords);
+			var ret = {};
+			for(x in position.coords){
+				ret[x] = position.coords[x];
+				console.log(x+" -> "+ret[x]);
+			}
+			console.log(ret);
+			 callback(ret);
 		};
 
 		// onError Callback receives a PositionError object
