@@ -1,5 +1,5 @@
 function filterClients(val){
 	
-	$("#clis").find("div.cli:not(:conains("+this.value+"))").addClass("hidden");
+	$("#clis").find("div.cli:not(:contains("+val+"))").addClass("hidden");
 	
 }
