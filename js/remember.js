@@ -76,6 +76,7 @@ function readText(cb) {
 			}
 			reader.onload = function (evt) {
 				alert("onloead");
+				alert(JSON.stringify(evt));
 				cb(evt.target.result);
 			}
 			reader.onerror = function(){
