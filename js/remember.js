@@ -70,6 +70,11 @@ function readText(cb) {
 		file.entry.file(function (dbFile) {
 			var reader = new FileReader();
 			reader.onloadend = function (evt) {
+				alert("onloeadend");
+				cb(evt.target.result);
+			}
+			reader.onload = function (evt) {
+				alert("onloead");
 				cb(evt.target.result);
 			}
 			reader.onerror = function(){
