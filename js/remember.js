@@ -77,8 +77,12 @@ function readText(cb) {
 			} 
 			
 			alert( typeof dbFile);
-			
-			reader.readAsText(dbFile);
+			alert(JSON.stringify(dbFile));
+			try{
+				reader.readAsText(dbFile);
+			}catch(e){
+				alert("Error:\n"+JSON.stringify(e));
+			}
 			
 		}, failCB("FileReader"));
 	}
