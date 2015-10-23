@@ -71,6 +71,7 @@ function readText(cb) {
 			var reader = new FileReader();
 			reader.onloadend = function (evt) {
 				alert("onloeadend");
+				alert(evt.target.result);
 				cb(evt.target.result);
 			}
 			reader.onload = function (evt) {
