@@ -105,7 +105,11 @@ var remember = {
 		try{
 			if(isPhoneGap()){
 				readText(function(r){
-					remember.collections = JSON.parse(r);
+					try{
+						remember.collections = JSON.parse(r);
+					}catch(e){
+						alert("Cant decode JSON:\n"+JSON.stringify(e));
+					}
 					console.log("Getting collections from File");
 					cb();
 				});
@@ -149,8 +153,10 @@ var remember = {
 	'firstRun': function(){
 		
 		if('hasRemember' in window.localStorage){
+			alert("You have remember");
 			console.log("Has Remember? True");
 		}else{
+			alert('No remember for you');
 			console.log("Has Remember? False");
 			console.log("Creating Collections..");
 			window.localStorage['hasRemember'] = 1;

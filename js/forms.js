@@ -96,3 +96,17 @@ function capt_gps(that, id){
 	});
 	
 }
+
+
+
+
+function getEventById(){
+	for(x in remember.collections.eventos){
+		at = remember.collections.eventos[x];
+		if(at.real_id == window.current_evento_id){
+			nm = [at.nome, at.cidade, at.estado].join();
+			$("input[name=evento]").val(nm).attr("disabled", "disabled");
+			$("input[name=id_evento]").val(id);
+		} 
+	}
+}
