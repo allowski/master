@@ -387,7 +387,7 @@ var remember = {
 		var indexOf = frm["indexOf"];
 		var newVal = $('#'+formId).serializeObject();
 		console.log(indexOf);
-		if(indexOf == -999){
+		if(indexOf == undefined){
 			indexOf = this.collections.length;
 			this.collections[collection].push({});
 		}
