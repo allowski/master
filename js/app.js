@@ -1,5 +1,4 @@
 var cb = function(){
-	alert("Callback called");
 	new Function(window.app.onRememberLoaded);
 };
 
