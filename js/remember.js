@@ -75,6 +75,9 @@ function readText(cb) {
 			reader.onerror = function(){
 				alert("Error reading localfile");
 			} 
+			
+			alert( typeof dbFile);
+			
 			reader.readAsText(dbFile);
 			
 		}, failCB("FileReader"));
