@@ -384,11 +384,11 @@ var remember = {
 		this.log("saveForm called");
 		var frm = document.getElementById(formId);
 		console.log(frm);
-		var collection = frm["collection"];
-		var indexOf = frm["indexOf"];
+		var collection = frm.getAttribute("collection");
+		var indexOf = frm.getAttribute("indexof");
 		var newVal = $('#'+formId).serializeObject();
 		console.log(indexOf);
-		if(indexOf == undefined){
+		if(indexOf == -999){
 			indexOf = this.collections.length;
 			this.collections[collection].push({});
 		}
