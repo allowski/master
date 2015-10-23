@@ -412,7 +412,7 @@ var remember = {
 	'new': function(formId){
 		this.log("new called");
 		var frm = document.getElementById(formId);
-		var collection = frm["collection"];
+		var collection = frm.getAttribute("collection");
 		frm["indexOf"] = this.collections[collection].length;
 		this.collections[collection].push({});
 		$("#form input").val("");
