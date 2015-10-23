@@ -422,7 +422,6 @@ var remember = {
 		var collection = frm.getAttribute("collection");
 		frm["indexOf"] = "-999";
 		$("#form input").val("");
-		this.saveForm(formId);
 	},
 	'clean': function(collection){
 		
