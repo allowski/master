@@ -11,6 +11,11 @@ wHash = window.location.hash.replace("#", "").split("/");
 window.isOnline = true;
 
 
+function isPhoneGap() {
+    return /^file:\/{3}[^\/]/i.test(window.location.href) 
+    && /ios|iphone|ipod|ipad|android/i.test(navigator.userAgent);
+}
+
 function isConnected(){
 	return window.isOnline;
 }

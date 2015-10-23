@@ -84,11 +84,6 @@ function readText() {
 	return false;
 }
 
-function isPhoneGap() {
-    return /^file:\/{3}[^\/]/i.test(window.location.href) 
-    && /ios|iphone|ipod|ipad|android/i.test(navigator.userAgent);
-}
-
 if(isPhoneGap()){
 	
 	console.log("Running Phonegap");
