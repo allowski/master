@@ -247,7 +247,15 @@ var remember = {
 		
 		this.log("bind called");
 		
-		indexOf = indexOf || 0;
+		if(indexOf == -999){
+			
+			return;
+			
+		}else{
+		
+			indexOf = indexOf || 0;
+		
+		}
 		
 		if(this.isCollection(collection)===true){
 			
