@@ -5,9 +5,11 @@ function main(){
 	}else{
 		window.app = appo;
 	}
-	window.a4pp(window.app);
 	
-	var cb = new Function(window.app.onRememberLoaded);
+	var cb = function(){
+		window.a4pp(window.app);
+		new Function(window.app.onRememberLoaded);
+	};
 	
 	console.log(typeof cb);
 	
