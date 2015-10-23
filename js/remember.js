@@ -420,8 +420,7 @@ var remember = {
 		this.log("new called");
 		var frm = document.getElementById(formId);
 		var collection = frm.getAttribute("collection");
-		this.collections[collection].push({});
-		frm["indexOf"] = this.collections[collection].length;
+		frm["indexOf"] = "-999";
 		$("#form input").val("");
 		this.saveForm(formId);
 	},
