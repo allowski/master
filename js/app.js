@@ -17,12 +17,7 @@ if(isPhoneGap()){
 		
 	}, 500);
 	
-}else{
-	
-	remember.init(window.cb);
-	
 }
-
 
 function main(){
 	init = 0;
