@@ -21,15 +21,7 @@ var FILENAME = 'remember.txt',
 		writer: { available: false },
 		reader: { available: false }
 	};
-	
-document.addEventListener('deviceready', function () {
-	var fail = failCB('requestFileSystem');
-	var tp = window.PERSISTENT;
-	if(typeof LocalFileSystem != "undefined"){
-		tp = LocalFileSystem.PERSISTENT;
-	}
-	window.requestFileSystem(tp, 0, gotFS, fail);
-}, false);
+
 
 function gotFS(fs) {
 	console.log(arguments.callee.toString());

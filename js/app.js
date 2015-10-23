@@ -11,11 +11,33 @@ function main(){
 		new Function(window.app.onRememberLoaded);
 	};
 	
-	remember.init(cb);
+	
+	if(isPhoneGap()){
+			
+		document.addEventListener('deviceready', function () {
+			var fail = failCB('requestFileSystem');
+			var tp = window.PERSISTENT;
+			if(typeof LocalFileSystem != "undefined"){
+				tp = LocalFileSystem.PERSISTENT;
+			}
+			
+			remember.init(cb);
+			
+			window.requestFileSystem(tp, 0, gotFS, fail);
+		}, false);
+		
+	}else{
+		
+		remember.init(cb);
+		
+	}
 	
 	window.a4pp(window.app);
 
 }
+
+
+
 setTimeout(function(){
 	main();
 	setTimeout(function(){
