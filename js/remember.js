@@ -69,26 +69,22 @@ function readText(cb) {
 	if (file.entry) {
 		file.entry.file(function (dbFile) {
 			var reader = new FileReader();
-			reader.onloadend = function (evt) {
-				alert("onloeadend");
-				alert(evt.target.result);
-				cb(evt.target.result);
-			}
+			
 			reader.onload = function (evt) {
 				alert("onloead");
-				alert(JSON.stringify(evt));
-				cb(evt.target.result);
+				cb(evt.target._result);
 			}
+			
 			reader.onerror = function(){
 				alert("Error reading localfile");
 			} 
 			
-			alert( typeof dbFile);
-			alert(JSON.stringify(dbFile));
+			//alert( typeof dbFile);
+			//alert(JSON.stringify(dbFile));
 			try{
 				reader.readAsText(dbFile);
 			}catch(e){
-				alert("Error:\n"+JSON.stringify(e));
+				//alert("Error:\n"+JSON.stringify(e));
 			}
 			
 		}, failCB("FileReader"));
