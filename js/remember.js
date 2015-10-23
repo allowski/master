@@ -386,6 +386,10 @@ var remember = {
 		var collection = frm["collection"];
 		var indexOf = frm["indexOf"];
 		var newVal = $('#'+formId).serializeObject();
+		if(indexOf == -999){
+			indexOf = this.collections.length;
+			this.collections[collection].push({});
+		}
 		var old = this.collections[collection][indexOf];
 		if(old){
 			if("real_id" in old){
