@@ -5,7 +5,7 @@ var cb = function(){
 
 
 if(isPhoneGap()){
-	setTimeout(){
+	setTimeout(function(){
 		document.addEventListener('deviceready', function () {
 			var fail = failCB('requestFileSystem');
 			var tp = window.PERSISTENT;
