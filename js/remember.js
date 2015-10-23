@@ -396,7 +396,7 @@ var remember = {
 		if(indexOf == -999){
 			indexOf = this.collections.length;
 			frm.setAttribute("indexOf", indexOf);
-			this.collections[collection].push({});
+			this.collections[collection].push({"id", indexOf});
 		}
 		
 		var old = this.collections[collection][indexOf];
