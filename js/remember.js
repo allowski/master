@@ -72,7 +72,7 @@ function readText(cb) {
 			reader.onloadend = function (evt) {
 				cb(evt.target.result);
 			}
-			reader.onerror(){
+			reader.onerror = function(){
 				alert("Error reading localfile");
 			} 
 			reader.readAsText(dbFile);
