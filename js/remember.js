@@ -57,14 +57,14 @@ function saveText(e) {
 }
 function readText() {
 	console.log(arguments.callee.toString());
-	alert("Read text");
+	//alert("Read text");
 	if (file.entry) {
 		file.entry.file(function (dbFile) {
 			var reader = new FileReader();
 			
 			reader.onload = function (evt) {
 				remember.collections = JSON.parse(evt.target._result);
-				alert("Loaded");
+				//alert("Loaded");
 			}
 			
 			reader.onerror = function(){
