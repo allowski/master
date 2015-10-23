@@ -7,13 +7,13 @@ function main(){
 	}
 	
 	var cb = function(){
-		window.a4pp(window.app);
+		alert("Callback called");
 		new Function(window.app.onRememberLoaded);
 	};
 	
-	console.log(typeof cb);
-	
 	remember.init(cb);
+	
+	window.a4pp(window.app);
 
 }
 setTimeout(function(){

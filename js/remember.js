@@ -20,8 +20,7 @@ var FILENAME = 'remember.txt',
 	file = {
 		writer: { available: false },
 		reader: { available: false }
-	},
-	dbEntries = [];
+	};
 	
 document.addEventListener('deviceready', function () {
 	var fail = failCB('requestFileSystem');
@@ -66,12 +65,16 @@ function saveText(e) {
 }
 function readText(cb) {
 	console.log(arguments.callee.toString());
+	alert("Read text");
 	if (file.entry) {
 		file.entry.file(function (dbFile) {
 			var reader = new FileReader();
 			reader.onloadend = function (evt) {
 				cb(evt.target.result);
 			}
+			reader.onerror(){
+				alert("Error reading localfile");
+			} 
 			reader.readAsText(dbFile);
 			
 		}, failCB("FileReader"));
