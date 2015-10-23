@@ -73,6 +73,7 @@ function readText(cb) {
 			reader.onload = function (evt) {
 				alert("onloead");
 				cb(evt.target._result);
+				alert(typeof evt.target._result);
 			}
 			
 			reader.onerror = function(){
