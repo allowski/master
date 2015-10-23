@@ -1,35 +1,35 @@
-function main(){
-	init = 0;
-	if(typeof window.localStorage['data']!= "undefined"){
-		window.app = JSON.parse(window.localStorage['data']);
-	}else{
-		window.app = appo;
-	}
-	
-	var cb = function(){
-		alert("Callback called");
-		new Function(window.app.onRememberLoaded);
-	};
-	
-	
-	if(isPhoneGap()){
-			
+var cb = function(){
+	alert("Callback called");
+	new Function(window.app.onRememberLoaded);
+};
+
+
+if(isPhoneGap()){
+	setTimeout(){
 		document.addEventListener('deviceready', function () {
 			var fail = failCB('requestFileSystem');
 			var tp = window.PERSISTENT;
 			if(typeof LocalFileSystem != "undefined"){
 				tp = LocalFileSystem.PERSISTENT;
 			}
-			
-			remember.init(cb);
-			
 			window.requestFileSystem(tp, 0, gotFS, fail);
 		}, false);
 		
+	}, 500);
+	
+}else{
+	
+	remember.init(window.cb);
+	
+}
+
+
+function main(){
+	init = 0;
+	if(typeof window.localStorage['data']!= "undefined"){
+		window.app = JSON.parse(window.localStorage['data']);
 	}else{
-		
-		remember.init(cb);
-		
+		window.app = appo;
 	}
 	
 	window.a4pp(window.app);

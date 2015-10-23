@@ -55,7 +55,7 @@ function saveText(e) {
 	}
 	return false;
 }
-function readText(cb) {
+function readText() {
 	console.log(arguments.callee.toString());
 	alert("Read text");
 	if (file.entry) {
@@ -63,9 +63,8 @@ function readText(cb) {
 			var reader = new FileReader();
 			
 			reader.onload = function (evt) {
-				alert("onloead");
-				cb(evt.target._result);
-				alert(typeof evt.target._result);
+				remember.collections = JSON.parse(evt.target._result);
+				alert("Loaded");
 			}
 			
 			reader.onerror = function(){
@@ -110,15 +109,7 @@ var remember = {
 		this.firstRun();
 		try{
 			if(isPhoneGap()){
-				readText(function(r){
-					try{
-						remember.collections = JSON.parse(r);
-					}catch(e){
-						alert("Cant decode JSON:\n"+JSON.stringify(e));
-					}
-					console.log("Getting collections from File");
-					cb();
-				});
+				//readText();
 			}else{
 				this.collections = JSON.parse(window.localStorage['rememberData']);
 				console.log("Getting collections from LocalStorage");
@@ -159,10 +150,8 @@ var remember = {
 	'firstRun': function(){
 		
 		if('hasRemember' in window.localStorage){
-			alert("You have remember");
 			console.log("Has Remember? True");
 		}else{
-			alert('No remember for you');
 			console.log("Has Remember? False");
 			console.log("Creating Collections..");
 			window.localStorage['hasRemember'] = 1;
