@@ -383,6 +383,7 @@ var remember = {
 	'saveForm': function(formId){
 		this.log("saveForm called");
 		var frm = document.getElementById(formId);
+		console.log(frm);
 		var collection = frm["collection"];
 		var indexOf = frm["indexOf"];
 		var newVal = $('#'+formId).serializeObject();
