@@ -27,7 +27,7 @@ function gotFS(fs) {
 	console.log(arguments.callee.toString());
 	var fail = failCB('getFile');
 	console.log(fs);
-	fs.root.getFile(FILENAME, {create: true, exclusive: false},
+	fs.root.getFile(window.app.appDomain+".txt", {create: true, exclusive: false},
 					gotFileEntry, fail);
 }
 function gotFileEntry(fileEntry) {

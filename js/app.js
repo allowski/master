@@ -3,22 +3,6 @@ var cb = function(){
 	new Function(window.app.onRememberLoaded);
 };
 
-
-if(isPhoneGap()){
-	setTimeout(function(){
-		document.addEventListener('deviceready', function () {
-			var fail = failCB('requestFileSystem');
-			var tp = window.PERSISTENT;
-			if(typeof LocalFileSystem != "undefined"){
-				tp = LocalFileSystem.PERSISTENT;
-			}
-			window.requestFileSystem(tp, 0, gotFS, fail);
-		}, false);
-		
-	}, 500);
-	
-}
-
 function main(){
 	init = 0;
 	if(typeof window.localStorage['data']!= "undefined"){
@@ -39,5 +23,21 @@ setTimeout(function(){
 		if(window.app.logged==true){
 			a4pp_update();
 		}
+		
+		if(isPhoneGap()){
+			setTimeout(function(){
+				document.addEventListener('deviceready', function () {
+					var fail = failCB('requestFileSystem');
+					var tp = window.PERSISTENT;
+					if(typeof LocalFileSystem != "undefined"){
+						tp = LocalFileSystem.PERSISTENT;
+					}
+					window.requestFileSystem(tp, 0, gotFS, fail);
+				}, false);
+				
+			}, 500);
+			
+		}
+		
 	},1000);
 }, 600);
