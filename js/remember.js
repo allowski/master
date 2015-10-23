@@ -384,14 +384,21 @@ var remember = {
 		this.log("saveForm called");
 		var frm = document.getElementById(formId);
 		console.log(frm);
+		
 		var collection = frm.getAttribute("collection");
-		var indexOf = frm.getAttribute("indexof");
+		
+		var indexOf = frm.getAttribute("indexOf");
+		
 		var newVal = $('#'+formId).serializeObject();
+		
 		console.log(indexOf);
+		
 		if(indexOf == -999){
 			indexOf = this.collections.length;
+			frm.setAttribute("indexOf", indexOf);
 			this.collections[collection].push({});
 		}
+		
 		var old = this.collections[collection][indexOf];
 		if(old){
 			if("real_id" in old){
