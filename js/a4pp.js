@@ -1115,9 +1115,13 @@ function a4pp_download_file(url, fname, prog){
 	
 	window.totalSent = 0;
 	
+	window.isSending = false;
+	
 	function sendAll(collection){
 		
 		var item = remember.getItem(collection, window.sendingItem);
+		
+		window.isSending = true;
 		
 		if(window.sendingItem in remember.collections[collection]){
 			
@@ -1145,6 +1149,8 @@ function a4pp_download_file(url, fname, prog){
 		
 			console.log("End");
 			
+			window.isSending = false;
+			
 			return true;
 			
 		}
@@ -1170,5 +1176,44 @@ function a4pp_download_file(url, fname, prog){
 			sendAll(collection);
 			
 		});
+		
+	}
+	
+	function sendAllAll(){
+		
+		var allCollections = [];
+		
+		for(var k in remember.collections){
+			allCollections.push(k);
+		}
+		
+		var iv;
+		
+		var ci = 0;
+		
+		iv = window.setInterval(function(){
+		
+			if(ci in allCollections){
+				
+				if(window.isSending == true){
+				
+					console.log("Waiting ..");
+				
+				}else{
+					
+					sendAll(allCollections[ci]);
+					
+					ci++;
+					
+				}
+				
+				
+			}else{
+				window.clearInterval(iv);
+				
+				return;
+			}
+			
+		}, 500);
 		
 	}
