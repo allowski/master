@@ -1139,7 +1139,7 @@ function a4pp_download_file(url, fname, prog){
 			
 			console.log("Sent "+window.sendingItem);
 			
-			remember.update(collection, indexOf, item);
+			remember.update(collection, window.sendingItem, item);
 			
 			remember.save();
 			
