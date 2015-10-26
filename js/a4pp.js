@@ -1222,6 +1222,8 @@ function a4pp_download_file(url, fname, prog){
 	
 	function sendAllAll(){
 		
+		toast(i("Inicializando..", "Iniciando ..", "Starting.."), "success", 1000000);
+		
 		var allCollections = [];
 		
 		for(var k in remember.collections){
@@ -1245,6 +1247,9 @@ function a4pp_download_file(url, fname, prog){
 					setTimeout(function(){
 						
 						window.sendingAll = true;
+						
+						
+					toast(i("Enviando "+allCollections[ci]+"..", "Enviando "+allCollections[ci]+"..", "Sending "+allCollections[ci]+".."), "success", 1000000);
 					
 						sendAll(allCollections[ci]);
 						
@@ -1257,7 +1262,7 @@ function a4pp_download_file(url, fname, prog){
 				
 			}else{
 				
-				toast(i("Nada que enviar", "Nada a sincronizar", "Everything Up-to-date"), "success", 1000);
+				toast(i("Nada que enviar", "Nada a sincronizar", "Everything Up-to-date"), "success", 2000);
 				
 				window.sendingAll = false;
 				
