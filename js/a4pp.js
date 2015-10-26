@@ -1096,8 +1096,11 @@ function a4pp_download_file(url, fname, prog){
 		toast(i("Enviando ..", "Enviando..", "Sending.."), "warning", 3000); 
 		
 		$.post(window.app.update_url, {"action":"update_data", "data":item, "collection":collection}, function(r){
-			
+			if(!r){
+				return;
+			}
 			item.real_id = r.id; 
+			
 			
 			toast(i("1 arquivo enviado", "1 archivo enviado", "1 row sent!"), "warning", 1000); 
 			
