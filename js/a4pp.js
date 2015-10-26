@@ -1189,9 +1189,14 @@ function a4pp_download_file(url, fname, prog){
 				return false;
 			}
 			
-			window.totalSent++;
 			
-			item.real_id = r.id; 
+			try{
+				item.real_id = r.id; 
+			}catch(e){
+				console.log(r);
+			}
+			
+			window.totalSent++;
 			
 			console.log("Sent "+window.sendingItem);
 			
