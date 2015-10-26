@@ -1111,14 +1111,36 @@ function a4pp_download_file(url, fname, prog){
 		
 	}
 	
-	function sendAllItems(){
+	window.sendingItem = 0;
+	
+	function sendAll(collection){
 		
-		for(var xi = 0; xi < remember.modified_items; xi++){
+		var item = remember.getItem(collection, window.sendingItem);
+		
+		toast(i("Enviando ..", "Enviando..", "Sending.."), "warning", 3000); 
+		
+		$.post(window.app.update_url, {"action":"update_data", "data":item, "collection":collection}, function(r){
 			
-			var actual = remember.modified_items[i];
+			if(window.sendingItem in remember.collections[collection]){
 			
-			sendItem(actual.collection, actual.indexOf);
+				console.log("End");
+				
+				return true;
+				
+			}
 			
-		}
+			item.real_id = r.id; 
+			
+			toast(i("1 arquivo enviado", "1 archivo enviado", "1 row sent!"), "warning", 1000); 
+			
+			remember.update(collection, indexOf, item);
+			
+			remember.save();
+			
+			window.sendingItem++;
+			
+			sendAll(collection);
+			
+		});
 		
 	}
