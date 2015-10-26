@@ -1138,6 +1138,11 @@ function a4pp_download_file(url, fname, prog){
 		
 		var item = remember.getItem(collection, window.sendingItem);
 		
+		if(!item){
+			window.isSending = false;
+			return false;
+		}
+		
 		window.isSending = true;
 		
 		if(window.sendingItem in remember.collections[collection]){
