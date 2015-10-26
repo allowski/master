@@ -1127,11 +1127,15 @@ function a4pp_download_file(url, fname, prog){
 				
 				sendAll(collection);
 				
+				return true;
+				
 			}
 			
 			console.log("Sending "+window.sendingItem);
 		
 		}else{
+		
+			window.sendingItem = 0;
 		
 			console.log("End");
 			
