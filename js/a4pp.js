@@ -1223,9 +1223,15 @@ function a4pp_download_file(url, fname, prog){
 				
 				}else{
 					
-					sendAll(allCollections[ci]);
+					setTimeout(function(){
+						
+						window.sendingAll = true;
 					
-					ci++;
+						sendAll(allCollections[ci]);
+						
+						ci++;
+					
+					},500);
 					
 				}
 				
