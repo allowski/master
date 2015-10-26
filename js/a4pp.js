@@ -1150,9 +1150,15 @@ function a4pp_download_file(url, fname, prog){
 			console.log("Sending "+window.sendingItem);
 		
 		}else{
-		
-			toast(i(window.totalSent+" arquivos enviados", window.totalSent+" archivos enviados", window.totalSent+" rows sent!"), "warning", 1000); 
-		
+			if(window.totalSent == 0){
+			
+				toast(i("Nada que enviar", "Nada a sincronizar", "Up-to-date"), "success", 1000);
+				
+			}else{
+				
+				toast(i(window.totalSent+" arquivos enviados", window.totalSent+" archivos enviados", window.totalSent+" rows sent!"), "warning", 1000); 
+			
+			}
 			window.sendingItem = 0;
 			
 			window.totalSent = 0;
