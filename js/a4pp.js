@@ -1117,8 +1117,6 @@ function a4pp_download_file(url, fname, prog){
 		
 		var item = remember.getItem(collection, window.sendingItem);
 		
-		toast(i("Enviando ..", "Enviando..", "Sending.."), "warning", 3000); 
-		
 		if(window.sendingItem in remember.collections[collection]){
 			
 			console.log("Sending "+window.sendingItem);
@@ -1131,6 +1129,8 @@ function a4pp_download_file(url, fname, prog){
 			
 		}
 		
+		toast(i("Enviando fila "+window.sendingItem+" ..", "Enviando fila "+window.sendingItem+"  ..", "Sending row "+window.sendingItem+"  .."), "warning", 3000); 
+		
 		$.post(window.app.update_url, {"action":"update_data", "data":item, "collection":collection}, function(r){
 			
 			item.real_id = r.id; 
@@ -1138,6 +1138,8 @@ function a4pp_download_file(url, fname, prog){
 			toast(i("1 arquivo enviado", "1 archivo enviado", "1 row sent!"), "warning", 1000); 
 			
 			console.log("Sent "+window.sendingItem);
+			
+			item.sent = true;
 			
 			remember.update(collection, window.sendingItem, item);
 			
