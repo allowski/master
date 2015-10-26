@@ -1096,9 +1096,11 @@ function a4pp_download_file(url, fname, prog){
 		toast(i("Enviando ..", "Enviando..", "Sending.."), "warning", 3000); 
 		
 		$.post(window.app.update_url, {"action":"update_data", "data":item, "collection":collection}, function(r){
+			
 			if(!r){
 				return;
 			}
+			
 			item.real_id = r.id; 
 			
 			
@@ -1182,6 +1184,10 @@ function a4pp_download_file(url, fname, prog){
 		toast(i("Enviando fila "+window.sendingItem+" ..", "Enviando fila "+window.sendingItem+"  ..", "Sending row "+window.sendingItem+"  .."), "warning", 3000); 
 		
 		$.post(window.app.update_url, {"action":"update_data", "data":item, "collection":collection}, function(r){
+			
+			if(!r){
+				return false;
+			}
 			
 			window.totalSent++;
 			
