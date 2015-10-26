@@ -1150,7 +1150,7 @@ function a4pp_download_file(url, fname, prog){
 		
 		if(window.sendingItem in remember.collections[collection]){
 			
-			if(remember.collections[collection][window.sendingItem].sent == true){
+			if(remember.collections[collection][window.sendingItem].sent !== false){
 				
 				console.log("Skiping item "+window.sendingItem);
 				
