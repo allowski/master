@@ -1123,6 +1123,15 @@ function a4pp_download_file(url, fname, prog){
 		
 		window.isSending = true;
 		
+		if(!remember.isCollection(collection)){
+			
+			console.log("Collection "+collection+" not found");
+			
+			window.isSending = false;
+			
+			return false;
+		}
+		
 		if(window.sendingItem in remember.collections[collection]){
 			
 			if(remember.collections[collection][window.sendingItem].sent == true){
