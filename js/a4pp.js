@@ -1119,10 +1119,6 @@ function a4pp_download_file(url, fname, prog){
 	
 	function sendAll(collection){
 		
-		var item = remember.getItem(collection, window.sendingItem);
-		
-		window.isSending = true;
-		
 		if(!remember.isCollection(collection)){
 			
 			console.log("Collection "+collection+" not found");
@@ -1131,6 +1127,11 @@ function a4pp_download_file(url, fname, prog){
 			
 			return false;
 		}
+		
+		
+		var item = remember.getItem(collection, window.sendingItem);
+		
+		window.isSending = true;
 		
 		if(window.sendingItem in remember.collections[collection]){
 			
