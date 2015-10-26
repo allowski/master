@@ -1113,6 +1113,8 @@ function a4pp_download_file(url, fname, prog){
 	
 	window.sendingItem = 0;
 	
+	window.totalSent = 0;
+	
 	function sendAll(collection){
 		
 		var item = remember.getItem(collection, window.sendingItem);
@@ -1135,7 +1137,11 @@ function a4pp_download_file(url, fname, prog){
 		
 		}else{
 		
+			toast(i(window.totalSent+" arquivos enviados", window.totalSent+" archivos enviados", window.totalSent+" rows sent!"), "warning", 1000); 
+		
 			window.sendingItem = 0;
+			
+			window.totalSent = 0;
 		
 			console.log("End");
 			
@@ -1147,9 +1153,9 @@ function a4pp_download_file(url, fname, prog){
 		
 		$.post(window.app.update_url, {"action":"update_data", "data":item, "collection":collection}, function(r){
 			
-			item.real_id = r.id; 
+			window.totalSent++;
 			
-			toast(i("1 arquivo enviado", "1 archivo enviado", "1 row sent!"), "warning", 1000); 
+			item.real_id = r.id; 
 			
 			console.log("Sent "+window.sendingItem);
 			

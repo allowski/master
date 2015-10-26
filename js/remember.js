@@ -410,6 +410,7 @@ var remember = {
 			console.log("Modified row "+indexOf+" from "+collection+" collection");
 			this.modified_items.push({"id":indexOf, "collection":collection});
 		}
+		newVal.sent = false;
 		this.collections[collection][indexOf] = newVal;
 		console.log("Save form, new value is:");
 		console.log(newVal);
@@ -435,6 +436,8 @@ var remember = {
 	'update': function(collection, index, value){
 		
 		var old_item = remember.getItem(collection, index);
+		
+		value.sent = false;
 		
 		if(old_item.real_id)
 			value.real_id = old_item.real_id;
