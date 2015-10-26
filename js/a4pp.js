@@ -1172,8 +1172,9 @@ function a4pp_download_file(url, fname, prog){
 			remember.save();
 			
 			window.sendingItem++;
-			
-			sendAll(collection);
+			setTimeout(function(){
+				sendAll(collection);
+			},800);
 			
 		});
 		
