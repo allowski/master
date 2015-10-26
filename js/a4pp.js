@@ -1117,6 +1117,8 @@ function a4pp_download_file(url, fname, prog){
 	
 	window.isSending = false;
 	
+	window.sendingAll = false;
+	
 	function sendAll(collection){
 		
 		if(!remember.isCollection(collection)){
@@ -1150,25 +1152,28 @@ function a4pp_download_file(url, fname, prog){
 			console.log("Sending "+window.sendingItem);
 		
 		}else{
-			if(window.totalSent == 0){
 			
-				toast(i("Nada que enviar", "Nada a sincronizar", "Everything Up-to-date"), "success", 1000);
+			if(window.sendingAll != true){
+				if(window.totalSent == 0){
 				
-			}else{
+					toast(i("Nada que enviar", "Nada a sincronizar", "Everything Up-to-date"), "success", 1000);
+					
+				}else{
+					
+					toast(i(window.totalSent+" arquivos enviados", window.totalSent+" archivos enviados", window.totalSent+" rows sent!"), "warning", 1000); 
 				
-				toast(i(window.totalSent+" arquivos enviados", window.totalSent+" archivos enviados", window.totalSent+" rows sent!"), "warning", 1000); 
+				}
+				window.sendingItem = 0;
+				
+				window.totalSent = 0;
 			
+				console.log("End");
+				
+				window.isSending = false;
+				
+				return true;
+				
 			}
-			window.sendingItem = 0;
-			
-			window.totalSent = 0;
-		
-			console.log("End");
-			
-			window.isSending = false;
-			
-			return true;
-			
 		}
 		
 		toast(i("Enviando fila "+window.sendingItem+" ..", "Enviando fila "+window.sendingItem+"  ..", "Sending row "+window.sendingItem+"  .."), "warning", 3000); 
@@ -1226,6 +1231,11 @@ function a4pp_download_file(url, fname, prog){
 				
 				
 			}else{
+				
+				toast(i("Nada que enviar", "Nada a sincronizar", "Everything Up-to-date"), "success", 1000);
+				
+				window.sendingAll = false;
+				
 				window.clearInterval(iv);
 				
 				return;
