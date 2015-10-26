@@ -1139,6 +1139,9 @@ function a4pp_download_file(url, fname, prog){
 		var item = remember.getItem(collection, window.sendingItem);
 		
 		if(!item){
+			
+			console.log("Error item not found");
+			
 			window.isSending = false;
 			return false;
 		}
@@ -1248,14 +1251,13 @@ function a4pp_download_file(url, fname, prog){
 						
 						window.sendingAll = true;
 						
-						
-					toast(i("Enviando "+allCollections[ci]+"..", "Enviando "+allCollections[ci]+"..", "Sending "+allCollections[ci]+".."), "success", 1000000);
+						toast(i("Enviando "+allCollections[ci]+"..", "Enviando "+allCollections[ci]+"..", "Sending "+allCollections[ci]+".."), "success", 1000000);
 					
 						sendAll(allCollections[ci]);
 						
 						ci++;
 					
-					},500);
+					});
 					
 				}
 				
