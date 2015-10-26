@@ -1141,7 +1141,7 @@ function a4pp_download_file(url, fname, prog){
 		if(!item){
 			
 			console.log("Error item not found");
-			
+			window.sendingItem = 0;
 			window.isSending = false;
 			return false;
 		}
@@ -1176,7 +1176,7 @@ function a4pp_download_file(url, fname, prog){
 					toast(i(window.totalSent+" arquivos enviados", window.totalSent+" archivos enviados", window.totalSent+" rows sent!"), "warning", 1000); 
 				
 				}
-				window.sendingItem = 0;
+				
 				
 				window.totalSent = 0;
 			
@@ -1187,6 +1187,9 @@ function a4pp_download_file(url, fname, prog){
 				return true;
 				
 			}
+			
+			window.sendingItem = 0;
+				
 		}
 		
 		toast(i("Enviando fila "+window.sendingItem+" ..", "Enviando fila "+window.sendingItem+"  ..", "Sending row "+window.sendingItem+"  .."), "warning", 3000); 
