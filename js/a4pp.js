@@ -1152,7 +1152,7 @@ function a4pp_download_file(url, fname, prog){
 		}else{
 			if(window.totalSent == 0){
 			
-				toast(i("Nada que enviar", "Nada a sincronizar", "Up-to-date"), "success", 1000);
+				toast(i("Nada que enviar", "Nada a sincronizar", "Everything Up-to-date"), "success", 1000);
 				
 			}else{
 				
