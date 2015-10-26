@@ -1177,7 +1177,7 @@ function a4pp_download_file(url, fname, prog){
 			
 			item.sent = true;
 			
-			remember.update(collection, window.sendingItem, item);
+			remember.collections[collection][window.sendingItem] = item;
 			
 			remember.save();
 			
