@@ -1220,7 +1220,7 @@ function a4pp_download_file(url, fname, prog){
 		
 	}
 	
-	function sendAllAll(){
+	function sendAllAll(callback){
 		
 		toast(i("Inicializando..", "Iniciando ..", "Starting.."), "success", 1000000);
 		
@@ -1261,6 +1261,12 @@ function a4pp_download_file(url, fname, prog){
 				
 				
 			}else{
+				
+				if(typeof callback != "undefined"){
+					callback();
+				}
+				
+				console.log("Fin");
 				
 				toast(i("Nada que enviar", "Nada a sincronizar", "Everything Up-to-date"), "success", 2000);
 				
