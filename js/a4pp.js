@@ -1119,19 +1119,25 @@ function a4pp_download_file(url, fname, prog){
 		
 		toast(i("Enviando ..", "Enviando..", "Sending.."), "warning", 3000); 
 		
+		if(window.sendingItem in remember.collections[collection]){
+			
+			console.log("Sending "+window.sendingItem);
+		
+		}else{
+		
+			console.log("End");
+			
+			return true;
+			
+		}
+		
 		$.post(window.app.update_url, {"action":"update_data", "data":item, "collection":collection}, function(r){
-			
-			if(window.sendingItem in remember.collections[collection]){
-			
-				console.log("End");
-				
-				return true;
-				
-			}
 			
 			item.real_id = r.id; 
 			
 			toast(i("1 arquivo enviado", "1 archivo enviado", "1 row sent!"), "warning", 1000); 
+			
+			console.log("Sent "+window.sendingItem);
 			
 			remember.update(collection, indexOf, item);
 			
