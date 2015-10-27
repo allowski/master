@@ -249,11 +249,13 @@ var remember = {
 		
 		if(indexOf == -999){
 			
+			console.log("IndexOf is -999");
+			
 			return;
 			
 		}else{
 			
-			console.log(indexOf);
+			console.log("IndexOf = "+indexOf);
 		
 			indexOf = indexOf || 0;
 		
