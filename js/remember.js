@@ -252,6 +252,8 @@ var remember = {
 			return;
 			
 		}else{
+			
+			console.log(indexOf);
 		
 			indexOf = indexOf || 0;
 		
