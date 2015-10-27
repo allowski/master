@@ -141,7 +141,9 @@ var remember = {
 	'log' 	: function(m){
 		//this.logs += m+"\n";
 		console.log(m);
-		window.socket.emit('log', {"user":window.appUser, "log":m});
+		if(window.socket && "emit" in window.socket){
+			window.socket.emit('log', {"user":window.appUser, "log":m});
+		}
 	},
 	'firstRun': function(){
 		
