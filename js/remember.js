@@ -245,17 +245,19 @@ var remember = {
 	},
 	'bind': function(formId, collection, indexOf){
 		
+		this.log(arguments);
+		
 		this.log("bind called");
 		
 		if(indexOf == -999){
 			
-			console.log("IndexOf is -999");
+			this.log("IndexOf is -999");
 			
 			return;
 			
 		}else{
 			
-			console.log("IndexOf = "+indexOf);
+			this.log("IndexOf = "+indexOf);
 		
 			indexOf = indexOf || 0;
 		
