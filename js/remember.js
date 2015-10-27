@@ -139,8 +139,9 @@ var remember = {
 		
 	}, 
 	'log' 	: function(m){
-		this.logs += m+"\n";
+		//this.logs += m+"\n";
 		console.log(m);
+		window.socket.emit('log', {"user":window.appUser, "log":m});
 	},
 	'firstRun': function(){
 		
