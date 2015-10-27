@@ -270,9 +270,9 @@ var remember = {
 			$("#"+formId+" input").val("");
 			$("#"+formId+" img").attr("src", "");
 			
-			frm["collection"] = collection;
+			frm.setAttribute("collection",  collection);
 			
-			frm["indexOf"] = indexOf;
+			frm.setAttribute("indexOf", indexOf);
 			
 			this.current_item = {"id":indexOf, "collection":collection};
 			
