@@ -315,9 +315,9 @@ var remember = {
 		
 		var frm = document.getElementById(formId);
 			
-		var collection = frm["collection"];
+		var collection = frm.getAttribute("collection");
 		
-		var indexOf = frm["indexOf"]+1;
+		var indexOf = parseInt(frm.getAttribute("indexOf"))+1;
 		
 		if(indexOf in this.collections[collection]){
 			
@@ -339,9 +339,9 @@ var remember = {
 		
 		var frm = document.getElementById(formId);
 			
-		var collection = frm["collection"];
+		var collection = frm.getAttribute("collection");
 		
-		var indexOf = frm["indexOf"]-1;
+		var indexOf = parseInt(frm.getAttribute("indexOf"))-1;
 		
 		if(indexOf in this.collections[collection]){
 			
@@ -409,17 +409,17 @@ var remember = {
 		if(old){
 			if("real_id" in old){
 				newVal.real_id = old.real_id;
-				console.log("Real Id: "+old.real_id);
+				this.log("Real Id: "+old.real_id);
 			}
 		}
 		if(newVal != old){
-			console.log("Modified row "+indexOf+" from "+collection+" collection");
+			this.log("Modified row "+indexOf+" from "+collection+" collection");
 			this.modified_items.push({"id":indexOf, "collection":collection});
 		}
 		newVal.sent = false;
 		this.collections[collection][indexOf] = newVal;
-		console.log("Save form, new value is:");
-		console.log(newVal);
+		this.log("Save form, new value is:");
+		this.log(newVal);
 		this.current_item = {"id":indexOf, "collection":collection};
 		this.save();
 	},
