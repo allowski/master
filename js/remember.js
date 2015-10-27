@@ -363,8 +363,8 @@ var remember = {
 		this.log("delete called");
 		
 		var frm = document.getElementById(formId);
-		var collection = frm["collection"];
-		var indexOf = frm["indexOf"];
+		var collection = frm.getAttribute("collection");
+		var indexOf = frm.getAttribute("indexOf");
 		
 		if(mes!==""){
 			if(!confirm(mes)){
@@ -381,7 +381,7 @@ var remember = {
 		
 		this.log("append called");
 		var frm = document.getElementById(formId);
-		var collection = frm["collection"];
+		var collection = frm.getAttribute("collection");
 		var newVal = $('#'+formId).serializeObject();
 		this.push(collection, newVal);
 		this.save();
@@ -427,7 +427,7 @@ var remember = {
 		this.log("new called");
 		var frm = document.getElementById(formId);
 		var collection = frm.getAttribute("collection");
-		frm["indexOf"] = "-999";
+		frm.setAttribute("indexOf", "-999");
 		$("#form input").val("");
 	},
 	'clean': function(collection){
