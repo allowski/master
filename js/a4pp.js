@@ -1207,7 +1207,9 @@ function a4pp_download_file(url, fname, prog){
 			try{
 				item.real_id = r.id; 
 			}catch(e){
+				alert("Error loading file");
 				console.log(r);
+				return false;
 			}
 			
 			window.totalSent++;
@@ -1225,7 +1227,7 @@ function a4pp_download_file(url, fname, prog){
 				sendAll(collection);
 			},800);
 			
-		});
+		}).error(a4pp_conn_error);
 		
 	}
 	
