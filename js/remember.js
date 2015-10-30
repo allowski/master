@@ -50,6 +50,9 @@ function saveText(e) {
 		file.writer.object.onwriteend = function (evt) {
 			file.writer.available = true;
 			file.writer.object.seek(0);
+			if(confirm(i("Arquivo salvo, deseja voltar?", "El archivo fue salvo, desea volver?", "File saved, do you want to go back?"))){
+				goBack();
+			}
 		}
 		file.writer.object.write(e);
 	}
@@ -128,6 +131,10 @@ var remember = {
 		}else{
 			console.log("Writing to LocalStorage");
 			window.localStorage['rememberData'] = JSON.stringify(this.collections);
+			
+			if(confirm(i("Arquivo salvo, deseja voltar?", "El archivo fue salvo, desea volver?", "File saved, do you want to go back?"))){
+				goBack();
+			}
 		}
 		
 	},
