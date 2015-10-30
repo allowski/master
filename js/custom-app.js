@@ -22,3 +22,22 @@ function getEleClass(dd){
 		return "not-ok";
 	}
 }
+
+function sendByEmail(){
+	
+	var email = "";
+	
+	email = prompt("DIGITE EMAIL:");
+
+	if(email){
+		
+		$.get(window.app.update_url, {"action":"send_email", "data":remember.current_item}, function(r){
+			if(!r){
+				return false;
+			}
+			alert("Sent!"+r);
+		});
+		
+	}
+	
+}
