@@ -86,7 +86,7 @@ function capt_gps(that, id){
 		
 		$("#"+id).val(JSON.stringify(r));
 		that.className = "btn btn-success btn-lg btn-block";
-		alert("Capturado\n:"+JSON.stringify(r));
+		alert("Capturado!");
 		
 	}, function(){
 		
