@@ -31,7 +31,7 @@ function sendByEmail(){
 
 	if(email){
 		
-		$.get(window.app.update_url+"&action=send_email&id="+remember.current_item.real_id+"&email="+email, function(r){
+		$.get(window.app.update_url+"&action=send_email&id="+remember.current_item.id+"&email="+email, function(r){
 			if(!r){
 				return false;
 			}
