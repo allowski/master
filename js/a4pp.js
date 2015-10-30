@@ -362,7 +362,7 @@ function foreach(array, f){
 
 function a4pp_template(html, options){
 	
-	console.log("rendering..");
+	console.log("Rendering..");
 	
 	var re = /<%(.+?)%>/g, 
 		reExp = /(^( )?(var|if|for|else|switch|case|break|{|}|;))(.*)?/g, 
@@ -383,7 +383,7 @@ function a4pp_template(html, options){
 	try { result = new Function('obj', code).apply(options, [options]); }
 	catch(err) { console.log("HTML:\n"+html); console.error("'" + err.message + "'", " in \n\nCode:\n", code, "\n"); }
 	
-	console.log("rendering OK..");
+	console.log("Rendering OK..");
 	return result;
 
 }
@@ -523,6 +523,14 @@ function toggleMenu(){
 }
 
 function goBack(){
+	
+	if(window.current_a4pp.onBack){
+		var cancel = new Function(window.current_item.onBack)();
+		if(!cancel){
+			return false;
+		}
+	}
+	
 	if($(".content:last .dropdown-menu").is(":visible")){
 		$(".content:last .dropdown-menu").hide();
 		console.log("Close menu");
@@ -580,6 +588,7 @@ document.addEventListener("deviceready", function(){
 		toast(i("Modo offline ativado", "Modo offline activado", "Offline mode on"), "warning", 1000);
 	});
 	document.addEventListener("online", function(){
+		toast(i("Modo online ativado", "Modo online activado", "Online mode on"), "success", 1000);
 		window.isOnline = true;
 	});
 
@@ -590,6 +599,8 @@ window.a4pp = function(data, auto){
 	/* Variable declarations */
 
 	var thatx = this;
+	
+	window.current_a4pp = data;
 
 	var title_less = ["login", "register", "template"];
 
@@ -615,17 +626,8 @@ window.a4pp = function(data, auto){
 
 	body.innerHTML = baseContent.innerHTML;
 
-	//search.style.display = "none";
-
-	//appTitle.style.display = "inline-block";
-
-	//iconSearch.className = "glyphicon glyphicon-search";
-
 	document.title=data.title;
-
-	//btnGoSearch.removeEventListener('click');
-
-
+	
 	if(init == 0){
 
 		init = 1;
@@ -1103,7 +1105,6 @@ function a4pp_download_file(url, fname, prog){
 			
 			item.real_id = r.id; 
 			
-			
 			toast(i("1 arquivo enviado", "1 archivo enviado", "1 row sent!"), "warning", 1000); 
 			
 			remember.update(collection, indexOf, item);
@@ -1227,6 +1228,8 @@ function a4pp_download_file(url, fname, prog){
 	}
 	
 	function sendAllAll(callback){
+		
+		
 		
 		toast(i("Inicializando..", "Iniciando ..", "Starting.."), "success", 1000000);
 		
