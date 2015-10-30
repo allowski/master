@@ -133,7 +133,7 @@ var remember = {
 		}else{
 			console.log("Writing to LocalStorage");
 			window.localStorage['rememberData'] = JSON.stringify(this.collections);
-			if(ask){
+			if(ask==true){
 				if(confirm(window.i("Arquivo salvo, deseja voltar?", "El archivo fue salvo, desea volver?", "File saved, do you want to go back?"))){
 					goBack(1);
 				}
