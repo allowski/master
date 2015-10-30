@@ -525,7 +525,7 @@ function toggleMenu(){
 function goBack(){
 	
 	if(window.current_a4pp.onBack){
-		var cancel = new Function(window.current_item.onBack)();
+		var cancel = new Function(window.current_a4pp.onBack)();
 		if(!cancel){
 			return false;
 		}
