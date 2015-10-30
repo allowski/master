@@ -32,10 +32,8 @@ function sendByEmail(){
 	if(email){
 		
 		$.get(window.app.update_url+"&action=send_email&id="+remember.collections.deudas[remember.current_item.id].id+"&email="+email, function(r){
-			if(!r){
-				return false;
-			}
-			alert("Sent!"+r);
+			resp = JSON.parse(r);
+			alert(resp.message);
 		});
 		
 	}
