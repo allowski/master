@@ -42,7 +42,7 @@ function gotFileWriter(fileWriter) {
 	file.writer.available = true;
 	file.writer.object = fileWriter;
 }
-function saveText(e) {
+function saveText(e, ask) {
 	console.log(arguments.callee.toString());
 	var fail;
 	if (file.writer.available) {
@@ -50,8 +50,10 @@ function saveText(e) {
 		file.writer.object.onwriteend = function (evt) {
 			file.writer.available = true;
 			file.writer.object.seek(0);
-			if(confirm(window.i("Arquivo salvo, deseja voltar?", "El archivo fue salvo, desea volver?", "File saved, do you want to go back?"))){
-				goBack(1);
+			if(ask){
+				if(confirm(window.i("Arquivo salvo, deseja voltar?", "El archivo fue salvo, desea volver?", "File saved, do you want to go back?"))){
+					goBack(1);
+				}
 			}
 		}
 		file.writer.object.write(e);
@@ -123,17 +125,18 @@ var remember = {
 			remember.save();
 		});
 	},
-	'save'	: function(){
+	'save'	: function(ask){
 		
 		if(isPhoneGap()){
 			console.log("Writing to File");
-			saveText(JSON.stringify(this.collections));
+			saveText(JSON.stringify(this.collections), ask);
 		}else{
 			console.log("Writing to LocalStorage");
 			window.localStorage['rememberData'] = JSON.stringify(this.collections);
-			
-			if(confirm(window.i("Arquivo salvo, deseja voltar?", "El archivo fue salvo, desea volver?", "File saved, do you want to go back?"))){
-				goBack(1);
+			if(ask){
+				if(confirm(window.i("Arquivo salvo, deseja voltar?", "El archivo fue salvo, desea volver?", "File saved, do you want to go back?"))){
+					goBack(1);
+				}
 			}
 		}
 		
@@ -431,7 +434,7 @@ var remember = {
 		this.log("Save form, new value is:");
 		this.log(newVal);
 		this.current_item = {"id":indexOf, "collection":collection};
-		this.save();
+		this.save(true);
 	},
 	'new': function(formId){
 		this.log("new called");
