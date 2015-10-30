@@ -51,7 +51,7 @@ function saveText(e) {
 			file.writer.available = true;
 			file.writer.object.seek(0);
 			if(confirm(window.i("Arquivo salvo, deseja voltar?", "El archivo fue salvo, desea volver?", "File saved, do you want to go back?"))){
-				goBack();
+				goBack(1);
 			}
 		}
 		file.writer.object.write(e);
@@ -133,7 +133,7 @@ var remember = {
 			window.localStorage['rememberData'] = JSON.stringify(this.collections);
 			
 			if(confirm(window.i("Arquivo salvo, deseja voltar?", "El archivo fue salvo, desea volver?", "File saved, do you want to go back?"))){
-				goBack();
+				goBack(1);
 			}
 		}
 		

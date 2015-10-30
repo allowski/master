@@ -522,9 +522,10 @@ function toggleMenu(){
 	}
 }
 
-function goBack(){
+function goBack(dispatch){
 	
-	if(window.current_a4pp.onBack){
+	
+	if(window.current_a4pp.onBack && dispatch){
 		var cancel = new Function(window.current_a4pp.onBack)();
 		if(!cancel){
 			return false;
