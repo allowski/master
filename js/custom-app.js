@@ -31,7 +31,7 @@ function sendByEmail(){
 
 	if(email){
 		
-		$.get(window.app.update_url+"&action=send_email&id="+remember.collections.deudas.items[remember.current_item.id]+"&email="+email, function(r){
+		$.get(window.app.update_url+"&action=send_email&id="+remember.collections.deudas[remember.current_item.id]+"&email="+email, function(r){
 			if(!r){
 				return false;
 			}
