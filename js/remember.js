@@ -132,12 +132,17 @@ var remember = {
 			saveText(JSON.stringify(this.collections), ask);
 		}else{
 			console.log("Writing to LocalStorage");
-			window.localStorage['rememberData'] = JSON.stringify(this.collections);
 			if(ask==true){
-				if(confirm(window.i("Arquivo salvo, deseja voltar?", "El archivo fue salvo, desea volver?", "File saved, do you want to go back?"))){
-					goBack(1);
+				if(window.localStorage['rememberData'] != JSON.stringify(this.collections)){
+					if(confirm(window.i("Arquivo salvo, deseja voltar?", "El archivo fue salvo, desea volver?", "File saved, do you want to go back?"))){
+						goBack(1);
+					}
+				}else{
+					alert(i("Nao houve modificacoes", "No se modifico el archivo", "File not modified"));
 				}
 			}
+			
+			window.localStorage['rememberData'] = JSON.stringify(this.collections);
 		}
 		
 	},
