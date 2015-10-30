@@ -801,6 +801,7 @@ window.a4pp = function(data, auto){
 		
 		case "template":
 			if(data.template != undefined){
+				body.classList.add(data.template);
 				if(data.beforeRender){
 					var fx = new Function(data.beforeRender)();
 				}
