@@ -31,7 +31,7 @@ function sendByEmail(){
 
 	if(email){
 		
-		$.get(window.app.update_url+"&action=send_email&id="+remember.collections.deudas[remember.current_item.id].id+"&email="+email, function(r){
+		$.get(window.app.update_url+"&action=send_email&id="+remember.collections.deudas[remember.current_item.id].id+"&ent="+$("[name=entidad_]").val()+"&email="+email, function(r){
 			//resp = JSON.parse(r);
 			alert(r.message);
 			console.log(r);
