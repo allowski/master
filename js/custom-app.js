@@ -1,114 +1,310 @@
-function register_position(){
+window.currentEntry = 0;
+
+console.log("Init called");
+
+if(typeof window.localStorage['sdatos']=="undefined"){
 	
-	toast("<span class='spinner glyphicon glyphicon-refresh'></span> "+i("Aguarde..", "Aguarde..", "Wait.."), "warning", 50000);
+	console.log("sdatos is undefined");
 	
-	$("#btn").attr("src", "img/ponto-alt.png");
-	setTimeout(function(){
-		getpos(function(res){
-			
-			var ps = JSON.parse(window.localStorage["pos"]);
-			
-			var nw  = {};
-			
-			nw.accuracy = res.accurancy;
-			nw.altitude = res.altitude;
-			nw.altitudeAccuracy = res.altitudeAccuracy;
-			nw.heading = res.heading;
-			nw.latitude = res.latitude;
-			nw.longitude = res.longitude;
-			nw.speed = res.speed;
-			
-			var d = new Date();
-			nw.timestamp = d.toLocaleString();
-			
-			ps.push(nw);
-			
-			window.localStorage["pos"] = JSON.stringify(ps);
-			
-			updateList();
-			
-			toast(i("Capturado", "Posicion capturada", "Captured position!"), "success", 3000);
-			
-			$("#btn").attr("src", "img/ponto.png");
-			
-			setTimeout(function(){
-				
-				
-			
-				if(isConnected()){
-					
-					//sendAll();
-					
-				}else{
-					
-					toast("offline", "warning", 1000);
-					
-				}
-				
-			}, 3000);
-			
-			
-		});
-		
-	},1500);
+	window.localStorage['sdatos'] = "[{}]";
 	
 }
 
-function updateList(){
-
-	var all = JSON.parse(window.localStorage["pos"]);
+function take_photo(){
+		
+	openCamera(320, 256, 90, function (dat){
 	
-	$("#list").html("");
+		$("#theImg").attr("src", dat);
+		
+		$("input[name=pic]").val(dat);
 	
-	if(all.length==0){
-		
-		$("<li>").text(i("Nada a mostrar", "Nada que mostrar", "No positions here")).appendTo("#list");
-		
-		return;
-		
-	}
-	
-	for(x in all){
-		
-		var current = all[x];
-		
-		var strx = " <span class='glyphicon glyphicon-map-marker'></span> "+i("Data/Hora", "Fecha", "Datetime")+": "+current.timestamp+" <span class='glyphicon glyphicon-chevron-right pull-right'></span> ";
-		
-		$("<li>").attr("onclick", "window.open('geo:"+current.latitude+", "+current.longitude+"', '_system');").html(strx).appendTo("#list");
-		
-	}
-
-}
-
-function sendAll(){
-	
-	
-	toast("Sending...", "success", 15000);
-	
-	var sp = JSON.parse(window.localStorage["pos"]);
-	
-	var rq = $.post(window.app.download_url,  {"apx":"upload","data":sp}, function(r){
-		
-		toast("sent!", "success", 5000);
-		
-		window.localStorage["pos"] = "[]";
-		
 	});
 	
-	rq.error = function(){
-		toast("oops! error", "danger", 5000);
-	};
+}
+
+function save_entry(){
+
+	console.log("save_entry called");
+	
+	var entry = $('#frm').serializeObject();
+	
+	if(window.currentEntry==0){
+
+		toast("Testimonio creado!", "success", 3000);
+		
+		window.currentEntry = add_entry(entry);
+		
+	}else{
+		
+		toast("Testimonio modificado!", "success", 3000);
+		
+		update_entry(window.currentEntry, entry);
+		
+	}
+	
+	a4pp_destroy_last();
+	
+	triggerGoTo("0");
 	
 }
 
-function init(){
+function load_entries(){
 	
-	if(!window.localStorage["pos"]){
+	console.log("load_entries called");
+	
+	//console.log(window.localStorage);
+	
+	if(typeof window.localStorage['sdatos']==="undefined"){
+	
+		console.log("Undefined sdatos");
+	
+		window.localStorage['sdatos'] = "[{}]";
 		
-		window.localStorage["pos"] = "[]";
+	}
+	
+	console.log(window.localStorage);
+
+	
+	return JSON.parse(window.localStorage['sdatos']);
+	
+}
+
+function save_entries(sdata){
+	
+	console.log("save_entries called");
+	
+	window.localStorage['sdatos'] = JSON.stringify(sdata);
+}
+
+function count_entries(){
+	
+	console.log("count_entries called");
+	
+	var temp = load_entries();
+	
+	return temp.length;
+	
+}
+
+function get_entry(indexOf){
+	
+	console.log("get_entry called");
+	
+	var temp = load_entries();
+	
+	return temp[indexOf];
+	
+}
+
+function add_entry(entry){
+	
+	console.log("add_entry called");
+	
+	var temp = load_entries();
+	
+	temp.push(entry);
+	
+	save_entries(temp);
+	
+	return temp.length-1;
+	
+}
+
+function delete_entry(indexOf){
+	
+	console.log("delete_entry called");
+	
+	var temp = load_entries();
+	
+	temp.splice(indexOf, 1);
+	
+	save_entries(temp);
+	
+}
+
+function user_delete_entry(indexOf){
+	
+	if(confirm("Eliminar este testimonio?")){
+		
+		toast("Testimonio eliminado!", "danger", 3000);
+		
+		delete_entry(indexOf);
+		
+		a4pp_destroy_last();
+		
+		triggerGoTo("0");	
 		
 	}
 	
 }
 
-init();
+function update_entry(indexOf, entry){
+	
+	console.log("update_entry called");
+	
+	var temp = load_entries();
+	
+	temp[indexOf] = entry;
+	
+	save_entries(temp);
+	
+}
+
+
+function divulgar(como){
+    if(como=="s"){
+        $("#autorizado").text("Gracias por autorizar el uso de su imagen!");    
+        $("#si_o_no").hide();
+    }
+    $("[name=divulgar_imagen]").val(como);
+}
+
+function list_entries(){
+	
+	console.log("list_entries called");
+	
+	var temp = load_entries();
+	
+	for(var i = 1; i < temp.length; i++){
+		
+		console.log(i+") "+temp[i].nombre);
+		
+	}
+	
+	return 1;
+	
+}
+
+function edit_entry_in_form(indexOf){
+	
+	var temp = load_entries();
+	
+	var final = 0;
+	
+	var inter;
+	
+	inter = setInterval(function(){
+	
+		if(indexOf in temp){
+		
+			window.currentEntry=indexOf;
+			
+			var cur = temp[indexOf];
+			
+			var cnt = 0;
+			
+			for(x in cur){
+				
+				cnt = cnt + 1;
+				
+				console.log(x+" = "+cur[x]);
+				
+				$("[name="+x+"]").val(cur[x]);
+				
+				final = final + $("[name="+x+"]").length;
+				
+				var strc =  cur.pic || 'img/fallback.png';
+				
+				$("#theImg").attr("src",strc);
+				
+				if(x == "divulgar_imagen"){
+					if(cur[x]=="s"){
+						divulgar("s");
+					}
+				}
+			}
+		
+		}else{
+			
+			clearInterval(inter);
+			
+			console.log("Entry:"+indexOf+" not found");
+			
+		}
+		
+		console.log("Sum:"+final);
+		
+		if(final >= cnt){
+			
+			console.log("End");
+			
+			clearInterval(inter);
+			
+		}
+		
+	}, 500);
+	
+}
+
+function load_config(){
+
+	if(typeof window.localStorage['config'] == "undefined"){
+		 window.localStorage['config'] = "{}";
+	} 
+
+	return JSON.parse(window.localStorage['config']);
+
+}
+
+function save_config(element){
+
+	window.localStorage['config'] = JSON.stringify($(element).serializeObject());
+
+}
+
+function get_config(indexOf){
+
+	var temp = load_config();
+
+	if(indexOf in temp){
+		return temp[indexOf];
+	}else{
+		return "";
+	}
+	
+}
+
+function send_entry(entryId){
+	
+	console.log("Send entry called...");
+	
+	save_entry();
+	
+	console.log("Set time out...");
+	
+	setTimeout(function(){
+		
+		entry = get_entry(entryId);
+
+		console.log("Show toast...");
+
+		toast("Enviando..", "warning", 1000);
+		
+		console.log("Sending...");
+		
+		console.log(window.app.update_url);
+		
+		var formData = {"apx":"send_data", "action":"download","data": entry};
+		
+		console.log(formData);
+		
+		var req = $.post(window.app.update_url, formData, function(r){
+			
+			console.log("Response:");
+			console.log(r);
+			
+			if(r.status == "OK"){
+				toast("Testimonio enviado! OK", "success", 3000);
+				entry.id = r.id;
+				update_entry(entryId, entry);
+				save_entries();
+			}else{
+				toast("Algo paso mal..", "danger", 3000);
+			}
+		})
+		
+		req.error(a4pp_conn_error);
+	
+	}, 700);
+	
+}
