@@ -1,153 +1,113 @@
-/**	
- * 		a4pp Tech
- */ 
+function register_position(){
+	
+	toast("<span class='spinner glyphicon glyphicon-refresh'></span> "+i("Aguarde..", "Aguarde..", "Wait.."), "warning", 50000);
+	
+	$("#btn").attr("src", "img/ponto-alt.png");
+	setTimeout(function(){
+		getpos(function(res){
+			
+			var ps = JSON.parse(window.localStorage["pos"]);
+			
+			var nw  = {};
+			
+			nw.accuracy = res.accurancy;
+			nw.altitude = res.altitude;
+			nw.altitudeAccuracy = res.altitudeAccuracy;
+			nw.heading = res.heading;
+			nw.latitude = res.latitude;
+			nw.longitude = res.longitude;
+			nw.speed = res.speed;
+			
+			var d = new Date();
+			nw.timestamp = d.toLocaleString();
+			
+			ps.push(nw);
+			
+			window.localStorage["pos"] = JSON.stringify(ps);
+			
+			updateList();
+			
+			toast(i("Capturado", "Posicion capturada", "Captured position!"), "success", 3000);
+			
+			$("#btn").attr("src", "img/ponto.png");
+			
+			setTimeout(function(){
+				
+				
+			
+				if(isConnected()){
+					
+					//sendAll();
+					
+				}else{
+					
+					toast("offline", "warning", 1000);
+					
+				}
+				
+			}, 3000);
+			
+			
+		});
+		
+	},1500);
+	
+}
+
+function updateList(){
+
+	var all = JSON.parse(window.localStorage["pos"]);
+	
+	$("#list").html("");
+	
+	if(all.length==0){
+		
+		$("<li>").text(i("Nada a mostrar", "Nada que mostrar", "No positions here")).appendTo("#list");
+		
+		return;
+		
+	}
+	
+	for(x in all){
+		
+		var current = all[x];
+		
+		var strx = " <span class='glyphicon glyphicon-map-marker'></span> "+i("Data/Hora", "Fecha", "Datetime")+": "+current.timestamp+" <span class='glyphicon glyphicon-chevron-right pull-right'></span> ";
+		
+		$("<li>").attr("onclick", "window.open('geo:"+current.latitude+", "+current.longitude+"', '_system');").html(strx).appendTo("#list");
+		
+	}
+
+}
+
+function sendAll(){
+	
+	
+	toast("Sending...", "success", 15000);
+	
+	var sp = JSON.parse(window.localStorage["pos"]);
+	
+	var rq = $.post(window.app.download_url,  {"apx":"upload","data":sp}, function(r){
+		
+		toast("sent!", "success", 5000);
+		
+		window.localStorage["pos"] = "[]";
+		
+	});
+	
+	rq.error = function(){
+		toast("oops! error", "danger", 5000);
+	};
+	
+}
 
 function init(){
 	
-	remember.create("events");
-	remember.create("items");
-	
-}
- 
-function createNewEvent(){
-	
-	var newEventTitle = $("#newEventTitle").val();
-	
-	var lastId = new Date().getTime();
-	
-	var newEvent = {"id":lastId};
-	
-	if(newEventTitle == ""){
+	if(!window.localStorage["pos"]){
 		
-		alert("Insira o nome do evento");
-		
-		$("#newEventTitle").focus();
-		
-		return;
-		
-	}else{
-		
-		newEvent.title = newEventTitle;
-		
-		remember.push("events", newEvent);
+		window.localStorage["pos"] = "[]";
 		
 	}
-	
-}
-
-function openEvent(k){
-	
-	var myEvent = remember.getItem("events", k);
-	
-	window.app.items[0].dat = myEvent;
-	
-	triggerGoTo("0");
-	
-}
-
-function getAll(id){
-	
-	var result = [];
-	
-	var all = remember.getItems("items");
-	
-	for(var i = 0;i<all.length; i++){
-		
-		if(all[i].event == id){
-			
-			result.push(all[i]);
-			
-		}
-		
-	}
-	
-	return result;
-	
-	
-}
-
-function newItemForm(){
-	
-	$("#itemId").val("0");
-	
-	$("#newItemForm").removeClass('hidde');
-	
-	$("#nwRet").removeClass("hidden");
-	
-	$("#nwItm").addClass("hidden");
-	
-	$("#nwItmOk").removeClass("hidden");
-	
-}
-
-function newItemFormOK(xevent){
-	
-	var lastId = new Date().getTime();
-	
-	var newItem = {"id":lastId};
-	
-	var itemId = $("#itemId").val();
-	
-	newItem.event = xevent;
-	
-	newItem.text = $("#newItemTitle").val();
-	
-	newItem.value = $("#newItemValue").val();
-	
-	newItem.numero = $("#newItemNumber").val();
-	
-	newItem.ES = $("#newItemES").val();
-	
-	if(
-		(newItem.value == "") || 
-		(newItem.text == "")
-	){
-		return;
-	}else{
-		
-		$("#newItemForm").addClass('hidde');
-		$("#nwItmOk").addClass("hidden");
-		$("#nwItm").removeClass("hidden");
-		$("#nwRet").addClass("hidden");
-		
-	}
-		
-	if(itemId == 0){
-	
-		remember.push("items", newItem);
-	
-	}else{
-		
-		remember.update("items", itemId, newItem);
-		
-	}
-	
-}
-
-function close_window(){
-	$('#newItemForm').addClass('hidde');
-	$("#nwRet").addClass("hidden");
-	$("#nwItmOk").addClass("hidden");
-	$("#nwItm").removeClass("hidden");
-}
-
-function editItem(itemIndex){
-	
-	$("#itemId").val(itemIndex);
-	
-	var item = remember.getItem('items', itemIndex);
-	
-	
-	$("#newItemForm").removeClass('hidde');
-	$("#nwRet").removeClass("hidden");
-	$("#nwItm").addClass("hidden");
-	$("#nwItmOk").removeClass("hidden");
-	
-	$("#newItemTitle").val(item.text);
-	$("#newItemValue").val(item.value);
-	$("#newItemES").val(item.ES);
-	$("#newItemNumber").val(item.numero);
-	
 	
 }
 
