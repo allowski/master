@@ -99,23 +99,23 @@ function capt_gps(that, id){
 
 document.addEventListener('deviceready', function () {
     // Android customization
-    cordova.plugins.backgroundMode.setDefaults({ text:i('Sincronizacao Ativa', "Sincronizacion Activa", "Syncing Enabled")});
+    cordova.plugins.backgroundMode.setDefaults({ text:i('Sincronizacao Ativa', "Sincronizacion Activa", "Syncing Enabled"), title:window.app.name, ticker:"Testing"});
     // Enable background mode
     cordova.plugins.backgroundMode.enable();
 
     // Called when background mode has been activated
     cordova.plugins.backgroundMode.onactivate = function () {
         setInterval(function () {
-            
             cordova.plugins.backgroundMode.configure({
                 text:'Enviando..'
             });
-            
 			sendAllAll(function(){
 				cordova.plugins.backgroundMode.configure({
-					text:'Enviando..'
+					text:'Finalizado..'
 				});	
-				alert("Test");
+				setTimeout(function(){
+					 cordova.plugins.backgroundMode.setDefaults({ text:i('Sincronizacao Ativa', "Sincronizacion Activa", "Syncing Enabled")});
+				},3000);
 			});
             
         }, 15000);
