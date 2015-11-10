@@ -47,20 +47,30 @@ function get_data(){
 			
 			//console.log("Syncing: "+list_col[c]);
 			
-			$.post(window.app.update_url, {"action":"get_data", "collection":window.app.collections[c]}, function(r){
+			$.post(window.app.update_url, {"action":"get_last_import", "collection":window.app.collections[c]}, function(rd){
 				
-				//console.log("Synced "+list_col[c]);
-			
-				processing = 0;
+				remember.collections.collections[c] = c;
 				
-				remember.collections[list_col[c]] = r.data;
+				if(remember.collections.import_ids[c]!=rd.import_id){
 				
-				remember.save();
+					remember.collections.import_ids[c] = rd.import_id;
+					
+					$.post(window.app.update_url, {"action":"get_data", "collection":window.app.collections[c]}, function(r){
+					
+						processing = 0;
+						
+						remember.collections[list_col[c]] = r.data;
+						
+						remember.save();
+						
+						ammount+=r.data.length;
+						
+						c++;
+					
+					});
+					
+				}
 				
-				ammount+=r.data.length;
-				
-				c++;
-			
 			});
 			
 			
@@ -101,7 +111,7 @@ var backgroundInterval;
 
 document.addEventListener('deviceready', function () {
     // Android customization
-    cordova.plugins.backgroundMode.setDefaults({ text:i('Sincronizacao Ativa', "Sincronizacion Activa", "Syncing Enabled"), title:window.app.name, ticker:"Testing"});
+    cordova.plugins.backgroundMode.setDefaults({ text:i('Sincronizacao Ativa', "Sincronizacion Activa", "Syncing Enabled"), title:window.app.title, ticker:window.app.title});
     // Enable background mode
     cordova.plugins.backgroundMode.enable();
 
@@ -113,14 +123,15 @@ document.addEventListener('deviceready', function () {
     cordova.plugins.backgroundMode.onactivate = function () {
         window.backgroundInterval = setInterval(function () {
             cordova.plugins.backgroundMode.configure({
-                text:'Enviando..'
+                text:i('Enviando..', 'Enviando..', 'Sending..'),
+                title:i('Trabalhando', 'Trabajando', 'Working')
             });
 			sendAllAll(function(){
 				cordova.plugins.backgroundMode.configure({
 					text:'Finalizado..'
 				});	
 				setTimeout(function(){
-					 cordova.plugins.backgroundMode.setDefaults({ text:i('Sincronizacao Ativa', "Sincronizacion Activa", "Syncing Enabled")});
+					 cordova.plugins.backgroundMode.configure({ text:i('Sincronizacao Ativa', "Sincronizacion Activa", "Syncing Enabled")});
 				},3000);
 			});
             
