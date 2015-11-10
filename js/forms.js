@@ -20,7 +20,7 @@ function check_for_updates(){
 	
 	var ammount = 0;
 	
-	if(window.hasUpdates == false){
+	if(!window.hasUpdates){
 		
 		iv = setInterval(function(){ 
 			
