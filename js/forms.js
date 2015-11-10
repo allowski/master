@@ -72,6 +72,12 @@ function get_data(){
 					
 					});
 					
+				}else{
+					
+					console.log("Skipping "+remember.collections[c]);
+					
+					c++;
+					
 				}
 				
 			});
