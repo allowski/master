@@ -43,8 +43,6 @@ function get_data(){
 			
 			}
 			
-			toast(t("Sincronizando "+list_col[c], "Sincronizando "+list_col[c], "Syncing.. "+list_col[c]), "warning", 50000);
-			
 			processing = 1;
 			
 			//console.log("Syncing: "+list_col[c]);
@@ -57,6 +55,8 @@ function get_data(){
 					remember.collections.import_ids = [];
 				}
 				if(remember.collections.import_ids[c]!=rd.import_id){
+					
+					toast(t("Sincronizando "+list_col[c], "Sincronizando "+list_col[c], "Syncing.. "+list_col[c]), "warning", 50000);
 				
 					remember.collections.import_ids[c] = rd.import_id;
 					
