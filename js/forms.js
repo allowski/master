@@ -74,7 +74,7 @@ function get_data(){
 					
 				}else{
 					
-					console.log("Skipping "+remember.collections[c]);
+					console.log("Skipping "+remember.collections.collections[c]);
 					
 					c++;
 					
