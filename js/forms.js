@@ -1,6 +1,82 @@
 function t(x,y,z){
 	return y;
 }
+
+window.hasUpdates == false;
+
+function check_for_updates(){
+	
+	var list_col = [];
+	
+	for(var i  in window.app.collections){
+		list_col.push(window.app.collections[i]);
+	}
+	
+	var iv;
+	
+	var c = 0;
+	
+	var processing = 0;
+	
+	var ammount = 0;
+	
+	if(window.hasUpdates == false){
+		
+		iv = setInterval(function(){ 
+			
+			if(c>=list_col.length){
+				clearInterval(iv);
+				remember.save();
+			}
+			
+			if((!list_col[c])||(list_col[c]=="undefined")||(list_col[c]=="collections")){
+				
+			}else{
+				
+				if(processing == 1){ 
+					
+					console.log("Still processing: "+list_col[c]+" .. waiting..");
+					
+					return;
+				
+				}
+				
+				processing = 1;
+				
+				//console.log("Syncing: "+list_col[c]);
+				
+				$.post(window.app.update_url, {"action":"get_last_import", "collection":window.app.collections[c]}, function(rd){
+					
+					remember.collections.collections[c] = c;
+					
+					if(!("import_ids" in remember.collections)){
+						remember.collections.import_ids = [];
+					}
+					
+					if(remember.collections.import_ids[c] != rd.id){
+						
+						window.hasUpdates = true;
+						
+					}
+					
+				});
+				
+			}
+		
+		},500);
+		
+	}else{
+		
+		if(confirm(t("Hay informaciones que bajar, desea bajar ahora?", "Tem informacoes novas no para baixar, deseja baixar agora?", "There are updates in the server, do you want to download it now?"))){
+			sendAllAll(function(){
+				get_data();
+			});
+		}
+		
+	}
+	
+}
+
 function get_data(){
 	
 	toast(t("Sincronizando..", "Sincronizando..", "Syncing.."), "success", 50000);
