@@ -2,9 +2,9 @@
 	<widget xmlns = "http://www.w3.org/ns/widgets"
 		xmlns:gap = "http://phonegap.com/ns/1.0"
 		id        = "simple-form.cloudcrm.tech"
-		version   = "1447172515">
+		version   = "1447172620">
 		<name>SimpleForm</name>
-		<description>SimpleForm 1447172515, Build number 0</description>
+		<description>SimpleForm 1447172620, Build number 0</description>
 		<author href="http://www.fijatebien.net" email="allowski@gmail.com">Alberto Miranda</author>
 		<preference name="phonegap-version" value="3.7.0" />
 		<access origin="*"/>
@@ -84,5 +84,6 @@
 		<gap:plugin name="com.phonegap.plugins.barcodescanner"/>
 		
 		<gap:plugin name="de.appplant.cordova.plugin.background-mode" version="0.6.4" />
+		
 		
 	</widget>
