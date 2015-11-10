@@ -76,6 +76,8 @@ function get_data(){
 					
 					console.log("Skipping "+remember.collections.collections[c]);
 					
+					processing = 0;
+					
 					c++;
 					
 				}
