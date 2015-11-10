@@ -59,6 +59,10 @@ function check_for_updates(){
 						
 					}
 					
+					processing = 0;
+					
+					c++;
+					
 				});
 				
 			}
