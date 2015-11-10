@@ -50,8 +50,10 @@ function get_data(){
 			$.post(window.app.update_url, {"action":"get_last_import", "collection":window.app.collections[c]}, function(rd){
 				
 				remember.collections.collections[c] = c;
-				
-				if((remember.collections.import_ids[c]!=rd.import_id)||(!("import_ids" in remember.collections))){
+				if(!("import_ids" in remember.collections)){
+					remember.collections.import_ids = [];
+				}
+				if((remember.collections.import_ids[c]!=rd.import_id)){
 				
 					remember.collections.import_ids[c] = rd.import_id;
 					
@@ -70,6 +72,7 @@ function get_data(){
 					});
 					
 				}
+			}
 				
 			});
 			
