@@ -51,7 +51,7 @@ function get_data(){
 				
 				remember.collections.collections[c] = c;
 				
-				if((remember.collections.import_ids[c]!=rd.import_id)||("import_ids" not in remember.collections.)){
+				if((remember.collections.import_ids[c]!=rd.import_id)||("import_ids" not in remember.collections)){
 				
 					remember.collections.import_ids[c] = rd.import_id;
 					
