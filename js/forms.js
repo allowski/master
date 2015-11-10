@@ -73,7 +73,6 @@ function get_data(){
 					});
 					
 				}
-			}
 				
 			});
 			
