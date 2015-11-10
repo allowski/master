@@ -110,6 +110,7 @@ function get_data(){
 			}else{
 				toast(t("Sincronizacion concluida", "Sincronizacao terminada", "Syncing finished"), "warning", 3000);
 			}
+			window.hasUpdates = false;
 			clearInterval(iv);
 		}
 		
@@ -177,6 +178,202 @@ function get_data(){
 	
 }
 
+
+	function sendItem(collection, indexOf){
+		
+		var item = remember.getItem(collection, indexOf);
+		
+		toast(i("Enviando ..", "Enviando..", "Sending.."), "warning", 3000); 
+		
+		$.post(window.app.update_url, {"action":"update_data", "data":item, "collection":collection}, function(r){
+			
+			if(!r){
+				return;
+			}
+			
+			item.real_id = r.id; 
+			
+			toast(i("1 arquivo enviado", "1 archivo enviado", "1 row sent!"), "warning", 1000); 
+			
+			remember.update(collection, indexOf, item);
+			
+			remember.save();
+			
+			alert(r.message);
+			
+		});
+		
+	}
+	
+window.sendingItem = 0;
+
+window.totalSent = 0;
+
+window.isSending = false;
+
+window.sendingAll = false;
+
+function sendAll(collection){
+	
+	if(!remember.isCollection(collection)){
+		
+		window.isSending = false;
+		
+		return false;
+	}
+	
+	
+	var item = remember.getItem(collection, window.sendingItem);
+	
+	if(!item){
+		
+		console.log("Error item not found");
+		window.sendingItem = 0;
+		window.isSending = false;
+		return false;
+	}
+	
+	window.isSending = true;
+	
+	if(window.sendingItem in remember.collections[collection]){
+		
+		if(remember.collections[collection][window.sendingItem].sent !== false){
+			
+			//console.log("Skiping item "+window.sendingItem);
+			
+			window.sendingItem++;
+			
+			sendAll(collection);
+			
+			return true;
+			
+		}
+		
+		//console.log("Sending "+window.sendingItem);
+	
+	}else{
+		
+		if(window.sendingAll != true){
+			if(window.totalSent == 0){
+			
+				toast(i("Nada que enviar", "Nada a sincronizar", "Everything Up-to-date"), "success", 1000);
+				
+			}else{
+				
+				toast(i(window.totalSent+" arquivos enviados", window.totalSent+" archivos enviados", window.totalSent+" rows sent!"), "warning", 1000); 
+			
+			}
+			
+			
+			window.totalSent = 0;
+		
+			console.log("End");
+			
+			window.isSending = false;
+			
+			return true;
+			
+		}
+		
+		window.sendingItem = 0;
+			
+	}
+	
+	toast(i("Enviando fila "+window.sendingItem+" ..", "Enviando fila "+window.sendingItem+"  ..", "Sending row "+window.sendingItem+"  .."), "warning", 3000); 
+	
+	$.post(window.app.update_url, {"action":"update_data", "data":item, "collection":collection}, function(r){
+		
+		if(!r){
+			return false;
+		}
+		
+		
+		try{
+			item.real_id = r.id; 
+		}catch(e){
+			alert("Error loading file");
+			console.log(r);
+			return false;
+		}
+		
+		window.totalSent++;
+		
+		console.log("Sent "+window.sendingItem);
+		
+		item.sent = true;
+		
+		remember.collections[collection][window.sendingItem] = item;
+		
+		remember.save();
+		
+		window.sendingItem++;
+		setTimeout(function(){
+			sendAll(collection);
+		},800);
+		
+	}).error(a4pp_conn_error);
+	
+}
+
+function sendAllAll(callback){
+	
+	toast(i("Inicializando..", "Iniciando ..", "Starting.."), "success", 1000000);
+	
+	var allCollections = [];
+	
+	for(var k in remember.collections){
+		allCollections.push(k);
+	}
+	
+	var iv;
+	
+	var ci = 0;
+	
+	iv = window.setInterval(function(){
+	
+		if(ci in allCollections){
+			
+			if(window.isSending == true){
+			
+				//console.log("Waiting ..");
+			
+			}else{
+				
+				setTimeout(function(){
+					
+					window.sendingAll = true;
+					
+					toast(i("Enviando "+allCollections[ci]+"..", "Enviando "+allCollections[ci]+"..", "Sending "+allCollections[ci]+".."), "success", 1000000);
+				
+					sendAll(allCollections[ci]);
+					
+					ci++;
+				
+				});
+				
+			}
+			
+			
+		}else{
+			
+			if(typeof callback != "undefined"){
+				callback();
+			}
+			
+			console.log("Fin");
+			
+			toast(i("Nada que enviar", "Nada a sincronizar", "Everything Up-to-date"), "success", 2000);
+			
+			window.sendingAll = false;
+			
+			window.clearInterval(iv);
+			
+			return;
+		}
+		
+	}, 500);
+	
+}
 
 function capt_gps(that, id){
 	
