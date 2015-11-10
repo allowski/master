@@ -27,6 +27,8 @@ function get_data(){
 			if(ammount > 0){
 				toast(t("Sincronizacion terminada "+ammount+" filas", "Sincronizacao terminada "+ammount+" filas", "Syncing finished "+ammount+" rows"), "success", 3000);
 				main();
+			}else{
+				toast(t("Sincronizacion concluida", "Sincronizacao terminada", "Syncing finished"), "warning", 3000);
 			}
 			clearInterval(iv);
 		}
