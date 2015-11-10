@@ -2,7 +2,7 @@ function t(x,y,z){
 	return y;
 }
 
-window.hasUpdates == false;
+window.hasUpdates = false;
 
 function check_for_updates(){
 	
