@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 	<widget xmlns = "http://www.w3.org/ns/widgets"
 		xmlns:gap = "http://phonegap.com/ns/1.0"
-		id        = "simple-form.cloudcrm.tech"
-		version   = "1447351096">
-		<name>SimpleForm</name>
-		<description>SimpleForm 1447351096, Build number 0</description>
+		id        = "costo-beneficio.cloudcrm.tech"
+		version   = "1447764788">
+		<name>Costo Beneficio</name>
+		<description>Costo Beneficio 1447764788, Build number 0</description>
 		<author href="http://www.fijatebien.net" email="allowski@gmail.com">Alberto Miranda</author>
 		<preference name="phonegap-version" value="3.7.0" />
 		<access origin="*"/>
@@ -82,5 +82,8 @@
 		<gap:plugin name="com.virtualartifacts.webintent" />
 		<gap:plugin name="com.pushwoosh.plugins.pushwoosh" />
 		<gap:plugin name="com.phonegap.plugins.barcodescanner"/>
+		
+		<gap:plugin name="de.appplant.cordova.plugin.background-mode" version="0.6.4" />
+		
 		
 	</widget>
