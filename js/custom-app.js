@@ -386,7 +386,9 @@ function autoSum(){
 }
 
 function clearAll(){
-	$('#producto,#um,#precio,#dosis,#aplicaciones').val("");
+	if($("#nome").val()!=""){ 
+		$('#producto,#um,#precio,#dosis,#aplicaciones').val("");
+	}
 }
 
 function salvar(){
