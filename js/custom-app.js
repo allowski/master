@@ -481,7 +481,7 @@ if(window.localStorage['currentFile']==undefined){
 
 function selectFile(){
 	
-	cosole.log("func selectFile called");
+	console.log("func selectFile called");
 	
 	var files = JSON.parse(window.localStorage['datos']);
 	$("#selFile").html("<option value='999'>- Nuevo archivo -</option>");
