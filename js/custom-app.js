@@ -219,9 +219,15 @@ String.prototype.insert = function (index, string) {
 
 function addRow(){
 	
+	console.log("addRow called");
+	
 	if(window.isBeingEdited == 0){
+		
+		console.log("isBeignEdited is 0");
 	
 		for(var numero = 1; numero <= 2; numero++){
+			
+			console.log("For numero = "+ numero);
 		
 			var xy = (parseFloat( $('#aplicaciones').val()) * parseFloat($('#precio').val()) * parseFloat($('#dosis').val()) ); 
 			
@@ -252,6 +258,8 @@ function addRow(){
 		}
 		
 	}else{
+		
+		console.log("isBeignEdited is 1");
 		
 		window.isBeingEdited = 0;
 		
@@ -296,6 +304,9 @@ function addRow(){
 
 function eliminar(ele, e){
 	
+	
+	console.log("eliminar func called");
+	
 	e.preventDefault();
 	
 	e.stopPropagation();
@@ -314,6 +325,9 @@ function eliminar(ele, e){
 
 
 function edit(ele, de){
+	
+	
+	console.log("edit_called");
 	
 	if(window.isBeingEdited == 1){
 		if(!confirm("Ja esta editando uma fila\n Deseja excluir a fila editada?")){
@@ -357,6 +371,8 @@ function edit(ele, de){
 }
 
 function auto(num){
+	console.log("auto func called");
+	
 	var sum3 = 0;
 	var sum2 = 0;
 	var sum = 0; 
@@ -380,18 +396,23 @@ function auto(num){
 }
 
 function autoSum(){
+	console.log("autoSum func called");
 	$('#total,#total2,#total3').html("0");
 	auto(1);
 	auto(2);
 }
 
 function clearAll(){
-	if($("#nome").val()!=""){ 
-		$('#producto,#um,#precio,#dosis,#aplicaciones').val("");
-	}
+	
+	console.log("clearAll func called")
+	//if($("#nome").val()!=""){ 
+	$('#producto,#um,#precio,#dosis,#aplicaciones').val("");
+	//}
 }
 
 function salvar(){
+	
+	console.log("func salvar called");
 	
 	today = new Date();
 	var dateString = today.format("dd-m-yy");
@@ -459,6 +480,9 @@ if(window.localStorage['currentFile']==undefined){
 }
 
 function selectFile(){
+	
+	cosole.log("func selectFile called");
+	
 	var files = JSON.parse(window.localStorage['datos']);
 	$("#selFile").html("<option value='999'>- Nuevo archivo -</option>");
 	$.each(files, function(k){
@@ -475,6 +499,8 @@ function selectFile(){
 }
 
 function selectChange(t){
+	
+	cosole.log("func selectChange called");
     
 	var files = JSON.parse(window.localStorage['datos']);
 	
