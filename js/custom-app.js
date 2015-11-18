@@ -475,7 +475,9 @@ function selectFile(){
 	
 	console.log("func selectFile called");
 	
-	var files = JSON.parse(window.localStorage['datos']);
+	var ol = window.localStorage['datos'] || "{}";
+	
+	var files = JSON.parse(ol);
 	$("#selFile").html("<option value='none'>- Nuevo archivo -</option>");
 	$.each(files, function(k){
 		if(k=="null") return;
