@@ -499,7 +499,7 @@ function selectChange(t){
     
     var ol = window.localStorage['datos'] || "{}";
     
-	var files = JSON.parse();
+	var files = JSON.parse(ol);
 	
 	var idx = (t!==null) ? t[t.selectedIndex].value : window.localStorage['currentFile'];
 	
