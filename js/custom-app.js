@@ -1,18 +1,3 @@
- /*
-     * Date Format 1.2.3
-     * (c) 2007-2009 Steven Levithan <stevenlevithan.com>
-     * MIT license
-     *
-     * Includes enhancements by Scott Trenda <scott.trenda.net>
-     * and Kris Kowal <cixar.com/~kris.kowal/>
-     *
-     * Accepts a date, a mask, or a date and a mask.
-     * Returns a formatted version of the given date.
-     * The date defaults to the current date/time.
-     * The mask defaults to dateFormat.masks.default.
-     */
-
-
 window.isBeingEdited = 0;     
 
 Array.prototype.remove = function(from, to) {
@@ -133,56 +118,7 @@ Array.prototype.remove = function(from, to) {
     };
 
 var number_format = function number_format(number, decimals, dec_point, thousands_sep) {
-  //  discuss at: http://phpjs.org/functions/number_format/
-  // original by: Jonas Raoni Soares Silva (http://www.jsfromhell.com)
-  // improved by: Kevin van Zonneveld (http://kevin.vanzonneveld.net)
-  // improved by: davook
-  // improved by: Brett Zamir (http://brett-zamir.me)
-  // improved by: Brett Zamir (http://brett-zamir.me)
-  // improved by: Theriault
-  // improved by: Kevin van Zonneveld (http://kevin.vanzonneveld.net)
-  // bugfixed by: Michael White (http://getsprink.com)
-  // bugfixed by: Benjamin Lupton
-  // bugfixed by: Allan Jensen (http://www.winternet.no)
-  // bugfixed by: Howard Yeend
-  // bugfixed by: Diogo Resende
-  // bugfixed by: Rival
-  // bugfixed by: Brett Zamir (http://brett-zamir.me)
-  //  revised by: Jonas Raoni Soares Silva (http://www.jsfromhell.com)
-  //  revised by: Luke Smith (http://lucassmith.name)
-  //    input by: Kheang Hok Chin (http://www.distantia.ca/)
-  //    input by: Jay Klehr
-  //    input by: Amir Habibi (http://www.residence-mixte.com/)
-  //    input by: Amirouche
-  //   example 1: number_format(1234.56);
-  //   returns 1: '1,235'
-  //   example 2: number_format(1234.56, 2, ',', ' ');
-  //   returns 2: '1 234,56'
-  //   example 3: number_format(1234.5678, 2, '.', '');
-  //   returns 3: '1234.57'
-  //   example 4: number_format(67, 2, ',', '.');
-  //   returns 4: '67,00'
-  //   example 5: number_format(1000);
-  //   returns 5: '1,000'
-  //   example 6: number_format(67.311, 2);
-  //   returns 6: '67.31'
-  //   example 7: number_format(1000.55, 1);
-  //   returns 7: '1,000.6'
-  //   example 8: number_format(67000, 5, ',', '.');
-  //   returns 8: '67.000,00000'
-  //   example 9: number_format(0.9, 0);
-  //   returns 9: '1'
-  //  example 10: number_format('1.20', 2);
-  //  returns 10: '1.20'
-  //  example 11: number_format('1.20', 4);
-  //  returns 11: '1.2000'
-  //  example 12: number_format('1.2000', 3);
-  //  returns 12: '1.200'
-  //  example 13: number_format('1 000,50', 2, '.', ' ');
-  //  returns 13: '100 050.00'
-  //  example 14: number_format(1e-8, 8, '.', '');
-  //  returns 14: '0.00000001'
-
+  
   number = (number + '')
     .replace(/[^0-9+\-Ee.]/g, '');
   var n = !isFinite(+number) ? 0 : +number,
@@ -217,13 +153,7 @@ String.prototype.insert = function (index, string) {
     return string + this;
 };
 
-function addRow(nao_salvar){
-	
-	var salv = nao_salvar || false;
-	
-	if(!salv){
-		salvar(false);
-	}
+function addRow(){
 	
 	console.log("addRow called");
 	
@@ -303,13 +233,7 @@ function addRow(nao_salvar){
 	clearAll();
 	
 	autoSum();
-	
-	
-	if(!salv){
-	
-		salvar(false);
-		
-	}
+
 }
 
 function eliminar(ele, e){
@@ -424,12 +348,6 @@ function salvar(){
 	
 	console.log("func salvar called");
 	
-	if($("#producto").val() != ""){
-		
-		//addRow(true);
-		
-	}
-	
 	today = new Date();
 	var dateString = today.format("dd-m-yy");
 	
@@ -446,7 +364,7 @@ function salvar(){
 	if(window.currentFile === 999){
 		if($("#nome").val()==""){ 
 			if(nome==""){
-				nome = prompt("Guardar como:");
+				nome = i("Sin titulo "+dados.length, "Sem titulo "+dados.length, "Untitled "+dados.length);
 				if (nome === undefined || nome === null || nome ==="") {
 					return;
 				}else{
