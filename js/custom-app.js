@@ -370,7 +370,7 @@ function salvar(){
 	
 	var datos = JSON.parse(window.localStorage['datos']);
 	
-	var len = Object.keys(datos);
+	var len = Object.keys(datos).length;
 	
 	console.log("Number of keys is: "+len);
 	
