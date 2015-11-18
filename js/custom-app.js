@@ -363,7 +363,7 @@ function salvar(){
 	
 	var nome = "";
 	
-	if(window.currentFile === 999){
+	if(window.currentFile === "none"){
 		if($("#nome").val()==""){ 
 			if(nome==""){
 				nome = i("Sin titulo "+(len+1), "Sem titulo "+(len+1), "Untitled "+(len+1));
@@ -409,8 +409,8 @@ function salvar(){
 }
 
 if(window.localStorage['currentFile']==undefined){
-    window.currentFile = 999;
-    window.localStorage['currentFile'] = 999;
+    window.currentFile = "none";
+    window.localStorage['currentFile'] = "none";
 }else{
     window.currentFile = parseInt(window.localStorage['currentFile']);
     setTimeout(function(){
@@ -423,7 +423,7 @@ function selectFile(){
 	console.log("func selectFile called");
 	
 	var files = JSON.parse(window.localStorage['datos']);
-	$("#selFile").html("<option value='999'>- Nuevo archivo -</option>");
+	$("#selFile").html("<option value='none'>- Nuevo archivo -</option>");
 	$.each(files, function(k){
 		if(k=="null") return;
 		sel = ""; 
@@ -484,13 +484,13 @@ function selectChange(t){
 }
 
 function deletar(){
-	if(window.currentFile !== 999){
+	if(window.currentFile !== "none"){
 		var files = JSON.parse(window.localStorage['datos']);
-		files.splice(window.currentFile,1);
+		delete(files[window.currentFile]);
 		window.localStorage['datos'] = JSON.stringify(files);
 		clearAll();
-		window.currentFile = 999;
-        window.localStorage['currentFile'] = 999;
+		window.currentFile = "none";
+        window.localStorage['currentFile'] = "none";
 		$("#tblHtml,#nome").val("");
 		selectFile();
 		autoSum();
