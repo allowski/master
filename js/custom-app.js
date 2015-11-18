@@ -165,7 +165,9 @@ function addRow(){
 			
 			console.log("For numero = "+ numero);
 		
-			var xy = (parseFloat( $('#aplicaciones').val()) * parseFloat($('#precio').val()) * parseFloat($('#dosis').val()) ); 
+			var aplics = $('#aplicaciones').val();
+		
+			var xy = (parseFloat(aplics) * parseFloat($('#precio').val()) * parseFloat($('#dosis').val()) ); 
 			
 			var soja = parseFloat($("#soja").val());
 			
@@ -177,7 +179,11 @@ function addRow(){
 		
 			var precio = $('#precio').val();
 			
-			var appl = $('#aplicaciones').val();
+			if($('#aplicaciones').val() == ""){
+				appl = 1;
+			}else{
+				var appl = parseFloat($('#aplicaciones').val());
+			}
 			
 			$('#result'+numero).append(
 				'<tr class="'+clase+'" onclick="edit(this, '+numero+');autoSum();return false;">'+
@@ -213,7 +219,16 @@ function addRow(){
 		
 		var precio = $('#precio').val();
 		
-		var appl = $('#aplicaciones').val();
+		
+		if($('#aplicaciones').val() == ""){
+			
+			appl = 1;
+			
+		}else{
+			
+			var appl = parseFloat($('#aplicaciones').val());
+		
+		}
 		
 		$('#result'+numero).append(
 			'<tr class="'+clase+'" onclick="edit(this, '+numero+');autoSum();return false;">'+
