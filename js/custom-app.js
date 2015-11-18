@@ -502,7 +502,7 @@ function selectFile(){
 
 function selectChange(t){
 	
-	cosole.log("func selectChange called");
+	console.log("func selectChange called");
     
 	var files = JSON.parse(window.localStorage['datos']);
 	
