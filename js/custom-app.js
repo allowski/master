@@ -359,12 +359,14 @@ function salvar(){
 	
 	var datos = JSON.parse(window.localStorage['datos']);
 	
+	var len = Object.keys(datos);
+	
 	var nome = "";
 	
 	if(window.currentFile === 999){
 		if($("#nome").val()==""){ 
 			if(nome==""){
-				nome = i("Sin titulo "+datos.length+1, "Sem titulo "+datos.length+1, "Untitled "+datos.length+1);
+				nome = i("Sin titulo "+(len+1), "Sem titulo "+(len+1), "Untitled "+(len+1);
 				if (nome === undefined || nome === null || nome ==="") {
 					return;
 				
