@@ -353,7 +353,7 @@ function salvar(){
 	
 	if(window.localStorage['datos']==undefined){
 		
-		window.localStorage['datos'] = "[]";
+		window.localStorage['datos'] = "{}";
 		
 	}
 	
@@ -376,9 +376,9 @@ function salvar(){
 		}else{
 			nome = $("#nome").val();
 		}
-		datos.push({"nome":nome,"datos":$("#tblHtml").html(),"fecha":dateString, "soja":parseFloat($("#soja").val())});
+		datos[nome] = {"nome":nome,"datos":$("#tblHtml").html(),"fecha":dateString, "soja":parseFloat($("#soja").val())};
 		
-		window.currentFile = datos.length-1;
+		window.currentFile = nome;
 		
         window.localStorage['currentFile'] = window.currentFile;
 		
