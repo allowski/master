@@ -439,7 +439,7 @@ function salvar(){
 	
 	selectFile();
 	
-	conosle.log("clear selFile options");
+	console.log("clear selFile options");
 	
 	$("#selFile option").prop('selected', false);
 	
