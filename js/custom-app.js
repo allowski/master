@@ -346,6 +346,8 @@ function clearAll(){
 
 function salvar(){
 	
+	autoSum();
+	
 	console.log("func salvar called");
 	
 	today = new Date();
