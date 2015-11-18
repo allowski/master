@@ -217,9 +217,13 @@ String.prototype.insert = function (index, string) {
     return string + this;
 };
 
-function addRow(){
+function addRow(nao_salvar){
 	
-	salvar();
+	var salv = nao_salvar || false;
+	
+	if(nao_salvar){
+		salvar();
+	}
 	
 	console.log("addRow called");
 	
@@ -300,8 +304,12 @@ function addRow(){
 	
 	autoSum();
 	
-	salvar();
 	
+	if(nao_salvar){
+	
+		salvar();
+		
+	}
 }
 
 function eliminar(ele, e){
@@ -418,7 +426,7 @@ function salvar(){
 	
 	if($("#producto").val() != ""){
 		
-		addRow();
+		addRow(true);
 		
 	}
 	
