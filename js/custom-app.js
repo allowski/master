@@ -450,9 +450,9 @@ function selectChange(t){
 	
 	if(typeof idx !== "undefined"){
 	
-    	if(idx==999){
+    	if(idx=="none"){
     		
-    		window.currentFile = 999;
+    		window.currentFile = "none";
     		
     		$("#result1, #result2").html("");
     		
@@ -474,7 +474,7 @@ function selectChange(t){
     	console.log(idx);
     	
     	console.log(files[idx]);
-    	if(window.currentFile !== 999){
+    	if(window.currentFile !== "none"){
         	$("#tblHtml").html(files[idx].datos);
         	$("#nome").val(files[idx].nome);
         	$("#soja").val(files[idx].soja);
