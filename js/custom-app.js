@@ -219,6 +219,8 @@ String.prototype.insert = function (index, string) {
 
 function addRow(){
 	
+	salvar();
+	
 	console.log("addRow called");
 	
 	if(window.isBeingEdited == 0){
