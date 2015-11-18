@@ -221,7 +221,7 @@ function addRow(nao_salvar){
 	
 	var salv = nao_salvar || false;
 	
-	if(salv){
+	if(!salv){
 		salvar();
 	}
 	
@@ -305,7 +305,7 @@ function addRow(nao_salvar){
 	autoSum();
 	
 	
-	if(salv){
+	if(!salv){
 	
 		salvar();
 		
