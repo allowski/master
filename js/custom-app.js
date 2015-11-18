@@ -222,7 +222,7 @@ function addRow(nao_salvar){
 	var salv = nao_salvar || false;
 	
 	if(!salv){
-		salvar();
+		salvar(false);
 	}
 	
 	console.log("addRow called");
@@ -307,7 +307,7 @@ function addRow(nao_salvar){
 	
 	if(!salv){
 	
-		salvar();
+		salvar(false);
 		
 	}
 }
@@ -430,6 +430,8 @@ function salvar(){
 		
 	}
 	
+	toast(
+	
 	today = new Date();
 	var dateString = today.format("dd-m-yy");
 	
@@ -482,6 +484,8 @@ function salvar(){
 	$("#selFile option").filter(function(){
 		return $(this).text() == nome;
 	}).prop('selected', true);
+	
+	toast(i("Arquivo salvo", "Archivo guardado", "File saved"), "success", 3000);
 	
 }
 
