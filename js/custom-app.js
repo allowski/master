@@ -426,7 +426,7 @@ function salvar(){
 	
 	if($("#producto").val() != ""){
 		
-		addRow(true);
+		//addRow(true);
 		
 	}
 	
