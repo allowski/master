@@ -364,9 +364,10 @@ function salvar(){
 	if(window.currentFile === 999){
 		if($("#nome").val()==""){ 
 			if(nome==""){
-				nome = i("Sin titulo "+datos.length, "Sem titulo "+datos.length, "Untitled "+datos.length);
+				nome = i("Sin titulo "+datos.length+1, "Sem titulo "+datos.length+1, "Untitled "+datos.length+1);
 				if (nome === undefined || nome === null || nome ==="") {
 					return;
+				
 				}else{
 					$("#nome").val(nome);
 					selectFile();
