@@ -430,8 +430,6 @@ function salvar(){
 		
 	}
 	
-	toast(
-	
 	today = new Date();
 	var dateString = today.format("dd-m-yy");
 	
