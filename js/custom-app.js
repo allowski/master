@@ -426,6 +426,7 @@ function selectFile(){
 	$("#selFile").html("<option value='none'>- Nuevo archivo -</option>");
 	$.each(files, function(k){
 		if(k=="null") return;
+		
 		sel = ""; 
 		if(window.localStorage['currentFile'] == k){
 		    console.log("CurrentFile: "+window.currentFile);
