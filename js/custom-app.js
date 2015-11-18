@@ -366,7 +366,7 @@ function salvar(){
 	if(window.currentFile === 999){
 		if($("#nome").val()==""){ 
 			if(nome==""){
-				nome = i("Sin titulo "+(len+1), "Sem titulo "+(len+1), "Untitled "+(len+1);
+				nome = i("Sin titulo "+(len+1), "Sem titulo "+(len+1), "Untitled "+(len+1));
 				if (nome === undefined || nome === null || nome ==="") {
 					return;
 				
