@@ -416,6 +416,12 @@ function salvar(){
 	
 	console.log("func salvar called");
 	
+	if($("#producto").val() != ""){
+		
+		addRow();
+		
+	}
+	
 	today = new Date();
 	var dateString = today.format("dd-m-yy");
 	
