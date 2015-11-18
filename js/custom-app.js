@@ -497,7 +497,9 @@ function selectChange(t){
 	
 	console.log("func selectChange called");
     
-	var files = JSON.parse(window.localStorage['datos']);
+    var ol = window.localStorage['datos'] || "{}";
+    
+	var files = JSON.parse();
 	
 	var idx = (t!==null) ? t[t.selectedIndex].value : window.localStorage['currentFile'];
 	
