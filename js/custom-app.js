@@ -326,18 +326,36 @@ function auto(num){
 	var sum2 = 0;
 	var sum = 0; 
 	console.log("Calc: "+num);
+	
+	console.log("auto sum function")
+	
+	conosole.log(".suma");
+	
 	$("#result"+num).find('.suma').each(function(){ 
-		sum+=parseFloat($(this).attr("data-val")); 
+		
+		var toSum = parseFloat($(this).attr("data-val"));
+		if(!isNaN(toSum)){
+			sum+=toSum;
+		}
 		console.log(sum);
 		$("#t"+num).find('#total').text("$ "+number_format(sum, 2, ",", ".")); 
 	});
+	
+	console.log("total:"+sum);
+	
 	$("#result"+num).find('.suma2').each(function(){ 
-		sum2+=parseFloat($(this).attr("data-val")); 
+		var toSum = parseFloat($(this).attr("data-val"));
+		if(!isNaN(toSum)){
+			sum2+=toSum;
+		}
 		console.log(sum2);
 		$("#t"+num).find('#total2').text("Sc "+number_format(sum2, 2, ",", ".")); 
 	});
-	$("#result"+num).find('.suma3').each(function(){ 
-		sum3+=parseFloat($(this).attr("data-val")); 
+	$("#result"+num).find('.suma3').each(function(){
+		var toSum = parseFloat($(this).attr("data-val"));
+		if(!isNaN(toSum)){
+			sum3+=toSum;
+		} 
 		console.log(sum3);
 		$("#t"+num).find('#total3').text("Kg "+number_format(sum3, 2, ",", ".")); 
 	});
