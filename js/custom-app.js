@@ -349,42 +349,79 @@ function salvar(){
 	console.log("func salvar called");
 	
 	today = new Date();
+	
 	var dateString = today.format("dd-m-yy");
+	
+	console.log("Is localStorage dados undefined?");
 	
 	if(window.localStorage['datos']==undefined){
 		
 		window.localStorage['datos'] = "{}";
 		
+		console.log("Yes");
+		
+	}else{
+		
+		console.log("Nope");
+		
 	}
+	
+	console.log("Parse datos JSON");
 	
 	var datos = JSON.parse(window.localStorage['datos']);
 	
 	var len = Object.keys(datos);
 	
+	console.log("Number of keys is: "+len);
+	
 	var nome = "";
 	
+	console.log("Is current file == none?");
+	
 	if(window.currentFile === "none"){
+		
+		console.log("Yes, it is");
+		
+		console.log("#Nome empty?");
+		
 		if($("#nome").val()==""){ 
-			if(nome==""){
-				nome = i("Sin titulo "+(len+1), "Sem titulo "+(len+1), "Untitled "+(len+1));
-				if (nome === undefined || nome === null || nome ==="") {
-					return;
-				
-				}else{
-					$("#nome").val(nome);
-					selectFile();
-				}
-			}
+			
+			console.log("Yes, it is");
+			
+			nome = i("Sin titulo "+(len+1), "Sem titulo "+(len+1), "Untitled "+(len+1));
+			
+			console.log("Auto generated title is "+ nome);
+			
+			$("#nome").val(nome);
+			
+			selectFile();
+			
 		}else{
+			
 			nome = $("#nome").val();
+			
+			console.log("New file name is: "+nome);
+			
 		}
+		
+		console.log("Appending new file to list");
+		
 		datos[nome] = {"nome":nome,"datos":$("#tblHtml").html(),"fecha":dateString, "soja":parseFloat($("#soja").val())};
+		
+		console.log("New item is:");
+		
+		console.log(datos[nome]);
+		
+		console.log("set currentFile to "+nome);
 		
 		window.currentFile = nome;
 		
         window.localStorage['currentFile'] = window.currentFile;
 		
+		
 	}else{
+		
+		console.log("currentFile is "+window.currentFile);
 		
 		datos[window.currentFile].datos = $("#tblHtml").html();
 		
@@ -394,17 +431,33 @@ function salvar(){
 		
 	}
 	
+	console.log("Save to localStorage datos");
+	
 	window.localStorage['datos'] = JSON.stringify(datos);
+	
+	console.log("selectFile called");
 	
 	selectFile();
 	
+	conosle.log("clear selFile options");
+	
 	$("#selFile option").prop('selected', false);
 	
+	
+	conosle.log("select the current file");
+	
 	$("#selFile option").filter(function(){
+		
+		console.log($(this).text()+ " == "+nome);
+		
 		return $(this).text() == nome;
 	}).prop('selected', true);
 	
+	console.log("User feedback");
+	
 	toast(i("Arquivo salvo", "Archivo guardado", "File saved"), "success", 3000);
+	
+	console.log("End salvar");
 	
 }
 
