@@ -62,6 +62,8 @@ var costoBeneficio = {
 		this.result2.append(this.generateFromForm());
 	},
 	"generateFromForm": function(){
+		
+		this.log("generateFromForm"
 	
 		var prod = $("#producto").val();
 		var um = $("#um").val();
