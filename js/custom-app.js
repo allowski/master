@@ -229,6 +229,10 @@ var costoBeneficio = {
 		if(filename in this.files){
 			
 			$("#tblHtml").html(this.files[filename].content);
+		
+			this.result1 = $("#result1");
+			
+			this.result2 = $("#result2");
 			
 			this.currentFile = filename;
 			
