@@ -11,6 +11,8 @@ String.prototype.insert = function (index, string) {
   else
     return string + this;
 }; 
+
+var number_format=function(e,n,t,r){e=(e+"").replace(/[^0-9+\-Ee.]/g,"");var i=isFinite(+e)?+e:0,a=isFinite(+n)?Math.abs(n):0,o="undefined"==typeof r?",":r,d="undefined"==typeof t?".":t,u="",f=function(e,n){var t=Math.pow(10,n);return""+(Math.round(e*t)/t).toFixed(n)};return u=(a?f(i,a):""+Math.round(i)).split("."),u[0].length>3&&(u[0]=u[0].replace(/\B(?=(?:\d{3})+(?!\d))/g,o)),(u[1]||"").length<a&&(u[1]=u[1]||"",u[1]+=new Array(a-u[1].length+1).join("0")),u.join(d)};
   
 
 var costoBeneficio = {
@@ -95,9 +97,10 @@ var costoBeneficio = {
 		<td>"+dosis+"</td>\n\
 		<td>"+precio+"</td>\n\
 		<td>"+aplic+"</td>\n\
-		<td>"+usd_ha+"</td>\n\
-		<td>"+sc_ha+"</td>\n\
-		<td>"+kg_ha+"</td>\n\
+		<td class='tt1' data-value='"+usd_ha+"'>"+usd_ha+"</td>\n\
+		<td class='tt2' data-value='"+sc_ha+"'>"+sc_ha+"</td>\n\
+		<td class='tt3' data-value='"+kg_ha+"'>"+kg_ha+"</td>\n\
+		<td><a href='#' class='btn btn-danger'><span class='glyphicon glyphicon-remove'></span></a></td>\n\
 </tr>";
 		
 		this.log(result);
