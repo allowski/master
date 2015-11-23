@@ -47,6 +47,12 @@ var costoBeneficio = {
 		
 		this.fileList = this.modal.find(".list-group");
 		
+	},
+	
+	"refreshList": function(){
+		
+		this.fileList.html("");
+		
 		$.each(this.files, function(){
 			
 			costoBeneficio.fileList.append("<a class='list-group-item text-uppercase' onclick='editFile(event, \""+this.filename+"\");'>"+this.filename+"</a>");
@@ -75,9 +81,15 @@ var costoBeneficio = {
 				
 			}
 			
+		}else{
+			
+			this.files[this.currentFile].content = $("#tblHtml").html();
+			
 		}
 		
 		window.localStorage["costoBeneficio"] = JSON.stringify(this.files);
+		
+		this.refreshList();
 		
 	},
 	"loadData": function(){
