@@ -24,6 +24,7 @@ var costoBeneficio = {
 	"isBeingEdited": false,
 	"appendTo": 0,
 	"editedRow": null,
+	"filenameInput": null,
 	"modal": null,
 	"init": function(){
 		
@@ -88,6 +89,8 @@ var costoBeneficio = {
 			this.files[this.currentFile].content = $("#tblHtml").html();
 			
 		}
+		
+		this.filenameInput.val(filename);
 		
 		window.localStorage["costoBeneficio"] = JSON.stringify(this.files);
 		
@@ -221,6 +224,10 @@ var costoBeneficio = {
 			$("#tblHtml").html(this.files[filename].content);
 			
 			this.currentFile = filename;
+			
+			this.filenameInput.val(filename);
+			
+			this.modal.modal('toggle');
 			
 		}
 		
