@@ -21,6 +21,9 @@ var costoBeneficio = {
 	"result1": null,
 	"result2": null,
 	"ton": 300.00,
+	"isBeingEdited": false,
+	"appendTo": 0,
+	"editedRow": null,
 	"init": function(){
 		
 		this.log("init function");
@@ -67,16 +70,32 @@ var costoBeneficio = {
 	},
 	"addRowEvent": function(){
 		
+		var gen;
+		
 		this.log("addRowEvent");
 		
-		var gen = this.generateFromForm();
-		
 		this.log("append result1");
-		this.result1.append(gen);
-		this.log("append result2");
-		this.result2.append(gen);
+		
+		if(this.isBeingEdited == true){
+			editedRow.remove();
+		}
+		
+		if(this.appendTo == 0){
+			gen = this.generateFromForm(1);
+			this.result1.append(gen);
+			gen = this.generateFromForm(2);
+			this.result2.append(gen);
+		}else if(this.appendTo == 1){
+			gen = this.generateFromForm(1);
+			this.result1.append(gen);
+		}else if(this.appendTo == 2){
+			gen = this.generateFromForm(2);
+			this.result2.append(gen);
+		}
+		
+		this.appendTo = 0;
 	},
-	"generateFromForm": function(){
+	"generateFromForm": function(appendTo){
 		
 		this.log("generateFromForm");
 	
@@ -90,7 +109,7 @@ var costoBeneficio = {
 		var sc_ha = (usd_ha / (this.ton/1000) * 60);
 		var kg_ha = (usd_ha / (this.ton/1000));
 		
-		var result = "<tr onclick='costoBeneficio.editRow(event, this);'>\n\
+		var result = "<tr onclick='costoBeneficio.editRow(event, this, "+appendTo+");'>\n\
 		<td class='hasData' data-target='#producto' data-value='"+prod+"'>"+prod+"</td>\n\
 		<td class='hasData' data-target='#um' data-value='"+um+"'>"+um+"</td>\n\
 		<td class='hasData' data-target='#dosis' data-value='"+dosis+"'>"+dosis+"</td>\n\
@@ -115,11 +134,17 @@ var costoBeneficio = {
 		e.stopPropagation();
 		$(ele).parent().parent().remove();
 	},
-	"editRow": function (event, element){
+	"editRow": function (event, element, appendTo){
+		
+		this.appendTo = appendTo;
 		
 		event.preventDefault();
 		
-		$(element).find(".hasData").each(function(k, v){
+		this.editedRow = $(element);
+		
+		this.isBeingEdited = true;
+		
+		ele.find(".hasData").each(function(k, v){
 			
 			var _target = $(this).data('target');
 			var _value = $(this).data('value');
@@ -150,5 +175,8 @@ function toDbl(evt, ele){
 }
 
 
+$(function(){
+	
+	costoBeneficio.init();
 
-costoBeneficio.init();
+});
