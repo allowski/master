@@ -270,15 +270,15 @@ var costoBeneficio = {
 			
 			$(select).each(function(){
 				costoBeneficio.log("tt1");
-				tt1+=$(this).data("value");
+				tt1+=parseFloat($(this).data("value"));
 			});
 			$("#"+this.id+" .tt2").each(function(){
-				costoBeneficio.log("tt1");
-				tt2+=$(this).data("value");
+				costoBeneficio.log("tt2");
+				tt2+=parseFloat($(this).data("value"));
 			});
 			$("#"+this.id+" .tt3").each(function(){
-				costoBeneficio.log("tt1");
-				tt3+=$(this).data("value");
+				costoBeneficio.log("tt3");
+				tt3+=parseFloat($(this).data("value"));
 			});
 			
 			$(this).find("#tt1").text(number_format(tt1, 2, ".", ","));
