@@ -94,6 +94,9 @@ var costoBeneficio = {
 		}
 		
 		this.appendTo = 0;
+		
+		this.clear();
+		
 	},
 	"generateFromForm": function(appendTo){
 		
@@ -125,6 +128,9 @@ var costoBeneficio = {
 		
 		return result;
 		
+	},
+	"clear": function(){
+		$("#producto, #um, $precio, #dosis, #aplicaciones").val("");
 	},
 	"log": function(e){
 		console.log(e);
