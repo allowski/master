@@ -135,6 +135,11 @@ var costoBeneficio = {
 	"log": function(e){
 		console.log(e);
 	},
+	"selectFile": function(e){
+		e.preventDefault();
+		
+		$("#myModal").modal('show');
+	},
 	"removeItem": function(e, ele){
 		e.preventDefault();
 		e.stopPropagation();
