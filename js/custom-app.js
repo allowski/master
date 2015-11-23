@@ -41,7 +41,8 @@ var costoBeneficio = {
 		
 		this.result2 = $("#result2");
 		
-		this.modal = $("#myModal").appendTo("body").attr("id", "costoModal");
+		this.modal = $("#myModal").clone();
+		this.modal.appendTo("body").attr("id", "costoModal");
 		
 	},
 	
