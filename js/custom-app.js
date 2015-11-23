@@ -100,7 +100,7 @@ var costoBeneficio = {
 		<td class='tt1' data-value='"+usd_ha+"'>"+usd_ha+"</td>\n\
 		<td class='tt2' data-value='"+sc_ha+"'>"+sc_ha+"</td>\n\
 		<td class='tt3' data-value='"+kg_ha+"'>"+kg_ha+"</td>\n\
-		<td><a href='#' class='btn btn-danger'><span class='glyphicon glyphicon-remove'></span></a></td>\n\
+		<td><a href='#' class='btn btn-danger' onclick='costoBeneficio.removeItem(event, element);'><span class='glyphicon glyphicon-remove'></span></a></td>\n\
 </tr>";
 		
 		this.log(result);
@@ -110,6 +110,9 @@ var costoBeneficio = {
 	},
 	"log": function(e){
 		console.log(e);
+	},
+	"removeItem": function(e, ele){
+		$(ele).parent().parent().remove();
 	}
 };
 
