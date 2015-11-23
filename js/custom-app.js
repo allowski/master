@@ -254,19 +254,26 @@ var costoBeneficio = {
 	
 	"sumAll": function(){
 		
+		this.log("sumAll Func");
+		
 		$("#result1, #result2").each(function(){
+			
+			this.log("Sum "+this.id);
 			
 			var tt1 = 0;
 			var tt2 = 0;
 			var tt3 = 0;
 			
 			$(this.id+" .tt1").each(function(){
+				this.log("tt1");
 				tt1+=$(this).data("value");
 			});
 			$(this.id+" .tt2").each(function(){
+				this.log("tt1");
 				tt2+=$(this).data("value");
 			});
 			$(this.id+" .tt3").each(function(){
+				this.log("tt1");
 				tt3+=$(this).data("value");
 			});
 			
