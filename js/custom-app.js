@@ -42,7 +42,16 @@ var costoBeneficio = {
 		this.result2 = $("#result2");
 		
 		this.modal = $("#myModal").clone();
+		
 		this.modal.appendTo("body").attr("id", "costoModal");
+		
+		this.fileList = this.modal.find(".list-group");
+		
+		$.each(this.files, function(){
+			
+			costoBeneficio.fileList.append("<a class='list-group-item' onclick='editFile(\""+this.filename+"\");'>"+this.filename+"</a>");
+			
+		});
 		
 	},
 	
@@ -50,7 +59,26 @@ var costoBeneficio = {
 		
 		this.log("save function");
 		
+		if(this.currentFile == "none"){
+		
+			var file_name = prompt("Digite nombre para el archivo:");
+			
+			if((file_name) && (file_name!="") && (typeof file_name !== "null")){
+				
+				var newItemObj = {};
+				
+				newItemObj.filename = file_name;
+				
+				newItemObj.content = $("#tblHtml").html();
+				
+				this.files[file_name] = newItemObj;
+				
+			}
+			
+		}
+		
 		window.localStorage["costoBeneficio"] = JSON.stringify(this.files);
+		
 	},
 	"loadData": function(){
 		
