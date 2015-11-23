@@ -246,8 +246,14 @@ function toDbl(evt, ele){
 }
 
 
-$(function(){
-	
-	costoBeneficio.init();
+window.app.afterRender = function(){
 
-});
+	console.log("afterRender fired!");
+	
+	setTimeout(function(){
+	
+		costoBeneficio.init();
+	
+	}, 500);
+
+};
