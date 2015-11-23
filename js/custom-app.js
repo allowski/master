@@ -79,6 +79,8 @@ var costoBeneficio = {
 				
 				this.files[file_name] = newItemObj;
 				
+				this.currentFile = file_name;
+				
 			}
 			
 		}else{
