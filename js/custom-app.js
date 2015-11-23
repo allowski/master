@@ -167,7 +167,7 @@ var costoBeneficio = {
 		var aplic = parseFloat($("#aplicaciones").val());
 		var usd_ha = precio * aplic * dosis;
 		this.log("USD/Ha: "+(usd_ha));
-		var sc_ha = (usd_ha / (this.ton/1000) * 60);
+		var sc_ha = (usd_ha / (this.ton/1000) / 60);
 		var kg_ha = (usd_ha / (this.ton/1000));
 		
 		var result = "<tr onclick='costoBeneficio.editRow(event, this, "+appendTo+");'>\n\
