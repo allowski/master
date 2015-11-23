@@ -246,7 +246,7 @@ function toDbl(evt, ele){
 }
 
 
-window.app.afterRender = function(){
+$(function(){
 
 	console.log("afterRender fired!");
 	
@@ -256,4 +256,4 @@ window.app.afterRender = function(){
 	
 	}, 500);
 
-};
+});
