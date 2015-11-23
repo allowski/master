@@ -289,9 +289,9 @@ var costoBeneficio = {
 			var that = this;
 			
 			setTimeout(function(){
-				$(that).find("#tt1").text(number_format(rs.tt1, 2, ".", ","));
-				$(that).find("#tt2").text(number_format(rs.tt2, 2, ".", ","));
-				$(that).find("#tt3").text(number_format(rs.tt3, 2, ".", ","));
+				$(that).parent().find("#tt1").text(number_format(rs.tt1, 2, ".", ","));
+				$(that).parent().find("#tt2").text(number_format(rs.tt2, 2, ".", ","));
+				$(that).parent().find("#tt3").text(number_format(rs.tt3, 2, ".", ","));
 			}, 400);
 		});
 		
