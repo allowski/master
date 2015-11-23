@@ -130,7 +130,7 @@ var costoBeneficio = {
 		
 	},
 	"clear": function(){
-		$("#producto, #um, $precio, #dosis, #aplicaciones").val("");
+		$("#producto, #um, #precio, #dosis, #aplicaciones").val("");
 	},
 	"log": function(e){
 		console.log(e);
