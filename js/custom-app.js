@@ -55,6 +55,9 @@ var costoBeneficio = {
 		
 	},
 	"addRowEvent": function(){
+		
+		this.log("addRowEvent");
+		
 		this.result1.append(this.generateFromForm());
 		this.result2.append(this.generateFromForm());
 	},
@@ -66,13 +69,15 @@ var costoBeneficio = {
 		var precio = $("#precio").val();
 		var aplic = $("#aplicaciones").val();
 		
-		return "<tr>\
+		var result = "<tr>\
 		<td>"+prod+"</td>\
 		<td>"+um+"</td>\
 		<td>"+dosis+"</td>\
 		<td>"+precio+"</td>\
 		<td>"+aplic+"</td>\
 		</tr>";
+		
+		this.log(result);
 		
 	},
 	"log": function(e){
