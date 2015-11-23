@@ -81,6 +81,8 @@ var costoBeneficio = {
 		
 		this.log(result);
 		
+		return result;
+		
 	},
 	"log": function(e){
 		console.log(e);
