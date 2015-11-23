@@ -100,5 +100,24 @@ var costoBeneficio = {
 	}
 };
 
+function toDbl(evt, ele){
+	
+	console.log("Keyup");
+	
+	var valant = $(ele).val();
+	
+	valant = valant.replace(".", "");
+		
+	console.log("Value:"+valant.length);
+	
+	if((valant.length > 1)&&(valant.indexOf(".")===-1)){
+		valant = valant.insert(valant.length-2, ".");
+		console.log("insert into:"+(valant.length-2));
+	}
+	
+	$(ele).val(valant);
+}
+
+
 
 costoBeneficio.init();
