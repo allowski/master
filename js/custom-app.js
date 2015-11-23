@@ -143,6 +143,8 @@ var costoBeneficio = {
 		}else if(this.appendTo == 2){
 			gen = this.generateFromForm(2);
 			this.result2.append(gen);
+		}else{
+			this.log("this:---"+this.appendTo);
 		}
 		
 		this.isBeingEdited = false;
