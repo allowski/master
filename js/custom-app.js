@@ -264,7 +264,11 @@ var costoBeneficio = {
 			var tt2 = 0;
 			var tt3 = 0;
 			
-			$(this.id+" .tt1").each(function(){
+			var select = this.id+" .tt1";
+			
+			costoBeneficio.log("Query: "+ select);
+			
+			$(select).each(function(){
 				costoBeneficio.log("tt1");
 				tt1+=$(this).data("value");
 			});
