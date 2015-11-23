@@ -81,9 +81,9 @@ var costoBeneficio = {
 	
 		var prod = $("#producto").val();
 		var um = $("#um").val();
-		var dosis = $("#dosis").val();
-		var precio = $("#precio").val();
-		var aplic = $("#aplicaciones").val();
+		var dosis = parseFloat($("#dosis").val());
+		var precio = parseFloat($("#precio").val());
+		var aplic = parseFloat($("#aplicaciones").val());
 		var usd_ha = precio * aplic * usd_ha;
 		var sc_ha = (usd_ha / (this.ton/1000) * 60);
 		var kg_ha = (usd_ha / (this.ton/1000));
