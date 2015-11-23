@@ -34,9 +34,8 @@ var costoBeneficio = {
 	"loadElements": function(){
 		
 		this.result1 = $("#result1");
+		
 		this.result2 = $("#result2");
-		
-		
 		
 	},
 	
@@ -91,12 +90,12 @@ var costoBeneficio = {
 		var sc_ha = (usd_ha / (this.ton/1000) * 60);
 		var kg_ha = (usd_ha / (this.ton/1000));
 		
-		var result = "<tr>\n\
-		<td>"+prod+"</td>\n\
-		<td>"+um+"</td>\n\
-		<td>"+dosis+"</td>\n\
-		<td>"+precio+"</td>\n\
-		<td>"+aplic+"</td>\n\
+		var result = "<tr onclick='costoBeneficio.editRow(event, this);'>\n\
+		<td class='hasData' data-target='#producto' data-value='"+prod+"'>"+prod+"</td>\n\
+		<td class='hasData' data-target='#um' data-value='"+um+"'>"+um+"</td>\n\
+		<td class='hasData' data-target='#dosis' data-value='"+dosis+"'>"+dosis+"</td>\n\
+		<td class='hasData' data-target='#precio' data-value='"+precio+"'>"+precio+"</td>\n\
+		<td class='hasData' data-target='#aplicaciones' data-value='"+aplic+"'>"+aplic+"</td>\n\
 		<td class='tt1' data-value='"+usd_ha+"'>"+usd_ha+"</td>\n\
 		<td class='tt2' data-value='"+sc_ha+"'>"+sc_ha+"</td>\n\
 		<td class='tt3' data-value='"+kg_ha+"'>"+kg_ha+"</td>\n\
@@ -113,7 +112,22 @@ var costoBeneficio = {
 	},
 	"removeItem": function(e, ele){
 		e.preventDefault();
+		e.stopPropagation();
 		$(ele).parent().parent().remove();
+	},
+	"editRow": function (event, element){
+		
+		event.preventDefault();
+		
+		$(element).find(".hasData").each(function(k, v){
+			
+			var _target = $(this).data('target');
+			var _value = $(this).data('value');
+			
+			$(_target).val(_value);
+			
+		});
+		
 	}
 };
 
