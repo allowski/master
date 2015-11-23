@@ -170,13 +170,13 @@ var costoBeneficio = {
 		
 		var result = "<tr onclick='costoBeneficio.editRow(event, this, "+appendTo+");'>\n\
 		<td class='hasData' data-target='#producto' data-value='"+prod+"'>"+prod+"</td>\n\
-		<td class='hasData' data-target='#um' data-value='"+um+"'>"+um+"</td>\n\
-		<td class='hasData' data-target='#dosis' data-value='"+dosis+"'>"+dosis+"</td>\n\
-		<td class='hasData' data-target='#precio' data-value='"+precio+"'>"+precio+"</td>\n\
-		<td class='hasData' data-target='#aplicaciones' data-value='"+aplic+"'>"+aplic+"</td>\n\
-		<td class='tt1' data-value='"+usd_ha+"'>"+usd_ha+"</td>\n\
-		<td class='tt2' data-value='"+sc_ha+"'>"+sc_ha+"</td>\n\
-		<td class='tt3' data-value='"+kg_ha+"'>"+kg_ha+"</td>\n\
+		<td class='hasData text-center' data-target='#um' data-value='"+um+"'>"+um+"</td>\n\
+		<td class='hasData text-right' data-target='#dosis' data-value='"+dosis+"'>"+number_format(dosis, 2, ",", ".")+"</td>\n\
+		<td class='hasData text-right' data-target='#precio' data-value='"+precio+"'>"+number_format(precio, 2, ",", ".")+"</td>\n\
+		<td class='hasData text-center' data-target='#aplicaciones' data-value='"+aplic+"'>"+number_format(aplic, 2, ",", ".")+"</td>\n\
+		<td class='tt1 text-right' data-value='"+usd_ha+"'>"+number_format(usd_ha, 2, ",", ".")+"</td>\n\
+		<td class='tt2 text-right' data-value='"+sc_ha+"'>"+number_format(sc_ha, 2, ",", ".")+"</td>\n\
+		<td class='tt3 text-right' data-value='"+kg_ha+"'>"+number_format(kg_ha, 2, ",", ".")+"</td>\n\
 		<td><a href='#' class='btn btn-danger' onclick='costoBeneficio.removeItem(event, this);'><span class='glyphicon glyphicon-remove'></span></a></td>\n\
 </tr>";
 		
