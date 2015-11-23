@@ -49,7 +49,7 @@ var costoBeneficio = {
 		
 		$.each(this.files, function(){
 			
-			costoBeneficio.fileList.append("<a class='list-group-item text-uppercase' onclick='editFile(\""+this.filename+"\");'>"+this.filename+"</a>");
+			costoBeneficio.fileList.append("<a class='list-group-item text-uppercase' onclick='editFile(event, \""+this.filename+"\");'>"+this.filename+"</a>");
 			
 		});
 		
@@ -198,7 +198,9 @@ var costoBeneficio = {
 		
 	},
 	
-	"editFile": function(filename){
+	"editFile": function(event, filename){
+		
+		event.preventDefault();
 		
 		if(filename in this.files){
 			
