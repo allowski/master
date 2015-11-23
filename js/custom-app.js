@@ -286,10 +286,13 @@ var costoBeneficio = {
 			
 			costoBeneficio.log(rs);
 			
-			$(this).find("#tt1").text(number_format(rs.tt1, 2, ".", ","));
-			$(this).find("#tt2").text(number_format(rs.tt2, 2, ".", ","));
-			$(this).find("#tt3").text(number_format(rs.tt3, 2, ".", ","));
+			var that = this;
 			
+			setTimeout(function(){
+				$(that).find("#tt1").text(number_format(rs.tt1, 2, ".", ","));
+				$(that).find("#tt2").text(number_format(rs.tt2, 2, ".", ","));
+				$(that).find("#tt3").text(number_format(rs.tt3, 2, ".", ","));
+			}, 400);
 		});
 		
 	}
