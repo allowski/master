@@ -129,6 +129,7 @@ var costoBeneficio = {
 		
 		if(this.isBeingEdited == true){
 			this.editedRow.remove();
+			this.editedRow = null;
 		}
 		
 		if(this.appendTo == 0){
@@ -143,6 +144,8 @@ var costoBeneficio = {
 			gen = this.generateFromForm(2);
 			this.result2.append(gen);
 		}
+		
+		this.isBeingEdited = false;
 		
 		this.appendTo = 0;
 		
