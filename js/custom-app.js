@@ -270,9 +270,9 @@ var costoBeneficio = {
 				tt3+=$(this).data("value");
 			});
 			
-			$(this).find("#tt1").text(number_format(tt1, 2, ".", ",");
-			$(this).find("#tt2").text(number_format(tt2, 2, ".", ",");
-			$(this).find("#tt3").text(number_format(tt3, 2, ".", ",");
+			$(this).find("#tt1").text(number_format(tt1, 2, ".", ","));
+			$(this).find("#tt2").text(number_format(tt2, 2, ".", ","));
+			$(this).find("#tt3").text(number_format(tt3, 2, ".", ","));
 			
 		});
 		
