@@ -19,7 +19,7 @@ var costoBeneficio = {
 	
 	},
 	
-	"loadElements": {
+	"loadElements": function(){
 		
 		this.result1 = $("#result1");
 		this.result2 = $("#result2");
