@@ -264,7 +264,7 @@ var costoBeneficio = {
 			var tt2 = 0;
 			var tt3 = 0;
 			
-			var select = this.id+" .tt1";
+			var select = "#"+this.id+" .tt1";
 			
 			costoBeneficio.log("Query: "+ select);
 			
@@ -272,11 +272,11 @@ var costoBeneficio = {
 				costoBeneficio.log("tt1");
 				tt1+=$(this).data("value");
 			});
-			$(this.id+" .tt2").each(function(){
+			$("#"+this.id+" .tt2").each(function(){
 				costoBeneficio.log("tt1");
 				tt2+=$(this).data("value");
 			});
-			$(this.id+" .tt3").each(function(){
+			$("#"+this.id+" .tt3").each(function(){
 				costoBeneficio.log("tt1");
 				tt3+=$(this).data("value");
 			});
