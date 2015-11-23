@@ -49,7 +49,7 @@ var costoBeneficio = {
 		
 		$.each(this.files, function(){
 			
-			costoBeneficio.fileList.append("<a class='list-group-item' onclick='editFile(\""+this.filename+"\");'>"+this.filename+"</a>");
+			costoBeneficio.fileList.append("<a class='list-group-item text-uppercase' onclick='editFile(\""+this.filename+"\");'>"+this.filename+"</a>");
 			
 		});
 		
@@ -195,6 +195,18 @@ var costoBeneficio = {
 			$(_target).val(_value);
 			
 		});
+		
+	},
+	
+	"editFile": function(filename){
+		
+		if(filename in this.files){
+			
+			$("#tblHtml").html(this.files[filename].content);
+			
+			this.currentFile = filename;
+			
+		}
 		
 	}
 };
