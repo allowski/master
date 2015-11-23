@@ -253,6 +253,8 @@ $(function(){
 	setTimeout(function(){
 	
 		costoBeneficio.init();
+		
+		costoBeneficio.refreshList();
 	
 	}, 500);
 
