@@ -48,6 +48,8 @@ var costoBeneficio = {
 		
 		this.fileList = this.modal.find(".list-group");
 		
+		this.filenameInput = $("#nome");
+		
 	},
 	
 	"refreshList": function(){
