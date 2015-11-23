@@ -24,6 +24,7 @@ var costoBeneficio = {
 	"isBeingEdited": false,
 	"appendTo": 0,
 	"editedRow": null,
+	"modal": null,
 	"init": function(){
 		
 		this.log("init function");
@@ -39,6 +40,8 @@ var costoBeneficio = {
 		this.result1 = $("#result1");
 		
 		this.result2 = $("#result2");
+		
+		this.modal = $("#myModal").appendTo("body").attr("id", "costoModal");
 		
 	},
 	
@@ -138,7 +141,7 @@ var costoBeneficio = {
 	"selectFile": function(e){
 		e.preventDefault();
 		
-		$("#myModal").modal('show');
+		this.modal.modal('show');
 	},
 	"removeItem": function(e, ele){
 		e.preventDefault();
