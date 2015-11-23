@@ -329,7 +329,7 @@ function auto(num){
 	
 	console.log("auto sum function")
 	
-	conosole.log(".suma");
+	console.log(".suma");
 	
 	$("#result"+num).find('.suma').each(function(){ 
 		
@@ -479,7 +479,7 @@ function salvar(){
 	$("#selFile option").prop('selected', false);
 	
 	
-	conosle.log("select the current file");
+	console.log("select the current file");
 	
 	$("#selFile option").filter(function(){
 		
