@@ -147,6 +147,8 @@ var costoBeneficio = {
 			this.log("this:---"+this.appendTo);
 		}
 		
+		this.sumAll();
+		
 		this.isBeingEdited = false;
 		
 		this.appendTo = 0;
@@ -200,6 +202,8 @@ var costoBeneficio = {
 		e.preventDefault();
 		e.stopPropagation();
 		$(ele).parent().parent().remove();
+		
+		this.sumAll();
 	},
 	"editRow": function (event, element, appendTo){
 		
@@ -219,6 +223,8 @@ var costoBeneficio = {
 			$(_target).val(_value);
 			
 		});
+		
+		this.sumAll();
 		
 	},
 	
@@ -241,6 +247,32 @@ var costoBeneficio = {
 			this.modal.modal('toggle');
 			
 		}
+		
+	},
+	
+	"sumAll": function(){
+		
+		$("#result1, #result2").each(function(){
+			
+			var tt1 = 0;
+			var tt2 = 0;
+			var tt3 = 0;
+			
+			$(this).each(".tt1", function(){
+				tt1+=$(this).data("value");
+			});
+			$(this).each(".tt2", function(){
+				tt2+=$(this).data("value");
+			});
+			$(this).each(".tt2", function(){
+				tt3+=$(this).data("value");
+			});
+			
+			$(this).find("#tt1").text(number_format(tt1, 2, ".", ",");
+			$(this).find("#tt2").text(number_format(tt2, 2, ".", ",");
+			$(this).find("#tt3").text(number_format(tt3, 2, ".", ",");
+			
+		});
 		
 	}
 };
