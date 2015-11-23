@@ -260,9 +260,9 @@ var costoBeneficio = {
 			
 			costoBeneficio.log("Sum "+this.id);
 			
-			var tt1 = 0;
-			var tt2 = 0;
-			var tt3 = 0;
+			var rs = {tt1:0, tt2:0, tt3:0};
+			
+			costoBeneficio.log(rs);
 			
 			var select = "#"+this.id+" .tt1";
 			
@@ -270,20 +270,25 @@ var costoBeneficio = {
 			
 			$(select).each(function(){
 				costoBeneficio.log("tt1");
-				tt1+=parseFloat($(this).data("value"));
+				rs.tt1+=parseFloat($(this).data("value"));
+				costoBeneficio.log(rs);
 			});
 			$("#"+this.id+" .tt2").each(function(){
 				costoBeneficio.log("tt2");
-				tt2+=parseFloat($(this).data("value"));
+				rs.tt2+=parseFloat($(this).data("value"));
+				costoBeneficio.log(rs);
 			});
 			$("#"+this.id+" .tt3").each(function(){
 				costoBeneficio.log("tt3");
-				tt3+=parseFloat($(this).data("value"));
+				rs.tt3+=parseFloat($(this).data("value"));
+				costoBeneficio.log(rs);
 			});
 			
-			$(this).find("#tt1").text(number_format(tt1, 2, ".", ","));
-			$(this).find("#tt2").text(number_format(tt2, 2, ".", ","));
-			$(this).find("#tt3").text(number_format(tt3, 2, ".", ","));
+			costoBeneficio.log(rs);
+			
+			$(this).find("#tt1").text(number_format(rs.tt1, 2, ".", ","));
+			$(this).find("#tt2").text(number_format(rs.tt2, 2, ".", ","));
+			$(this).find("#tt3").text(number_format(rs.tt3, 2, ".", ","));
 			
 		});
 		
