@@ -144,7 +144,7 @@ var costoBeneficio = {
 		
 		this.isBeingEdited = true;
 		
-		ele.find(".hasData").each(function(k, v){
+		this.editedRow.find(".hasData").each(function(k, v){
 			
 			var _target = $(this).data('target');
 			var _value = $(this).data('value');
