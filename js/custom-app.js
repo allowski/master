@@ -77,7 +77,7 @@ var costoBeneficio = {
 		this.log("append result1");
 		
 		if(this.isBeingEdited == true){
-			editedRow.remove();
+			this.editedRow.remove();
 		}
 		
 		if(this.appendTo == 0){
