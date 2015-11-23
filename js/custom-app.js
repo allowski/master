@@ -9,6 +9,7 @@ var costoBeneficio = {
 	"currentFile": "none",
 	"result1": null,
 	"result2": null,
+	"ton": 300.00,
 	"init": function(){
 		
 		this.log("init function");
@@ -58,8 +59,12 @@ var costoBeneficio = {
 		
 		this.log("addRowEvent");
 		
-		this.result1.append(this.generateFromForm());
-		this.result2.append(this.generateFromForm());
+		var gen = this.generateFromForm();
+		
+		this.log("append result1");
+		this.result1.append(gen);
+		this.log("append result2");
+		this.result2.append(gen);
 	},
 	"generateFromForm": function(){
 		
@@ -70,14 +75,20 @@ var costoBeneficio = {
 		var dosis = $("#dosis").val();
 		var precio = $("#precio").val();
 		var aplic = $("#aplicaciones").val();
+		var usd_ha = precio * aplic * usd_ha;
+		var sc_ha = (usd_ha / (this.ton/1000) * 60);
+		var kg_ha = (usd_ha / (this.ton/1000));
 		
-		var result = "<tr>\
-		<td>"+prod+"</td>\
-		<td>"+um+"</td>\
-		<td>"+dosis+"</td>\
-		<td>"+precio+"</td>\
-		<td>"+aplic+"</td>\
-		</tr>";
+		var result = "<tr>\n\
+		<td>"+prod+"</td>\n\
+		<td>"+um+"</td>\n\
+		<td>"+dosis+"</td>\n\
+		<td>"+precio+"</td>\n\
+		<td>"+aplic+"</td>\n\
+		<td>"+usd_ha+"</td>\n\
+		<td>"+sc_ha+"</td>\n\
+		<td>"+kg_ha+"</td>\n\
+</tr>";
 		
 		this.log(result);
 		
