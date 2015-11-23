@@ -246,6 +246,8 @@ var costoBeneficio = {
 			
 			this.modal.modal('toggle');
 			
+			this.sumAll();
+			
 		}
 		
 	},
