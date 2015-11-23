@@ -85,6 +85,7 @@ var costoBeneficio = {
 		var precio = parseFloat($("#precio").val());
 		var aplic = parseFloat($("#aplicaciones").val());
 		var usd_ha = precio * aplic * usd_ha;
+		this.log("USD/Ha: "+(usd_ha));
 		var sc_ha = (usd_ha / (this.ton/1000) * 60);
 		var kg_ha = (usd_ha / (this.ton/1000));
 		
