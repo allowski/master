@@ -260,13 +260,13 @@ var costoBeneficio = {
 			var tt2 = 0;
 			var tt3 = 0;
 			
-			$(this).each(".tt1", function(){
+			$(this).find(".tt1").each(function(){
 				tt1+=$(this).data("value");
 			});
-			$(this).each(".tt2", function(){
+			$(this).find(".tt2").each(function(){
 				tt2+=$(this).data("value");
 			});
-			$(this).each(".tt2", function(){
+			$(this).find(".tt3").each(function(){
 				tt3+=$(this).data("value");
 			});
 			
