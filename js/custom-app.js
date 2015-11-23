@@ -92,7 +92,7 @@ var costoBeneficio = {
 			
 		}
 		
-		this.filenameInput.val(filename);
+		this.filenameInput.val(this.currentFile);
 		
 		window.localStorage["costoBeneficio"] = JSON.stringify(this.files);
 		
