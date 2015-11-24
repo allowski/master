@@ -54,15 +54,19 @@ var costoBeneficio = {
 		
 		this.commoditieInput = $("#soja");
 		
+		var parent = this;
+		
 		this.commoditieInput.on("change", function(){
 			
-			this.ton = parseFloat($(this).val().replace(",", "."));
+			parent.ton = parseFloat($(this).val().replace(",", "."));
 			
-			this.sumAll();
+			parent.files[parent.currentFile].ton = this.ton;
 			
-			this.save();
+			parent.sumAll();
 			
-			this.refreshList();
+			parent.save();
+			
+			parent.refreshList();
 			
 		});
 		
