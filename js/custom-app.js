@@ -263,7 +263,7 @@ var costoBeneficio = {
 		}
 		
 	},
-	"delete": function(){
+	"deleteFile": function(){
 		if(this.currentFile in this.files){
 			delete this.files[this.currentFile];
 			this.save();
