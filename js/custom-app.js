@@ -62,6 +62,8 @@ var costoBeneficio = {
 			
 			this.save();
 			
+			this.refreshList();
+			
 		});
 		
 	},
