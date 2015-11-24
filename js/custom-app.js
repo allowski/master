@@ -58,6 +58,8 @@ var costoBeneficio = {
 			
 			this.ton = parseFloat($(this).val().replace(",", "."));
 			
+			this.sumAll();
+			
 		});
 		
 	},
