@@ -237,11 +237,15 @@ var costoBeneficio = {
 	},
 	"editRow": function (event, element, appendTo){
 		
+		$(".one-row").removeClass("editedRow");
+		
 		this.appendTo = appendTo;
 		
 		event.preventDefault();
 		
 		this.editedRow = $(element);
+		
+		console.log(element);
 		
 		element.classList.add("editedRow");
 		
