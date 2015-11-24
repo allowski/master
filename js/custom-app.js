@@ -300,6 +300,8 @@ var costoBeneficio = {
 			
 			this.modal.modal('toggle');
 			
+			this.ton = this.files[filename].ton || 300.00;
+			
 			this.sumAll();
 			
 		}
