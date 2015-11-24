@@ -3,8 +3,17 @@
 	background:#09f !important;
 	color:#fff !important;
 }
-
 .one-row{
 	font-weight:bold;
 	text-transform:uppercase;
+}
+.form-control{
+	border:1px solid #777 !important;
+	text-indent:5px;
+}
+.btn.btn-block.btn-lg{
+	margin-top:15px;
+	padding:22px;
+	text-align:left !important;
+	text-indent: 15px;
 }
