@@ -73,6 +73,12 @@ var costoBeneficio = {
 		if(this.currentFile != "deleted"){
 			
 			if(this.currentFile == "none"){
+				
+				if($(".one-row").length == 0){
+					
+					return;
+					
+				}
 			
 				var file_name = prompt("Digite nombre para el archivo:");
 				
