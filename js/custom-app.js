@@ -59,17 +59,17 @@ var costoBeneficio = {
 		this.commoditieInput.on("keyup", function(){
 			
 			
-			that.ton = parseFloat($(this).val().replace(",", "."));
+			costoBeneficio.ton = parseFloat($(this).val().replace(",", "."));
 			
-			that.log("This.on = "+that.ton);
+			costoBeneficio.log("This.on = "+costoBeneficio.ton);
 			
-			that.files[parent.currentFile].ton = that.ton;
+			costoBeneficio.files[costoBeneficio.currentFile].ton = costoBeneficio.ton || 300;
 			
-			that.sumAll();
+			costoBeneficio.sumAll();
 			
-			that.save();
+			costoBeneficio.save();
 			
-			that.refreshList();
+			costoBeneficio.refreshList();
 			
 		});
 		
