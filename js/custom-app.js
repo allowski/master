@@ -61,7 +61,7 @@ var costoBeneficio = {
 			
 			that.ton = parseFloat($(this).val().replace(",", "."));
 			
-			this.log("This.on = "+that.ton);
+			that.log("This.on = "+that.ton);
 			
 			that.files[parent.currentFile].ton = that.ton;
 			
