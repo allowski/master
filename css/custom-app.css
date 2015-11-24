@@ -1,5 +1,10 @@
 .editedRow,
-.editedRow *{
+.editedRow td{
 	background:#09f !important;
 	color:#fff !important;
+}
+
+.one-row{
+	font-weight:bold;
+	text-transform:uppercase;
 }
