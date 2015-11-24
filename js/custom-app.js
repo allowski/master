@@ -176,30 +176,34 @@ var costoBeneficio = {
 			this.editedRow = null;
 		}
 		
-		if(this.appendTo == 0){
-			gen = this.generateFromForm(1);
-			this.result1.append(gen);
-			gen = this.generateFromForm(2);
-			this.result2.append(gen);
-		}else if(this.appendTo == 1){
-			gen = this.generateFromForm(1);
-			this.result1.append(gen);
-		}else if(this.appendTo == 2){
-			gen = this.generateFromForm(2);
-			this.result2.append(gen);
-		}else{
-			this.log("this:---"+this.appendTo);
+		if($("#form").val()){
+			
+			if(this.appendTo == 0){
+				gen = this.generateFromForm(1);
+				this.result1.append(gen);
+				gen = this.generateFromForm(2);
+				this.result2.append(gen);
+			}else if(this.appendTo == 1){
+				gen = this.generateFromForm(1);
+				this.result1.append(gen);
+			}else if(this.appendTo == 2){
+				gen = this.generateFromForm(2);
+				this.result2.append(gen);
+			}else{
+				this.log("this:---"+this.appendTo);
+			}
+			
+			this.sumAll();
+			
+			this.isBeingEdited = false;
+			
+			this.appendTo = 0;
+			
+			this.clear();
+			
+			this.save();
+			
 		}
-		
-		this.sumAll();
-		
-		this.isBeingEdited = false;
-		
-		this.appendTo = 0;
-		
-		this.clear();
-		
-		this.save();
 		
 	},
 	"generateFromForm": function(appendTo){
