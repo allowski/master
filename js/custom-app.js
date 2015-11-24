@@ -266,12 +266,12 @@ var costoBeneficio = {
 	"deleteFile": function(){
 		if(this.currentFile in this.files){
 			delete this.files[this.currentFile];
-			this.save();
 			this.filenameInput.val("");
 			this.result1.html("");
 			this.result2.html("");
 			this.currentFile = "none";
 			this.refreshList();
+			this.save();
 		}
 	},
 	"sendEmail": function(){
