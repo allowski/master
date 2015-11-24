@@ -295,6 +295,17 @@ var costoBeneficio = {
 			this.save();
 		}
 	},
+	"newFile": function(){
+		if(this.currentFile in this.files){
+			this.filenameInput.val("");
+			this.result1.html("");
+			this.result2.html("");
+			this.sumAll();
+			this.currentFile = "none";
+			this.refreshList();
+			this.save();
+		}
+	},
 	"sendEmail": function(){
 		
 		var email = prompt("Digite email:");
