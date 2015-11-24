@@ -56,11 +56,11 @@ var costoBeneficio = {
 		
 		var parent = this;
 		
-		this.commoditieInput.on("change", function(){
+		this.commoditieInput.on("change keypress", function(){
 			
 			parent.ton = parseFloat($(this).val().replace(",", "."));
 			
-			parent.files[parent.currentFile].ton = this.ton;
+			parent.files[parent.currentFile].ton = parent.ton;
 			
 			parent.sumAll();
 			
