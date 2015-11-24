@@ -205,7 +205,7 @@ var costoBeneficio = {
 			
 		}else{
 			
-			$("#form2 input[value='']:first").focus();
+			$("#form2 input:first[value='']").focus();
 			
 		}
 		
