@@ -400,9 +400,9 @@ var costoBeneficio = {
 			
 			//that.log("USD/Ha: "+(thisRow.usd_ha));
 			
-			$(this).find("usd_ha").data("value", thisRow.usd_ha).text(number_format(thisRow.usd_ha, 2, ",", "."));
-			$(this).find("sc_ha").data("value", thisRow.sc_ha).text(number_format(thisRow.sc_ha, 2, ",", "."));
-			$(this).find("kg_ha").data("value", thisRow.kg_ha).text(number_format(thisRow.kg_ha, 2, ",", "."));
+			$(this).find("td.usd_ha").data("value", thisRow.usd_ha).text(number_format(thisRow.usd_ha, 2, ",", "."));
+			$(this).find("td.sc_ha").data("value", thisRow.sc_ha).text(number_format(thisRow.sc_ha, 2, ",", "."));
+			$(this).find("td.kg_ha").data("value", thisRow.kg_ha).text(number_format(thisRow.kg_ha, 2, ",", "."));
 			
 			allRows.push(thisRow);
 			
