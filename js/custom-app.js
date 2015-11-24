@@ -57,11 +57,8 @@ var costoBeneficio = {
 		var that = this;
 		
 		this.commoditieInput.on("keyup", function(){
-			
-			
+		
 			costoBeneficio.ton = parseFloat($(this).val().replace(",", "."));
-			
-			costoBeneficio.log("This.on = "+costoBeneficio.ton);
 			
 			costoBeneficio.files[costoBeneficio.currentFile].ton = costoBeneficio.ton || 300;
 			
