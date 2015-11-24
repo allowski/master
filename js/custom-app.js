@@ -52,6 +52,14 @@ var costoBeneficio = {
 		
 		this.filenameInput = $("input#nome");
 		
+		this.commoditieInput = $("#soja");
+		
+		this.commoditieInput.on("change", function(){
+			
+			this.ton = parseFloat($(this).val().replace(",", "."));
+			
+		});
+		
 	},
 	
 	"refreshList": function(){
@@ -69,6 +77,8 @@ var costoBeneficio = {
 	"save": function(){
 		
 		this.log("save function");
+		
+		this.appendTo = 0;
 		
 		if(this.currentFile != "deleted"){
 			
@@ -96,6 +106,8 @@ var costoBeneficio = {
 					
 					newItemObj.content = $("#tblHtml").html();
 					
+					newItemObj.ton = this.ton;
+					
 					newItemObj.datetime = date("d/m/Y H:i:s");
 					
 					this.files[file_name] = newItemObj;
@@ -109,6 +121,8 @@ var costoBeneficio = {
 				this.files[this.currentFile].content = $("#tblHtml").html();
 				
 				this.files[this.currentFile].datetime = date("d/m/Y H:i:s");
+				
+				this.files[this.currentFile].ton = this.ton;
 				
 			}
 			
@@ -298,6 +312,7 @@ var costoBeneficio = {
 			this.result1.html("");
 			this.result2.html("");
 			this.sumAll();
+			this.appendTo = 0;
 			this.currentFile = "deleted";
 			this.refreshList();
 			this.save();
@@ -309,6 +324,7 @@ var costoBeneficio = {
 			this.result1.html("");
 			this.result2.html("");
 			this.sumAll();
+			this.appendTo = 0;
 			this.currentFile = "none";
 			this.refreshList();
 			this.save();
