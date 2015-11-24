@@ -376,6 +376,15 @@ var costoBeneficio = {
 			}, 400);
 		});
 		
+	},
+	"deleteAnswer": function(){
+		
+		if(confirm(i("Desea eliminar '"+this.currentFile+"'?", "Deseja excluir '"+this.currentFile+"'?", "Do you want to delete '"+this.currentFile+"'?"))){
+			
+			this.deleteFile();
+			
+		}
+		
 	}
 };
 
