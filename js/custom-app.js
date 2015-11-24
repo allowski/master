@@ -245,7 +245,7 @@ var costoBeneficio = {
 		
 		this.isBeingEdited = true;
 		
-		this.editedRow.addClass("success");
+		this.editedRow.addClass("editedRow");
 		
 		this.editedRow.find(".hasData").each(function(k, v){
 			
