@@ -70,35 +70,43 @@ var costoBeneficio = {
 		
 		this.log("save function");
 		
-		if(this.currentFile == "none"){
-		
-			var file_name = prompt("Digite nombre para el archivo:");
+		if(this.currentFile != "deleted"){
 			
-			if((file_name) && (file_name!="") && (typeof file_name !== "null")){
+			if(this.currentFile == "none"){
+			
+				var file_name = prompt("Digite nombre para el archivo:");
 				
-				var newItemObj = {};
+				if((file_name) && (file_name!="") && (typeof file_name !== "null")){
+					
+					var newItemObj = {};
+					
+					newItemObj.filename = file_name;
+					
+					newItemObj.content = $("#tblHtml").html();
+					
+					newItemObj.datetime = date("d/m/Y H:i:s");
+					
+					this.files[file_name] = newItemObj;
+					
+					this.currentFile = file_name;
+					
+				}
 				
-				newItemObj.filename = file_name;
+			}else{
 				
-				newItemObj.content = $("#tblHtml").html();
+				this.files[this.currentFile].content = $("#tblHtml").html();
 				
-				newItemObj.datetime = date("d/m/Y H:i:s");
-				
-				this.files[file_name] = newItemObj;
-				
-				this.currentFile = file_name;
+				this.files[this.currentFile].datetime = date("d/m/Y H:i:s");
 				
 			}
 			
+			this.filenameInput.val(this.currentFile);
+			
 		}else{
 			
-			this.files[this.currentFile].content = $("#tblHtml").html();
-			
-			this.files[this.currentFile].datetime = date("d/m/Y H:i:s");
+			this.currentFile = "none";
 			
 		}
-		
-		this.filenameInput.val(this.currentFile);
 		
 		window.localStorage["costoBeneficio"] = JSON.stringify(this.files);
 		
@@ -269,7 +277,8 @@ var costoBeneficio = {
 			this.filenameInput.val("");
 			this.result1.html("");
 			this.result2.html("");
-			this.currentFile = "none";
+			this.sumAll();
+			this.currentFile = "deleted";
 			this.refreshList();
 			this.save();
 		}
