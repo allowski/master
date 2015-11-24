@@ -60,6 +60,8 @@ var costoBeneficio = {
 			
 			this.sumAll();
 			
+			this.save();
+			
 		});
 		
 	},
