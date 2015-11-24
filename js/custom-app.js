@@ -176,7 +176,7 @@ var costoBeneficio = {
 			this.editedRow = null;
 		}
 		
-		if($("#form").val()){
+		if($("#form")[0].checkValidity()){
 			
 			if(this.appendTo == 0){
 				gen = this.generateFromForm(1);
