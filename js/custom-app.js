@@ -176,7 +176,7 @@ var costoBeneficio = {
 			this.editedRow = null;
 		}
 		
-		if($("#form2")[0].checkValidity()){
+		if($("#form2 input[value='']").length == 0){
 			
 			if(this.appendTo == 0){
 				gen = this.generateFromForm(1);
@@ -202,6 +202,10 @@ var costoBeneficio = {
 			this.clear();
 			
 			this.save();
+			
+		}else{
+			
+			$("#form input[value='']:first").focus();
 			
 		}
 		
