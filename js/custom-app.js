@@ -378,28 +378,32 @@ var costoBeneficio = {
 		
 		var that = this;
 		
+		var all_rows = [];
+		
 		this.log("sumAll Func");
 		
 		this.log("this.ton = "+this.ton);
 		
 		$(".one-row").each(function(){
 			
-			var precio = parseFloat($(this).find(".precio").data("value"));
-			var dosis = parseFloat($(this).find(".dosis").data("value"));
-			var aplic = parseFloat($(this).find(".aplic").data("value"));
+			var thisRow = {};
 			
-			var usd_ha = precio * aplic * dosis;
-			var sc_ha = (usd_ha / (that.ton/1000) / 60);
-			var kg_ha = (usd_ha / (that.ton/1000));
+			thisRow.precio = parseFloat($(this).find(".precio").data("value"));
+			thisRow.dosis = parseFloat($(this).find(".dosis").data("value"));
+			thisRow.aplic = parseFloat($(this).find(".aplic").data("value"));
 			
-			
-			that.log("USD/Ha: "+(usd_ha));
-			
-			$(this).find("usd_ha").data("value", usd_ha).text(number_format(usd_ha, 2, ",", "."));
-			$(this).find("sc_ha").data("value", sc_ha).text(number_format(sc_ha, 2, ",", "."));
-			$(this).find("kg_ha").data("value", kg_ha).text(number_format(kg_ha, 2, ",", "."));
+			thisRow.usd_ha = thisRow.precio * thisRow.aplic * thisRow.dosis;
+			thisRow.sc_ha = (thisRow.usd_ha / (that.ton/1000) / 60);
+			thisRow.kg_ha = (thisRow.usd_ha / (that.ton/1000));
 			
 			
+			//that.log("USD/Ha: "+(thisRow.usd_ha));
+			
+			$(this).find("usd_ha").data("value", thisRow.usd_ha).text(number_format(thisRow.usd_ha, 2, ",", "."));
+			$(this).find("sc_ha").data("value", thisRow.sc_ha).text(number_format(thisRow.sc_ha, 2, ",", "."));
+			$(this).find("kg_ha").data("value", thisRow.kg_ha).text(number_format(thisRow.kg_ha, 2, ",", "."));
+			
+			that.log(thisRow);
 			
 		});
 		
