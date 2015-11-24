@@ -80,7 +80,7 @@ var costoBeneficio = {
 					
 					if(file_name in this.files){
 						
-						file_name = filename + " (2)";
+						file_name = file_name + " (2)";
 						
 					}
 					
