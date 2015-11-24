@@ -221,7 +221,7 @@ var costoBeneficio = {
 		<td class='tt1 text-right' data-value='"+usd_ha+"'>"+number_format(usd_ha, 2, ",", ".")+"</td>\n\
 		<td class='tt2 text-right' data-value='"+sc_ha+"'>"+number_format(sc_ha, 2, ",", ".")+"</td>\n\
 		<td class='tt3 text-right' data-value='"+kg_ha+"'>"+number_format(kg_ha, 2, ",", ".")+"</td>\n\
-		<td><a href='#' class='btn btn-danger' onclick='costoBeneficio.removeItem(event, this);'><span class='glyphicon glyphicon-remove'></span></a></td>\n\
+		<td class='text-right'><a href='#' class='btn btn-danger' onclick='costoBeneficio.removeItem(event, this);'><span class='glyphicon glyphicon-remove'></span></a></td>\n\
 </tr>";
 		
 		this.log(result);
