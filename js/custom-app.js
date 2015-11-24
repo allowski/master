@@ -54,19 +54,22 @@ var costoBeneficio = {
 		
 		this.commoditieInput = $("#soja");
 		
-		var parent = this;
+		var that = this;
 		
 		this.commoditieInput.on("keyup", function(){
 			
-			parent.ton = parseFloat($(this).val().replace(",", "."));
 			
-			parent.files[parent.currentFile].ton = parent.ton;
+			that.ton = parseFloat($(this).val().replace(",", "."));
 			
-			parent.sumAll();
+			this.log("This.on = "+that.ton);
 			
-			parent.save();
+			that.files[parent.currentFile].ton = that.ton;
 			
-			parent.refreshList();
+			that.sumAll();
+			
+			that.save();
+			
+			that.refreshList();
 			
 		});
 		
@@ -225,12 +228,12 @@ var costoBeneficio = {
 		var result = "<tr class='one-row' onclick='costoBeneficio.editRow(event, this, "+appendTo+");'>\n\
 		<td class='hasData' data-target='#producto' data-value='"+prod+"'>"+prod+"</td>\n\
 		<td class='hasData text-center' data-target='#um' data-value='"+um+"'>"+um+"</td>\n\
-		<td class='hasData text-right' data-target='#dosis' data-value='"+dosis+"'>"+number_format(dosis, 2, ",", ".")+"</td>\n\
-		<td class='hasData text-right' data-target='#precio' data-value='"+precio+"'>"+number_format(precio, 2, ",", ".")+"</td>\n\
-		<td class='hasData text-center' data-target='#aplicaciones' data-value='"+aplic+"'>"+number_format(aplic, 2, ",", ".")+"</td>\n\
-		<td class='tt1 text-right' data-value='"+usd_ha+"'>"+number_format(usd_ha, 2, ",", ".")+"</td>\n\
-		<td class='tt2 text-right' data-value='"+sc_ha+"'>"+number_format(sc_ha, 2, ",", ".")+"</td>\n\
-		<td class='tt3 text-right' data-value='"+kg_ha+"'>"+number_format(kg_ha, 2, ",", ".")+"</td>\n\
+		<td class='hasData dosis text-right' data-target='#dosis' data-value='"+dosis+"'>"+number_format(dosis, 2, ",", ".")+"</td>\n\
+		<td class='hasData precio text-right' data-target='#precio' data-value='"+precio+"'>"+number_format(precio, 2, ",", ".")+"</td>\n\
+		<td class='hasData aplic text-center' data-target='#aplicaciones' data-value='"+aplic+"'>"+number_format(aplic, 2, ",", ".")+"</td>\n\
+		<td class='tt1 usd_ha text-right' data-value='"+usd_ha+"'>"+number_format(usd_ha, 2, ",", ".")+"</td>\n\
+		<td class='tt2 sc_ha text-right' data-value='"+sc_ha+"'>"+number_format(sc_ha, 2, ",", ".")+"</td>\n\
+		<td class='tt3 kg_ha text-right' data-value='"+kg_ha+"'>"+number_format(kg_ha, 2, ",", ".")+"</td>\n\
 		<td class='text-right'><a href='#' class='btn btn-danger' onclick='costoBeneficio.removeItem(event, this);'><span class='glyphicon glyphicon-remove'></span></a></td>\n\
 </tr>";
 		
@@ -373,7 +376,32 @@ var costoBeneficio = {
 	
 	"sumAll": function(){
 		
+		var that = this;
+		
 		this.log("sumAll Func");
+		
+		this.log("this.ton = "+this.ton);
+		
+		$(".one-row").each(function(){
+			
+			var precio = parseFloat($(this).find(".precio").data("value"));
+			var dosis = parseFloat($(this).find(".dosis").data("value"));
+			var aplic = parseFloat($(this).find(".aplic").data("value"));
+			
+			var usd_ha = precio * aplic * dosis;
+			var sc_ha = (usd_ha / (that.ton/1000) / 60);
+			var kg_ha = (usd_ha / (that.ton/1000));
+			
+			
+			that.log("USD/Ha: "+(usd_ha));
+			
+			$(this).find("usd_ha").data("value", usd_ha).text(number_format(usd_ha, 2, ",", "."));
+			$(this).find("sc_ha").data("value", sc_ha).text(number_format(sc_ha, 2, ",", "."));
+			$(this).find("kg_ha").data("value", kg_ha).text(number_format(kg_ha, 2, ",", "."));
+			
+			
+			
+		});
 		
 		$("#result1, #result2").each(function(){
 			
