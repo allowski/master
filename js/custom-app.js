@@ -161,6 +161,8 @@ var costoBeneficio = {
 		
 		this.clear();
 		
+		this.save();
+		
 	},
 	"generateFromForm": function(appendTo){
 		
@@ -210,6 +212,8 @@ var costoBeneficio = {
 		$(ele).parent().parent().remove();
 		
 		this.sumAll();
+		
+		this.save();
 	},
 	"editRow": function (event, element, appendTo){
 		
@@ -238,6 +242,8 @@ var costoBeneficio = {
 		
 		event.preventDefault();
 		
+		this.save();
+		
 		if(filename in this.files){
 			
 			$("#tblHtml").html(this.files[filename].content);
@@ -256,6 +262,16 @@ var costoBeneficio = {
 			
 		}
 		
+	},
+	"delete": function(){
+		if(this.currentFile in this.files){
+			delete this.files[this.currentFile];
+			this.save();
+			this.filenameInput.val("");
+			this.result1.html("");
+			this.result2.html("");
+			this.currentFile = "none";
+		}
 	},
 	"sendEmail": function(){
 		
