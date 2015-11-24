@@ -56,7 +56,7 @@ var costoBeneficio = {
 		
 		var parent = this;
 		
-		this.commoditieInput.on("change keypress", function(){
+		this.commoditieInput.on("keyup", function(){
 			
 			parent.ton = parseFloat($(this).val().replace(",", "."));
 			
