@@ -380,10 +380,6 @@ var costoBeneficio = {
 		
 		var allRows = [];
 		
-		this.log("sumAll Func");
-		
-		this.log("this.ton = "+this.ton);
-		
 		$(".one-row").each(function(){
 			
 			var thisRow = {};
@@ -408,47 +404,30 @@ var costoBeneficio = {
 			
 		});
 		
-		this.log(">>>>>>>>>>>>>> Sum End");
-		
 		this.log(allRows);
 		
 		$("#result1, #result2").each(function(){
 			
-			costoBeneficio.log("Sum "+this.id);
-			
 			var rs = {tt1:0, tt2:0, tt3:0};
-			
-			costoBeneficio.log(rs);
 			
 			var select = "#"+this.id+" .tt1";
 			
-			costoBeneficio.log("Query: "+ select);
-			
 			$(select).each(function(){
-				costoBeneficio.log("tt1");
 				rs.tt1+=parseFloat($(this).data("value"));
-				costoBeneficio.log(rs);
 			});
 			$("#"+this.id+" .tt2").each(function(){
-				costoBeneficio.log("tt2");
 				rs.tt2+=parseFloat($(this).data("value"));
-				costoBeneficio.log(rs);
 			});
 			$("#"+this.id+" .tt3").each(function(){
-				costoBeneficio.log("tt3");
 				rs.tt3+=parseFloat($(this).data("value"));
-				costoBeneficio.log(rs);
 			});
-			
-			costoBeneficio.log(rs);
 			
 			var that = this;
 			
-			setTimeout(function(){
-				$(that).parent().find("#tt1").text(number_format(rs.tt1, 2, ".", ","));
-				$(that).parent().find("#tt2").text(number_format(rs.tt2, 2, ".", ","));
-				$(that).parent().find("#tt3").text(number_format(rs.tt3, 2, ".", ","));
-			}, 400);
+			$(that).parent().find("#tt1").text(number_format(rs.tt1, 2, ".", ","));
+			$(that).parent().find("#tt2").text(number_format(rs.tt2, 2, ".", ","));
+			$(that).parent().find("#tt3").text(number_format(rs.tt3, 2, ".", ","));
+			
 		});
 		
 	},
