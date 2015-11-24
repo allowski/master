@@ -86,8 +86,6 @@ var costoBeneficio = {
 	
 	"save": function(){
 		
-		this.log("save function");
-		
 		this.appendTo = 0;
 		
 		if(this.currentFile != "deleted"){
@@ -173,10 +171,6 @@ var costoBeneficio = {
 		
 		var gen;
 		
-		this.log("addRowEvent");
-		
-		this.log("append result1");
-		
 		if(this.isBeingEdited == true){
 			this.editedRow.remove();
 			this.editedRow = null;
@@ -210,8 +204,6 @@ var costoBeneficio = {
 	},
 	"generateFromForm": function(appendTo){
 		
-		this.log("generateFromForm");
-	
 		var prod = $("#producto").val();
 		var um = $("#um").val();
 		var dosis = parseFloat($("#dosis").val());
@@ -233,8 +225,6 @@ var costoBeneficio = {
 		<td class='tt3 kg_ha text-right' data-value='"+kg_ha+"'>"+number_format(kg_ha, 2, ",", ".")+"</td>\n\
 		<td class='text-right'><a href='#' class='btn btn-danger' onclick='costoBeneficio.removeItem(event, this);'><span class='glyphicon glyphicon-remove'></span></a></td>\n\
 </tr>";
-		
-		this.log(result);
 		
 		return result;
 		
@@ -268,8 +258,6 @@ var costoBeneficio = {
 		event.preventDefault();
 		
 		this.editedRow = $(element);
-		
-		console.log(element);
 		
 		element.classList.add("editedRow");
 		
