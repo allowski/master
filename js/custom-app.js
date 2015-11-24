@@ -378,7 +378,7 @@ var costoBeneficio = {
 		
 		var that = this;
 		
-		var all_rows = [];
+		var allRows = [];
 		
 		this.log("sumAll Func");
 		
@@ -388,8 +388,6 @@ var costoBeneficio = {
 			
 			var thisRow = {};
 			
-			that.log(this);
-			
 			thisRow.precio = parseFloat($(this).find(".precio").data("value"));
 			thisRow.dosis = parseFloat($(this).find(".dosis").data("value"));
 			thisRow.aplic = parseFloat($(this).find(".aplic").data("value"));
@@ -397,6 +395,7 @@ var costoBeneficio = {
 			thisRow.usd_ha = thisRow.precio * thisRow.aplic * thisRow.dosis;
 			thisRow.sc_ha = (thisRow.usd_ha / (that.ton/1000) / 60);
 			thisRow.kg_ha = (thisRow.usd_ha / (that.ton/1000));
+			thisRow.ton = that.ton;
 			
 			
 			//that.log("USD/Ha: "+(thisRow.usd_ha));
@@ -405,9 +404,13 @@ var costoBeneficio = {
 			$(this).find("sc_ha").data("value", thisRow.sc_ha).text(number_format(thisRow.sc_ha, 2, ",", "."));
 			$(this).find("kg_ha").data("value", thisRow.kg_ha).text(number_format(thisRow.kg_ha, 2, ",", "."));
 			
-			that.log(thisRow);
+			allRows.push(thisRow);
 			
 		});
+		
+		this.log(">>>>>>>>>>>>>> Sum End");
+		
+		this.log(allRows);
 		
 		$("#result1, #result2").each(function(){
 			
