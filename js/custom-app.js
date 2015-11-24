@@ -312,6 +312,8 @@ var costoBeneficio = {
 			
 			this.ton = this.files[filename].ton || 300.00;
 			
+			this.commoditieInput.val(this.ton);
+			
 			this.sumAll();
 			
 		}
