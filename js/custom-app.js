@@ -84,7 +84,7 @@ var costoBeneficio = {
 		
 		$.each(this.files, function(){
 			
-			costoBeneficio.fileList.append("<a class='list-group-item text-uppercase' onclick='costoBeneficio.editFile(event, \""+this.filename+"\");'>"+this.filename+" ---> ("+this.ton+") <small class='pull-right'>["+this.datetime+"]</small></a>");
+			costoBeneficio.fileList.append("<a class='list-group-item text-uppercase' onclick='costoBeneficio.editFile(event, \""+this.filename+"\");'>"+this.filename+" <small class='pull-right'>["+this.datetime+"]</small></a>");
 			
 		});
 		
