@@ -388,6 +388,8 @@ var costoBeneficio = {
 			
 			var thisRow = {};
 			
+			that.log(this);
+			
 			thisRow.precio = parseFloat($(this).find(".precio").data("value"));
 			thisRow.dosis = parseFloat($(this).find(".dosis").data("value"));
 			thisRow.aplic = parseFloat($(this).find(".aplic").data("value"));
