@@ -170,7 +170,7 @@ var costoBeneficio = {
 		var sc_ha = (usd_ha / (this.ton/1000) / 60);
 		var kg_ha = (usd_ha / (this.ton/1000));
 		
-		var result = "<tr onclick='costoBeneficio.editRow(event, this, "+appendTo+");'>\n\
+		var result = "<tr class='one-row' onclick='costoBeneficio.editRow(event, this, "+appendTo+");'>\n\
 		<td class='hasData' data-target='#producto' data-value='"+prod+"'>"+prod+"</td>\n\
 		<td class='hasData text-center' data-target='#um' data-value='"+um+"'>"+um+"</td>\n\
 		<td class='hasData text-right' data-target='#dosis' data-value='"+dosis+"'>"+number_format(dosis, 2, ",", ".")+"</td>\n\
@@ -251,6 +251,32 @@ var costoBeneficio = {
 		}
 		
 	},
+	"sendEmail": function(){
+		
+		var email = prompt("Digite email:");
+		
+		if(email != ""){
+		
+			var title = "Presupuesto "+$("#nome").val();
+		
+			var content = $("#tblHtml").html();
+			
+			toast("Mandando correo..", "warning", 0);
+			
+			$.post(window.app.update_url, {"apx":"send_email","email":email, "title": title, "content":content}, function(){
+				
+				toast("Correo enviado", "success", 3000);
+				
+			});
+		
+		}else{
+			
+			
+			
+		}
+		
+	}
+	,
 	
 	"sumAll": function(){
 		
