@@ -243,6 +243,8 @@ var costoBeneficio = {
 		
 		this.editedRow = $(element);
 		
+		element.classList.add("editedRow");
+		
 		this.isBeingEdited = true;
 		
 		this.editedRow.addClass("editedRow");
