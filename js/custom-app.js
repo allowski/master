@@ -78,6 +78,12 @@ var costoBeneficio = {
 				
 				if((file_name) && (file_name!="") && (typeof file_name !== "null")){
 					
+					if(file_name in this.files){
+						
+						file_name = filename + " (2)";
+						
+					}
+					
 					var newItemObj = {};
 					
 					newItemObj.filename = file_name;
