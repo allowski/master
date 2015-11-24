@@ -271,6 +271,7 @@ var costoBeneficio = {
 			this.result1.html("");
 			this.result2.html("");
 			this.currentFile = "none";
+			this.refreshList();
 		}
 	},
 	"sendEmail": function(){
