@@ -96,7 +96,7 @@ function updateList(){
 			
 		}
 		
-		var strx = " <span class='glyphicon "+gly+"'></span> "+current.activity.name+"<span class='glyphicon glyphicon-chevron-right pull-right'></span> ";
+		var strx = " <span class='glyphicon "+gly+"'></span> "+current.activity.name+"</span> ";
 		
 		$("<li>").attr("onclick", "window.open('geo:"+current.latitude+", "+current.longitude+"', '_system');").html(strx).appendTo("#list").addClass(cls);
 		
