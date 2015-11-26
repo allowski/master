@@ -3,6 +3,7 @@ function setActivity($id, $name){
 	toast("<span class='spinner glyphicon glyphicon-refresh'></span> "+i("Aguarde..", "Aguarde..", "Wait.."), "warning", 50000);
 	
 	$("#btn").attr("src", "img/ponto-alt.png");
+	
 	setTimeout(function(){
 		getpos(function(res){
 			
@@ -18,6 +19,10 @@ function setActivity($id, $name){
 			nw.longitude = res.longitude;
 			nw.speed = res.speed;
 			nw.activity = {"id":$id, "name":$name};
+			
+			window.app.items[1].data = nw;
+			
+			a4pp(window.app.items[1]);
 			
 			var d = new Date();
 			nw.timestamp = d.toLocaleString();
