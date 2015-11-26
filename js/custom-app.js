@@ -104,14 +104,6 @@ function sendAll(){
 
 function init(){
 	
-	cordova.plugins.diagnostic.isLocationEnabled(function(){
-		
-	}, function(){
-	
-		cordova.plugins.diagnostic.switchToLocationSettings();
-		
-	});
-	
 	if(!window.localStorage["pos"]){
 		
 		window.localStorage["pos"] = "[]";
