@@ -2,9 +2,9 @@
 	<widget xmlns = "http://www.w3.org/ns/widgets"
 		xmlns:gap = "http://phonegap.com/ns/1.0"
 		id        = "ponto.cloudcrm.tech"
-		version   = "1448559863">
+		version   = "1448559958">
 		<name>Ponto</name>
-		<description>Ponto 1448559863, Build number 0</description>
+		<description>Ponto 1448559958, Build number 0</description>
 		<author href="http://www.fijatebien.net" email="allowski@gmail.com">Alberto Miranda</author>
 		<preference name="phonegap-version" value="cli-5.2.0" />
 		<access origin="*"/>
@@ -72,17 +72,17 @@
 		<gap:plugin name="org.apache.cordova.file-transfer"  />
 		<gap:plugin name="org.apache.cordova.geolocation" version="0.3.10" />
 		<gap:plugin name="org.apache.cordova.globalization" version="0.3.1" />
-		<gap:plugin name="org.apache.cordova.inappbrowser" version="0.5.2" />
-		<gap:plugin name="org.apache.cordova.media" version="0.2.13" />
-		<gap:plugin name="org.apache.cordova.media-capture" version="0.3.3" />
-		<gap:plugin name="org.apache.cordova.network-information" version="0.2.12" />
-		<gap:plugin name="org.apache.cordova.splashscreen" version="0.3.4" />
-		<gap:plugin name="org.apache.cordova.vibration" version="0.3.11" />
+		<gap:plugin name="org.apache.cordova.inappbrowser" />
+		<gap:plugin name="org.apache.cordova.media"  />
+		<gap:plugin name="org.apache.cordova.media-capture"  />
+		<gap:plugin name="org.apache.cordova.network-information"  />
+		<gap:plugin name="org.apache.cordova.splashscreen"  />
+		<gap:plugin name="org.apache.cordova.vibration"/>
 		<gap:plugin name="com.cordova.plugins.fileopener" />
 
 		<gap:plugin name="com.virtualartifacts.webintent" />
 		<gap:plugin name="com.pushwoosh.plugins.pushwoosh" />
 		<gap:plugin name="com.phonegap.plugins.barcodescanner"/>
 		
-		<gap:plugin name="de.appplant.cordova.plugin.background-mode" version="0.6.4" />
+		<gap:plugin name="de.appplant.cordova.plugin.background-mode" />
 	</widget>
