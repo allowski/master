@@ -74,21 +74,26 @@ function updateList(){
 		
 	}
 	
+	
+		
+	var gly = "glyphicon-map-marker";
+	
+	var cls = "text";
+	
 	for(x in all){
 		
 		var current = all[x];
 		
-		var gly = "glyphicon-map-marker";
-		
 		if(x == (all.length-1)){
 			
 			gly = "glyphicon-triangle-right text-success";
+			cls = "text-success"
 			
 		}
 		
-		var strx = " <span class='glyphicon "+gly+"'></span> "+current.activity.name+"<span class='glyphicon glyphicon-chevron-right'></span> ";
+		var strx = " <span class='glyphicon "+gly+"'></span> "+current.activity.name+"<span class='glyphicon glyphicon-chevron-right pull-right'></span> ";
 		
-		$("<li>").attr("onclick", "window.open('geo:"+current.latitude+", "+current.longitude+"', '_system');").html(strx).appendTo("#list");
+		$("<li>").attr("onclick", "window.open('geo:"+current.latitude+", "+current.longitude+"', '_system');").html(strx).appendTo("#list").addClass(cls);
 		
 	}
 
