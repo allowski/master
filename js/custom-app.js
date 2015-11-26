@@ -78,7 +78,15 @@ function updateList(){
 		
 		var current = all[x];
 		
-		var strx = " <span class='glyphicon glyphicon-map-marker'></span> "+current.activity.name+" <br>"+i("Data/Hora", "Fecha", "Datetime")+": "+current.timestamp+" <span class='glyphicon glyphicon-chevron-right pull-right'></span> ";
+		var gly = "glyphicon-map-marker";
+		
+		if(x == (all.length-1)){
+			
+			gly = "glyphicon-triangle-right text-success";
+			
+		}
+		
+		var strx = " <span class='glyphicon "+gly+"'></span> "+current.activity.name+"<span class='glyphicon glyphicon-chevron-right'></span> ";
 		
 		$("<li>").attr("onclick", "window.open('geo:"+current.latitude+", "+current.longitude+"', '_system');").html(strx).appendTo("#list");
 		
