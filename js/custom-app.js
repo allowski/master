@@ -62,7 +62,7 @@ function setActivity($id, $name){
 
 function updateList(){
 
-	var all = JSON.parse(window.localStorage["pos"]);
+	var all = JSON.parse(window.localStorage["pos"]).reverse();
 	
 	$("#list").html("");
 	
@@ -84,10 +84,15 @@ function updateList(){
 		
 		var current = all[x];
 		
-		if(x == (all.length-1)){
+		if(x == 0){
 			
 			gly = "glyphicon-triangle-right text-success";
 			cls = "text-success"
+			
+		}else{
+			
+			gly = "glyphicon-map-marker";
+			cls = "text";
 			
 		}
 		
