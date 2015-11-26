@@ -2,11 +2,11 @@
 	<widget xmlns = "http://www.w3.org/ns/widgets"
 		xmlns:gap = "http://phonegap.com/ns/1.0"
 		id        = "ponto.cloudcrm.tech"
-		version   = "1448559958">
+		version   = "1448561793">
 		<name>Ponto</name>
-		<description>Ponto 1448559958, Build number 0</description>
+		<description>Ponto 1448561793, Build number 0</description>
 		<author href="http://www.fijatebien.net" email="allowski@gmail.com">Alberto Miranda</author>
-		<preference name="phonegap-version" value="cli-5.2.0" />
+		<preference name="phonegap-version" value="3.7.7" />
 		<access origin="*"/>
 		<gap:plugin name="org.apache.cordova.device" />
 		<preference name="orientation" value="default" />		
