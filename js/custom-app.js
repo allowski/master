@@ -84,7 +84,7 @@ function updateList(){
 function sendAll(){
 	
 	
-	toast("Sending...", "success", 15000);
+	toast("Sending...", "success", 0);
 	
 	var sp = JSON.parse(window.localStorage["pos"]);
 	
