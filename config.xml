@@ -2,9 +2,9 @@
 	<widget xmlns = "http://www.w3.org/ns/widgets"
 		xmlns:gap = "http://phonegap.com/ns/1.0"
 		id        = "ponto.cloudcrm.tech"
-		version   = "1448558938">
+		version   = "1448559332">
 		<name>Ponto</name>
-		<description>Ponto 1448558938, Build number 0</description>
+		<description>Ponto 1448559332, Build number 0</description>
 		<author href="http://www.fijatebien.net" email="allowski@gmail.com">Alberto Miranda</author>
 		<preference name="phonegap-version" value="cli-5.2.0" />
 		<access origin="*"/>
