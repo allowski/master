@@ -1,6 +1,6 @@
 function preSetActivity($id, $name){
 	
-	a4pp(window.app.items[1]);
+	a4pp(window.app.items[2]);
 	
 }
 
