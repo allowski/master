@@ -1,3 +1,9 @@
+function preSetActivity($id, $name){
+	
+	a4pp(window.app.items[1]);
+	
+}
+
 function setActivity($id, $name){
 	
 	toast("<span class='spinner glyphicon glyphicon-refresh'></span> "+i("Aguarde..", "Aguarde..", "Wait.."), "warning", 50000);
