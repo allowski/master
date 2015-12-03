@@ -1,5 +1,9 @@
 function preSetActivity($id, $name){
 	
+	window.app.items[2].activity = $id;
+	
+	window.app.items[2].activity_name = $name;
+	
 	a4pp(window.app.items[2]);
 	
 }
