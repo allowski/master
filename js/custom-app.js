@@ -82,12 +82,12 @@ function setActivity($id, $name, $img, $note){
 				
 				a4pp(window.app.items[1]);
 				
-			}, 3000);
+			}, 500);
 			
 			
 		});
 		
-	},1500);
+	},500);
 	
 }
 
