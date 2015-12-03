@@ -44,10 +44,6 @@ function setActivity($id, $name, $img, $note){
 			
 			window.app.items[1].data = nw;
 			
-			$("div.content:not(:first)").remove();
-			
-			a4pp(window.app);
-			
 			var d = new Date();
 			
 			nw.timestamp = d.toLocaleString();
