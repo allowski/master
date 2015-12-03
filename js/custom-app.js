@@ -8,6 +8,12 @@ function preSetActivity($id, $name){
 	
 }
 
+function save_temp(){
+	window.app.items[1].data = {};
+	
+	window.app.items[1].data.activity.pict = $("#imagen_1").val();
+}
+
 function setActivity($id, $name, $img, $note){
 	
 	toast("<span class='spinner glyphicon glyphicon-refresh'></span> "+i("Aguarde..", "Aguarde..", "Wait.."), "warning", 50000);
