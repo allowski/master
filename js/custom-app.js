@@ -137,7 +137,7 @@ function updateList(){
 
 function sendAll(){
 	
-	if(isConnected(){
+	if(isConnected()){
 	
 		var sp = JSON.parse(window.localStorage["pos"]);
 		
