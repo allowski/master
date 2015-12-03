@@ -1,10 +1,20 @@
-function preSetActivity($id, $name){
+function preSetActivity($id, $name, $photo){
+
 	
 	window.app.items[2].activity = $id;
 	
 	window.app.items[2].activity_name = $name;
 	
-	a4pp(window.app.items[2]);
+	if($photo == "Y"){
+		
+		a4pp(window.app.items[2]);
+
+	}else{
+		
+		setActivity($id, $name, "", "");
+		
+	}
+	
 	
 }
 
