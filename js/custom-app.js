@@ -2,6 +2,8 @@ function preSetActivity($id, $name){
 	
 	a4pp(window.app.items[2]);
 	
+	console.log("Preset activity");
+	
 }
 
 function setActivity($id, $name){
