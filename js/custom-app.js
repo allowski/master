@@ -11,6 +11,8 @@ function preSetActivity($id, $name){
 function save_temp(){
 	window.app.items[1].data = {};
 	
+	window.app.items[1].data.activity = {};
+	
 	window.app.items[1].data.activity.pict = $("#imagen_1").val();
 }
 
