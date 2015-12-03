@@ -2,11 +2,9 @@ function preSetActivity($id, $name){
 	
 	a4pp(window.app.items[2]);
 	
-	console.log("Preset activity");
-	
 }
 
-function setActivity($id, $name){
+function setActivity($id, $name, $img, $note){
 	
 	toast("<span class='spinner glyphicon glyphicon-refresh'></span> "+i("Aguarde..", "Aguarde..", "Wait.."), "warning", 50000);
 	
@@ -27,6 +25,8 @@ function setActivity($id, $name){
 			nw.longitude = res.longitude;
 			nw.speed = res.speed;
 			nw.activity = {"id":$id, "name":$name};
+			nw.img = $img;
+			nw.note = $note;
 			
 			window.app.items[1].data = nw;
 			
