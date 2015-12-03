@@ -9,11 +9,13 @@ function preSetActivity($id, $name){
 }
 
 function save_temp(){
+	
 	window.app.items[1].data = {};
 	
 	window.app.items[1].data.activity = {};
 	
 	window.app.items[1].data.activity.pict = $("#imagen_1").val();
+	
 }
 
 function setActivity($id, $name, $img, $note){
@@ -42,9 +44,12 @@ function setActivity($id, $name, $img, $note){
 			
 			window.app.items[1].data = nw;
 			
-			a4pp(window.app.items[1]);
+			$("div.content:not(:first)").remove();
+			
+			a4pp(window.app);
 			
 			var d = new Date();
+			
 			nw.timestamp = d.toLocaleString();
 			
 			ps.push(nw);
@@ -59,11 +64,9 @@ function setActivity($id, $name, $img, $note){
 			
 			setTimeout(function(){
 				
-				
-			
 				if(isConnected()){
 					
-					//sendAll();
+					sendAll();
 					
 				}else{
 					
