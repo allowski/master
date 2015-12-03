@@ -137,22 +137,29 @@ function updateList(){
 
 function sendAll(){
 	
+	if(isConnected(){
 	
-	toast("Sending...", "success", 0);
-	
-	var sp = JSON.parse(window.localStorage["pos"]);
-	
-	var rq = $.post(window.app.download_url,  {"apx":"upload","data":sp}, function(r){
+		var sp = JSON.parse(window.localStorage["pos"]);
 		
-		toast("sent!", "success", 5000);
+		if(sp.length > 0){
+			
+			toast("Sending...", "success", 0);
+			
+			var rq = $.post(window.app.download_url,  {"apx":"upload","data":sp}, function(r){
+				
+				toast("sent!", "success", 5000);
+				
+				window.localStorage["pos"] = "[]";
+				
+			});
+			
+			rq.error = function(){
+				toast("oops! error", "danger", 5000);
+			};
+			
+		}
 		
-		window.localStorage["pos"] = "[]";
-		
-	});
-	
-	rq.error = function(){
-		toast("oops! error", "danger", 5000);
-	};
+	}
 	
 }
 
