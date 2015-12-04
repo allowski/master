@@ -44,7 +44,7 @@ var Validador = {
 			$("#alert").removeClass("alert-warning");
 			$("#alert").removeClass("alert-info");
 			
-			$("#alert").addClass("alert-"+resp.class).text(resp.message);
+			$("#alert").addClass("alert-"+resp.class).text(resp.mes);
 			
 			$("#codbar").val("").focus();
 			
