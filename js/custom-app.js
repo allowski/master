@@ -32,25 +32,21 @@ var Validador = {
 	},
 	
 	"validate": function(event){
+				
+		var url = this.servidorFormatado+"/?action=validador&uid="+this.id_usuario;
 		
-		if(event.which == 13){
-		
-			var url = this.servidorFormatado+"/?action=validador&uid="+this.id_usuario;
+		$.post(url, {"codbar": $("#codbar").val()}, function(r){
 			
-			$.post(url, {"codbar": $("#codbar").val()}, function(r){
-				
-				var resp = JSON.parse(r);
-				
-				$("#alert").removeClass("alert-danger");
-				$("#alert").removeClass("alert-success");
-				$("#alert").removeClass("alert-warning");
-				$("#alert").removeClass("alert-info");
-				
-				$("#alert").addClass(resp.class).text(resp.message);
-				
-			});
+			var resp = JSON.parse(r);
 			
-		}
+			$("#alert").removeClass("alert-danger");
+			$("#alert").removeClass("alert-success");
+			$("#alert").removeClass("alert-warning");
+			$("#alert").removeClass("alert-info");
+			
+			$("#alert").addClass(resp.class).text(resp.message);
+			
+		});
 		
 	}
 	
