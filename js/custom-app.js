@@ -35,6 +35,10 @@ var Validador = {
 				
 		var url = this.servidorFormatado+"/?action=validador&uid="+this.id_usuario;
 		
+		$("#codbar").attr("disabled", "disabled")
+		
+		$("#alert").css("opacity", "0.0");
+		
 		$.post(url, {"codbar": $("#codbar").val()}, function(r){
 			
 			var resp = JSON.parse(r);
@@ -44,9 +48,18 @@ var Validador = {
 			$("#alert").removeClass("alert-warning");
 			$("#alert").removeClass("alert-info");
 			
+			
 			$("#alert").addClass("alert-"+resp.class).text(resp.mes);
 			
-			$("#codbar").val("").focus();
+			setTimeout(function(){
+				
+				$("#alert").css("opacity", "1.0");
+				
+				$("#codbar").attr("disabled", false);
+				
+				$("#codbar").val("").focus();
+				
+			},100);
 			
 		});
 		
