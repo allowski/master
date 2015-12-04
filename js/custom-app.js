@@ -33,7 +33,7 @@ var Validador = {
 	
 	"validate": function(){
 		
-		var url = this.servidorFormatado."/?action=validador&uid="+this.id_usuario;
+		var url = this.servidorFormatado+"/?action=validador&uid="+this.id_usuario;
 		
 		$.post(url, {"codbar": $("#codbar").val()}, function(r){
 			
