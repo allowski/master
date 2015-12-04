@@ -11,7 +11,9 @@ var Validador = {
 		this.servidorFormatado = "http://"+this.servidor;
 		
 		var conexao = $.get(this.servidorFormatado, function(r){
-			alert(r);
+			
+			window.app[1].users = JSON.parse(r);
+			
 		}).fail(function() {
 			alert('woops'); // or whatever
 		});
