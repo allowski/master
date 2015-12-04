@@ -14,6 +14,9 @@ var Validador = {
 			alert(r);
 		});
 		
+		conexao.error = function(){
+			alert("NAO FOI POSSIVEL FAZER A CONEXAO");
+		};
 	}
 	
 };
