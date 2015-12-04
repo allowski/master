@@ -86,9 +86,11 @@ var Validador = {
 		if("validador" in window.localStorage){
 		
 			//
-			
+			console.log("config found");
 		
 		}else{
+			
+			console.log("config not found");
 			
 			var default_config = {
 				"servidor": "",
