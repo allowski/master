@@ -14,6 +14,8 @@ var Validador = {
 			
 			window.app[1].users = JSON.parse(r);
 			
+			a4pp(window.app[1]);
+			
 		}).fail(function() {
 			alert('woops'); // or whatever
 		});
