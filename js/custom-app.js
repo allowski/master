@@ -90,7 +90,15 @@ var Validador = {
 		
 		}else{
 			
-			window.localStorage["validador"] = "{'servidor':'','usuario':{'id':0,'lotes':[]}}";
+			var default_config = {
+				"servidor": "",
+				"usuario":{
+					"id": 0,
+					"lotes":[]
+				}
+			};
+			
+			window.localStorage["validador"] = JSON.stringify(default_config);
 			
 		}
 		
