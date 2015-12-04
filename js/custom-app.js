@@ -4,6 +4,8 @@ var Validador = {
 	
 	"servidorFormatado": "",
 	
+	"id_usuario": 0,
+	
 	"verificaServidor": function(){
 		
 		this.servidor = $("#servidor").val();
