@@ -84,8 +84,12 @@ var Validador = {
 	"init": function(){
 		
 		if("validador" in window.localStorage){
+		
+			//
+		
+		}else{
 			
-			window.localStorage["validador"] = "{'servidor':'','usuario':{'id':'0','lotes':[]}}";
+			window.localStorage["validador"] = "{'servidor':'','usuario':{'id':0,'lotes':[]}}";
 			
 		}
 		
