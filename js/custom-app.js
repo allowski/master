@@ -18,7 +18,8 @@ var Validador = {
 			
 			a4pp(window.app.items[1]);
 			
-			Validador.config.servidor = this.servidor;
+			Validador.config.servidorF = Validador.servidorFormatado;
+			Validador.config.servidor = Validador.servidor;
 		
 			Validador.saveConfig();
 			
@@ -105,6 +106,9 @@ var Validador = {
 		}
 		
 		this.config = JSON.parse(window.localStorage["validador"]);
+		
+		this.servidor = this.config.servidor;
+		this.servidorFormatado = this.config.servidorF;
 
 		
 	}
