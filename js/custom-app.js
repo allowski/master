@@ -18,9 +18,14 @@ var Validador = {
 			
 			a4pp(window.app.items[1]);
 			
+			this.config.servidor = servidor;
+		
+			this.saveConfig();
+			
 		}).fail(function() {
 			alert('ERROR: Nao foi possivel conectar ao servidor.'); // or whatever
 		});
+		
 	},
 	
 	"setUser": function(c, id_usu){
