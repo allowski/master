@@ -17,7 +17,7 @@ var Validador = {
 			a4pp(window.app.items[1]);
 			
 		}).fail(function() {
-			alert('woops'); // or whatever
+			alert('ERROR: Nao foi possivel conectar ao servidor.'); // or whatever
 		});
 	}
 	
