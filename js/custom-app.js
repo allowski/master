@@ -18,7 +18,7 @@ var Validador = {
 			
 			a4pp(window.app.items[1]);
 			
-			this.config.servidor = servidor;
+			this.config.servidor = this.servidor;
 		
 			this.saveConfig();
 			
@@ -32,9 +32,9 @@ var Validador = {
 		
 		this.id_usuario = id_usu;
 		
-		this.config.usuario.id = window.app.items[1].users[x].id;
+		this.config.usuario.id = window.app.items[1].users[c].id;
 		
-		this.config.usuario.lotes = window.app.items[1].users[x].lotes.split("|");
+		this.config.usuario.lotes = window.app.items[1].users[c].lotes.split("|");
 	
 		this.saveConfig();
 	
