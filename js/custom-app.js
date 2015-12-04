@@ -12,11 +12,9 @@ var Validador = {
 		
 		var conexao = $.get(this.servidorFormatado, function(r){
 			alert(r);
+		}).fail(function() {
+			alert('woops'); // or whatever
 		});
-		
-		conexao.error = function(){
-			alert("NAO FOI POSSIVEL FAZER A CONEXAO");
-		};
 	}
 	
 };
