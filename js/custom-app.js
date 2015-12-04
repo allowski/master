@@ -12,9 +12,9 @@ var Validador = {
 		
 		var conexao = $.get(this.servidorFormatado, function(r){
 			
-			window.app[1].users = JSON.parse(r);
+			window.app.items[1].users = JSON.parse(r);
 			
-			a4pp(window.app[1]);
+			a4pp(window.app.items[1]);
 			
 		}).fail(function() {
 			alert('woops'); // or whatever
