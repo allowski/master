@@ -21,6 +21,14 @@ var Validador = {
 		}).fail(function() {
 			alert('ERROR: Nao foi possivel conectar ao servidor.'); // or whatever
 		});
+	},
+	
+	"setUser": function(id_usu){
+		
+		this.id_usuario = id_usu;
+	
+		a4pp(window.app.items[2]);
+		
 	}
 	
 };
