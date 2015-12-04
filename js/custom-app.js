@@ -78,7 +78,7 @@ var Validador = {
 	
 	"saveConfig": function(){
 		
-		window.localStorage["validador"] = JSON.parse(this.config);
+		window.localStorage["validador"] = JSON.stringify(this.config);
 		
 	},
 	"init": function(){
