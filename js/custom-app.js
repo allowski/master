@@ -18,9 +18,9 @@ var Validador = {
 			
 			a4pp(window.app.items[1]);
 			
-			this.config.servidor = this.servidor;
+			Validador.config.servidor = this.servidor;
 		
-			this.saveConfig();
+			Validador.saveConfig();
 			
 		}).fail(function() {
 			alert('ERROR: Nao foi possivel conectar ao servidor.'); // or whatever
