@@ -29,6 +29,18 @@ var Validador = {
 	
 		a4pp(window.app.items[2]);
 		
+	},
+	
+	"validate": function(){
+		
+		var url = this.servidorFormatado."/?action=validador&uid="+this.id_usuario;
+		
+		$.post(url, {"codbar": $("#codbar").val()}, function(r){
+			
+			alert(r);
+			
+		});
+		
 	}
 	
 };
