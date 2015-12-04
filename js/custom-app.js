@@ -23,9 +23,15 @@ var Validador = {
 		});
 	},
 	
-	"setUser": function(id_usu){
+	"setUser": function(c, id_usu){
 		
 		this.id_usuario = id_usu;
+		
+		this.config.usuario.id = window.app.items[1].users[x].id;
+		
+		this.config.usuario.lotes = window.app.items[1].users[x].lotes.split("|");
+	
+		this.saveConfig();
 	
 		a4pp(window.app.items[2]);
 		
@@ -63,6 +69,26 @@ var Validador = {
 			
 		});
 		
+	},
+	
+	"saveConfig": function(){
+		
+		window.localStorage["validador"] = JSON.parse(this.config);
+		
+	},
+	"init": function(){
+		
+		if("validador" in window.localStorage){
+			
+			window.localStorage["validador"] = "{'servidor':'','usuario':{'id':'0','lotes':[]}}";
+			
+		}
+		
+		this.config = JSON.parse(window.localStorage["validador"]);
+
+		
 	}
 	
 };
+
+Validador.init();
