@@ -46,6 +46,8 @@ var Validador = {
 			
 			$("#alert").addClass("alert-"+resp.class).text(resp.message);
 			
+			$("#codbar").val("").focus();
+			
 		});
 		
 	}
