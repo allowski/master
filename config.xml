@@ -2,9 +2,9 @@
 	<widget xmlns = "http://www.w3.org/ns/widgets"
 		xmlns:gap = "http://phonegap.com/ns/1.0"
 		id        = "validador.cloudcrm.tech"
-		version   = "1449257880">
+		version   = "1449257993">
 		<name>Validador All</name>
-		<description>Validador All 1449257880, Build number 0</description>
+		<description>Validador All 1449257993, Build number 0</description>
 		<author href="http://www.fijatebien.net" email="allowski@gmail.com">Alberto Miranda</author>
 		<preference name="phonegap-version" value="3.7.0" />
 		<access origin="*"/>
