@@ -294,6 +294,8 @@ var remember = {
 			
 			this.current_item = {"id":indexOf, "collection":collection};
 			
+			console.log(this.collections[collection][indexOf]);
+			
 			if(indexOf in this.collections[collection]){
 				
 				for(k in this.collections[collection][indexOf]){
@@ -313,9 +315,7 @@ var remember = {
 					
 					var imgEle = document.getElementById(attr);
 					
-					console.log(attr);
-					
-					console.log(imgEle);
+					console.log("#"+attr)
 					
 					if (typeof imgEle !== typeof undefined && imgEle !== false && imgEle && imgEle!=null) {
 						
