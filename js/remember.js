@@ -315,16 +315,18 @@ var remember = {
 					
 					var imgEle = document.getElementById(attr);
 					
-					console.log("#"+attr)
-					
 					if (typeof imgEle !== typeof undefined && imgEle !== false && imgEle && imgEle!=null) {
-						
-						
-						console.log(imgEle);
-						
+					
 						imgEle.src = ele.value;
 						
-						//},50);
+					}
+					
+					
+					var canvas = document.getElementById("can"+ele.id);
+					
+					if(canvas && typeof imgEle !== typeof undefined){
+						
+						canvas.style.backgroundImage = "url('"+ele.value+"')";
 						
 					}
 					
