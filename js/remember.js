@@ -313,6 +313,10 @@ var remember = {
 					
 					var imgEle = document.getElementById(attr);
 					
+					console.log(attr);
+					
+					console.log(imgEle);
+					
 					if (typeof imgEle !== typeof undefined && imgEle !== false && imgEle && imgEle!=null) {
 						
 						
