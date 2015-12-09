@@ -300,7 +300,7 @@ var remember = {
 				
 				for(k in this.collections[collection][indexOf]){
 					
-					//this.log("K: "+k+", V"+this.collections[collection][indexOf][k]);
+					this.log("K: "+k+", V"+this.collections[collection][indexOf][k]);
 					
 					var ele = document.querySelector("#"+formId+" [name="+k+"]");
 					
