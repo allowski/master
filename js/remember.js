@@ -316,6 +316,8 @@ var remember = {
 					if (typeof imgEle !== typeof undefined && imgEle !== false && imgEle && imgEle!=null) {
 						
 						
+						console.log(imgEle);
+						
 						imgEle.src = ele.value;
 						
 						//},50);
