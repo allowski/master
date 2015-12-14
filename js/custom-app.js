@@ -5,7 +5,7 @@ var App = {
 		
 		$("#qtde").text(this.getTodayVisitCount());
 		
-	}
+	},
 	
 	"getTodayVisitCount": function(){
 		
