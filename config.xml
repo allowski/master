@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 	<widget xmlns = "http://www.w3.org/ns/widgets"
 		xmlns:gap = "http://phonegap.com/ns/1.0"
-		id        = "forms.cloudcrm.tech"
-		version   = "1449680037">
-		<name>Acompañamiento Técnico</name>
-		<description>Acompañamiento Técnico 1449680037, Build number 0</description>
+		id        = "acomp-cli.cloudcrm.tech"
+		version   = "1450116661">
+		<name>Acompanhamento de Clientes</name>
+		<description>Acompanhamento de Clientes 1450116661, Build number 0</description>
 		<author href="http://www.fijatebien.net" email="allowski@gmail.com">Alberto Miranda</author>
 		<preference name="phonegap-version" value="3.7.0" />
 		<access origin="*"/>
