@@ -15,6 +15,8 @@ var App = {
 			
 			var currentRow = remember.collections.form_12[x];
 			
+			console.log(currentRow.control3);
+			
 			if(currentRow.control3 == "2015-12-14"){
 				
 				retVal+=1;
