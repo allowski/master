@@ -931,7 +931,7 @@ function openCamera(w, h, q, callback){
 		destinationType: Camera.DestinationType.DATA_URL,
 		targetWidth: w,
 		targetHeight: h,
-		sourceType: Camera.PictureSourceType.PHOTOLIBRARY
+		sourceType: Camera.PictureSourceType.SAVEDPHOTOALBUM
 	});
 	
 }
