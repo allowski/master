@@ -922,17 +922,35 @@ function openCamera(w, h, q, callback){
 	
 	console.log("openCamera called");
 	
-	navigator.camera.getPicture(function(imgData){
-		callback( "data:image/jpeg;base64,"+imgData);
-	}, function(){
-		alert("Error");
-	},{ 
-		quality: q,
-		destinationType: Camera.DestinationType.DATA_URL,
-		targetWidth: w,
-		targetHeight: h,
-		sourceType: Camera.PictureSourceType.SAVEDPHOTOALBUM
-	});
+	navigator.notification.confirm(i('Anexar imagem', 'Subir imagen', 'Upload picture'), function(indexOpt){
+		
+		alert(indexOpt);
+		
+		st = Camera.PictureSourceType.CAMERA;
+		
+		if(indexOpt == 0){
+		
+			st = Camera.PictureSourceType.CAMERA;
+			
+		}else{
+			
+			st = Camera.PictureSourceType.SAVEDPHOTOALBUM;
+			
+		}
+	
+		navigator.camera.getPicture(function(imgData){
+			callback( "data:image/jpeg;base64,"+imgData);
+		}, function(){
+			alert("Error");
+		},{ 
+			quality: q,
+			destinationType: Camera.DestinationType.DATA_URL,
+			targetWidth: w,
+			targetHeight: h,
+			sourceType: st
+		});
+	
+	}, 'Nova foto', ['Abrir Camera, Abrir Galeria']);
 	
 }
 
