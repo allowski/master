@@ -930,7 +930,8 @@ function openCamera(w, h, q, callback){
 		quality: q,
 		destinationType: Camera.DestinationType.DATA_URL,
 		targetWidth: w,
-		targetHeight: h
+		targetHeight: h,
+		sourceType: Camera.PictureSourceType.PHOTOLIBRARY
 	});
 	
 }
