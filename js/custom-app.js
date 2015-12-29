@@ -50,7 +50,7 @@ var FileFactory = {
 				
 			};
 			
-			that.returnFile.reader.object.readAsText();
+			that.returnFile.reader.object.readAsText(that.returnFile.entryFile);
 			
 		};
 		
