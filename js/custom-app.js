@@ -5,6 +5,11 @@ var Files = {
 		}
 	},
 	"openFile": function(fileName, createFile){
+		
+		var returnFile = {};
+		
+		returnFile.fileName = fileName;
+		
 		window.requestFileSystem(window.PERSISTENT, 0, 
 			function(fs){
 				fs.root.getFile(
@@ -13,12 +18,23 @@ var Files = {
 						create: createFile || false, 
 						exclusive: false
 					}, 
-					gotFileEntry, 
-					fail
+					this.gotFileEntry(), 
+					this.fail("cant load file")
 				);
 			}, this.fail("resquest failed")
 		);
+	}, 
+	
+	"gotFileEntry": function(){
+	
+		return function(fEntry){
+			
+			alert("GotFileEntry Called!");
+			
+		}
+			
 	}
+	
 	
 };
 
