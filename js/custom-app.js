@@ -36,7 +36,7 @@ var FileFactory = {
 			
 		};
 		
-		this.returnFile.read = function(callback){
+		this.returnFile.read = function(callbackR){
 			
 			alert("Read text!");
 			
@@ -44,7 +44,7 @@ var FileFactory = {
 				
 				FileFactory.returnFile.content = r;
 				
-				callback(r);
+				callbackR(r);
 				
 			};
 			
