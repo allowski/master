@@ -1,5 +1,6 @@
 var Files = {
 	"fail": function(msg){
+		alert("Failed");
 		return function(msg){
 			alert(msg);
 		}
