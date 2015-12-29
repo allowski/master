@@ -2,7 +2,7 @@ var FileFactory = {
 	returnFile: {},
 	"fail": function(msg){
 		return function(msg){
-			alert(msg);
+			alert(JSON.stringify(msg));
 		}
 	},
 	
@@ -27,7 +27,7 @@ var FileFactory = {
 		
 		this.returnFile.reader.object.onload = function(r){
 			
-			this.returnFile.content = r;
+			FileFactory.returnFile.content = r;
 			
 		};
 		
@@ -41,7 +41,7 @@ var FileFactory = {
 	"createWriter": function(){
 		
 		this.returnFile.fileEntry.createWriter(function(writer){
-			FileFactory.fail("FileWriter created");
+			alert("FileWriter created");
 			FileFactory.returnFile.writer.object = writer;
 		}, this.fail("Error creating Writer"));
 	},
@@ -74,5 +74,5 @@ var FileFactory = {
 
 
 $(document).on("deviceready", function(){
-	var myFile = FileFactory.create("customtext.txt");
+	var myFile = FileFactory.create("customtext.txt", true);
 });
