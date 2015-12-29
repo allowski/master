@@ -62,6 +62,7 @@ var FileFactory = {
 		this.returnFile.fileEntry.createWriter(function(writer){
 			alert("FileWriter created");
 			that.returnFile.writer.object = writer;
+			alert("Created Writer");
 			that.callback(FileFactory.returnFile);
 		}, this.fail("Error creating Writer"));
 	},
@@ -98,7 +99,7 @@ var FileFactory = {
 
 
 $(document).on("deviceready", function(){
-	var myFile = FileFactory.create("customtext.txt", true, function(myFile){
+	var mf = FileFactory.create("customtext.txt", true, function(myFile){
 		myFile.read(function(result){
 			alert(result);
 		});
