@@ -42,6 +42,8 @@ var FileFactory = {
 		
 		this.returnFile.read = function(callback){
 			
+			alert("Read text!");
+			
 			that.returnFile.reader.object.onloadend = function(r){
 				
 				that.returnFile.content = r;
@@ -99,7 +101,8 @@ var FileFactory = {
 
 
 $(document).on("deviceready", function(){
-	var mf = FileFactory.create("customtext.txt", true, function(myFile){
+	FileFactory.create("customtext.txt", true, function(myFile){
+		alert("Entered mf");
 		myFile.read(function(result){
 			alert(result);
 		});
