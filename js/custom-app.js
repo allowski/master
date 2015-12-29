@@ -11,15 +11,15 @@ var FileFactory = {
 			
 		alert("GotFileEntry Called!");
 		
-		this.returnFile.fileEntry = fileEntry;
+		FileFactory.returnFile.fileEntry = fileEntry;
 		
-		this.returnFile.writer = {"available":false, "object":{}};
+		FileFactory.returnFile.writer = {"available":false, "object":{}};
 		
-		this.returnFile.reader = {"available":false, "object":{}};
+		FileFactory.returnFile.reader = {"available":false, "object":{}};
 		
-		this.createReader();
+		FileFactory.createReader();
 		
-		this.createWriter();
+		FileFactory.createWriter();
 			
 	},
 	"createReader": function(){
