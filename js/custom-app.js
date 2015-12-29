@@ -42,7 +42,7 @@ var FileFactory = {
 		
 		this.returnFile.read = function(callback){
 			
-			that.returnFile.reader.object.onloadend = function(r){
+			that.returnFile.reader.object.onload = function(r){
 				
 				that.returnFile.content = r;
 				
