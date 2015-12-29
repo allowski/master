@@ -1,5 +1,6 @@
 var FileFactory = {
 	returnFile: {},
+	callback: function(){},
 	"fail": function(msg){
 		return function(msg){
 			alert(JSON.stringify(msg));
@@ -43,6 +44,7 @@ var FileFactory = {
 		this.returnFile.fileEntry.createWriter(function(writer){
 			alert("FileWriter created");
 			FileFactory.returnFile.writer.object = writer;
+			FileFactory.callback(FileFactory.returnFile);
 		}, this.fail("Error creating Writer"));
 	},
 	"create": function(fileName, createFile){
@@ -74,5 +76,7 @@ var FileFactory = {
 
 
 $(document).on("deviceready", function(){
-	var myFile = FileFactory.create("customtext.txt", true);
+	var myFile = FileFactory.create("customtext.txt", true, function(myFile){
+		alert("The file was OK");
+	});
 });
