@@ -924,8 +924,6 @@ function openCamera(w, h, q, callback){
 	
 	navigator.notification.confirm(i('Anexar imagem', 'Subir imagen', 'Upload picture'), function(indexOpt){
 		
-		alert(indexOpt);
-		
 		st = Camera.PictureSourceType.CAMERA;
 		
 		if(indexOpt == 0){
@@ -950,7 +948,7 @@ function openCamera(w, h, q, callback){
 			sourceType: st
 		});
 	
-	}, 'Nova foto', ['Abrir Camera, Abrir Galeria']);
+	}, 'Nova foto', ['Abrir Camera', 'Abrir Galeria']);
 	
 }
 
