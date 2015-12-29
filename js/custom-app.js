@@ -1,11 +1,11 @@
-var Files = {
+var FileFactory = {
 	"fail": function(msg){
 		alert("Failed");
 		return function(msg){
 			alert(msg);
 		}
 	},
-	"openFile": function(fileName, createFile){
+	"create": function(fileName, createFile){
 		
 		alert("openFile Called");
 		
@@ -38,8 +38,6 @@ var Files = {
 	
 };
 
-window.addEventListener('filePluginIsReady', function(){ console.log('File plugin is ready');}, false);
-
 alert("Init");
 
-var myFile = Files.openFile("customtext.txt");
+var myFile = FileFactory.create("customtext.txt");
