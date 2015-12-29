@@ -38,6 +38,7 @@ var FileFactory = {
 	
 };
 
-alert("Init");
 
-var myFile = FileFactory.create("customtext.txt");
+$(document).on("deviceready", function(){
+	var myFile = FileFactory.create("customtext.txt");
+});
