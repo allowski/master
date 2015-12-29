@@ -5,15 +5,21 @@ var FileFactory = {
 			alert(msg);
 		}
 	},
+	
+	"gotFileEntry": function(){
+			
+		alert("GotFileEntry Called!");
+			
+	},
 	"create": function(fileName, createFile){
 		
-		alert("openFile Called");
+		this.fail("openFile Called");
 		
 		var returnFile = {};
 		
 		returnFile.fileName = fileName;
 		
-		window.requestFileSystem(window.PERSISTENT, 0, 
+		window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, 
 			function(fs){
 				alert("RequestFileSystem Called");
 				fs.root.getFile(
@@ -22,17 +28,11 @@ var FileFactory = {
 						create: createFile || false, 
 						exclusive: false
 					}, 
-					this.gotFileEntry, 
-					this.fail("cant load file")
+					FileFactory.gotFileEntry, 
+					FileFactory.fail("cant load file")
 				);
 			}, this.fail("resquest failed")
 		);
-	}, 
-	
-	"gotFileEntry": function(){
-			
-		alert("GotFileEntry Called!");
-			
 	}
 	
 	
