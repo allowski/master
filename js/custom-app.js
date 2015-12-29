@@ -1,14 +1,22 @@
 var Files = {
-	
+	"fail": function(msg){
+		return function(msg){
+			alert(msg);
+		}
+	},
 	"openFile": function(fileName, createFile){
-		fs.root.getFile(
-			fileName, 
-			{
-				create: createFile || false, 
-				exclusive: false
-			}, 
-			gotFileEntry, 
-			fail
+		window.requestFileSystem(window.PERSISTENT, 0, 
+			function(fs){
+				fs.root.getFile(
+					fileName, 
+					{
+						create: createFile || false, 
+						exclusive: false
+					}, 
+					gotFileEntry, 
+					fail
+				);
+			}, this.fail("resquest failed")
 		);
 	}
 	
