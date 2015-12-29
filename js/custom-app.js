@@ -38,6 +38,8 @@ var Files = {
 	
 };
 
+window.addEventListener('filePluginIsReady', function(){ console.log('File plugin is ready');}, false);
+
 alert("Init");
 
 var myFile = Files.openFile("customtext.txt");
