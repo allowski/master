@@ -8,8 +8,6 @@ var FileFactory = {
 	},
 	
 	"gotFileEntry": function(fileEntry){
-			
-		alert("GotFileEntry Called!");
 		
 		FileFactory.returnFile.fileEntry = fileEntry;
 		
@@ -26,17 +24,15 @@ var FileFactory = {
 		
 		this.returnFile.reader.object = new FileReader();
 		
-		var that = this;
-		
 		this.returnFile.reader.object.onload = function(r){
 			
-			that.returnFile.content = r;
+			FileFactory.returnFile.content = r;
 			
 		};
 		
 		this.returnFile.reader.object.onerror = function(){
 			
-			that.fail("Can't read file");
+			FileFactory.fail("Can't read file");
 			
 		};
 		
@@ -44,35 +40,28 @@ var FileFactory = {
 			
 			alert("Read text!");
 			
-			that.returnFile.reader.object.onloadend = function(r){
+			FileFactory.returnFile.reader.object.onloadend = function(r){
 				
-				that.returnFile.content = r;
+				FileFactory.returnFile.content = r;
 				
 				callback(r);
 				
 			};
 			
-			that.returnFile.reader.object.readAsText(that.returnFile.entryFile);
+			FileFactory.returnFile.reader.object.readAsText(FileFactory.returnFile.entryFile);
 			
 		};
 		
 	},
 	"createWriter": function(){
 		
-		var that = this;
-		
 		this.returnFile.fileEntry.createWriter(function(writer){
 			alert("FileWriter created");
-			that.returnFile.writer.object = writer;
-			alert("Created Writer");
-			that.callback(FileFactory.returnFile);
+			FileFactory.returnFile.writer.object = writer;
+			FileFactory.callback(FileFactory.returnFile);
 		}, this.fail("Error creating Writer"));
 	},
 	"create": function(fileName, createFile, callback){
-		
-		var that = this;
-		
-		this.fail("openFile Called");
 		
 		this.returnFile = {};
 		
@@ -89,8 +78,8 @@ var FileFactory = {
 						create: createFile || false, 
 						exclusive: false
 					}, 
-					that.gotFileEntry, 
-					that.fail("cant load file")
+					FileFactory.gotFileEntry, 
+					FileFactory.fail("cant load file")
 				);
 			}, this.fail("resquest failed")
 		);
