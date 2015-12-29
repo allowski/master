@@ -26,32 +26,54 @@ var FileFactory = {
 		
 		this.returnFile.reader.object = new FileReader();
 		
+		var that = this;
+		
 		this.returnFile.reader.object.onload = function(r){
 			
-			FileFactory.returnFile.content = r;
+			that.returnFile.content = r;
 			
 		};
 		
 		this.returnFile.reader.object.onerror = function(){
 			
-			FileFactory.fail("Can't read file");
+			that.fail("Can't read file");
+			
+		};
+		
+		this.returnFile.read = function(callback){
+			
+			that.returnFile.reader.object.onloadend = function(r){
+				
+				that.returnFile.content = r;
+				
+				callback(r);
+				
+			};
+			
+			that.returnFile.reader.object.readAsText();
 			
 		};
 		
 	},
 	"createWriter": function(){
 		
+		var that = this;
+		
 		this.returnFile.fileEntry.createWriter(function(writer){
 			alert("FileWriter created");
-			FileFactory.returnFile.writer.object = writer;
-			FileFactory.callback(FileFactory.returnFile);
+			that.returnFile.writer.object = writer;
+			that.callback(FileFactory.returnFile);
 		}, this.fail("Error creating Writer"));
 	},
-	"create": function(fileName, createFile){
+	"create": function(fileName, createFile, callback){
+		
+		var that = this;
 		
 		this.fail("openFile Called");
 		
 		this.returnFile = {};
+		
+		this.callback = callback;
 		
 		this.returnFile.fileName = fileName;
 		
@@ -64,8 +86,8 @@ var FileFactory = {
 						create: createFile || false, 
 						exclusive: false
 					}, 
-					FileFactory.gotFileEntry, 
-					FileFactory.fail("cant load file")
+					that.gotFileEntry, 
+					that.fail("cant load file")
 				);
 			}, this.fail("resquest failed")
 		);
@@ -77,6 +99,8 @@ var FileFactory = {
 
 $(document).on("deviceready", function(){
 	var myFile = FileFactory.create("customtext.txt", true, function(myFile){
-		alert("The file was OK");
+		myFile.read(function(result){
+			alert(result);
+		});
 	});
 });
