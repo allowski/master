@@ -1,5 +1,5 @@
 var FileFactory = {
-	returnFile = {},
+	returnFile: {},
 	"fail": function(msg){
 		return function(msg){
 			alert(msg);
@@ -12,9 +12,9 @@ var FileFactory = {
 		
 		this.returnFile.fileEntry = fileEntry;
 		
-		this.returnFile.writer = {"available":false, "writer":{}};
+		this.returnFile.writer = {"available":false, "object":{}};
 		
-		this.returnFile.reader = {"available":false, "reader":{}};
+		this.returnFile.reader = {"available":false, "object":{}};
 		
 		this.createReader();
 		
@@ -25,9 +25,9 @@ var FileFactory = {
 		
 		this.returnFile.reader.object = new FileReader();
 		
-		this.returnFile.reader.object.onload = function(){
+		this.returnFile.reader.object.onload = function(r){
 			
-			
+			this.returnFile.content = r;
 			
 		};
 		
