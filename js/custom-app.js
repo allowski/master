@@ -6,19 +6,22 @@ var Files = {
 	},
 	"openFile": function(fileName, createFile){
 		
+		alert("openFile Called");
+		
 		var returnFile = {};
 		
 		returnFile.fileName = fileName;
 		
 		window.requestFileSystem(window.PERSISTENT, 0, 
 			function(fs){
+				alert("RequestFileSystem Called");
 				fs.root.getFile(
 					fileName, 
 					{
 						create: createFile || false, 
 						exclusive: false
 					}, 
-					this.gotFileEntry(), 
+					this.gotFileEntry, 
 					this.fail("cant load file")
 				);
 			}, this.fail("resquest failed")
@@ -26,16 +29,14 @@ var Files = {
 	}, 
 	
 	"gotFileEntry": function(){
-	
-		return function(fEntry){
 			
-			alert("GotFileEntry Called!");
-			
-		}
+		alert("GotFileEntry Called!");
 			
 	}
 	
 	
 };
+
+alert("Init");
 
 var myFile = Files.openFile("customtext.txt");
