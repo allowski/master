@@ -104,6 +104,8 @@ var LOCALSTORAGE_MODE = 2;
 
 function FileHandler(fileName, onFileReady){
 	
+	alert('called');
+	
 	this.fileEntry = {};
 	
 	this.onFileReady = onFileReady || function(){};
@@ -158,9 +160,8 @@ FileHandler.prototype.gotFS = function(){
 };
 
 FileHandler.prototype.log = function(m){
-	return function(m){
-		console.log(m);
-	};
+	console.log(m);
+	return function(){};
 };
 
 FileHandler.prototype.createReader = function(){
@@ -195,7 +196,7 @@ FileHandler.prototype.read = function(onLoadEnd){
 	
 	this.reader.object.onloadend = onLoadEnd;
 	
-	this.reader.object.readAsText(FileFactory.returnFile.entryFile);
+	this.reader.object.readAsText(this.entryFile);
 	
 };
 
@@ -237,11 +238,5 @@ FileHandler.prototype.gotFileEntry = function(fileEntry){
 };
 
 
-$(document).on("deviceready", function(){
-	var mf = new FileHandler("customtext.txt", function(myFile){
-		myFile.read(function(result){
-			alert(result);
-		});
-	});
-});
+$(document).on("deviceready", function(){ var mf = new FileHandler("customtext.txt", function(myFile){ myFile.read(function(result){ alert(result); });});});
 
