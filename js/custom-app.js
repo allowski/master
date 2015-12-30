@@ -161,7 +161,12 @@ FileHandler.prototype.gotFS = function(){
 
 FileHandler.prototype.log = function(m){
 	console.log(m);
-	return function(){};
+};
+
+FileHandler.prototype.getLogger = function(){
+	
+	return this.log;
+	
 };
 
 FileHandler.prototype.createReader = function(){
@@ -238,5 +243,7 @@ FileHandler.prototype.gotFileEntry = function(fileEntry){
 };
 
 
-$(document).on("deviceready", function(){ var mf = new FileHandler("customtext.txt", function(myFile){ myFile.read(function(result){ alert(result); });});});
+//$(document).on("deviceready", function(){ 
+	var mf = new FileHandler("customtext.txt", function(myFile){ myFile.read(function(result){ alert(result); });});
+//});
 
