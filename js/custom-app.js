@@ -193,9 +193,11 @@ FileHandler.prototype.readLocalMode = function(onLoadEnd){
 	
 };
 
-FileHandler.prototype.readFile = function(onLoadEnd){
+FileHandler.prototype.read = function(onLoadEnd){
 	
 	this.log("Called Read");
+	
+	console.log("Logger is broken");
 	
 	if(this.mode == LOCALSTORAGE_MODE){
 		
