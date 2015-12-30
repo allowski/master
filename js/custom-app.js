@@ -207,6 +207,17 @@ FileHandler.prototype.createWriter = function(){
 	
 };
 
+FileHandler.prototype.write = function(text){
+	
+	var backup_name = this.fileName+".backup";
+	
+	if(this.mode == LOCALSTORAGE_MODE){
+		window.localStorage[backup_name] = window.localStorage[this.fileName];
+		window.localStorage[this.fileName] = text;
+	}
+	
+}
+
 FileHandler.prototype.onCreateWriterSuccess = function(writer){
 	
 	this.log("onCreateWriterSuccess Called");
