@@ -98,7 +98,9 @@
 	//~ });
 //~ });
 
+var PHONEGAP_MODE = 1;
 
+var LOCALSTORAGE_MODE = 2;
 
 function FileHandler(fileName, onFileReady){
 	
@@ -114,9 +116,31 @@ function FileHandler(fileName, onFileReady){
 	
 	this.log("New FileHandler Created");
 	
-	window.requestFileSystem(window.PERSISTENT || LocalFileSystem.PERSISTENT, 0, this.gotFS, this.log("resquest failed"));
+	if("requestFileSystem" in window){
+		
+		this.log("Mode: PHONEGAP_MODE");
+		
+		window.requestFileSystem(window.PERSISTENT || LocalFileSystem.PERSISTENT, 0, this.gotFS, this.log("resquest failed"));
+		
+		this.mode = PHONEGAP_MODE;
+		
+	}else{
+		
+		this.log("Mode: LOCALSTORAGE_MODE");
+		
+		this.mode = LOCALSTORAGE_MODE;
+		
+		this.runLocalStorageMode();
+		
+	}
 	
 }
+
+FileHandler.prototype.runLocalStorageMode = function(){
+	
+	
+	
+};
 
 FileHandler.prototype.gotFS = function(){
 
@@ -147,7 +171,27 @@ FileHandler.prototype.createReader = function(){
 	
 };
 
+FileHandler.prototype.readLocalMode = function(onLoadEnd){
+	
+	var buffer = "";
+	
+	if(this.fileName in window.localStorage){
+		
+		buffer = window.localStorage[this.fileName];
+		
+	}
+	
+	onLoadEnd(buffer);
+	
+};
+
 FileHandler.prototype.read = function(onLoadEnd){
+	
+	if(this.mode == LOCALSTORAGE_MODE){
+		
+		return this.readLocalMode(onLoadEnd);
+		
+	}
 	
 	this.reader.object.onloadend = onLoadEnd;
 	
