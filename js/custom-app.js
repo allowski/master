@@ -216,7 +216,7 @@ FileHandler.prototype.write = function(text){
 		window.localStorage[this.fileName] = text;
 	}
 	
-}
+};
 
 FileHandler.prototype.onCreateWriterSuccess = function(writer){
 	
