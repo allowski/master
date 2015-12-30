@@ -179,6 +179,8 @@ FileHandler.prototype.createReader = function(){
 
 FileHandler.prototype.readLocalMode = function(onLoadEnd){
 	
+	this.log("Called ReadLocalMode");
+	
 	var buffer = "";
 	
 	if(this.fileName in window.localStorage){
@@ -192,6 +194,8 @@ FileHandler.prototype.readLocalMode = function(onLoadEnd){
 };
 
 FileHandler.prototype.read = function(onLoadEnd){
+	
+	this.log("Called Read");
 	
 	if(this.mode == LOCALSTORAGE_MODE){
 		
