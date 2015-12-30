@@ -251,7 +251,7 @@ FileHandler.prototype.gotFileEntry = function(fileEntry){
 };
 
 
-//$(document).on("deviceready", function(){ 
-	var mf = new FileHandler("customtext.txt", function(myFile){ myFile.read(function(result){ alert(result); });});
-//});
+$(document).on("deviceready", function(){ 
+	var mf = new FileHandler("mierda.txt", function(myFile){ myFile.read(function(result){ alert(result); });});
+});
 
