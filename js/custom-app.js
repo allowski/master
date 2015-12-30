@@ -114,7 +114,7 @@ function FileHandler(fileName, onFileReady){
 	
 	this.log("New FileHandler Created");
 	
-	window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, this.gotFS, this.log("resquest failed"));
+	window.requestFileSystem(window.PERSISTENT || LocalFileSystem.PERSISTENT, 0, this.gotFS, this.log("resquest failed"));
 	
 }
 
