@@ -195,6 +195,8 @@ FileHandler.prototype.readLocalMode = function(onLoadEnd){
 
 FileHandler.prototype.read = function(onLoadEnd){
 	
+	alert("Loggin is broken");
+	
 	this.log("Called Read");
 	
 	console.log("Logger is broken");
