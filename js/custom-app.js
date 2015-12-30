@@ -199,6 +199,8 @@ FileHandler.prototype.read = function(onLoadEnd){
 	
 	if(this.mode == LOCALSTORAGE_MODE){
 		
+		this.log("Reading LocalStorage");
+		
 		return this.readLocalMode(onLoadEnd);
 		
 	}
