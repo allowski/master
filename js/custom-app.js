@@ -193,7 +193,7 @@ FileHandler.prototype.readLocalMode = function(onLoadEnd){
 	
 };
 
-FileHandler.prototype.read = function(onLoadEnd){
+FileHandler.prototype.readFile = function(onLoadEnd){
 	
 	this.log("Called Read");
 	
