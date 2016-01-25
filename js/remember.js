@@ -256,6 +256,11 @@ var remember = {
 		return this.collections[collection][indexOf];
 		
 	},
+	'count': function(collection){
+		
+		return this.collections[collection].length;
+		
+	},
 	'getItems': function(collection){
 		
 		return this.collections[collection];
