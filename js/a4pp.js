@@ -939,7 +939,7 @@ function openCamera(w, h, q, callback){
 		navigator.camera.getPicture(function(imgData){
 			callback( "data:image/jpeg;base64,"+imgData);
 		}, function(){
-			alert("Error");
+			alert(i("Nao foi possivel capturar a foto", "No fue posible capturar la foto", "Cant get the picture"));
 		},{ 
 			quality: q,
 			destinationType: Camera.DestinationType.DATA_URL,
