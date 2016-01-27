@@ -922,6 +922,8 @@ function openCamera(w, h, q, callback){
 	
 	console.log("openCamera called");
 	
+	alert('Op cam');
+	
 	navigator.notification.confirm(i('Anexar imagem', 'Subir imagen', 'Upload picture'), function(indexOpt){
 		
 		st = Camera.PictureSourceType.CAMERA;
