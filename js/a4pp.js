@@ -926,9 +926,7 @@ function openCamera(w, h, q, callback){
 		
 		st = Camera.PictureSourceType.CAMERA;
 		
-		alert(indexOpt);
-		
-		if(indexOpt == 0){
+		if(indexOpt == 1){
 		
 			st = Camera.PictureSourceType.CAMERA;
 			

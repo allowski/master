@@ -2,9 +2,9 @@
 	<widget xmlns = "http://www.w3.org/ns/widgets"
 		xmlns:gap = "http://phonegap.com/ns/1.0"
 		id        = "simple-form.cloudcrm.tech"
-		version   = "1453901184">
+		version   = "1453901452">
 		<name>SimpleForm</name>
-		<description>SimpleForm 1453901184, Build number 0</description>
+		<description>SimpleForm 1453901452, Build number 0</description>
 		<author href="http://www.fijatebien.net" email="allowski@gmail.com">Alberto Miranda</author>
 		<preference name="phonegap-version" value="3.7.0" />
 		<access origin="*"/>
