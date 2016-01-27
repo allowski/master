@@ -930,9 +930,13 @@ function openCamera(w, h, q, callback){
 		
 			st = Camera.PictureSourceType.CAMERA;
 			
-		}else{
+		}else if(indexOpt == 2){
 			
 			st = Camera.PictureSourceType.SAVEDPHOTOALBUM;
+			
+		}else{
+			
+			return;
 			
 		}
 	
