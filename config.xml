@@ -2,9 +2,9 @@
 	<widget xmlns = "http://www.w3.org/ns/widgets"
 		xmlns:gap = "http://phonegap.com/ns/1.0"
 		id        = "teste2.cloudcrm.tech"
-		version   = "1454435445">
+		version   = "1454435609">
 		<name>Formularios 2</name>
-		<description>Formularios 2 1454435445, Build number 0</description>
+		<description>Formularios 2 1454435609, Build number 0</description>
 		<author href="http://www.fijatebien.net" email="allowski@gmail.com">Alberto Miranda</author>
 		<preference name="phonegap-version" value="3.7.0" />
 		<access origin="*"/>
