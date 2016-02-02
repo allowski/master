@@ -2,13 +2,13 @@
 
 
 .material-bar,.navbar.navbar-inverse{
-	background:#c80623;
+	background:#acd30e;
 	background: #ff3019;
-	background: -moz-linear-gradient(top, #c80623 0%, #c80623 100%);
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#c80623), color-stop(100%,#c80623));
-	background: -webkit-linear-gradient(top, #c80623 0%,#c80623 100%);
-	background: -o-linear-gradient(top, #c80623 0%,#c80623 100%);
-	background: linear-gradient(to bottom, #c80623 0%,#c80623 100%);
+	background: -moz-linear-gradient(top, #acd30e 0%, #acd30e 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#acd30e), color-stop(100%,#acd30e));
+	background: -webkit-linear-gradient(top, #acd30e 0%,#acd30e 100%);
+	background: -o-linear-gradient(top, #acd30e 0%,#acd30e 100%);
+	background: linear-gradient(to bottom, #acd30e 0%,#acd30e 100%);
 	color:#ffffff;
 }
 .material-bar .navbar-item{
