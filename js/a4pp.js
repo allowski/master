@@ -1313,3 +1313,36 @@ function a4pp_download_file(url, fname, prog){
 		}, 500);
 		
 	}
+	
+	
+	window.sendEmailCurrentItem = function(){
+			
+		console.log("test");
+		
+		var email = prompt(window.i("Digite email", "Digite email", "Write email address"));
+		
+		if(email){
+				
+			console.log("test");
+			
+			remember.saveForm("form");
+				
+			var collection = $("form:last").attr("collection");
+			var tid = $("form:last").attr("indexof");
+			
+			sendItem(collection, tid);
+			
+			console.log(collection);
+			setTimeout(function(){
+				$.get(window.app.update_url+"&action=send_email&collection="+collection+"&id="+remember.collections[collection][remember.current_item.id].id+"&ent="+$("[name=entidad_]").val()+"&email="+email, function(r){
+					alert(r.message);
+					console.log(r);
+				});
+			}, 1000);
+					
+		}
+		
+		return false;
+		
+	}
+	
