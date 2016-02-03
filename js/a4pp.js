@@ -1332,7 +1332,7 @@ function a4pp_download_file(url, fname, prog){
 			
 			console.log(collection);
 			setTimeout(function(){
-				$.get(window.app.update_url+"&action=send_email&collection="+collection+"&id="+remember.collections[collection][remember.current_item.id].id+"&ent="+$("[name=entidad_]").val()+"&email="+email, function(r){
+				$.get(window.app.update_url+"&action=send_email&collection="+collection+"&id="+remember.collections[collection][remember.current_item.id].real_id+"&ent="+$("[name=entidad_]").val()+"&email="+email, function(r){
 					alert(r.message);
 					console.log(r);
 				});
