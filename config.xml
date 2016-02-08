@@ -2,9 +2,9 @@
 	<widget xmlns = "http://www.w3.org/ns/widgets"
 		xmlns:gap = "http://phonegap.com/ns/1.0"
 		id        = "auto55.cloudcrm.tech"
-		version   = "1454935199">
+		version   = "1454935418">
 		<name>ADAMA</name>
-		<description>ADAMA 1454935199, Build number 0</description>
+		<description>ADAMA 1454935418, Build number 0</description>
 		<author href="http://www.fijatebien.net" email="allowski@gmail.com">Alberto Miranda</author>
 		<preference name="phonegap-version" value="3.7.0" />
 		<access origin="*"/>
