@@ -14,6 +14,10 @@ window.setTimeout(function(){
 			
 			$("#b"+curr_build.app_id).css("color", new_color);
 			
+			console.log("#b"+curr_build.app_id);
+			
+			console.log(curr_build);
+			
 		}
 		
 	});
