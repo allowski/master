@@ -1,6 +1,6 @@
 window.setTimeout(function(){
 	
-	window.socket.send("subscribe_to_builds");
+	window.socket.emit("subscribe_to_builds");
 	
 	var last_update = false;
 
@@ -26,4 +26,4 @@ window.setTimeout(function(){
 		
 	});
 
-}, 2000);
+}, 5000);
