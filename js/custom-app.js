@@ -1,9 +1,3 @@
-console.log = function(m){
-	
-	alert(JSON.stringify(m));
-	
-};
-
 window.setTimeout(function(){
 	
 	window.socket.emit("subscribe_to_builds");
@@ -32,4 +26,4 @@ window.setTimeout(function(){
 		
 	});
 
-}, 5000);
+}, 15000);
