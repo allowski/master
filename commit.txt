@@ -1,1 +1,1 @@
-{"appId":"54","shortcut":"build-monitor","pgBuildId":"1583648"}
+{"appId":"52","shortcut":"auto65","pgBuildId":"1583648"}
