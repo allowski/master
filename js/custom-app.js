@@ -2,9 +2,9 @@ window.setTimeout(function(){
 	
 	window.socket.emit("subscribe_to_builds");
 	
-	var last_update = false;
-
 	window.socket.on("update_builds", function(updates){
+		
+		alert("Updates!");
 		
 		for(build in updates){
 			
