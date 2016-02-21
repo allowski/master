@@ -2,9 +2,9 @@
 	<widget xmlns = "http://www.w3.org/ns/widgets"
 		xmlns:gap = "http://phonegap.com/ns/1.0"
 		id        = "build-monitor.cloudcrm.tech"
-		version   = "1456030895">
+		version   = "1456031154">
 		<name>Build Monitor</name>
-		<description>Build Monitor 1456030895, Build number 0</description>
+		<description>Build Monitor 1456031154, Build number 0</description>
 		<author href="http://www.fijatebien.net" email="allowski@gmail.com">Alberto Miranda</author>
 		<preference name="phonegap-version" value="3.7.0" />
 		<access origin="*"/>
