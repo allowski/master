@@ -1,6 +1,8 @@
 window.setTimeout(function(){
 	
 	window.socket.send("subscribe_to_builds");
+	
+	var last_update = false;
 
 	window.socket.on("update_builds", function(updates){
 		
@@ -19,6 +21,8 @@ window.setTimeout(function(){
 			console.log(curr_build);
 			
 		}
+		
+		
 		
 	});
 
