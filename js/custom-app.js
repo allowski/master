@@ -68,11 +68,11 @@ var PDVMobile = function(){
 	
 	this.submitOrder = function(){
 		
-		var request = this;
+		//var request = this;
 		
-		request.method = "submitOrder";
+		this.method = "submitOrder";
 		
-		$.post(window.app.update_url, request, function(resp){
+		$.post(window.app.update_url, this, function(resp){
 			
 			var response = JSON.parse(resp);
 			
