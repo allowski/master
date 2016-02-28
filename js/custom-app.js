@@ -27,16 +27,6 @@ var PDVMobile = function(){
 		
 	};*/
 	
-	this.getCPFData = function(strCPF, cb){
-		
-		$.post(window.app.update_url, {"method":"getCPF", "CPF": strCPF}, function(result){
-			
-			alert(result);
-			
-		});
-		
-	};
-	
 	this.initUIComponents = function(){
 		
 		
