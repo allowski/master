@@ -27,11 +27,6 @@ var PDVMobile = function(){
 		
 	};*/
 	
-	this.initUIComponents = function(){
-		
-		
-	};
-	
 	this.setQuantity = function(qty){
 		
 		this.quantity = qty;
