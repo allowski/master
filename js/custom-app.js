@@ -8,7 +8,7 @@ var PDVMobile = function(){
 	
 	this.CPF = 0;
 	
-	this.checkCPF = function(strCPF){
+	/**this.checkCPF = function(strCPF){
 		
 		var Soma;
 		var Resto;
@@ -25,7 +25,7 @@ var PDVMobile = function(){
 		if (Resto != parseInt(strCPF.substring(10, 11))) return false;
 		return true;
 		
-	};
+	};*/
 	
 	this.getCPFData = function(strCPF, cb){
 		
