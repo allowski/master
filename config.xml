@@ -2,9 +2,9 @@
 	<widget xmlns = "http://www.w3.org/ns/widgets"
 		xmlns:gap = "http://phonegap.com/ns/1.0"
 		id        = "auto71.cloudcrm.tech"
-		version   = "1456599337">
+		version   = "1456690004">
 		<name>Macticket</name>
-		<description>Macticket 1456599337, Build number 0</description>
+		<description>Macticket 1456690004, Build number 0</description>
 		<author href="http://www.fijatebien.net" email="allowski@gmail.com">Alberto Miranda</author>
 		<preference name="phonegap-version" value="3.7.0" />
 		<access origin="*"/>
