@@ -2,9 +2,9 @@
 	<widget xmlns = "http://www.w3.org/ns/widgets"
 		xmlns:gap = "http://phonegap.com/ns/1.0"
 		id        = "auto76.cloudcrm.tech"
-		version   = "1457721481">
+		version   = "1457721883">
 		<name>Coca Cola 2</name>
-		<description>Coca Cola 2 1457721481, Build number 0</description>
+		<description>Coca Cola 2 1457721883, Build number 0</description>
 		<author href="http://www.fijatebien.net" email="allowski@gmail.com">Alberto Miranda</author>
 		<preference name="phonegap-version" value="3.7.0" />
 		<access origin="*"/>
