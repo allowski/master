@@ -460,6 +460,7 @@ var remember = {
 		var collection = frm.getAttribute("collection");
 		frm.setAttribute("indexOf", "-999");
 		$("#form input").val("");
+		$("#form img").attr("src", "");
 	},
 	'clean': function(collection){
 		
