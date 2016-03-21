@@ -84,10 +84,9 @@ function capt_gps(that, id){
 	
 	getpos(function(r){
 		
-		$("#"+id).val(JSON.stringify(r));
+		$("input[name="+id+"]").val(JSON.stringify(r));
 		that.className = "btn btn-success btn-lg btn-block";
-		alert("Capturado!");
-		alert(JSON.stringify(r));
+		alert(window.i("GPS Capturado!", "Capturado!", "Captured!"));
 		
 	}, function(){
 		
