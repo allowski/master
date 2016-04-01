@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 	<widget xmlns = "http://www.w3.org/ns/widgets"
 		xmlns:gap = "http://phonegap.com/ns/1.0"
-		id        = "auto77.cloudcrm.tech"
-		version   = "1459517555">
-		<name>Coodetec</name>
-		<description>Coodetec 1459517555, Build number 0</description>
+		id        = "auto72.cloudcrm.tech"
+		version   = "1459517913">
+		<name>UPL</name>
+		<description>UPL 1459517913, Build number 0</description>
 		<author href="http://www.fijatebien.net" email="allowski@gmail.com">Alberto Miranda</author>
 		<preference name="phonegap-version" value="3.7.0" />
 		<access origin="*"/>
