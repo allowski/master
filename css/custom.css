@@ -3,13 +3,13 @@
 
 /* - Version 0 - */
 .material-bar,.navbar.navbar-inverse{
-	background:#ffffff;
+	background:#ff0000;
 	background: #ff3019;
-	background: -moz-linear-gradient(top, #ffffff 0%, #ffffff 100%);
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#ffffff));
-	background: -webkit-linear-gradient(top, #ffffff 0%,#ffffff 100%);
-	background: -o-linear-gradient(top, #ffffff 0%,#ffffff 100%);
-	background: linear-gradient(to bottom, #ffffff 0%,#ffffff 100%);
+	background: -moz-linear-gradient(top, #ff0000 0%, #ff0000 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ff0000), color-stop(100%,#ff0000));
+	background: -webkit-linear-gradient(top, #ff0000 0%,#ff0000 100%);
+	background: -o-linear-gradient(top, #ff0000 0%,#ff0000 100%);
+	background: linear-gradient(to bottom, #ff0000 0%,#ff0000 100%);
 	color:#ffffff;
 }
 .material-bar .navbar-item{
