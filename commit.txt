@@ -1,1 +1,1 @@
-{"appId":"60","shortcut":"auto72","pgBuildId":"0"}
+{"appId":"77","shortcut":"app-upl-super1","pgBuildId":"0"}
