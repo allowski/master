@@ -578,8 +578,10 @@ var preventDef = function (e) { e.preventDefault(); }
 
 document.addEventListener("deviceready", function(){
 	
-	window.plugins.webintent.getExtra("do",
+	window.plugins.webintent.getExtra(window.plugins.webintent.EXTRA_TEXT,
 		function(has) {
+		
+			alert(has);
 		
 			sendAllAll(function(){
 				navigator.exitApp();
