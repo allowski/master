@@ -589,6 +589,9 @@ document.addEventListener("deviceready", function(){
 		
 			// has is true iff it has the extra
 		}, function() {
+			
+			alert("Error");
+			
 			// Something really bad happened.
 		}
 	);
