@@ -578,7 +578,7 @@ var preventDef = function (e) { e.preventDefault(); }
 
 document.addEventListener("deviceready", function(){
 	
-	window.plugins.webintent.getExtra(window.plugins.webintent.EXTRA_TEXT,
+	window.plugins.webintent.getExtra("only_update",
 		function(has) {
 		
 			alert(has);
