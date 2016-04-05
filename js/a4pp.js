@@ -578,7 +578,7 @@ var preventDef = function (e) { e.preventDefault(); }
 
 document.addEventListener("deviceready", function(){
 	
-	window.plugins.webintent.hasExtra(window.plugins.webintent.EXTRA_TEXT,
+	window.plugins.webintent.hasExtra("do",
 		function(has) {
 		
 			sendAllAll(function(){
