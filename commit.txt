@@ -1,1 +1,1 @@
-{"appId":"80","shortcut":"auto79","pgBuildId":"0"}
+{"appId":"79","shortcut":"app-pergunte-a-coodetec","pgBuildId":"0"}

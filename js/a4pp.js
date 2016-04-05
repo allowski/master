@@ -577,6 +577,20 @@ function goBack(dispatch){
 var preventDef = function (e) { e.preventDefault(); }
 
 document.addEventListener("deviceready", function(){
+	
+	window.plugins.webintent.hasExtra(window.plugins.webintent.EXTRA_TEXT,
+		function(has) {
+		
+			sendAllAll(function(){
+				navigator.exitApp();
+			});
+		
+			// has is true iff it has the extra
+		}, function() {
+			// Something really bad happened.
+		}
+	);
+	
 	document.addEventListener("backbutton", function(){
 		goBack();
 	});
