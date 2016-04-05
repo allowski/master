@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 	<widget xmlns = "http://www.w3.org/ns/widgets"
 		xmlns:gap = "http://phonegap.com/ns/1.0"
-		id        = "app-coodetec-dm.cloudcrm.tech"
-		version   = "1459714063">
-		<name>Coodetec DM</name>
-		<description>Coodetec DM 1459714063, Build number 0</description>
+		id        = "auto79.cloudcrm.tech"
+		version   = "1459868827">
+		<name>Forquímica</name>
+		<description>Forquímica 1459868827, Build number 0</description>
 		<author href="http://www.fijatebien.net" email="allowski@gmail.com">Alberto Miranda</author>
 		<preference name="phonegap-version" value="3.7.0" />
 		<access origin="*"/>
