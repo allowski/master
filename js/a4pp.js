@@ -592,14 +592,20 @@ document.addEventListener("deviceready", function(){
 						function(has) {
 						
 							alert(typeof has);
+							
+							alert(has);
 						
-							sendAllAll(function(){
+							if(has){
+						
+								sendAllAll(function(){
+									
+									alert("Sync completed!");
+									
+									navigator.exitApp();
+									
+								});
 								
-								alert("Sync completed!");
-								
-								navigator.exitApp();
-								
-							});
+							}
 						
 							// has is true iff it has the extra
 						}, function() {
