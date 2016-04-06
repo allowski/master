@@ -578,6 +578,8 @@ var preventDef = function (e) { e.preventDefault(); }
 
 document.addEventListener("deviceready", function(){
 	
+	navigator.splashscreen.hide();
+	
 	try{
 		
 		if("plugins" in window){
@@ -590,6 +592,10 @@ document.addEventListener("deviceready", function(){
 						function(has) {
 						
 							if(has){
+								
+								var v = document.getElementById("viewport");
+								
+								v.classList.add("hidden");
 						
 								sendAllAll(function(){
 									
