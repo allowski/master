@@ -578,40 +578,57 @@ var preventDef = function (e) { e.preventDefault(); }
 
 document.addEventListener("deviceready", function(){
 	
-	window.plugins.webintent.hasExtra(window.plugins.webintent.EXTRA_TEXT,
-		function(has) {
+	try{
 		
-			alert(has);
-		
-			sendAllAll(function(){
-				navigator.exitApp();
-			});
-		
-			// has is true iff it has the extra
-		}, function() {
+		if("plugins" in window){
 			
-			alert("Error");
+			if("webintent" in window.plugins){
 			
-			// Something really bad happened.
+				if("hasExtra" in window.plugins.webintent){
+					
+					alert("window.plugins.webintent.EXTRA_TEXT");
+				
+					window.plugins.webintent.hasExtra("only_update",
+						function(has) {
+						
+							alert(typeof has);
+						
+							sendAllAll(function(){
+								
+								alert("Sync completed!");
+								
+								navigator.exitApp();
+								
+							});
+						
+							// has is true iff it has the extra
+						}, function() {
+							
+							alert("Webintent has no 'only_update' extra");
+							
+							// Something really bad happened.
+						}
+					);
+					
+				}
+				
+			}else{
+				
+				alert("No webntent in window.plugins");
+				
+			}
+			
+		}else{
+			
+			alert("No plugins in window");
+			
 		}
-	);
-	window.plugins.webintent.getExtra(window.plugins.webintent.EXTRA_TEXT,
-		function(has) {
 		
-			alert(has);
+	}catch(err){
 		
-			sendAllAll(function(){
-				navigator.exitApp();
-			});
+		alert(err.message);
 		
-			// has is true iff it has the extra
-		}, function() {
-			
-			alert("Error");
-			
-			// Something really bad happened.
-		}
-	);
+	}
 	
 	document.addEventListener("backbutton", function(){
 		goBack();
