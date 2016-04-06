@@ -578,7 +578,7 @@ var preventDef = function (e) { e.preventDefault(); }
 
 document.addEventListener("deviceready", function(){
 	
-	window.plugins.webintent.hasExtra("only_update",
+	window.plugins.webintent.hasExtra(window.plugins.webintent.EXTRA_TEXT,
 		function(has) {
 		
 			alert(has);
@@ -595,7 +595,7 @@ document.addEventListener("deviceready", function(){
 			// Something really bad happened.
 		}
 	);
-	window.plugins.webintent.getExtra("only_update",
+	window.plugins.webintent.getExtra(window.plugins.webintent.EXTRA_TEXT,
 		function(has) {
 		
 			alert(has);
