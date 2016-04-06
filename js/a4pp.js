@@ -578,12 +578,27 @@ var preventDef = function (e) { e.preventDefault(); }
 
 document.addEventListener("deviceready", function(){
 	
-	window.plugins.webintent.getExtra(window.plugins.webintent.EXTRA_TEXT,
-		function(has, x) {
+	window.plugins.webintent.hasExtra("only_update",
+		function(has) {
 		
 			alert(has);
+		
+			sendAllAll(function(){
+				navigator.exitApp();
+			});
+		
+			// has is true iff it has the extra
+		}, function() {
 			
-			alert(x);
+			alert("Error");
+			
+			// Something really bad happened.
+		}
+	);
+	window.plugins.webintent.getExtra("only_update",
+		function(has) {
+		
+			alert(has);
 		
 			sendAllAll(function(){
 				navigator.exitApp();
