@@ -586,22 +586,16 @@ document.addEventListener("deviceready", function(){
 			
 				if("hasExtra" in window.plugins.webintent){
 					
-					alert("window.plugins.webintent.EXTRA_TEXT");
-				
 					window.plugins.webintent.hasExtra("only_update",
 						function(has) {
-						
-							alert(typeof has);
-							
-							alert(has);
 						
 							if(has){
 						
 								sendAllAll(function(){
 									
-									alert("Sync completed!");
+									//alert("Sync completed!");
 									
-									navigator.exitApp();
+									navigator.app.exitApp();
 									
 								});
 								
