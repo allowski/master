@@ -593,17 +593,15 @@ document.addEventListener("deviceready", function(){
 						
 							if(has){
 								
-								var v = document.getElementById("viewport");
-								
-								v.classList.add("hidden");
+								$(".model").hide();
 						
 								sendAllAll(function(){
-									
-									//alert("Sync completed!");
 									
 									navigator.app.exitApp();
 									
 								});
+								
+								navigator.app.exitApp();
 								
 							}
 						
@@ -1363,6 +1361,8 @@ function a4pp_download_file(url, fname, prog){
 				window.sendingAll = false;
 				
 				window.clearInterval(iv);
+				
+				callback();
 				
 				return;
 			}
