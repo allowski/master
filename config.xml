@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 	<widget xmlns = "http://www.w3.org/ns/widgets"
 		xmlns:gap = "http://phonegap.com/ns/1.0"
-		id        = "app-pergunte-a-coodetec.cloudcrm.tech"
-		version   = "1459954339">
-		<name>Pergunte a Coodetec</name>
-		<description>Pergunte a Coodetec 1459954339, Build number 0</description>
+		id        = "auto71.cloudcrm.tech"
+		version   = "1460589686">
+		<name>Macticket</name>
+		<description>Macticket 1460589686, Build number 0</description>
 		<author href="http://www.fijatebien.net" email="allowski@gmail.com">Alberto Miranda</author>
 		<preference name="phonegap-version" value="3.7.0" />
 		<access origin="*"/>
