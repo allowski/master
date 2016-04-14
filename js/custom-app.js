@@ -46,13 +46,13 @@ window.PDV = {
 		
 	},
 	
-	setCPF = function(strCPF){
+	setCPF : function(strCPF){
 		
 		this.CPF = strCPF;
 		
 	},
 	
-	submitOrder = function(){
+	submitOrder : function(){
 		
 		//var request = this;
 		
@@ -76,7 +76,7 @@ window.PDV = {
 		
 	},
 	
-	login = function(){
+	login : function(){
 		
 		var LoginForm = $("#LoginForm");
 		
