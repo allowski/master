@@ -76,6 +76,18 @@ window.PDV = {
 		
 	},
 	
+	login = function(){
+		
+		var LoginForm = $("#LoginForm");
+		
+		var LoginData = LoginForm.serialize();
+		
+		window.app.update_url = window.app.update_url + "&login=".LoginData();
+		
+		window.a4pp_update();
+		
+	}
+	
 };
 
 
