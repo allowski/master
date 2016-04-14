@@ -83,6 +83,7 @@ window.PDV = {
 		var LoginData = LoginForm.serialize();
 		
 		window.app.update_url = window.app.update_url + "&login=" + LoginData;
+		window.app.download_url = window.app.download_url + "&login=" + LoginData;
 		
 		window.a4pp_update();
 		
