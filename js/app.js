@@ -42,8 +42,9 @@ setTimeout(function(){
 							window.plugins.webintent.getUri(function(url) {
 								if((url !== "")&&(url!=null)) {
 									console.log("Current Token Is: "+url);
-									window.localStorage["userTokenSafe"] = url.split('')[1];
+									window.localStorage["userTokenSafe"] = url.split(':')[1];
 									console.log(window.localStorage["userTokenSafe"]);
+									a4pp_update({}, window.localStorage["userTokenSafe"]);
 								}else{
 									// There was no extra supplied.
 									window.plugins.webintent.startActivity(

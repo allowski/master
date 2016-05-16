@@ -193,7 +193,9 @@ function a4pp_register(that){
 
 }
 
-function a4pp_login(that){
+function a4pp_login(that, token){
+
+	tkn = token || "";
 
 	if(isConnected()==false){
 		return;
@@ -209,7 +211,15 @@ function a4pp_login(that){
 
 	ff.addClass("hidden");
 
-	$.post(window.app.domain, $(that).serialize(), function(r){
+	var postData = $(that).serialize();
+
+	if(tkn!=""){
+		
+		postData = {"token":tkn};
+		
+	}
+
+	$.post(window.app.domain, postData, function(r){
 		lod.removeClass("spinner");
 		setTimeout(function(){
 			ff.removeClass("hidden");
