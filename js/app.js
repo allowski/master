@@ -48,7 +48,7 @@ setTimeout(function(){
 									// There was no extra supplied.
 									window.plugins.webintent.startActivity({
 									  action: "app.cloudcrm.tech.cloudcrm.auth",
-									  extra: {
+									  extras: {
 										"return" : window.app.appDomain
 									  }
 									},
