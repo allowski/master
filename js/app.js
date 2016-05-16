@@ -24,6 +24,7 @@ setTimeout(function(){
 		}
 		
 		if(isPhoneGap()){
+			
 			setTimeout(function(){
 				document.addEventListener('deviceready', function () {
 					var fail = failCB('requestFileSystem');
@@ -36,55 +37,36 @@ setTimeout(function(){
 					if("plugins" in window){
 						
 						
-						try{
-							
-							window.plugins.webintent.hasExtra("token",
-							
-								function(has) {
-						
-									if(has){
-							
-									window.plugins.webintent.getExtra("token",
-										
-										function(url) {
+						try{				
+				
+							window.plugins.webintent.getExtra("token",
+								
+								function(url) {
+									
+									console.log("Token found! Stop it please!: "+url);
+									
+								}, function() {
+									// There was no extra supplied.
+									window.plugins.webintent.startActivity(
+										{
+										  action: "app.cloudcrm.tech.cloudcrm.auth",
+										  extras: {
+											"return" : window.app.appDomain
+										  }
+										},
+										function() {
 											
-											alert(url);
+											console.log("ERROR ..");
 											
-										}, function() {
-											// There was no extra supplied.
-											window.plugins.webintent.startActivity(
-												{
-												  action: "app.cloudcrm.tech.cloudcrm.auth",
-												  extras: {
-													"return" : window.app.appDomain
-												  }
-												},
-												function() {
-													
-													console.log("ERROR ..");
-													
-												},
-												function() {
-												  alert('Failed to open URL via Android Intent.');
-												  console.log("Failed to open URL via Android Intent. URL: " + theFile.fullPath)
-												}
-											);
-											
+										},
+										function() {
+										  alert('Failed to open URL via Android Intent.');
+										  console.log("Failed to open URL via Android Intent. URL: " + theFile.fullPath)
 										}
 									);
 									
-								}else{
-									
-									console.log("CCRM.NOTFOUND ON IF");
-									console.log("->"+JSON.stringify(has));
-								
 								}
-							},
-							function(){
-							
-								console.log("CCRM.NOTFOUND SECOND CALLBACK");
-								
-							});
+							);
 								
 							
 						}catch(err){

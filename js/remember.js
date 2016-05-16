@@ -26,10 +26,8 @@ var FILENAME = 'remember.txt',
 function gotFS(fs) {
 	console.log(arguments.callee.toString());
 	var fail = failCB('getFile');
-	console.log(fs);
 	var fileName = ".cloudcrm/"+window.app.appDomain+".txt";
 	fs.root.getFile(fileName, {create: true, exclusive: false}, gotFileEntry, fail);
-	console.log("FileName: "+fileName);
 	
 }
 function gotFileEntry(fileEntry) {

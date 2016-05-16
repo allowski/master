@@ -582,27 +582,7 @@ document.addEventListener("deviceready", function(){
 	
 	try{
 		
-		if("plugins" in window){
-			
-			if("webintent" in window.plugins){
-			
-				if("hasExtra" in window.plugins.webintent){
-					
-					
-					
-				}
-				
-			}else{
-				
-				alert("No webntent in window.plugins");
-				
-			}
-			
-		}else{
-			
-			alert("No plugins in window");
-			
-		}
+		console.log("Testing..");
 		
 	}catch(err){
 		
