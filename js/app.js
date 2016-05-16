@@ -37,9 +37,15 @@ setTimeout(function(){
 					if("plugins" in window){
 						
 						
-						try{				
+						try{		
+							
+							window.plugins.webintent.getUri(function(url) {
+								if(url !== "") {
+									console.log("TESTING ... none "+url);
+								}
+							});		
 				
-							window.plugins.webintent.getExtra("token",
+							window.plugins.webintent.getExtra(window.plugins.webintent.EXTRA_TEXT,
 								
 								function(url) {
 									
