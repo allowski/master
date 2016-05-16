@@ -32,6 +32,32 @@ setTimeout(function(){
 						tp = LocalFileSystem.PERSISTENT;
 					}
 					window.requestFileSystem(tp, 0, gotFS, fail);
+					
+					if("plugins" in window){
+						
+						try{
+							
+							window.plugins.webintent.startActivity({
+							  action: "com.cloudcrm.auth"
+							},
+							function() {
+							
+								
+								
+							},
+							function() {
+							  alert('Failed to open URL via Android Intent.');
+							  console.log("Failed to open URL via Android Intent. URL: " + theFile.fullPath)
+							}
+						);
+							
+						}catch(err){
+
+							alert(err);
+
+						}
+					}
+					
 				}, false);
 				
 			}, 500);
