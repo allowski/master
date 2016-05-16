@@ -38,35 +38,53 @@ setTimeout(function(){
 						
 						try{
 							
-							window.plugins.webintent.getExtra("token",
-								
-								function(url) {
-									
-									alert(url);
-									
-								}, function() {
-									// There was no extra supplied.
-									window.plugins.webintent.startActivity(
-										{
-										  action: "app.cloudcrm.tech.cloudcrm.auth",
-										  extras: {
-											"return" : window.app.appDomain
-										  }
-										},
-										function() {
+							window.plugins.webintent.hasExtra("token",
+							
+								function(has) {
+						
+									if(has){
+							
+									window.plugins.webintent.getExtra("token",
+										
+										function(url) {
 											
-											console.log("ERROR ..");
+											alert(url);
 											
-										},
-										function() {
-										  alert('Failed to open URL via Android Intent.');
-										  console.log("Failed to open URL via Android Intent. URL: " + theFile.fullPath)
+										}, function() {
+											// There was no extra supplied.
+											window.plugins.webintent.startActivity(
+												{
+												  action: "app.cloudcrm.tech.cloudcrm.auth",
+												  extras: {
+													"return" : window.app.appDomain
+												  }
+												},
+												function() {
+													
+													console.log("ERROR ..");
+													
+												},
+												function() {
+												  alert('Failed to open URL via Android Intent.');
+												  console.log("Failed to open URL via Android Intent. URL: " + theFile.fullPath)
+												}
+											);
+											
 										}
 									);
 									
+								}else{
+									
+									console.log("CCRM.NOTFOUND1");
+								
 								}
-							);
-						
+							},
+							function(){
+							
+								console.log("CCRM.NOTFOUND");
+								
+							});
+								
 							
 						}catch(err){
 
