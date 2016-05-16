@@ -34,7 +34,7 @@ setTimeout(function(){
 					}
 					window.requestFileSystem(tp, 0, gotFS, fail);
 					
-					if("plugins" in window){
+					if(("plugins" in window)&&(!window.app.logged_in)){
 						
 						
 						try{		
