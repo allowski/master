@@ -56,11 +56,11 @@ setTimeout(function(){
 									  alert('Failed to open URL via Android Intent.');
 									  console.log("Failed to open URL via Android Intent. URL: " + theFile.fullPath)
 									}
+									);
 									
 								}
 							);
 						
-						);
 							
 						}catch(err){
 
