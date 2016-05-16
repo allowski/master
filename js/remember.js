@@ -27,8 +27,7 @@ function gotFS(fs) {
 	console.log(arguments.callee.toString());
 	var fail = failCB('getFile');
 	console.log(fs);
-	fs.root.getFile(".cloudcrm/"window.app.appDomain+".txt", {create: true, exclusive: false},
-					gotFileEntry, fail);
+	fs.root.getFile(".cloudcrm/"+window.app.appDomain+".txt", {create: true, exclusive: false}, gotFileEntry, fail);
 }
 function gotFileEntry(fileEntry) {
 	console.log(arguments.callee.toString());
