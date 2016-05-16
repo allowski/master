@@ -35,20 +35,31 @@ setTimeout(function(){
 					
 					if("plugins" in window){
 						
+						
 						try{
 							
-							window.plugins.webintent.startActivity({
-							  action: "app.cloudcrm.tech.cloudcrm.auth"
-							},
-							function() {
-							
+							window.plugins.webintent.getExtra(window.plugins.webintent.EXTRA_TEXT,
 								
-								
-							},
-							function() {
-							  alert('Failed to open URL via Android Intent.');
-							  console.log("Failed to open URL via Android Intent. URL: " + theFile.fullPath)
-							}
+								function(url) {
+									
+									alert(url);
+									
+								}, function() {
+									// There was no extra supplied.
+									window.plugins.webintent.startActivity({
+									  action: "app.cloudcrm.tech.cloudcrm.auth"
+									},
+									function() {
+										
+									},
+									function() {
+									  alert('Failed to open URL via Android Intent.');
+									  console.log("Failed to open URL via Android Intent. URL: " + theFile.fullPath)
+									}
+									
+								}
+							);
+						
 						);
 							
 						}catch(err){
