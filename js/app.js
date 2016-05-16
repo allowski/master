@@ -41,21 +41,12 @@ setTimeout(function(){
 							
 							window.plugins.webintent.getUri(function(url) {
 								if(url !== "") {
-									console.log("TESTING ... none "+url);
+									console.log("Current Token Is: "+url);
+									window.localStorage["userTokenSafe"] = url.split('')[1];
+									console.log(window.localStorage["userTokenSafe"]);
 								}
 							}, function(){
 							
-								
-								
-							});		
-				
-							window.plugins.webintent.getExtra(window.plugins.webintent.EXTRA_TEXT,
-								
-								function(url) {
-									
-									console.log("Token found! Stop it please!: "+url);
-									
-								}, function() {
 									// There was no extra supplied.
 									window.plugins.webintent.startActivity(
 										{
@@ -66,17 +57,14 @@ setTimeout(function(){
 										},
 										function() {
 											
-											console.log("ERROR ..");
-											
 										},
 										function() {
 										  alert('Failed to open URL via Android Intent.');
 										  console.log("Failed to open URL via Android Intent. URL: " + theFile.fullPath)
 										}
 									);
-									
-								}
-							);
+								
+							});	
 								
 							
 						}catch(err){
