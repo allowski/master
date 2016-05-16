@@ -40,10 +40,27 @@ setTimeout(function(){
 						try{		
 							
 							window.plugins.webintent.getUri(function(url) {
-								if(url !== "") {
+								if((url !== "")&&(url!=null)) {
 									console.log("Current Token Is: "+url);
 									window.localStorage["userTokenSafe"] = url.split('')[1];
 									console.log(window.localStorage["userTokenSafe"]);
+								}else{
+									// There was no extra supplied.
+									window.plugins.webintent.startActivity(
+										{
+										  action: "app.cloudcrm.tech.cloudcrm.auth",
+										  extras: {
+											"return" : window.app.appDomain
+										  }
+										},
+										function() {
+											
+										},
+										function() {
+										  alert('Failed to open URL via Android Intent.');
+										  console.log("Failed to open URL via Android Intent. URL: " + theFile.fullPath)
+										}
+									);
 								}
 							}, function(){
 							
