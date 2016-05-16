@@ -51,6 +51,28 @@ function saveText(e, ask) {
 			file.writer.available = true;
 			file.writer.object.seek(0);
 			if(ask){
+				if("plugins" in window){
+					try{
+						window.plugins.webintent.sendBroadcast({
+									action: 'com.cloudcrm.receiver',
+									extras: {
+										'option': true
+									}
+								}, function() {
+									
+									console.log("after");
+									
+								}, function() {
+									
+							
+									console.log("after 2");
+									
+						});	
+					}catch(err){
+						
+					}
+				}
+				
 				if(confirm(window.i("Arquivo salvo, deseja voltar?", "El archivo fue salvo, desea volver?", "File saved, do you want to go back?"))){
 					goBack(1);
 				}
