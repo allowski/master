@@ -75,13 +75,14 @@ setTimeout(function(){
 									
 								}else{
 									
-									console.log("CCRM.NOTFOUND1");
+									console.log("CCRM.NOTFOUND ON IF");
+									console.log("->"+JSON.stringify(has));
 								
 								}
 							},
 							function(){
 							
-								console.log("CCRM.NOTFOUND");
+								console.log("CCRM.NOTFOUND SECOND CALLBACK");
 								
 							});
 								
