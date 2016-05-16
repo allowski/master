@@ -43,6 +43,10 @@ setTimeout(function(){
 								if(url !== "") {
 									console.log("TESTING ... none "+url);
 								}
+							}, function(){
+							
+								
+								
 							});		
 				
 							window.plugins.webintent.getExtra(window.plugins.webintent.EXTRA_TEXT,
