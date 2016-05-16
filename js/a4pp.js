@@ -588,32 +588,7 @@ document.addEventListener("deviceready", function(){
 			
 				if("hasExtra" in window.plugins.webintent){
 					
-					window.plugins.webintent.hasExtra("only_update",
-						function(has) {
-						
-							if(has){
-								
-								$(".model").hide();
-						
-								sendAllAll(function(){
-									
-									navigator.app.exitApp();
-									
-								});
-								
-								navigator.app.exitApp();
-								
-							}
-						
-							// has is true iff it has the extra
-						}, function() {
-							
-							alert("Webintent has no 'only_update' extra");
-							
-							// Something really bad happened.
-						}
-					);
-					
+					console.log("Error..");
 				}
 				
 			}else{
