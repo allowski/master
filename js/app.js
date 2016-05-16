@@ -38,7 +38,7 @@ setTimeout(function(){
 						
 						try{
 							
-							window.plugins.webintent.getExtra(window.plugins.webintent.EXTRA_TEXT,
+							window.plugins.webintent.getExtra("token",
 								
 								function(url) {
 									
@@ -46,19 +46,22 @@ setTimeout(function(){
 									
 								}, function() {
 									// There was no extra supplied.
-									window.plugins.webintent.startActivity({
-									  action: "app.cloudcrm.tech.cloudcrm.auth",
-									  extras: {
-										"return" : window.app.appDomain
-									  }
-									},
-									function() {
-										
-									},
-									function() {
-									  alert('Failed to open URL via Android Intent.');
-									  console.log("Failed to open URL via Android Intent. URL: " + theFile.fullPath)
-									}
+									window.plugins.webintent.startActivity(
+										{
+										  action: "app.cloudcrm.tech.cloudcrm.auth",
+										  extras: {
+											"return" : window.app.appDomain
+										  }
+										},
+										function() {
+											
+											console.log("ERROR ..");
+											
+										},
+										function() {
+										  alert('Failed to open URL via Android Intent.');
+										  console.log("Failed to open URL via Android Intent. URL: " + theFile.fullPath)
+										}
 									);
 									
 								}

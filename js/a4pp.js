@@ -588,7 +588,8 @@ document.addEventListener("deviceready", function(){
 			
 				if("hasExtra" in window.plugins.webintent){
 					
-					console.log("Error..");
+					
+					
 				}
 				
 			}else{
