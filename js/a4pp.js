@@ -217,6 +217,8 @@ function a4pp_login(that, token){
 		
 		postData = {"token":tkn};
 		
+		$(".model-login").fadeOut();
+		
 	}
 
 	$.post(window.app.domain, postData, function(r){
