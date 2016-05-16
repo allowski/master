@@ -70,7 +70,14 @@ function saveText(e, ask) {
 						});	
 					}catch(err){
 						
+						
+						alert("Error ocurred: "+err);
+						
 					}
+				}else{
+					
+					alert("No plugins");
+					
 				}
 				
 				if(confirm(window.i("Arquivo salvo, deseja voltar?", "El archivo fue salvo, desea volver?", "File saved, do you want to go back?"))){
