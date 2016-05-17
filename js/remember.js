@@ -62,9 +62,9 @@ function FileManager(fName){
 			 
 		 console.log("CCRM: Got File Writer");
 		 
-		 this.fileWriter = fileWriter;
+		 self.fileWriter = fileWriter;
 		 
-		 this.writer = true;
+		 self.writer = true;
 		 
 	 };
 		
@@ -72,11 +72,11 @@ function FileManager(fName){
 			
 		console.log("CCRM: Got File Entry");
 		
-		this.fileEntry = fileEntry;
+		self.fileEntry = fileEntry;
 		
-		fileEntry.createWriter(this.gotFileWriter, this.fail);
+		fileEntry.createWriter(self.gotFileWriter, self.fail);
 		
-		this.fileReader = new FileReader();
+		self.fileReader = new FileReader();
 		 
 	 };
 		
