@@ -1,8 +1,8 @@
-function FileManager(fileName){
+function FileManager(fName){
 	
 	console.log("CCRM: new FileManager('"+fileName+"'); called");
 	
-	this.fileName = fileName;
+	this.fileName = fName;
 	
 	console.log("CCRM: new FileManager('"+this.fileName+"'); called -----");
 	
