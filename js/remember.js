@@ -78,7 +78,7 @@ function FileManager(fileName){
 	 };
 	
 	
-	this.gotFileSystem = function(){
+	this.gotFileSystem = function(fs){
 		
 		console.log("CCRM: Got File System");
 	
