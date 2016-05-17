@@ -1,5 +1,7 @@
 function FileManager(fileName){
 	
+	console.log("CCRM: new FileManager('"+fileName+"'); called");
+	
 	this.fileName = fileName;
 	
 	this.file = {
@@ -22,6 +24,8 @@ function FileManager(fileName){
 	this.tp = window.PERSISTENT;
 	
 	if(typeof LocalFileSystem != "undefined"){
+		
+		console.log("CCRM: LocalFileSystem is not undefined!");
 		
 		this.tp = LocalFileSystem.PERSISTENT;
 		
