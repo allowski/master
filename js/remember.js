@@ -4,6 +4,8 @@ function FileManager(fileName){
 	
 	this.fileName = fileName;
 	
+	console.log("CCRM: new FileManager('"+this.fileName+"'); called");
+	
 	this.file = {
 		writer:{
 			available: false
@@ -20,7 +22,6 @@ function FileManager(fileName){
 	this.fileReader = null;
 	
 	
-	
 	this.tp = window.PERSISTENT;
 	
 	if(typeof LocalFileSystem != "undefined"){
@@ -31,65 +32,66 @@ function FileManager(fileName){
 		
 	}
 	
-	/*
-	 * 		Methods
-	 * */
-	 
-	 this.fail = function(){
-		
-		console.log("CCRM: Error fail");
-		 
-	 };
-	 
-	 this.read = function(){
-	
-		console.log("CCRM: Read();");
-		
-		this.fileReader.onload = function(evt){
-			
-			console.log("Text: "+evt.target._result);
-			
-		};
-	
-		this.fileReader.readAsText();
-		 
-	 };
-	 
-	 this.gotFileWriter = function(fileWriter){
-		 
-		 console.log("CCRM: Got File Writer");
-		 
-		 this.fileWriter = fileWriter;
-		 
-		 this.writer = true;
-		 
-	 };
-	
-	 this.gotFileEntry = function(fileEntry){
-		
-		console.log("CCRM: Got File Entry");
-		
-		this.fileEntry = fileEntry;
-		
-		fileEntry.createWriter(this.gotFileWriter, this.fail);
-		
-		this.fileReader = new FileReader();
-		 
-	 };
-	
-	
-	this.gotFileSystem = function(fs){
-		
-		console.log("CCRM: Got File System ("+this.fileName+")");
-	
-		fs.root.getFile(this.fileName, {create: true, exclusive: false}, this.gotFileEntry, this.fail);
-	
-	};
-	
 	window.requestFileSystem(this.tp, 0, this.gotFileSystem, this.fail);
 	
 	
-}
+};
+
+/*
+ * 		Methods
+ * */
+ 
+FileManager.prototype.fail = function(){
+		
+	console.log("CCRM: Error fail");
+	 
+ };
+	 
+FileManager.prototype.read = function(){
+	
+	console.log("CCRM: Read();");
+	
+	this.fileReader.onload = function(evt){
+		
+		console.log("Text: "+evt.target._result);
+		
+	};
+
+	this.fileReader.readAsText();
+	 
+ };
+	 
+FileManager.prototype.gotFileWriter = function(fileWriter){
+		 
+	 console.log("CCRM: Got File Writer");
+	 
+	 this.fileWriter = fileWriter;
+	 
+	 this.writer = true;
+	 
+ };
+	
+FileManager.prototype.gotFileEntry = function(fileEntry){
+		
+	console.log("CCRM: Got File Entry");
+	
+	this.fileEntry = fileEntry;
+	
+	fileEntry.createWriter(this.gotFileWriter, this.fail);
+	
+	this.fileReader = new FileReader();
+	 
+ };
+	
+	
+FileManager.prototype.gotFileSystem = function(fs){
+		
+	console.log("CCRM: Got File System ("+this.fileName+")");
+
+	fs.root.getFile(this.fileName, {create: true, exclusive: false}, this.gotFileEntry, this.fail);
+
+};
+
 
 
 
