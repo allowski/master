@@ -87,6 +87,10 @@ FileManager.prototype.gotFileEntry = function(fileEntry){
 FileManager.prototype.gotFileSystem = function(fs){
 		
 	console.log("CCRM: Got File System ("+this.fileName+")");
+	
+	console.log("---------------------------------------------------------");
+	
+	console.log(this);
 
 	fs.root.getFile(this.fileName, {create: true, exclusive: false}, this.gotFileEntry, this.fail);
 
