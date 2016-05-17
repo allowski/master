@@ -1,6 +1,6 @@
 function FileManager(fName){
 	
-	console.log("CCRM: new FileManager('"+fileName+"'); called");
+	console.log("CCRM: new FileManager('"+fName+"'); called");
 	
 	this.fileName = fName;
 	
