@@ -46,6 +46,8 @@ function FileManager(fName){
 	 
 	this.write = function(text, callback){
 		
+		console.log("CCRM: Write('"+text+"') -> called");
+		
 		self.fileWriter.onwriteend = function(event){
 			
 			callback();
