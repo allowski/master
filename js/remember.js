@@ -4,10 +4,10 @@ function FileManager(fileName){
 	
 	this.file = {
 		writer:{
-			available = false
+			available: false
 		},
 		reader:{
-			available = false
+			available: false
 		}
 	};
 	
