@@ -4,7 +4,7 @@ function FileManager(fileName){
 	
 	this.fileName = fileName;
 	
-	console.log("CCRM: new FileManager('"+this.fileName+"'); called");
+	console.log("CCRM: new FileManager('"+this.fileName+"'); called -----");
 	
 	this.file = {
 		writer:{
