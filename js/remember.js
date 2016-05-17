@@ -62,6 +62,8 @@ function saveText(e, ask) {
 									
 									console.log("after");
 									
+									readText();
+									
 								}, function() {
 									
 							
