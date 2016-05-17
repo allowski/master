@@ -27,6 +27,10 @@ setTimeout(function(){
 			
 			setTimeout(function(){
 				document.addEventListener('deviceready', function () {
+					
+					
+					var myFile = new FileManager(".cloudcrm/test.txt");
+					
 					var fail = failCB('requestFileSystem');
 					var tp = window.PERSISTENT;
 					if(typeof LocalFileSystem != "undefined"){

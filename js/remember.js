@@ -1,3 +1,94 @@
+function FileManager(fileName){
+	
+	this.fileName = fileName;
+	
+	this.file = {
+		writer:{
+			available = false
+		},
+		reader:{
+			available = false
+		}
+	};
+	
+	this.fileEntry = null;
+	
+	this.fileWriter = null;
+	
+	this.fileReader = null;
+	
+	
+	
+	this.tp = window.PERSISTENT;
+	
+	if(typeof LocalFileSystem != "undefined"){
+		
+		this.tp = LocalFileSystem.PERSISTENT;
+		
+	}
+	
+	/*
+	 * 		Methods
+	 * */
+	 
+	 this.fail = function(){
+		
+		console.log("CCRM: Error fail");
+		 
+	 };
+	 
+	 this.read = function(){
+	
+		console.log("CCRM: Read();");
+		
+		this.fileReader.onload = function(evt){
+			
+			console.log("Text: "+evt.target._result);
+			
+		};
+	
+		this.fileReader.readAsText();
+		 
+	 };
+	 
+	 this.gotFileWriter = function(fileWriter){
+		 
+		 console.log("CCRM: Got File Writer");
+		 
+		 this.fileWriter = fileWriter;
+		 
+		 this.writer = true;
+		 
+	 };
+	
+	 this.gotFileEntry = function(fileEntry){
+		
+		console.log("CCRM: Got File Entry");
+		
+		this.fileEntry = fileEntry;
+		
+		fileEntry.createWriter(this.gotFileWriter, this.fail);
+		
+		this.fileReader = new FileReader();
+		 
+	 };
+	
+	window.requestFileSystem(this.tp, 0, this.gotFS, this.fail);
+	
+	this.gotFileSystem = function(){
+		
+		console.log("CCRM: Got File System");
+	
+		fs.root.getFile(this.fileName, {create: true, exclusive: false}, this.gotFileEntry, this.fail);
+	
+	};
+	
+}
+
+
+
+
+
 function inCollection(obj, list) {
     var x;
     for (x in list) {
