@@ -91,7 +91,7 @@ function FileManager(fName){
 		
 		console.log(JSON.stringify(self));
 
-		fs.root.getFile(self.fileName, {create: true, exclusive: false}, this.gotFileEntry, this.fail);
+		fs.root.getFile(self.fileName, {create: true, exclusive: false}, self.gotFileEntry, self.fail);
 
 	};
 
