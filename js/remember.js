@@ -43,7 +43,9 @@ function gotFileWriter(fileWriter) {
 	file.writer.object = fileWriter;
 }
 function saveText(e, ask) {
-	console.log(arguments.callee.toString());
+	
+	console.log("CCRM SaveText();");
+	
 	var fail;
 	if (file.writer.available) {
 		file.writer.available = false;
@@ -60,31 +62,31 @@ function saveText(e, ask) {
 									}
 								}, function() {
 									
-									console.log("after");
+									console.log("CCRM: after reading text by new..");
 									
 									readText();
 									
 								}, function() {
 									
 							
-									console.log("after 2");
+									console.log("CCRM: after 2");
 									
 						});	
 					}catch(err){
 						
 						
-						alert("Error ocurred: "+err);
+						alert("CCRM Error ocurred: "+err);
 						
 					}
 				}else{
 					
-					alert("No plugins");
+					alert("CCRM: No plugins");
 					
 				}
 				
-				if(confirm(window.i("Arquivo salvo, deseja voltar?", "El archivo fue salvo, desea volver?", "File saved, do you want to go back?"))){
-					goBack(1);
-				}
+				//if(confirm(window.i("Arquivo salvo, deseja voltar?", "El archivo fue salvo, desea volver?", "File saved, do you want to go back?"))){
+				goBack(1);
+				//}
 			}
 		}
 		file.writer.object.write(e);
@@ -92,27 +94,28 @@ function saveText(e, ask) {
 	return false;
 }
 function readText() {
-	console.log(arguments.callee.toString());
-	//alert("Read text");
+	
+	console.log("CCRM ReadText();");
+	
 	if (file.entry) {
 		file.entry.file(function (dbFile) {
+			
+			console.log("CCRM new FileReader();");
+			
 			var reader = new FileReader();
 			
 			reader.onload = function (evt) {
 				remember.collections = JSON.parse(evt.target._result);
-				//alert("Loaded");
 			}
 			
 			reader.onerror = function(){
-				alert("Error reading localfile");
+				alert("CCRM Error reading localfile");
 			} 
 			
-			//alert( typeof dbFile);
-			//alert(JSON.stringify(dbFile));
 			try{
 				reader.readAsText(dbFile);
 			}catch(e){
-				//alert("Error:\n"+JSON.stringify(e));
+				console.log("CCRM Error while reading file.");
 			}
 			
 		}, failCB("FileReader"));
