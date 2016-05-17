@@ -1,4 +1,4 @@
-function FileManager(fName){
+function FileManager(fName, callback){
 	
 	console.log("CCRM: new FileManager('"+fName+"'); called");
 	
@@ -81,6 +81,8 @@ function FileManager(fName){
 		 self.fileWriter = fileWriter;
 		 
 		 self.writer = true;
+		 
+		 callback();
 		 
 	 };
 		

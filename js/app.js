@@ -29,16 +29,18 @@ setTimeout(function(){
 				document.addEventListener('deviceready', function () {
 					
 					
-					var myFile = new FileManager(".cloudcrm/test.txt"); 
-					
-					myFile.write("CCRM: test test test", function(){
+					var myFile = new FileManager(".cloudcrm/test.txt", function(){ 
 						
-						myFile.read(function(text){
-						
-							console.log(text);
-						
+						myFile.write("CCRM: test test test", function(){
+							
+							myFile.read(function(text){
+							
+								console.log(text);
+							
+							});
+							
 						});
-						
+					
 					});
 					
 					return;
