@@ -29,7 +29,17 @@ setTimeout(function(){
 				document.addEventListener('deviceready', function () {
 					
 					
-					var myFile = new FileManager(".cloudcrm/test.txt"); return;
+					var myFile = new FileManager(".cloudcrm/test.txt"); 
+					
+					myFile.write("test");
+					
+					myFile.read(function(text){
+					
+						console.log(text);
+					
+					});
+					
+					return;
 					
 					var fail = failCB('requestFileSystem');
 					var tp = window.PERSISTENT;

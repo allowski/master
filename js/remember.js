@@ -43,14 +43,28 @@ function FileManager(fName){
 		console.log("CCRM: Error fail");
 		 
 	 };
+	 
+	this.write = function(text, callback){
+		
+		self.fileWriter.onwriteend = function(event){
+			
+			callback();
+			
+		};
+		
+		self.fileWriter.write(text);
+		
+	};
 		 
-	this.read = function(){
+	this.read = function(callback){
 		
 		console.log("CCRM: Read();");
 		
 		this.fileReader.onload = function(evt){
 			
 			console.log("Text: "+evt.target._result);
+			
+			callback(evt.target._result);
 			
 		};
 
@@ -75,6 +89,8 @@ function FileManager(fName){
 		self.fileEntry = fileEntry;
 		
 		fileEntry.createWriter(self.gotFileWriter, self.fail);
+		
+		console.log("CCRM: new self.FileReader();");
 		
 		self.fileReader = new FileReader();
 		 
