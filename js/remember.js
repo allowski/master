@@ -77,7 +77,6 @@ function FileManager(fileName){
 		 
 	 };
 	
-	window.requestFileSystem(this.tp, 0, this.gotFileSystem, this.fail);
 	
 	this.gotFileSystem = function(){
 		
@@ -86,6 +85,9 @@ function FileManager(fileName){
 		fs.root.getFile(this.fileName, {create: true, exclusive: false}, this.gotFileEntry, this.fail);
 	
 	};
+	
+	window.requestFileSystem(this.tp, 0, this.gotFileSystem, this.fail);
+	
 	
 }
 
