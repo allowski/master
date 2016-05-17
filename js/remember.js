@@ -34,8 +34,6 @@ function FileManager(fName){
 		
 	}
 	
-	window.requestFileSystem(this.tp, 0, this.gotFileSystem, this.fail);
-	
 	/*
 	 * 		Methods
 	 **/
@@ -94,6 +92,9 @@ function FileManager(fName){
 		fs.root.getFile(self.fileName, {create: true, exclusive: false}, self.gotFileEntry, self.fail);
 
 	};
+	
+	
+	window.requestFileSystem(this.tp, 0, self.gotFileSystem, self.fail);
 
 	
 };
