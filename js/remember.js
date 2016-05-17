@@ -80,7 +80,7 @@ function FileManager(fileName){
 	
 	this.gotFileSystem = function(fs){
 		
-		console.log("CCRM: Got File System");
+		console.log("CCRM: Got File System ("+this.fileName+")");
 	
 		fs.root.getFile(this.fileName, {create: true, exclusive: false}, this.gotFileEntry, this.fail);
 	
