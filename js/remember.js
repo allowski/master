@@ -513,7 +513,7 @@ var remember = {
 								continue;
 							}
 							
-							ele.value = parent.collections[collection][indexOf][k];	
+							ele.value = obj[k];	
 							
 							var attr = "img_"+ele.id;
 							
