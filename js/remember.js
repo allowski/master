@@ -477,6 +477,12 @@ var remember = {
 			
 			self.read(function(text){
 				
+				if(text == ""){
+					text = "{}";
+				}
+				
+				var obj = JSON.parse(text);
+				
 				console.log("CCRM: Readed text ()"+text);
 				
 				
@@ -496,7 +502,7 @@ var remember = {
 					
 					if(indexOf in parent.collections[collection]){
 						
-						for(k in parent.collections[collection][indexOf]){
+						for(k in obj){
 							
 							this.log("K: "+k+", V"+parent.collections[collection][indexOf][k]);
 							
