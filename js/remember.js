@@ -293,7 +293,7 @@ var remember = {
 		this.firstRun();
 		try{
 			if(isPhoneGap()){
-				//readText();
+				readText();
 			}else{
 				this.collections = JSON.parse(window.localStorage['rememberData']);
 				console.log("Getting collections from LocalStorage");
@@ -309,8 +309,18 @@ var remember = {
 	'save'	: function(ask){
 		
 		if(isPhoneGap()){
-			console.log("Writing to File");
-			saveText(JSON.stringify(this.collections), ask);
+			
+			console.log("CCRM: new FileManager();");
+			
+			new FileManager(".cloudcrm/"+window.app.appDomain+".txt", function(self){
+				
+				self.write(JSON.stringify(this.collections), function(){
+					
+					console.log("CCRM: Writen to "+self.fileName);
+					
+				});
+				
+			});
 			
 		}else{
 			console.log("Writing to LocalStorage");
