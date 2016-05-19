@@ -70,7 +70,7 @@ function FileManager(fName, callback){
 		
 		self.file.reader.available = false;
 		
-		self.file.fileReader.onload = function(evt){
+		self.fileReader.onload = function(evt){
 			
 			console.log("CCRM: ReadText: "+evt.target._result);
 			
@@ -108,11 +108,11 @@ function FileManager(fName, callback){
 		
 		self.fileEntry = fileEntry;
 		
-		fileEntry.createWriter(self.gotFileWriter, self.fail);
-		
 		console.log("CCRM: new self.FileReader();");
 		
 		self.fileReader = new FileReader();
+		
+		fileEntry.createWriter(self.gotFileWriter, self.fail);
 		 
 	 };
 		
