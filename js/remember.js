@@ -500,7 +500,7 @@ var remember = {
 					parent.current_item = {"id":indexOf, "collection":collection};
 					
 					
-					if(indexOf in parent.collections[collection]){
+					if(text!="{}"){
 						
 						console.log("Loading fields into form");
 						
