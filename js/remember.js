@@ -62,15 +62,21 @@ function FileManager(fName, callback){
 		
 		console.log("CCRM: Read();");
 		
-		this.fileReader.onload = function(evt){
+		self.fileReader.onload = function(evt){
 			
-			console.log("Text: "+evt.target._result);
+			console.log("CCRM: ReadText: "+evt.target._result);
 			
 			callback(evt.target._result);
 			
 		};
+		
+		self.fileReader.onerror = function(){
+			
+			console.log("CCRM: FileReader onError()");
+			
+		};
 
-		this.fileReader.readAsText();
+		self.fileReader.readAsText();
 		 
 	 };
 		 
