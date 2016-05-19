@@ -450,16 +450,6 @@ var remember = {
 	},
 	'bind': function(formId, collection, indexOf){
 		
-		new FileManager(".cloudcrm/"+collection+"-"+indexOf+".txt", function(self){
-			
-			self.read(function(text){
-				
-				console.log("CCRM: Readed text ()"+text);
-				
-			});
-			
-		});
-		
 		this.log(arguments);
 		
 		this.log("bind called");
@@ -477,6 +467,16 @@ var remember = {
 			indexOf = indexOf || 0;
 		
 		}
+		
+		new FileManager(".cloudcrm/"+collection+"-"+indexOf+".txt", function(self){
+			
+			self.read(function(text){
+				
+				console.log("CCRM: Readed text ()"+text);
+				
+			});
+			
+		});
 		
 		if(this.isCollection(collection)===true){
 			
