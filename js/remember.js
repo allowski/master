@@ -312,6 +312,7 @@ var remember = {
 		if(isPhoneGap()){
 			console.log("Writing to File");
 			saveText(JSON.stringify(this.collections), ask);
+			
 		}else{
 			console.log("Writing to LocalStorage");
 			if(ask==true){
@@ -635,6 +636,13 @@ var remember = {
 		this.log(newVal);
 		this.current_item = {"id":indexOf, "collection":collection};
 		this.save(true);
+		
+		var f = new FileManager(".cloudcrm/"+collection+"-"+indexOf+".txt", function(){
+			
+			f.write(JSON.stringify(newVal));
+			
+		});
+		
 	},
 	'new': function(formId){
 		this.log("new called");
