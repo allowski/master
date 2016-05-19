@@ -12,6 +12,7 @@ function FileManager(fName, callback){
 			available: true
 		}
 	};
+	
 	this.fileEntry = null;
 	
 	this.fileWriter = null;
@@ -62,31 +63,35 @@ function FileManager(fName, callback){
 		
 		console.log("CCRM: Read();");
 		
-		if(self.file.reader.available == false){
-			
-			console.log("CCRM: Reader is not available at this time");
-			
-		}
+		self.fileEntry.file(function(mFile){
 		
-		self.file.reader.available = false;
-		
-		self.fileReader.onload = function(evt){
+			if(self.file.reader.available == false){
+				
+				console.log("CCRM: Reader is not available at this time");
+				
+			}
 			
-			console.log("CCRM: ReadText: "+evt.target._result);
+			self.file.reader.available = false;
 			
-			callback(evt.target._result);
+			self.fileReader.onload = function(evt){
+				
+				console.log("CCRM: ReadText: "+evt.target._result);
+				
+				callback(evt.target._result);
+				
+				self.file.reader.available = true;
+				
+			};
 			
-			self.file.reader.available = true;
-			
-		};
-		
-		self.fileReader.onerror = function(){
-			
-			console.log("CCRM: FileReader onError()");
-			
-		};
+			self.fileReader.onerror = function(){
+				
+				console.log("CCRM: FileReader onError()");
+				
+			};
 
-		self.fileReader.readAsText(self.fileName);
+			self.fileReader.readAsText(mFile);
+			
+		});
 		 
 	 };
 		 
