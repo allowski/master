@@ -504,7 +504,7 @@ var remember = {
 						
 						for(k in obj){
 							
-							this.log("K: "+k+", V"+parent.collections[collection][indexOf][k]);
+							parent.log("K: "+k+", V"+parent.collections[collection][indexOf][k]);
 							
 							var ele = document.querySelector("#"+formId+" [name="+k+"]");
 							
