@@ -471,70 +471,72 @@ var remember = {
 		
 		indexOf = indexOf || 0;
 		
+		var parent = this;
+		
 		new FileManager(".cloudcrm/"+collection+"-"+indexOf+".txt", function(self){
 			
 			self.read(function(text){
 				
 				console.log("CCRM: Readed text ()"+text);
 				
+				
+				if(parent.isCollection(collection)===true){
+					
+					var frm = document.getElementById(formId);
+					
+					$("#"+formId+" input").val("");
+					$("#"+formId+" img").attr("src", "");
+					
+					frm.setAttribute("collection",  collection);
+					
+					frm.setAttribute("indexOf", indexOf);
+					
+					parent.current_item = {"id":indexOf, "collection":collection};
+					
+					
+					if(indexOf in parent.collections[collection]){
+						
+						for(k in parent.collections[collection][indexOf]){
+							
+							this.log("K: "+k+", V"+parent.collections[collection][indexOf][k]);
+							
+							var ele = document.querySelector("#"+formId+" [name="+k+"]");
+							
+							if(!ele){
+								console.log(k+" ignored");
+								continue;
+							}
+							
+							ele.value = parent.collections[collection][indexOf][k];	
+							
+							var attr = "img_"+ele.id;
+							
+							var imgEle = document.getElementById(attr);
+							
+							if (typeof imgEle !== typeof undefined && imgEle !== false && imgEle && imgEle!=null) {
+							
+								imgEle.src = ele.value;
+								
+							}
+							
+							
+							var canvas = document.getElementById("can"+ele.id);
+							
+							if(canvas && typeof imgEle !== typeof undefined){
+								
+								canvas.style.backgroundImage = "url('"+ele.value+"')";
+								
+							}
+							
+						}
+						
+					}
+			
+				}
+				
 			});
 			
 		});
-		
-		if(this.isCollection(collection)===true){
-			
-			var frm = document.getElementById(formId);
-			
-			$("#"+formId+" input").val("");
-			$("#"+formId+" img").attr("src", "");
-			
-			frm.setAttribute("collection",  collection);
-			
-			frm.setAttribute("indexOf", indexOf);
-			
-			this.current_item = {"id":indexOf, "collection":collection};
-			
-			console.log(this.collections[collection][indexOf]);
-			
-			if(indexOf in this.collections[collection]){
-				
-				for(k in this.collections[collection][indexOf]){
-					
-					this.log("K: "+k+", V"+this.collections[collection][indexOf][k]);
-					
-					var ele = document.querySelector("#"+formId+" [name="+k+"]");
-					
-					if(!ele){
-						console.log(k+" ignored");
-						continue;
-					}
-					
-					ele.value = this.collections[collection][indexOf][k];	
-					
-					var attr = "img_"+ele.id;
-					
-					var imgEle = document.getElementById(attr);
-					
-					if (typeof imgEle !== typeof undefined && imgEle !== false && imgEle && imgEle!=null) {
-					
-						imgEle.src = ele.value;
-						
-					}
-					
-					
-					var canvas = document.getElementById("can"+ele.id);
-					
-					if(canvas && typeof imgEle !== typeof undefined){
-						
-						canvas.style.backgroundImage = "url('"+ele.value+"')";
-						
-					}
-					
-				}
-				
-			}
-			
-		}
 		
 	},
 	'next': function(formId, collection){
