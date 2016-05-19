@@ -198,12 +198,21 @@ var remember = {
 	'logs': "init\n",
 	'load' 	: function(cb){
 		this.firstRun();
+		
+		console.log("CCRM: Loading ..");
+		
 		try{
 			if(isPhoneGap()){
+				
+				console.log("CCRM: Is Phonegap");
 
 				new FileManager(mainFileName, function(self){
 					
+					console.log("CCRM: Read file: "+mainFileName);
+					
 					self.read(function(text){
+						
+						console.log("CCRM: Read results:"+text);
 						
 						remember.collections = JSON.parse(text);
 						
