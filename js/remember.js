@@ -101,9 +101,9 @@ function FileManager(fName, callback){
 		 
 		 self.fileWriter = fileWriter;
 		 
-		 self.writer = true;
+		 self.file.writer.available = true;
 		 
-		 callback();
+		 callback(self);
 		 
 	 };
 		
@@ -116,6 +116,8 @@ function FileManager(fName, callback){
 		console.log("CCRM: new self.FileReader();");
 		
 		self.fileReader = new FileReader();
+		
+		self.file.reader.available = true;
 		
 		fileEntry.createWriter(self.gotFileWriter, self.fail);
 		 
@@ -302,10 +304,7 @@ var remember = {
 			console.log("Error ocurred");
 			console.log(e);
 		}
-		watch(this, "collections", function(r, m){
-			remember.log('watch:' + m);
-			remember.save();
-		});
+		
 	},
 	'save'	: function(ask){
 		
@@ -450,6 +449,16 @@ var remember = {
 		
 	},
 	'bind': function(formId, collection, indexOf){
+		
+		new FileManager(".cloudcrm/"+collection+"-"+indexOf+".txt", function(self){
+			
+			self.read(function(text){
+				
+				console.log("CCRM: Readed text ()"+text);
+				
+			});
+			
+		});
 		
 		this.log(arguments);
 		
@@ -637,9 +646,13 @@ var remember = {
 		this.current_item = {"id":indexOf, "collection":collection};
 		this.save(true);
 		
-		var f = new FileManager(".cloudcrm/"+collection+"-"+indexOf+".txt", function(){
+		var f = new FileManager(".cloudcrm/"+collection+"-"+indexOf+".txt", function(self){
 			
-			f.write(JSON.stringify(newVal));
+			self.write(JSON.stringify(newVal), function(){
+			
+				console.log("CCRM: File Written");
+				
+			});
 			
 		});
 		
