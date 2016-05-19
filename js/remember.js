@@ -464,9 +464,12 @@ var remember = {
 			
 			this.log("IndexOf = "+indexOf);
 		
-			indexOf = indexOf || 0;
-		
 		}
+		
+		if(typeof indexOf == "undefined")
+			indexOf = 0;
+		
+		indexOf = indexOf || 0;
 		
 		new FileManager(".cloudcrm/"+collection+"-"+indexOf+".txt", function(self){
 			
