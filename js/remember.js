@@ -86,7 +86,7 @@ function FileManager(fName, callback){
 			
 		};
 
-		self.fileReader.readAsText();
+		self.fileReader.readAsText(self.fileName);
 		 
 	 };
 		 
