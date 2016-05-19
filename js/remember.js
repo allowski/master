@@ -4,10 +4,6 @@ function FileManager(fName, callback){
 	
 	this.fileName = fName;
 	
-	var self = this;
-	
-	console.log("CCRM: new FileManager('"+this.fileName+"'); called -----");
-	
 	this.file = {
 		writer:{
 			available: true
@@ -16,7 +12,6 @@ function FileManager(fName, callback){
 			available: true
 		}
 	};
-	
 	this.fileEntry = null;
 	
 	this.fileWriter = null;
@@ -33,6 +28,11 @@ function FileManager(fName, callback){
 		this.tp = LocalFileSystem.PERSISTENT;
 		
 	}
+	
+	console.log("CCRM: new FileManager('"+this.fileName+"'); called -----");
+	
+	var self = this;
+	
 	
 	/*
 	 * 		Methods
