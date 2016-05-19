@@ -148,6 +148,14 @@ function FileManager(fName, callback){
 
 
 
+
+
+
+
+
+
+
+
 function inCollection(obj, list) {
     var x;
     for (x in list) {
@@ -158,119 +166,17 @@ function inCollection(obj, list) {
 
     return false;
 }
-var FILENAME = 'remember.txt',
-	$ = function (id) {
-		return document.getElementById(id);
-	},
-	failCB = function (msg) {
-		return function () {
-			alert('[FAIL] ' + msg);
-		}
-	},
-	file = {
-		writer: { available: false },
-		reader: { available: false }
-	};
 
-
-function gotFS(fs) {
-	console.log(arguments.callee.toString());
-	var fail = failCB('getFile');
-	var fileName = ".cloudcrm/"+window.app.appDomain+".txt";
-	fs.root.getFile(fileName, {create: true, exclusive: false}, gotFileEntry, fail);
-	
-}
-function gotFileEntry(fileEntry) {
-	console.log(arguments.callee.toString());
-	var fail = failCB('createWriter');
-	file.entry = fileEntry;
-	fileEntry.createWriter(gotFileWriter, fail);
-	readText();
-}
-function gotFileWriter(fileWriter) {
-	console.log(arguments.callee.toString());
-	file.writer.available = true;
-	file.writer.object = fileWriter;
-}
 function saveText(e, ask) {
 	
-	console.log("CCRM SaveText();");
+	console.log("------------------------- > CCRM SaveText();");
 	
-	var fail;
-	if (file.writer.available) {
-		file.writer.available = false;
-		file.writer.object.onwriteend = function (evt) {
-			file.writer.available = true;
-			file.writer.object.seek(0);
-			if(ask){
-				if("plugins" in window){
-					try{
-						window.plugins.webintent.sendBroadcast({
-									action: 'com.cloudcrm.receiver',
-									extras: {
-										'option': true
-									}
-								}, function() {
-									
-									console.log("CCRM: after reading text by new..");
-									
-									readText();
-									
-								}, function() {
-									
-							
-									console.log("CCRM: after 2");
-									
-						});	
-					}catch(err){
-						
-						
-						alert("CCRM Error ocurred: "+err);
-						
-					}
-				}else{
-					
-					alert("CCRM: No plugins");
-					
-				}
-				
-				//if(confirm(window.i("Arquivo salvo, deseja voltar?", "El archivo fue salvo, desea volver?", "File saved, do you want to go back?"))){
-				goBack(1);
-				//}
-			}
-		}
-		file.writer.object.write(e);
-	}
 	return false;
 }
 function readText() {
 	
-	console.log("CCRM ReadText();");
+	console.log("------------------------ > CCRM ReadText();");
 	
-	if (file.entry) {
-		file.entry.file(function (dbFile) {
-			
-			console.log("CCRM new FileReader();");
-			
-			var reader = new FileReader();
-			
-			reader.onload = function (evt) {
-				remember.collections = JSON.parse(evt.target._result);
-			}
-			
-			reader.onerror = function(){
-				alert("CCRM Error reading localfile");
-			} 
-			
-			try{
-				reader.readAsText(dbFile);
-			}catch(e){
-				console.log("CCRM Error while reading file.");
-			}
-			
-		}, failCB("FileReader"));
-	}
-	return false;
 }
 
 if(isPhoneGap()){
@@ -282,7 +188,8 @@ if(isPhoneGap()){
 	console.log("Running Web App");
 	
 }
-        
+
+var mainFileName = ".cloudcrm/"+window.app.appDomain+".txt";        
 
 var remember = {
 	'collections' : {},
@@ -293,7 +200,17 @@ var remember = {
 		this.firstRun();
 		try{
 			if(isPhoneGap()){
-				readText();
+
+				new FileManager(mainFileName, function(self){
+					
+					self.read(function(text){
+						
+						remember.collections = JSON.parse(text);
+						
+					});
+					
+				});
+				
 			}else{
 				this.collections = JSON.parse(window.localStorage['rememberData']);
 				console.log("Getting collections from LocalStorage");
@@ -312,7 +229,7 @@ var remember = {
 			
 			console.log("CCRM: new FileManager();");
 			
-			new FileManager(".cloudcrm/"+window.app.appDomain+".txt", function(self){
+			new FileManager(mainFileName, function(self){
 				
 				self.write(JSON.stringify(this.collections), function(){
 					
