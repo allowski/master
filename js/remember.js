@@ -10,10 +10,10 @@ function FileManager(fName, callback){
 	
 	this.file = {
 		writer:{
-			available: false
+			available: true
 		},
 		reader:{
-			available: false
+			available: true
 		}
 	};
 	
@@ -62,21 +62,21 @@ function FileManager(fName, callback){
 		
 		console.log("CCRM: Read();");
 		
-		if(self.reader.available == false){
+		if(self.file.reader.available == false){
 			
 			console.log("CCRM: Reader is not available at this time");
 			
 		}
 		
-		self.reader.available = false;
+		self.file.reader.available = false;
 		
-		self.fileReader.onload = function(evt){
+		self.file.fileReader.onload = function(evt){
 			
 			console.log("CCRM: ReadText: "+evt.target._result);
 			
 			callback(evt.target._result);
 			
-			self.reader.available = true;
+			self.file.reader.available = true;
 			
 		};
 		
