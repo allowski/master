@@ -502,9 +502,11 @@ var remember = {
 					
 					if(indexOf in parent.collections[collection]){
 						
+						console.log("Loading fields into form");
+						
 						for(k in obj){
 							
-							parent.log("K: "+k+", V"+parent.collections[collection][indexOf][k]);
+							parent.log("K: "+k+", V"+obj[k]);
 							
 							var ele = document.querySelector("#"+formId+" [name="+k+"]");
 							
