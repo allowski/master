@@ -183,6 +183,8 @@ if(isPhoneGap()){
 	
 	console.log("Running Phonegap");
 	
+	
+	
 }else{
 	
 	console.log("Running Web App");
@@ -197,6 +199,7 @@ var remember = {
 	'debug'	: true,
 	'logs': "init\n",
 	'load' 	: function(cb){
+		
 		this.firstRun();
 		
 		console.log("CCRM: Loading ..");

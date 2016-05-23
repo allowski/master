@@ -30,6 +30,8 @@ if(isPhoneGap()){
 		}
 		window.requestFileSystem(tp, 0, gotFS, fail);
 		
+		remember.load();
+		
 		if(("plugins" in window)&&(!window.app.logged_in)){
 			
 			
