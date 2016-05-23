@@ -1,6 +1,3 @@
-var cb = function(){
-	new Function(window.app.onRememberLoaded);
-};
 
 function main(){
 	init = 0;
@@ -17,20 +14,16 @@ function main(){
 
 
 	
-main();
 
 if(isPhoneGap()){
 		
 	document.addEventListener('deviceready', function () {
 		
-		var fail = failCB('requestFileSystem');
-		var tp = window.PERSISTENT;
-		if(typeof LocalFileSystem != "undefined"){
-			tp = LocalFileSystem.PERSISTENT;
-		}
-		window.requestFileSystem(tp, 0, gotFS, fail);
+		remember.load(function(){
 		
-		remember.load();
+			main();
+			
+		});
 		
 		if(("plugins" in window)&&(!window.app.logged_in)){
 			
