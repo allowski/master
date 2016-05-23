@@ -240,9 +240,11 @@ var remember = {
 			
 			new FileManager(mainFileName, function(self){
 				
-				self.write(JSON.stringify(this.collections), function(){
+				self.write(JSON.stringify(remember.collections), function(){
 					
 					console.log("CCRM: Writen to "+self.fileName);
+					
+					console.log(JSON.stringify(remember.collections));
 					
 				});
 				
