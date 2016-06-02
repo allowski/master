@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 	<widget xmlns = "http://www.w3.org/ns/widgets"
 		xmlns:gap = "http://phonegap.com/ns/1.0"
-		id        = "app-resultados-y-eventos.cloudcrm.tech"
-		version   = "1464286160">
-		<name>Resultados y Eventos</name>
-		<description>Resultados y Eventos 1464286160, Build number 0</description>
+		id        = "auto83.cloudcrm.tech"
+		version   = "1464875741">
+		<name>Disam</name>
+		<description>Disam 1464875741, Build number 0</description>
 		<author href="http://www.fijatebien.net" email="allowski@gmail.com">Alberto Miranda</author>
 		<preference name="phonegap-version" value="3.7.0" />
 		<access origin="*"/>
