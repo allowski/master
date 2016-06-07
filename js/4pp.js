@@ -11,11 +11,6 @@ wHash = window.location.hash.replace("#", "").split("/");
 window.isOnline = true;
 
 
-function isPhoneGap() {
-    return /^file:\/{3}[^\/]/i.test(window.location.href) 
-    && /ios|iphone|ipod|ipad|android/i.test(navigator.userAgent);
-}
-
 function isConnected(){
 	return window.isOnline;
 }
@@ -58,7 +53,7 @@ function hasClass(element, cls) {
 }
 
 function a4pp_logout(){
-	if(confirm("Deseja fechar sua conta?")){
+	if(confirm("Desea cerrar su sesi&oacute;n?")){
 		delete window.localStorage['data'];
 		$(".content:not(:first)").remove();
 		init = 0;
@@ -69,7 +64,7 @@ function a4pp_logout(){
 function i($pt, $es, $en){
 
 	if(typeof window.app.lang == "undefined"){
-		return $pt;
+		return $es;
 	}
 
 	switch(window.app.lang){
@@ -243,16 +238,16 @@ function a4pp_conn_error(jqXHR, textStatus, errorThrown){
 
 	switch(jqXHR.status){
 		case 500:
-			toast("Erro no servidor", "danger", 9000);
+			toast("Error en el servidor", "danger", 9000);
 		break;
 		case 500:
-			toast("Erro no servidor", "danger", 9000);
+			toast("Error en el servidor", "danger", 9000);
 		break;
 		case 404:
-			toast("<b>Erro "+error.details.type+":</b><br>"+error.details.description, "danger", 9000);
+			toast("<b>Error "+error.details.type+":</b><br>"+error.details.description, "danger", 9000);
 		break;
 		case 0:
-			toast("N&atilde;o foi possivel conectar ao servidor", "danger", 4000);
+			toast("No se pudo conectar al servidor", "danger", 4000);
 		break;
 	}
 	for(var i=0;i<spinners.length;i++){
@@ -281,32 +276,33 @@ function a4pp_update(){
 
 	$("#updateIcon").addClass("spinner");
 
-	toast("<span class='glyphicon glyphicon-refresh spinner pull-left'></span>"+i("Conectando..", "Conetando..", "Connecting.."), "success", 0);
+	toast("<span class='glyphicon glyphicon-refresh spinner pull-left'></span>"+i("Conectando..", "Conectando..", "Connecting.."), "success", 0);
 
 	var postRequest = $.post(window.app.update_url, {"api_key":window.app.token, "action":"update"}, function(r){
 
+		r = JSON.parse(r);
+
 		if((window.localStorage['md5'] != r.md5)||(typeof window.localStorage['md5'] == "undefined")){
 
-			toast("<span class='glyphicon glyphicon-refresh spinner pull-left'></span>"+i("Atualiza&ccedil;&atilde;o disponivel", "Nova vers&atilde;o disponivel", "Update available"), "warning", 1500);
+			toast("<span class='glyphicon glyphicon-refresh spinner pull-left'></span>"+i("Atualiza&ccedil;&atilde;o disponivel", "Actualizaci&oacute;n disponible", "Update available"), "warning", 1500);
 
 			setTimeout(function(){
 
-				toast("<span class='glyphicon glyphicon-cog spinner pull-left'></span>"+i("Baixando atualiza&ccedil;&atilde;o..", "Baixando ultima vers&atilde;o..", "Downloading update.."), "success", 0);
+				toast("<span class='glyphicon glyphicon-cog spinner pull-left'></span>"+i("Baixando atualiza&ccedil;&atilde;o..", "Descargando la actualizaci&oacute;n..", "Downloading update.."), "success", 0);
 
 				window.localStorage['md5'] = r.md5;
 				window.localStorage['last_update'] = r.date;
 
-					console.log(r);
-					
-					var request = $.post(r.download_url, {"action":"download", "token":"", "user":window.app.appUser}, function(resp){
+					//console.log(r);
+					var request = $.getJSON(r.download_url, function(resp){
 						if(resp.logged == true){
 							//console.log(resp);
 							window.localStorage['data'] = JSON.stringify(resp);
 							$("#updateIcon").removeClass("spinner");
-							toast("<span class='glyphicon glyphicon-ok pull-right'></span>"+i("Atualizado com exito", "Atualizado corretamente", "Update success"), "success", 2000);
+							toast("<span class='glyphicon glyphicon-ok pull-right'></span>"+i("Atualizado com exito", "Actualizado exitosamente", "Update success"), "success", 2000);
 							$(".content").css("opacity", "0.0");
 							setTimeout(function(){
-								toast("<span class='glyphicon glyphicon-cog spinner pull-left'></span>"+i("Recarregando dados", "Recarregando datos", "Refreshing data"), "warning", 650);
+								toast("<span class='glyphicon glyphicon-cog spinner pull-left'></span>"+i("Recarregando dados", "Recargando datos", "Refreshing data"), "warning", 650);
 								window.localStorage['dt'] = 1;
 								setTimeout(function(){
 									$(".content:not(:first)").remove();
@@ -342,27 +338,7 @@ function a4pp_update(){
 
 }
 
-function include(template, options){
-
-	console.log(window.app.templates[template]);
-
-	return a4pp_template(window.app.templates[template], options);
-	
-}
-
-function foreach(array, f){
-
-	for (x in array){
-
-		f(array[x]);
-
-	}
-
-}
-
 function a4pp_template(html, options){
-	
-	console.log("Rendering..");
 	
 	var re = /<%(.+?)%>/g, 
 		reExp = /(^( )?(var|if|for|else|switch|case|break|{|}|;))(.*)?/g, 
@@ -381,9 +357,7 @@ function a4pp_template(html, options){
 	add(html.substr(cursor, html.length - cursor));
 	code = (code + 'return r.join(""); }').replace(/[\r\t\n]/g, '');
 	try { result = new Function('obj', code).apply(options, [options]); }
-	catch(err) { console.log("HTML:\n"+html); console.error("'" + err.message + "'", " in \n\nCode:\n", code, "\n"); }
-	
-	console.log("Rendering OK..");
+	catch(err) { console.error("'" + err.message + "'", " in \n\nCode:\n", code, "\n"); }
 	return result;
 
 }
@@ -501,7 +475,7 @@ function getFromPath(whereToGo){
 	
 }
 function a4pp_close(){
-	if(confirm(i("Deseja sair do aplicativo?", "Deseja sair do app?", "Do you want to quit the app?"))){
+	if(confirm(i("Deseja sair do aplicativo?", "Desea salir?", "Do you want to quit the app?"))){
 		if(navigator.app!==undefined){
 			navigator.app.exitApp();
 		}
@@ -522,16 +496,7 @@ function toggleMenu(){
 	}
 }
 
-function goBack(dispatch){
-	
-	
-	if(window.current_a4pp.onBack && dispatch){
-		var cancel = new Function(window.current_a4pp.onBack)();
-		if(!cancel){
-			return false;
-		}
-	}
-	
+function goBack(){
 	if($(".content:last .dropdown-menu").is(":visible")){
 		$(".content:last .dropdown-menu").hide();
 		console.log("Close menu");
@@ -589,7 +554,6 @@ document.addEventListener("deviceready", function(){
 		toast(i("Modo offline ativado", "Modo offline activado", "Offline mode on"), "warning", 1000);
 	});
 	document.addEventListener("online", function(){
-		toast(i("Modo online ativado", "Modo online activado", "Online mode on"), "success", 1000);
 		window.isOnline = true;
 	});
 
@@ -600,8 +564,6 @@ window.a4pp = function(data, auto){
 	/* Variable declarations */
 
 	var thatx = this;
-	
-	window.current_a4pp = data;
 
 	var title_less = ["login", "register", "template"];
 
@@ -627,8 +589,17 @@ window.a4pp = function(data, auto){
 
 	body.innerHTML = baseContent.innerHTML;
 
+	//search.style.display = "none";
+
+	//appTitle.style.display = "inline-block";
+
+	//iconSearch.className = "glyphicon glyphicon-search";
+
 	document.title=data.title;
-	
+
+	//btnGoSearch.removeEventListener('click');
+
+
 	if(init == 0){
 
 		init = 1;
@@ -801,10 +772,6 @@ window.a4pp = function(data, auto){
 		
 		case "template":
 			if(data.template != undefined){
-				body.classList.add(data.template);
-				if(data.beforeRender){
-					var fx = new Function(data.beforeRender)();
-				}
 				body.innerHTML = body.innerHTML + a4pp_template(window.app.templates[data.template], data);
 			}
 		break;
@@ -812,12 +779,6 @@ window.a4pp = function(data, auto){
 	}
 
 	documentBody.appendChild(body);
-
-	if(data.afterRender){
-		setTimeout(function(){
-			var fx = new Function(data.afterRender)();
-		},200);
-	}
 
 	/**
 	 *	App Menu
@@ -869,6 +830,20 @@ function addItem(data, title, type){
 }
 
 
+
+var jquery = document.createElement("script");
+
+jquery.id = "jquery";
+
+jquery.src="js/jquery.min.js";
+
+document.getElementsByTagName("head")[0].appendChild(jquery);
+
+if(typeof window.app!="undefined"){
+	var nl = new Function(window.app.runJS)();
+}
+
+
 function goIndex(e, path){
 	var itemx = getFromPath(path);
 	console.log("X: "+e.clientX);
@@ -886,461 +861,6 @@ function goIndex(e, path){
 	}
 }
 
-function a4pp_carousel(id){
-	
-	$('#car').carousel('next'); 
-	
-	$('#car').carousel('pause');
-	
-	$('#car').hammer().on('swipeleft', function(){
-		$('#car').carousel('next'); 
-	});
-	$('#car').hammer().on('swiperight', function(){
-		$('#car').carousel('prev'); 
-	});
-	$('#car').bind('slide.bs.carousel', function (e) {
-		console.log($('.active', e.target).index());
-		if($('.active', e.target).index()+1===$(id).find(".item").length){
-			history.back();
-		}
-	});
-	
-}
-
-function getGallery(){
-	if(window.localStorage["gallery2"] == undefined){
-		window.localStorage["gallery2"] = "[]";
-	}
-	return JSON.parse(window.localStorage["gallery"]);
-}
-
-function setGallery(arr){
-	window.localStorage["gallery2"] = JSON.stringify(arr);
-}
-
-function openCamera(w, h, q, callback){
-	
-	console.log("openCamera called");
-	
-	navigator.notification.confirm(i('Anexar imagem', 'Subir imagen', 'Upload picture'), function(indexOpt){
-		
-		st = Camera.PictureSourceType.CAMERA;
-		
-		if(indexOpt == 1){
-		
-			st = Camera.PictureSourceType.CAMERA;
-			
-		}else if(indexOpt == 2){
-			
-			st = Camera.PictureSourceType.SAVEDPHOTOALBUM;
-			
-		}else{
-			
-			return;
-			
-		}
-	
-		navigator.camera.getPicture(function(imgData){
-			callback( "data:image/jpeg;base64,"+imgData);
-		}, function(){
-			alert(i("Nao foi possivel capturar a foto", "No fue posible capturar la foto", "Cant get the picture"));
-		},{ 
-			quality: q,
-			destinationType: Camera.DestinationType.DATA_URL,
-			targetWidth: w,
-			targetHeight: h,
-			sourceType: st
-		});
-	
-	}, 'Nova foto', ['Abrir Camera', 'Abrir Galeria']);
-	
-}
-
-function take_photo_id($id){
-	//alert("take_photo_id called id:"+$id);
-	inp = "#"+$id;
-	openCamera(500, 400, 75, function(img){
-		console.log("photo taken");
-		
-		$(inp).val(img).trigger("change");
-		//alert($(inp).attr("data-sento"));
-		var imgEle = "#img_"+$id;
-		console.log(imgEle);
-		//alert($(imgEle).length);
-		$(imgEle).attr("src", img);
-	});
-}
-
-function a4pp_destroy_only(){
-
-	$(".content:not(:last):not(:first):not(:eq(1)):not(:eq(2))").remove();
-
-}
-
-function a4pp_destroy_prev_last(){
-	
-	$(".content:last").prev().remove();
-	
-}
-
-function a4pp_destroy_last(){
-	
-	$(".content:last").remove();
-	
-}
 
 
-function a4pp_scan(){
 
-	cordova.plugins.barcodeScanner.scan(
-      function (result) {
-          alert("We got a barcode\n" +
-                "Result: " + result.text + "\n" +
-                "Format: " + result.format + "\n" +
-                "Cancelled: " + result.cancelled);
-      }, 
-      function (error) {
-          alert("Scanning failed: " + error);
-      }
-   );
-
-}
-
-function a4pp_gps(callback){
-	
-	var watchID = navigator.geolocation.watchPosition(function(p){
-		alert(p.longitude);
-	}, function(){
-		alert("Error");
-	}, { timeout: 30000 });
-	
-}
-
-function a4pp_download_file(url, fname, prog){
-	downloadFile(url, fname, prog);
-}
-
- function downloadFile(url, fname, prog){
-	 
-		var pro = document.getElementById(prog);
-		
-		$('#thePer').show();
-		
-		$("#downloadBtn").hide();
-	 
-        window.requestFileSystem(
-                     LocalFileSystem.PERSISTENT, 0, 
-                     function onFileSystemSuccess(fileSystem) {
-                     fileSystem.root.getFile(
-                                 "dummy.html", {create: true, exclusive: false}, 
-                                 function gotFileEntry(fileEntry){
-                                 var sPath = fileEntry.toURI().replace("dummy.html","");
-                                 var fileTransfer = new FileTransfer();
-                                 var porc = 0;
-                                 fileTransfer.onprogress = function(progressEvent){
-									  porc = Math.round((progressEvent.loaded / progressEvent.total) *100);
-									 pro.style.width = porc + "%";
-									 $('#perc').text(porc + "%");
-								 };
-                                 
-                                 fileEntry.remove();
- 
-                                 fileTransfer.download(
-                                           encodeURI(url),
-                                           sPath + fname,
-                                           function(theFile) {
-                                           $('#perc').text("100%");
-                                           pro.style.width = "100%";
-                                           
-											window.open(theFile.toURI(), "_system");   
-                                           
-											$('#thePer').hide();
-											
-											$("#downloadBtn").show();
-                                           
-                                           },
-                                           function(error) {
-												alert("No se pudo bajar: " + error.source);
-												alert(JSON.stringify(error));
-												$('#thePer').hide();
-												$("#downloadBtn").show();
-                                           }
-                                           );
-                                 }, 
-                                 fail);
-                     }, 
-                     fail);
- 
-    }
- 
-    function showLink(url){
-        alert(url);
-        var divEl = document.getElementById("ready");
-        var aElem = document.createElement("a");
-        aElem.setAttribute("target", "_blank");
-        aElem.setAttribute("href", url);
-        aElem.appendChild(document.createTextNode("Ready! Click To Open."))
-        divEl.appendChild(aElem);
- 
-    }
- 
- 
-    function fail(evt) {
-        alert(evt.target.error.code);
-    }
-    
-    function getpos(callback, onerr){
-
-		var onSuccess = function(position) {
-			var ret = {};
-			for(x in position.coords){
-				ret[x] = position.coords[x];
-				console.log(x+" -> "+ret[x]);
-			}
-			console.log(ret);
-			 callback(ret);
-		};
-
-		// onError Callback receives a PositionError object
-		//
-		function onError(error) {
-			alert('code: '    + error.code    + '\n' +
-				  'message: ' + error.message + '\n');
-		}
-
-		var	onRealError = (onerr) ? onerr : onError;
-
-		navigator.geolocation.getCurrentPosition(onSuccess, onRealError, {maximumAge:0, timeout:10000, enableHighAccuracy: true});
-	}
-
-
-	function sendItem(collection, indexOf){
-		
-		var item = remember.getItem(collection, indexOf);
-		
-		toast(i("Enviando ..", "Enviando..", "Sending.."), "warning", 3000); 
-		
-		$.post(window.app.update_url, {"action":"update_data", "data":item, "collection":collection}, function(r){
-			
-			if(!r){
-				return;
-			}
-			
-			item.real_id = r.id; 
-			
-			toast(i("1 arquivo enviado", "1 archivo enviado", "1 row sent!"), "warning", 1000); 
-			
-			remember.update(collection, indexOf, item);
-			
-			remember.save();
-			
-		});
-		
-	}
-	
-	window.sendingItem = 0;
-	
-	window.totalSent = 0;
-	
-	window.isSending = false;
-	
-	window.sendingAll = false;
-	
-	function sendAll(collection){
-		
-		if(!remember.isCollection(collection)){
-			
-			console.log("Collection "+collection+" not found");
-			
-			window.isSending = false;
-			
-			return false;
-		}
-		
-		
-		var item = remember.getItem(collection, window.sendingItem);
-		
-		if(!item){
-			
-			console.log("Error item not found");
-			window.sendingItem = 0;
-			window.isSending = false;
-			return false;
-		}
-		
-		window.isSending = true;
-		
-		if(window.sendingItem in remember.collections[collection]){
-			
-			if(remember.collections[collection][window.sendingItem].sent !== false){
-				
-				console.log("Skiping item "+window.sendingItem);
-				
-				window.sendingItem++;
-				
-				sendAll(collection);
-				
-				return true;
-				
-			}
-			
-			console.log("Sending "+window.sendingItem);
-		
-		}else{
-			
-			if(window.sendingAll != true){
-				if(window.totalSent == 0){
-				
-					toast(i("Nada que enviar", "Nada a sincronizar", "Everything Up-to-date"), "success", 1000);
-					
-				}else{
-					
-					toast(i(window.totalSent+" arquivos enviados", window.totalSent+" archivos enviados", window.totalSent+" rows sent!"), "warning", 1000); 
-				
-				}
-				
-				
-				window.totalSent = 0;
-			
-				console.log("End");
-				
-				window.isSending = false;
-				
-				return true;
-				
-			}
-			
-			window.sendingItem = 0;
-				
-		}
-		
-		toast(i("Enviando fila "+window.sendingItem+" ..", "Enviando fila "+window.sendingItem+"  ..", "Sending row "+window.sendingItem+"  .."), "warning", 3000); 
-		
-		$.post(window.app.update_url, {"action":"update_data", "data":item, "collection":collection}, function(r){
-			
-			if(!r){
-				return false;
-			}
-			
-			
-			try{
-				item.real_id = r.id; 
-			}catch(e){
-				alert("Error loading file");
-				console.log(r);
-				return false;
-			}
-			
-			window.totalSent++;
-			
-			console.log("Sent "+window.sendingItem);
-			
-			item.sent = true;
-			
-			remember.collections[collection][window.sendingItem] = item;
-			
-			remember.save();
-			
-			window.sendingItem++;
-			setTimeout(function(){
-				sendAll(collection);
-			},800);
-			
-		}).error(a4pp_conn_error);
-		
-	}
-	
-	function sendAllAll(callback){
-		
-		
-		
-		toast(i("Inicializando..", "Iniciando ..", "Starting.."), "success", 1000000);
-		
-		var allCollections = [];
-		
-		for(var k in remember.collections){
-			allCollections.push(k);
-		}
-		
-		var iv;
-		
-		var ci = 0;
-		
-		iv = window.setInterval(function(){
-		
-			if(ci in allCollections){
-				
-				if(window.isSending == true){
-				
-					console.log("Waiting ..");
-				
-				}else{
-					
-					setTimeout(function(){
-						
-						window.sendingAll = true;
-						
-						toast(i("Enviando "+allCollections[ci]+"..", "Enviando "+allCollections[ci]+"..", "Sending "+allCollections[ci]+".."), "success", 1000000);
-					
-						sendAll(allCollections[ci]);
-						
-						ci++;
-					
-					});
-					
-				}
-				
-				
-			}else{
-				
-				if(typeof callback != "undefined"){
-					callback();
-				}
-				
-				console.log("Fin");
-				
-				toast(i("Nada que enviar", "Nada a sincronizar", "Everything Up-to-date"), "success", 2000);
-				
-				window.sendingAll = false;
-				
-				window.clearInterval(iv);
-				
-				return;
-			}
-			
-		}, 500);
-		
-	}
-	
-	
-	window.sendEmailCurrentItem = function(){
-			
-		console.log("test");
-		
-		var email = prompt(window.i("Digite email", "Digite email", "Write email address"));
-		
-		if(email){
-				
-			console.log("test");
-			
-			remember.saveForm("form");
-				
-			var collection = $("form:last").attr("collection");
-			var tid = $("form:last").attr("indexof");
-			
-			sendItem(collection, tid);
-			
-			console.log(collection);
-			setTimeout(function(){
-				$.get(window.app.update_url+"&action=send_email&collection="+collection+"&id="+remember.collections[collection][remember.current_item.id].real_id+"&ent="+$("[name=entidad_]").val()+"&email="+email, function(r){
-					alert(r.message);
-					console.log(r);
-				});
-			}, 1000);
-					
-		}
-		
-		return false;
-		
-	}
-	
