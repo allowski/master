@@ -185,7 +185,7 @@ function a4pp_register(that){
 			main();
 		}else{
 			lod.removeClass("glyphicon-refresh").addClass("glyphicon-remove");
-			toast(r.errmsg, "danger", 5000);
+			toast("Not logged in", "danger", 5000);
 		}
 	}).error(a4pp_conn_error);
 
