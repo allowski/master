@@ -1,12 +1,12 @@
 function register_client(url){
 	
-	alert("Register client to URL:"+url);
+	//alert("Register client to URL:"+url);
 	
 	window.socket = io.connect(url);
 	
 	window.socket.on('welcome', function(data) {
 		
-		alert("Welcome message received");
+		//alert("Welcome message received");
 		
 		console.log(data);
 		
