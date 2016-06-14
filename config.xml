@@ -2,9 +2,9 @@
 	<widget xmlns = "http://www.w3.org/ns/widgets"
 		xmlns:gap = "http://phonegap.com/ns/1.0"
 		id        = "auto84.cloudcrm.tech"
-		version   = "1465906056">
+		version   = "1465906320">
 		<name>Agronomico</name>
-		<description>Agronomico 1465906056, Build number 0</description>
+		<description>Agronomico 1465906320, Build number 0</description>
 		<author href="http://www.fijatebien.net" email="allowski@gmail.com">Alberto Miranda</author>
 		<preference name="phonegap-version" value="3.7.0" />
 		<access origin="*"/>
