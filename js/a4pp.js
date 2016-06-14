@@ -279,7 +279,7 @@ function a4pp_update(){
 		return;
 	}
 
-	$("#updateIcon").addClass("spinner");
+	//$("#updateIcon").addClass("spinner");
 
 	toast("<span class='glyphicon glyphicon-refresh spinner pull-left'></span>"+i("Conectando..", "Conetando..", "Connecting.."), "success", 0);
 
