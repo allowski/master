@@ -2,9 +2,9 @@
 	<widget xmlns = "http://www.w3.org/ns/widgets"
 		xmlns:gap = "http://phonegap.com/ns/1.0"
 		id        = "auto85.cloudcrm.tech"
-		version   = "1466442571">
+		version   = "1466442613">
 		<name>Macroseed</name>
-		<description>Macroseed 1466442571, Build number 0</description>
+		<description>Macroseed 1466442613, Build number 0</description>
 		<author href="http://www.fijatebien.net" email="allowski@gmail.com">Alberto Miranda</author>
 		<preference name="phonegap-version" value="3.7.0" />
 		<access origin="*"/>
