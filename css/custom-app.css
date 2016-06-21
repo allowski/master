@@ -1,0 +1,13 @@
+.ok{
+	background:#efe;
+}
+.ok h4{
+	color:#080;
+}
+.not-ok{
+	background:#fee;
+}
+
+.not-ok h4{
+	color:#800;
+}
