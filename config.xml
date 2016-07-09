@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 	<widget xmlns = "http://www.w3.org/ns/widgets"
 		xmlns:gap = "http://phonegap.com/ns/1.0"
-		id        = "auto89.cloudcrm.tech"
-		version   = "1468002828">
-		<name>JBS Uruguay</name>
-		<description>JBS Uruguay 1468002828, Build number 0</description>
+		id        = "auto90.cloudcrm.tech"
+		version   = "1468090299">
+		<name>Deragro</name>
+		<description>Deragro 1468090299, Build number 0</description>
 		<author href="http://www.fijatebien.net" email="allowski@gmail.com">Alberto Miranda</author>
 		<preference name="phonegap-version" value="3.7.0" />
 		<access origin="*"/>
