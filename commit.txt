@@ -1,1 +1,1 @@
-{"appId":"99","shortcut":"auto97","pgBuildId":"0"}
+{"appId":"94","shortcut":"auto92","pgBuildId":"0"}
